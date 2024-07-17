@@ -106,7 +106,7 @@ jobs:
           path: ./jsb_build/prebuilt/Plugins/**/*
           name: prebuilt_quickjs_libs
   osx:
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - uses: lukka/get-cmake@v3.19.0
