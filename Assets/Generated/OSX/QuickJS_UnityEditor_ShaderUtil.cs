@@ -428,10 +428,10 @@ namespace jsb {
                 {
                     if (argc == 3)
                     {
-                        UnityEditor.Experimental.AssetImporters.AssetImportContext arg0;
+                        UnityEditor.AssetImporters.AssetImportContext arg0;
                         if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
                         {
-                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "CreateShaderAsset", typeof(UnityEditor.Experimental.AssetImporters.AssetImportContext), 0);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "CreateShaderAsset", typeof(UnityEditor.AssetImporters.AssetImportContext), 0);
                         }
                         string arg1;
                         if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
@@ -488,10 +488,10 @@ namespace jsb {
                 {
                     if (argc == 4)
                     {
-                        UnityEditor.Experimental.AssetImporters.AssetImportContext arg0;
+                        UnityEditor.AssetImporters.AssetImportContext arg0;
                         if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
                         {
-                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "UpdateShaderAsset", typeof(UnityEditor.Experimental.AssetImporters.AssetImportContext), 0);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "UpdateShaderAsset", typeof(UnityEditor.AssetImporters.AssetImportContext), 0);
                         }
                         UnityEngine.Shader arg1;
                         if (!Values.js_get_classvalue(ctx, argv[1], out arg1))

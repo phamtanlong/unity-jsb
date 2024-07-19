@@ -1007,10 +1007,10 @@ namespace jsb {
                 {
                     throw new ThisBoundException();
                 }
-                UnityEngine.UI.InputField.SubmitEvent value;
+                UnityEngine.UI.InputField.EndEditEvent value;
                 if (!Values.js_get_classvalue(ctx, arg_val, out value))
                 {
-                    throw new ParameterException(typeof(UnityEngine.UI.InputField), "onEndEdit", typeof(UnityEngine.UI.InputField.SubmitEvent), 0);
+                    throw new ParameterException(typeof(UnityEngine.UI.InputField), "onEndEdit", typeof(UnityEngine.UI.InputField.EndEditEvent), 0);
                 }
                 self.onEndEdit = value;
                 return JSApi.JS_UNDEFINED;

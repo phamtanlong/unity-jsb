@@ -34,9 +34,9 @@ namespace jsb {
                             System.Type arg0;
                             if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "SetActiveTool", typeof(System.Type), 0);
+                                throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "SetActiveTool", typeof(System.Type), 0);
                             }
-                            UnityEditor.EditorTools.EditorTools.SetActiveTool(arg0);
+                            UnityEditor.EditorTools.ToolManager.SetActiveTool(arg0);
                             return JSApi.JS_UNDEFINED;
                         }
                         if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.EditorTools.EditorTool)))
@@ -44,9 +44,9 @@ namespace jsb {
                             UnityEditor.EditorTools.EditorTool arg0;
                             if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "SetActiveTool", typeof(UnityEditor.EditorTools.EditorTool), 0);
+                                throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "SetActiveTool", typeof(UnityEditor.EditorTools.EditorTool), 0);
                             }
-                            UnityEditor.EditorTools.EditorTools.SetActiveTool(arg0);
+                            UnityEditor.EditorTools.ToolManager.SetActiveTool(arg0);
                             return JSApi.JS_UNDEFINED;
                         }
                     }
@@ -65,7 +65,7 @@ namespace jsb {
             {
                 if (argc == 0)
                 {
-                    UnityEditor.EditorTools.EditorTools.RestorePreviousTool();
+                    UnityEditor.EditorTools.ToolManager.RestorePreviousTool();
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("RestorePreviousTool", argc);
@@ -82,7 +82,7 @@ namespace jsb {
             {
                 if (argc == 0)
                 {
-                    UnityEditor.EditorTools.EditorTools.RestorePreviousPersistentTool();
+                    UnityEditor.EditorTools.ToolManager.RestorePreviousPersistentTool();
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("RestorePreviousPersistentTool", argc);
@@ -102,9 +102,9 @@ namespace jsb {
                     UnityEditor.EditorTools.EditorTool arg0;
                     if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "IsActiveTool", typeof(UnityEditor.EditorTools.EditorTool), 0);
+                        throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "IsActiveTool", typeof(UnityEditor.EditorTools.EditorTool), 0);
                     }
-                    var ret = UnityEditor.EditorTools.EditorTools.IsActiveTool(arg0);
+                    var ret = UnityEditor.EditorTools.ToolManager.IsActiveTool(arg0);
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
                 throw new NoSuitableMethodException("IsActiveTool", argc);
@@ -119,7 +119,7 @@ namespace jsb {
         {
             try
             {
-                var ret = UnityEditor.EditorTools.EditorTools.activeToolType;
+                var ret = UnityEditor.EditorTools.ToolManager.activeToolType;
                 return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
             }
             catch (Exception exception)
@@ -139,16 +139,16 @@ namespace jsb {
                     case Values.EVT_OP_ADD:
                         if (!Values.js_get_delegate(ctx, argv[1], out value))
                         {
-                            throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "activeToolChanging", typeof(System.Action), 1);
+                            throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "activeToolChanging", typeof(System.Action), 1);
                         }
-                        UnityEditor.EditorTools.EditorTools.activeToolChanging += value;
+                        UnityEditor.EditorTools.ToolManager.activeToolChanging += value;
                         break;
                     case Values.EVT_OP_REMOVE:
                         if (!Values.js_get_delegate(ctx, argv[1], out value))
                         {
-                            throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "activeToolChanging", typeof(System.Action), 1);
+                            throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "activeToolChanging", typeof(System.Action), 1);
                         }
-                        UnityEditor.EditorTools.EditorTools.activeToolChanging -= value;
+                        UnityEditor.EditorTools.ToolManager.activeToolChanging -= value;
                         break;
                     default: throw new JSException("invalid event op");
                 }
@@ -171,16 +171,16 @@ namespace jsb {
                     case Values.EVT_OP_ADD:
                         if (!Values.js_get_delegate(ctx, argv[1], out value))
                         {
-                            throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "activeToolChanged", typeof(System.Action), 1);
+                            throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "activeToolChanged", typeof(System.Action), 1);
                         }
-                        UnityEditor.EditorTools.EditorTools.activeToolChanged += value;
+                        UnityEditor.EditorTools.ToolManager.activeToolChanged += value;
                         break;
                     case Values.EVT_OP_REMOVE:
                         if (!Values.js_get_delegate(ctx, argv[1], out value))
                         {
-                            throw new ParameterException(typeof(UnityEditor.EditorTools.EditorTools), "activeToolChanged", typeof(System.Action), 1);
+                            throw new ParameterException(typeof(UnityEditor.EditorTools.ToolManager), "activeToolChanged", typeof(System.Action), 1);
                         }
-                        UnityEditor.EditorTools.EditorTools.activeToolChanged -= value;
+                        UnityEditor.EditorTools.ToolManager.activeToolChanged -= value;
                         break;
                     default: throw new JSException("invalid event op");
                 }
@@ -193,7 +193,7 @@ namespace jsb {
         }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
-            var cls = register.CreateClass("EditorTools", typeof(UnityEditor.EditorTools.EditorTools), QuickJS.JSNative.class_private_ctor);
+            var cls = register.CreateClass("EditorTools", typeof(UnityEditor.EditorTools.ToolManager), QuickJS.JSNative.class_private_ctor);
             cls.AddMethod(true, "SetActiveTool", BindStatic_SetActiveTool);
             cls.AddMethod(true, "RestorePreviousTool", BindStatic_RestorePreviousTool);
             cls.AddMethod(true, "RestorePreviousPersistentTool", BindStatic_RestorePreviousPersistentTool);

@@ -148,7 +148,7 @@ namespace jsb {
                 {
                     throw new ThisBoundException();
                 }
-                var ret = self.showMaterialUpdate;
+                var ret = self.alwaysRefresh;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -171,7 +171,7 @@ namespace jsb {
                 {
                     throw new ParameterException(typeof(UnityEditor.SceneView.SceneViewState), "showMaterialUpdate", typeof(bool), 0);
                 }
-                self.showMaterialUpdate = value;
+                self.alwaysRefresh = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)

@@ -148,7 +148,7 @@ namespace jsb {
                     {
                         throw new ParameterException(typeof(UnityEditor.LightEditor.Settings), "DrawRange", typeof(bool), 0);
                     }
-                    self.DrawRange(arg0);
+                    self.DrawRange();
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("DrawRange", argc);

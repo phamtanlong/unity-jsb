@@ -22,7 +22,7 @@ namespace jsb {
     {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
-            var cls = register.CreateEnum("iOSBuildType", typeof(UnityEditor.iOSBuildType));
+            var cls = register.CreateEnum("iOSBuildType", typeof(UnityEditor.XcodeBuildConfig));
             cls.AddConstValue("Debug", 0);
             cls.AddConstValue("Release", 1);
             return cls;

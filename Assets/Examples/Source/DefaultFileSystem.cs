@@ -2,7 +2,9 @@ using System;
 using QuickJS.Utils;
 using System.Net;
 using System.IO;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Example
 {
@@ -18,17 +20,24 @@ namespace Example
             _url = baseUrl;
         }
 
-        private string GetRemote(string path)
+        private async Task<string> GetRemote(string path)
         {
             try
             {
                 var uri = _url.EndsWith("/") ? _url + path : $"{_url}/{path}";
-                var request = WebRequest.CreateHttp(uri);
-                var response = request.GetResponse() as HttpWebResponse;
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    var reader = new StreamReader(response.GetResponseStream());
-                    return reader.ReadToEnd();
+
+                // var request = WebRequest.CreateHttp(uri);
+                // var response = request.GetResponse() as HttpWebResponse;
+                // if (response.StatusCode == HttpStatusCode.OK)
+                // {
+                //     var reader = new StreamReader(response.GetResponseStream());
+                //     return reader.ReadToEnd();
+                // }
+
+                var myClient = new HttpClient(new HttpClientHandler() { UseDefaultCredentials = true });
+                var response = await myClient.GetAsync(uri);
+                if (response.IsSuccessStatusCode) {
+                    return await response.Content.ReadAsStringAsync();
                 }
             }
             catch (Exception)
@@ -43,8 +52,9 @@ namespace Example
             {
                 return false;
             }
-            var asset = GetRemote(path);
-            return asset != null;
+            // var asset = GetRemote(path);
+            var asset = Task.Run(async () => await GetRemote(path));
+            return asset.Result != null;
         }
 
         public string GetFullPath(string path)
@@ -54,10 +64,9 @@ namespace Example
 
         public byte[] ReadAllBytes(string path)
         {
-            try
-            {
-                var asset = GetRemote(path);
-                return Encoding.UTF8.GetBytes(asset);
+            try {
+                var asset = Task.Run(async () => await GetRemote(path));
+                return Encoding.UTF8.GetBytes(asset.Result);
             }
             catch (Exception exception)
             {

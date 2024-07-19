@@ -4364,7 +4364,7 @@ namespace jsb {
                 {
                     throw new ThisBoundException();
                 }
-                var ret = self.keepAnimatorControllerStateOnDisable;
+                var ret = self.keepAnimatorStateOnDisable;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -4387,7 +4387,7 @@ namespace jsb {
                 {
                     throw new ParameterException(typeof(UnityEngine.Animator), "keepAnimatorControllerStateOnDisable", typeof(bool), 0);
                 }
-                self.keepAnimatorControllerStateOnDisable = value;
+                self.keepAnimatorStateOnDisable = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)

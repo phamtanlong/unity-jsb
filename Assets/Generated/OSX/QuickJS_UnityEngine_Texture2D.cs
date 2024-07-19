@@ -1063,7 +1063,7 @@ namespace jsb {
                         {
                             throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(bool), 3);
                         }
-                        var ret = self.Resize(arg0, arg1, arg2, arg3);
+                        var ret = self.Reinitialize(arg0, arg1, arg2, arg3);
                         return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
                     if (argc == 2)
@@ -1083,7 +1083,7 @@ namespace jsb {
                         {
                             throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(int), 1);
                         }
-                        var ret = self.Resize(arg0, arg1);
+                        var ret = self.Reinitialize(arg0, arg1);
                         return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
                 } while(false);
