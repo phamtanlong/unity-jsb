@@ -53,6 +53,15 @@ namespace QuickJS.Unity
             return buffer;
         }
 
+        /// <summary>
+        /// allocate a new ByteBuffer from ScriptRuntime, it will autoreleased after serialization
+        /// </summary>
+        public IO.ByteBuffer AllocByteBuffer()
+        {
+            var runtime = ScriptEngine.GetRuntime();
+            return AllocByteBuffer(runtime);
+        }
+
         public void Release()
         {
             _properties = null;
