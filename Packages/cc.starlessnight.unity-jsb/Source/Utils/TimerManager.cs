@@ -56,7 +56,7 @@ namespace QuickJS.Utils
 
         private class WheelSlot
         {
-            private readonly List<SIndex> _timerIndices = new();
+            private readonly List<SIndex> _timerIndices = new List<SIndex>();
 
             public void Append(in SIndex timerIndex) => _timerIndices.Add(timerIndex);
 
@@ -116,7 +116,7 @@ namespace QuickJS.Utils
             /// 返回 true 表示完成一轮循环
             /// </summary>
             public void Next(List<SIndex> activeIndices) => _slots[_index++].Move(activeIndices);
-            
+
             public void Next(SList<SIndex> activeIndices) => _slots[_index++].Move(activeIndices);
 
             public bool Round()
@@ -137,19 +137,19 @@ namespace QuickJS.Utils
                     _slots[i].Clear();
                 }
             }
-            
+
             public override string ToString() => $"Wheel({_depth} index:{_index} range:{_range} interval:{_interval})";
         }
 
         private readonly int _mainThreadId;
-        private readonly SList<InternalTimerData> _usedTimers = new();
-        private readonly SList<SIndex> _activatedTimers = new();
-        private readonly List<SIndex> _movingTimers = new();
+        private readonly SList<InternalTimerData> _usedTimers = new SList<InternalTimerData>();
+        private readonly SList<SIndex> _activatedTimers = new SList<SIndex>();
+        private readonly List<SIndex> _movingTimers = new List<SIndex>();
         private readonly Wheel[] _wheels;
         private readonly uint _jiffies;
         private uint _timeSlice;
         private MillisecondType _elapsed;
-        
+
         public MillisecondType now => _elapsed;
 
         public TimerManager(uint jiffies = 10, uint slots = 20, uint depth = 12)

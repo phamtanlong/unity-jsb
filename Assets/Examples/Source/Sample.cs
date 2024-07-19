@@ -19,8 +19,8 @@ namespace Example
             Resources,
             Http,
         }
-        public UnityEngine.UI.ScrollRect scrollRect;
-        public UnityEngine.UI.Text text;
+        // public UnityEngine.UI.ScrollRect scrollRect;
+        // public UnityEngine.UI.Text text;
         public FileLoader fileLoader;
         public string baseUrl = "http://127.0.0.1:8183";
         [ExampleScriptsHint("Scripts/out")]
@@ -35,7 +35,7 @@ namespace Example
         /// </summary>
         public bool withDebugServer = true;
         public int debugServerPort = 9229;
-        
+
         /// <summary>
         /// script runtime will complete the initialization process until the debugger is actually connected
         /// @seealso ScriptRuntimeArgs.waitingForDebugger
@@ -43,13 +43,13 @@ namespace Example
         public bool waitingForDebugger = false;
 
         private ScriptRuntime _rt;
-        private MiniConsole _mConsole;
+        // private MiniConsole _mConsole;
 
         void Awake()
         {
             IFileSystem fileSystem;
 
-            _mConsole = new MiniConsole(scrollRect, text, 100);
+            // _mConsole = new MiniConsole(scrollRect, text, 100);
             _rt = ScriptEngine.CreateRuntime();
             var asyncManager = new DefaultAsyncManager();
             var pathResolver = new PathResolver();
@@ -86,7 +86,7 @@ namespace Example
             _rt.Initialize(new ScriptRuntimeArgs
             {
                 withDebugServer = withDebugServer,
-                waitingForDebugger = waitingForDebugger, 
+                waitingForDebugger = waitingForDebugger,
                 debugServerPort = debugServerPort,
                 fileSystem = fileSystem,
                 pathResolver = pathResolver,

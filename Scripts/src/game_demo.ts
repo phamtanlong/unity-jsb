@@ -1,3 +1,5 @@
+console.log("start LONG start");
+
 import { GameObject, Object, Resources } from "UnityEngine";
 
 if (!GameObject.Find("/game_stage")) {
@@ -11,3 +13,5 @@ if (!GameObject.Find("/game_stage")) {
         console.error("game stage not found:", path);
     }
 }
+
+console.log("end LONG end");

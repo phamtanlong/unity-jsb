@@ -95,9 +95,9 @@ namespace QuickJS.Utils
         public bool isLocked => _lock > 0;
 
         public SIndex firstIndex => _firstIndex >= 0 ? new SIndex(_firstIndex, _slots[_firstIndex].revision) : SIndex.None;
-        
+
         public SIndex lastIndex => _lastIndex >= 0 ? new SIndex(_lastIndex, _slots[_lastIndex].revision) : SIndex.None;
-        
+
         public T this[in SIndex index]
         {
             get
@@ -380,7 +380,7 @@ namespace QuickJS.Utils
                 if (index-- == 0)
                 {
                     value = slot.value;
-                    return new(current, slot.revision);
+                    return new SIndex(current, slot.revision);
                 }
                 current = slot.next;
             }
@@ -869,7 +869,7 @@ namespace QuickJS.Utils
                 get
                 {
                     ref var slot = ref this._list._slots[_current];
-                    return new(_current, slot.revision);
+                    return new SIndex(_current, slot.revision);
                 }
             }
 

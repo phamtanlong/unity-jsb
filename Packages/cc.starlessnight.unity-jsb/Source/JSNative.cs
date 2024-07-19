@@ -28,7 +28,7 @@ namespace QuickJS
             var ctx = (JSContext)context;
             var prop = JSApi.JS_GetProperty(ctx, self, context.GetAtom(name));
             var res = JSApi.JS_IsFunction(context, prop) == 1;
-            
+
             JSApi.JS_FreeValue(ctx, prop);
             return res;
         }
@@ -55,12 +55,12 @@ namespace QuickJS
                     {
                         if (string.IsNullOrEmpty(stack))
                         {
-                            Diagnostics.Logger.Default.Error("[{0}] {1} {2}",
+                            UnityEngine.Debug.LogErrorFormat("[{0}] {1} {2}",
                                 fileName, title, message);
                         }
                         else
                         {
-                            Diagnostics.Logger.Default.Error("[{0}] {1} {2}\nJavascript stack:\n{3}",
+                            UnityEngine.Debug.LogErrorFormat("[{0}] {1} {2}\nJavascript stack:\n{3}",
                                 fileName, title, message, stack);
                         }
                     }
@@ -68,12 +68,12 @@ namespace QuickJS
                     {
                         if (string.IsNullOrEmpty(stack))
                         {
-                            Diagnostics.Logger.Default.Error("[{0}:{1}] {2} {3}",
+                            UnityEngine.Debug.LogErrorFormat("[{0}:{1}] {2} {3}",
                             fileName, lineNumber, title, message);
                         }
                         else
                         {
-                            Diagnostics.Logger.Default.Error("[{0}:{1}] {2} {3}\nJavascript stack:\n{4}",
+                            UnityEngine.Debug.LogErrorFormat("[{0}:{1}] {2} {3}\nJavascript stack:\n{4}",
                                 fileName, lineNumber, title, message, stack);
                         }
                     }
