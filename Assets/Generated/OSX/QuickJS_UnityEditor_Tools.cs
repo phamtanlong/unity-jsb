@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Tools
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Tools
@@ -94,6 +94,19 @@ namespace jsb {
                 }
                 UnityEditor.Tools.viewTool = value;
                 return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_viewToolActive(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Tools.viewToolActive;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -356,11 +369,108 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_pivotModeChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Tools), "pivotModeChanged", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Tools.pivotModeChanged += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Tools), "pivotModeChanged", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Tools.pivotModeChanged -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_pivotRotationChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Tools), "pivotRotationChanged", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Tools.pivotRotationChanged += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Tools), "pivotRotationChanged", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Tools.pivotRotationChanged -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_viewToolChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Tools), "viewToolChanged", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Tools.viewToolChanged += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Tools), "viewToolChanged", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Tools.viewToolChanged -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Tools", typeof(UnityEditor.Tools), BindConstructor);
             cls.AddProperty(true, "current", BindStaticRead_current, BindStaticWrite_current);
             cls.AddProperty(true, "viewTool", BindStaticRead_viewTool, BindStaticWrite_viewTool);
+            cls.AddProperty(true, "viewToolActive", BindStaticRead_viewToolActive, null);
             cls.AddProperty(true, "handlePosition", BindStaticRead_handlePosition, null);
             cls.AddProperty(true, "handleRect", BindStaticRead_handleRect, null);
             cls.AddProperty(true, "handleRectRotation", BindStaticRead_handleRectRotation, null);
@@ -371,6 +481,9 @@ namespace jsb {
             cls.AddProperty(true, "hidden", BindStaticRead_hidden, BindStaticWrite_hidden);
             cls.AddProperty(true, "visibleLayers", BindStaticRead_visibleLayers, BindStaticWrite_visibleLayers);
             cls.AddProperty(true, "lockedLayers", BindStaticRead_lockedLayers, BindStaticWrite_lockedLayers);
+            cls.AddMethod(true, "pivotModeChanged", BindStaticEvent_pivotModeChanged);
+            cls.AddMethod(true, "pivotRotationChanged", BindStaticEvent_pivotRotationChanged);
+            cls.AddMethod(true, "viewToolChanged", BindStaticEvent_viewToolChanged);
             return cls;
         }
     }

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
     // Type: UnityEngine.EventType
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventType
@@ -41,6 +41,12 @@ namespace jsb {
             cls.AddConstValue("ContextClick", 16);
             cls.AddConstValue("MouseEnterWindow", 20);
             cls.AddConstValue("MouseLeaveWindow", 21);
+            cls.AddConstValue("TouchDown", 30);
+            cls.AddConstValue("TouchUp", 31);
+            cls.AddConstValue("TouchMove", 32);
+            cls.AddConstValue("TouchEnter", 33);
+            cls.AddConstValue("TouchLeave", 34);
+            cls.AddConstValue("TouchStationary", 35);
             return cls;
         }
     }

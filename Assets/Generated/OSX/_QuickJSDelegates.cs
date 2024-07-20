@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -242,10 +242,29 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, rval);
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
+        [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<UnityEngine.SpriteRenderer>))]
+        public static unsafe void _QuickJSDelegates2(QuickJS.ScriptDelegate fn, UnityEngine.SpriteRenderer arg0)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, arg0);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Application.LowMemoryCallback))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction))]
         [QuickJS.JSDelegateAttribute(typeof(System.Action))]
-        public static unsafe void _QuickJSDelegates2(QuickJS.ScriptDelegate fn)
+        public static unsafe void _QuickJSDelegates3(QuickJS.ScriptDelegate fn)
         {
             var ctx = fn.ctx;
             var rval = fn.Invoke(ctx);
@@ -256,7 +275,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, rval);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Application.LogCallback))]
-        public static unsafe void _QuickJSDelegates3(QuickJS.ScriptDelegate fn, string condition, string stackTrace, UnityEngine.LogType type)
+        public static unsafe void _QuickJSDelegates4(QuickJS.ScriptDelegate fn, string condition, string stackTrace, UnityEngine.LogType type)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -293,7 +312,7 @@ namespace jsb {
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Action<bool>))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<bool>))]
-        public static unsafe void _QuickJSDelegates4(QuickJS.ScriptDelegate fn, bool obj)
+        public static unsafe void _QuickJSDelegates5(QuickJS.ScriptDelegate fn, bool obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -313,7 +332,7 @@ namespace jsb {
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Action<string>))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<string>))]
-        public static unsafe void _QuickJSDelegates5(QuickJS.ScriptDelegate fn, string obj)
+        public static unsafe void _QuickJSDelegates6(QuickJS.ScriptDelegate fn, string obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -332,7 +351,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Func<bool>))]
-        public static unsafe bool _QuickJSDelegates6(QuickJS.ScriptDelegate fn)
+        public static unsafe bool _QuickJSDelegates7(QuickJS.ScriptDelegate fn)
         {
             var ctx = fn.ctx;
             var rval = fn.Invoke(ctx);
@@ -353,7 +372,7 @@ namespace jsb {
             }
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Application.AdvertisingIdentifierCallback))]
-        public static unsafe void _QuickJSDelegates7(QuickJS.ScriptDelegate fn, string advertisingId, bool trackingEnabled, string errorMsg)
+        public static unsafe void _QuickJSDelegates8(QuickJS.ScriptDelegate fn, string advertisingId, bool trackingEnabled, string errorMsg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -392,7 +411,7 @@ namespace jsb {
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.AudioClip.PCMSetPositionCallback))]
         [QuickJS.JSDelegateAttribute(typeof(System.Action<int>))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<int>))]
-        public static unsafe void _QuickJSDelegates8(QuickJS.ScriptDelegate fn, int id)
+        public static unsafe void _QuickJSDelegates9(QuickJS.ScriptDelegate fn, int id)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -411,7 +430,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.AudioClip.PCMReaderCallback))]
-        public static unsafe void _QuickJSDelegates9(QuickJS.ScriptDelegate fn, float[] data)
+        public static unsafe void _QuickJSDelegates10(QuickJS.ScriptDelegate fn, float[] data)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -437,7 +456,7 @@ namespace jsb {
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Undo.UndoRedoCallback))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Undo.WillFlushUndoRecord))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Hardware.DevDeviceList.OnChangedHandler))]
-        public static unsafe void _QuickJSDelegates10(QuickJS.ScriptDelegate fn)
+        public static unsafe void _QuickJSDelegates11(QuickJS.ScriptDelegate fn)
         {
             var ctx = fn.ctx;
             var rval = fn.Invoke(ctx);
@@ -450,7 +469,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.GenericMenu.MenuFunction2))]
-        public static unsafe void _QuickJSDelegates11(QuickJS.ScriptDelegate fn, object userData)
+        public static unsafe void _QuickJSDelegates12(QuickJS.ScriptDelegate fn, object userData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -470,7 +489,7 @@ namespace jsb {
         }
 #endif
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Component>))]
-        public static unsafe void _QuickJSDelegates12(QuickJS.ScriptDelegate fn, UnityEngine.Component obj)
+        public static unsafe void _QuickJSDelegates13(QuickJS.ScriptDelegate fn, UnityEngine.Component obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -490,7 +509,7 @@ namespace jsb {
         }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Handles.CapFunction))]
-        public static unsafe void _QuickJSDelegates13(QuickJS.ScriptDelegate fn, int controlID, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, float size, UnityEngine.EventType eventType)
+        public static unsafe void _QuickJSDelegates14(QuickJS.ScriptDelegate fn, int controlID, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, float size, UnityEngine.EventType eventType)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[5];
@@ -548,8 +567,229 @@ namespace jsb {
         }
 #endif
 #if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.HandleUtility.PickGameObjectCallback))]
+        public static unsafe UnityEngine.GameObject _QuickJSDelegates15(QuickJS.ScriptDelegate fn, UnityEngine.Camera cam, int layers, UnityEngine.Vector2 position, UnityEngine.GameObject[] ignore, UnityEngine.GameObject[] filter, out int materialIndex)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[6];
+            argv[0] = Values.js_push_classvalue(ctx, cam);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, layers);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[2] = QuickJS.Binding.Values.js_push_structvalue(ctx, position);
+            if (argv[2].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[3] = Values.js_push_classvalue(ctx, ignore);
+            if (argv[3].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[4] = Values.js_push_classvalue(ctx, filter);
+            if (argv[4].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[5] = JSApi.JS_NewObject(ctx);
+            if (argv[5].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                JSApi.JS_FreeValue(ctx, argv[4]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 6, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                JSApi.JS_FreeValue(ctx, argv[4]);
+                JSApi.JS_FreeValue(ctx, argv[5]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var refVal5 = Values.js_read_wrap(ctx, argv[5]);
+            if (refVal5.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                JSApi.JS_FreeValue(ctx, argv[4]);
+                JSApi.JS_FreeValue(ctx, argv[5]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            if (!QuickJS.Binding.Values.js_get_primitive(ctx, refVal5, out materialIndex))
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                JSApi.JS_FreeValue(ctx, argv[4]);
+                JSApi.JS_FreeValue(ctx, argv[5]);
+                JSApi.JS_FreeValue(ctx, refVal5);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates15", typeof(int), 5);
+            }
+            JSApi.JS_FreeValue(ctx, refVal5);
+            UnityEngine.GameObject ret0;
+            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            JSApi.JS_FreeValue(ctx, argv[2]);
+            JSApi.JS_FreeValue(ctx, argv[3]);
+            JSApi.JS_FreeValue(ctx, argv[4]);
+            JSApi.JS_FreeValue(ctx, argv[5]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.HandleUtility.PlaceObjectDelegate))]
+        public static unsafe bool _QuickJSDelegates16(QuickJS.ScriptDelegate fn, UnityEngine.Vector2 guiPosition, out UnityEngine.Vector3 position, out UnityEngine.Vector3 normal)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[3];
+            argv[0] = QuickJS.Binding.Values.js_push_structvalue(ctx, guiPosition);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = JSApi.JS_NewObject(ctx);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[2] = JSApi.JS_NewObject(ctx);
+            if (argv[2].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 3, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+            if (refVal1.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal1, out position))
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, refVal1);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates16", typeof(UnityEngine.Vector3), 1);
+            }
+            JSApi.JS_FreeValue(ctx, refVal1);
+            var refVal2 = Values.js_read_wrap(ctx, argv[2]);
+            if (refVal2.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal2, out normal))
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, refVal2);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates16", typeof(UnityEngine.Vector3), 2);
+            }
+            JSApi.JS_FreeValue(ctx, refVal2);
+            bool ret0;
+            var succ = QuickJS.Binding.Values.js_get_primitive(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            JSApi.JS_FreeValue(ctx, argv[2]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.SceneView, UnityEditor.SceneView>))]
+        public static unsafe void _QuickJSDelegates17(QuickJS.ScriptDelegate fn, UnityEditor.SceneView arg1, UnityEditor.SceneView arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+#endif
+#if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.SceneView.CameraMode, bool>))]
-        public static unsafe bool _QuickJSDelegates14(QuickJS.ScriptDelegate fn, UnityEditor.SceneView.CameraMode arg)
+        public static unsafe bool _QuickJSDelegates18(QuickJS.ScriptDelegate fn, UnityEditor.SceneView.CameraMode arg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -580,7 +820,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.SceneView.CameraMode>))]
-        public static unsafe void _QuickJSDelegates15(QuickJS.ScriptDelegate fn, UnityEditor.SceneView.CameraMode obj)
+        public static unsafe void _QuickJSDelegates19(QuickJS.ScriptDelegate fn, UnityEditor.SceneView.CameraMode obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -601,7 +841,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.SceneView>))]
-        public static unsafe void _QuickJSDelegates16(QuickJS.ScriptDelegate fn, UnityEditor.SceneView obj)
+        public static unsafe void _QuickJSDelegates20(QuickJS.ScriptDelegate fn, UnityEditor.SceneView obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -622,7 +862,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.PrefabUtility.PrefabInstanceUpdated))]
-        public static unsafe void _QuickJSDelegates17(QuickJS.ScriptDelegate fn, UnityEngine.GameObject instance)
+        public static unsafe void _QuickJSDelegates21(QuickJS.ScriptDelegate fn, UnityEngine.GameObject instance)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -641,9 +881,28 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
 #endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<string[]>))]
+        public static unsafe void _QuickJSDelegates22(QuickJS.ScriptDelegate fn, string[] obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.AssetDatabase.ImportPackageCallback))]
-        public static unsafe void _QuickJSDelegates18(QuickJS.ScriptDelegate fn, string packageName)
+        public static unsafe void _QuickJSDelegates23(QuickJS.ScriptDelegate fn, string packageName)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -664,7 +923,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.AssetDatabase.ImportPackageFailedCallback))]
-        public static unsafe void _QuickJSDelegates19(QuickJS.ScriptDelegate fn, string packageName, string errorMessage)
+        public static unsafe void _QuickJSDelegates24(QuickJS.ScriptDelegate fn, string packageName, string errorMessage)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -692,8 +951,29 @@ namespace jsb {
         }
 #endif
 #if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.CacheServerConnectionChangedParameters>))]
+        public static unsafe void _QuickJSDelegates25(QuickJS.ScriptDelegate fn, UnityEditor.CacheServerConnectionChangedParameters obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_structvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+#if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.EditorUtility.SelectMenuItemFunction))]
-        public static unsafe void _QuickJSDelegates20(QuickJS.ScriptDelegate fn, object userData, string[] options, int selected)
+        public static unsafe void _QuickJSDelegates26(QuickJS.ScriptDelegate fn, object userData, string[] options, int selected)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -730,7 +1010,7 @@ namespace jsb {
         }
 #endif
         [QuickJS.JSDelegateAttribute(typeof(System.Func<int, bool>))]
-        public static unsafe bool _QuickJSDelegates21(QuickJS.ScriptDelegate fn, int arg)
+        public static unsafe bool _QuickJSDelegates27(QuickJS.ScriptDelegate fn, int arg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -758,8 +1038,37 @@ namespace jsb {
                 throw new System.Exception("js exception caught");
             }
         }
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.EditorWindow, UnityEditor.HyperLinkClickedEventArgs>))]
+        public static unsafe void _QuickJSDelegates28(QuickJS.ScriptDelegate fn, UnityEditor.EditorWindow arg1, UnityEditor.HyperLinkClickedEventArgs arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+#endif
         [QuickJS.JSDelegateAttribute(typeof(System.Func<System.Enum, bool>))]
-        public static unsafe bool _QuickJSDelegates22(QuickJS.ScriptDelegate fn, System.Enum arg)
+        public static unsafe bool _QuickJSDelegates29(QuickJS.ScriptDelegate fn, System.Enum arg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -788,7 +1097,7 @@ namespace jsb {
             }
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Rect>))]
-        public static unsafe void _QuickJSDelegates23(QuickJS.ScriptDelegate fn, UnityEngine.Rect obj)
+        public static unsafe void _QuickJSDelegates30(QuickJS.ScriptDelegate fn, UnityEngine.Rect obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -808,7 +1117,7 @@ namespace jsb {
         }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.EditorApplication.ProjectWindowItemCallback))]
-        public static unsafe void _QuickJSDelegates24(QuickJS.ScriptDelegate fn, string guid, UnityEngine.Rect selectionRect)
+        public static unsafe void _QuickJSDelegates31(QuickJS.ScriptDelegate fn, string guid, UnityEngine.Rect selectionRect)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -837,7 +1146,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.EditorApplication.HierarchyWindowItemCallback))]
-        public static unsafe void _QuickJSDelegates25(QuickJS.ScriptDelegate fn, int instanceID, UnityEngine.Rect selectionRect)
+        public static unsafe void _QuickJSDelegates32(QuickJS.ScriptDelegate fn, int instanceID, UnityEngine.Rect selectionRect)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -866,7 +1175,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.EditorApplication.SerializedPropertyCallbackFunction))]
-        public static unsafe void _QuickJSDelegates26(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu menu, UnityEditor.SerializedProperty property)
+        public static unsafe void _QuickJSDelegates33(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu menu, UnityEditor.SerializedProperty property)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -895,7 +1204,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.PauseState>))]
-        public static unsafe void _QuickJSDelegates27(QuickJS.ScriptDelegate fn, UnityEditor.PauseState obj)
+        public static unsafe void _QuickJSDelegates34(QuickJS.ScriptDelegate fn, UnityEditor.PauseState obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -916,7 +1225,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.PlayModeStateChange>))]
-        public static unsafe void _QuickJSDelegates28(QuickJS.ScriptDelegate fn, UnityEditor.PlayModeStateChange obj)
+        public static unsafe void _QuickJSDelegates35(QuickJS.ScriptDelegate fn, UnityEditor.PlayModeStateChange obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -937,7 +1246,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.Editor>))]
-        public static unsafe void _QuickJSDelegates29(QuickJS.ScriptDelegate fn, UnityEditor.Editor obj)
+        public static unsafe void _QuickJSDelegates36(QuickJS.ScriptDelegate fn, UnityEditor.Editor obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -957,7 +1266,7 @@ namespace jsb {
         }
 #endif
         [QuickJS.JSDelegateAttribute(typeof(Example.WithByRefParametersCallback))]
-        public static unsafe int _QuickJSDelegates30(QuickJS.ScriptDelegate fn, int b, ref int a, out int v)
+        public static unsafe int _QuickJSDelegates37(QuickJS.ScriptDelegate fn, int b, ref int a, out int v)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -1005,7 +1314,7 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, argv[1]);
                 JSApi.JS_FreeValue(ctx, argv[2]);
                 JSApi.JS_FreeValue(ctx, refVal1);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates30", typeof(int), 1);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates37", typeof(int), 1);
             }
             JSApi.JS_FreeValue(ctx, refVal1);
             var refVal2 = Values.js_read_wrap(ctx, argv[2]);
@@ -1024,7 +1333,7 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, argv[1]);
                 JSApi.JS_FreeValue(ctx, argv[2]);
                 JSApi.JS_FreeValue(ctx, refVal2);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates30", typeof(int), 2);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates37", typeof(int), 2);
             }
             JSApi.JS_FreeValue(ctx, refVal2);
             int ret0;
@@ -1043,7 +1352,7 @@ namespace jsb {
             }
         }
         [QuickJS.JSDelegateAttribute(typeof(Example.WithByRefParametersCallback2))]
-        public static unsafe void _QuickJSDelegates31(QuickJS.ScriptDelegate fn, ref UnityEngine.Vector3 v)
+        public static unsafe void _QuickJSDelegates38(QuickJS.ScriptDelegate fn, ref UnityEngine.Vector3 v)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1072,14 +1381,14 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, rval);
                 JSApi.JS_FreeValue(ctx, argv[0]);
                 JSApi.JS_FreeValue(ctx, refVal0);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates31", typeof(UnityEngine.Vector3), 0);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates38", typeof(UnityEngine.Vector3), 0);
             }
             JSApi.JS_FreeValue(ctx, refVal0);
             JSApi.JS_FreeValue(ctx, rval);
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Action<string, float, int>))]
-        public static unsafe void _QuickJSDelegates32(QuickJS.ScriptDelegate fn, string arg1, float arg2, int arg3)
+        public static unsafe void _QuickJSDelegates39(QuickJS.ScriptDelegate fn, string arg1, float arg2, int arg3)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -1115,7 +1424,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[2]);
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Func<int, int>))]
-        public static unsafe int _QuickJSDelegates33(QuickJS.ScriptDelegate fn, int arg)
+        public static unsafe int _QuickJSDelegates40(QuickJS.ScriptDelegate fn, int arg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1143,61 +1452,57 @@ namespace jsb {
                 throw new System.Exception("js exception caught");
             }
         }
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.BuildPlayerOptions, UnityEditor.BuildPlayerOptions>))]
-        public static unsafe UnityEditor.BuildPlayerOptions _QuickJSDelegates34(QuickJS.ScriptDelegate fn, UnityEditor.BuildPlayerOptions arg)
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Rect, int>))]
+        public static unsafe void _QuickJSDelegates41(QuickJS.ScriptDelegate fn, UnityEngine.Rect arg1, int arg2)
         {
             var ctx = fn.ctx;
-            var argv = stackalloc JSValue[1];
-            argv[0] = Values.js_push_structvalue(ctx, arg);
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
             if (argv[0].IsException())
             {
                 throw new System.Exception(ctx.GetExceptionString());
             }
-            var rval = fn.Invoke(ctx, 1, argv);
-            if (rval.IsException())
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, arg2);
+            if (argv[1].IsException())
             {
                 JSApi.JS_FreeValue(ctx, argv[0]);
                 throw new System.Exception(ctx.GetExceptionString());
             }
-            UnityEditor.BuildPlayerOptions ret0;
-            var succ = Values.js_get_structvalue(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#endif
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.BuildPlayerOptions>))]
-        public static unsafe void _QuickJSDelegates35(QuickJS.ScriptDelegate fn, UnityEditor.BuildPlayerOptions obj)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[1];
-            argv[0] = Values.js_push_structvalue(ctx, obj);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 1, argv);
+            var rval = fn.Invoke(ctx, 2, argv);
             if (rval.IsException())
             {
                 JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
                 throw new System.Exception(ctx.GetExceptionString());
             }
             JSApi.JS_FreeValue(ctx, rval);
             JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
         }
-#endif
+        // [QuickJS.JSDelegateAttribute(typeof(System.Func<System.Collections.Generic.List<UnityEditorInternal.Profiling.NetworkCounterData>>))]
+        // public static unsafe System.Collections.Generic.List<UnityEditorInternal.Profiling.NetworkCounterData> _QuickJSDelegates42(QuickJS.ScriptDelegate fn)
+        // {
+        //     var ctx = fn.ctx;
+        //     var rval = fn.Invoke(ctx);
+        //     if (rval.IsException())
+        //     {
+        //         throw new System.Exception(ctx.GetExceptionString());
+        //     }
+        //     System.Collections.Generic.List<UnityEditorInternal.Profiling.NetworkCounterData> ret0;
+        //     var succ = Values.js_get_classvalue(ctx, rval, out ret0);
+        //     JSApi.JS_FreeValue(ctx, rval);
+        //     if (succ)
+        //     {
+        //         return ret0;
+        //     }
+        //     else
+        //     {
+        //         throw new System.Exception("js exception caught");
+        //     }
+        // }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.MaterialProperty.ApplyPropertyCallback))]
-        public static unsafe bool _QuickJSDelegates36(QuickJS.ScriptDelegate fn, UnityEditor.MaterialProperty prop, int changeMask, object previousValue)
+        public static unsafe bool _QuickJSDelegates43(QuickJS.ScriptDelegate fn, UnityEditor.MaterialProperty prop, int changeMask, object previousValue)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -1244,8 +1549,303 @@ namespace jsb {
         }
 #endif
 #if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Rect, UnityEditor.SerializedProperty>))]
+        public static unsafe void _QuickJSDelegates44(QuickJS.ScriptDelegate fn, UnityEngine.Rect arg1, UnityEditor.SerializedProperty arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.DragAndDrop.ProjectBrowserDropHandler))]
+        public static unsafe UnityEditor.DragAndDropVisualMode _QuickJSDelegates45(QuickJS.ScriptDelegate fn, int dragInstanceId, string dropUponPath, bool perform)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[3];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, dragInstanceId);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, dropUponPath);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[2] = QuickJS.Binding.Values.js_push_primitive(ctx, perform);
+            if (argv[2].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 3, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.DragAndDropVisualMode ret0;
+            var succ = Values.js_get_enumvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            JSApi.JS_FreeValue(ctx, argv[2]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.DragAndDrop.SceneDropHandler))]
+        public static unsafe UnityEditor.DragAndDropVisualMode _QuickJSDelegates46(QuickJS.ScriptDelegate fn, UnityEngine.Object dropUpon, UnityEngine.Vector3 worldPosition, UnityEngine.Vector2 viewportPosition, UnityEngine.Transform parentForDraggedObjects, bool perform)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[5];
+            argv[0] = QuickJS.Binding.Values.js_push_classvalue(ctx, dropUpon);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_structvalue(ctx, worldPosition);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[2] = QuickJS.Binding.Values.js_push_structvalue(ctx, viewportPosition);
+            if (argv[2].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[3] = Values.js_push_classvalue(ctx, parentForDraggedObjects);
+            if (argv[3].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[4] = QuickJS.Binding.Values.js_push_primitive(ctx, perform);
+            if (argv[4].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 5, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                JSApi.JS_FreeValue(ctx, argv[4]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.DragAndDropVisualMode ret0;
+            var succ = Values.js_get_enumvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            JSApi.JS_FreeValue(ctx, argv[2]);
+            JSApi.JS_FreeValue(ctx, argv[3]);
+            JSApi.JS_FreeValue(ctx, argv[4]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.DragAndDrop.HierarchyDropHandler))]
+        public static unsafe UnityEditor.DragAndDropVisualMode _QuickJSDelegates47(QuickJS.ScriptDelegate fn, int dropTargetInstanceID, UnityEditor.HierarchyDropFlags dropMode, UnityEngine.Transform parentForDraggedObjects, bool perform)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[4];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, dropTargetInstanceID);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, (int)dropMode);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[2] = Values.js_push_classvalue(ctx, parentForDraggedObjects);
+            if (argv[2].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[3] = QuickJS.Binding.Values.js_push_primitive(ctx, perform);
+            if (argv[3].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 4, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                JSApi.JS_FreeValue(ctx, argv[3]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.DragAndDropVisualMode ret0;
+            var succ = Values.js_get_enumvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            JSApi.JS_FreeValue(ctx, argv[2]);
+            JSApi.JS_FreeValue(ctx, argv[3]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.DragAndDrop.InspectorDropHandler))]
+        public static unsafe UnityEditor.DragAndDropVisualMode _QuickJSDelegates48(QuickJS.ScriptDelegate fn, UnityEngine.Object[] targets, bool perform)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, targets);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, perform);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.DragAndDropVisualMode ret0;
+            var succ = Values.js_get_enumvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.BuildPlayerOptions, UnityEditor.BuildPlayerOptions>))]
+        public static unsafe UnityEditor.BuildPlayerOptions _QuickJSDelegates49(QuickJS.ScriptDelegate fn, UnityEditor.BuildPlayerOptions arg)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_structvalue(ctx, arg);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.BuildPlayerOptions ret0;
+            var succ = Values.js_get_structvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.BuildPlayerOptions>))]
+        public static unsafe void _QuickJSDelegates50(QuickJS.ScriptDelegate fn, UnityEditor.BuildPlayerOptions obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_structvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+#if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Undo.PostprocessModifications))]
-        public static unsafe UnityEditor.UndoPropertyModification[] _QuickJSDelegates37(QuickJS.ScriptDelegate fn, UnityEditor.UndoPropertyModification[] modifications)
+        public static unsafe UnityEditor.UndoPropertyModification[] _QuickJSDelegates51(QuickJS.ScriptDelegate fn, UnityEditor.UndoPropertyModification[] modifications)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1274,9 +1874,286 @@ namespace jsb {
             }
         }
 #endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<string, UnityEngine.UIElements.VisualElement>))]
+        public static unsafe void _QuickJSDelegates52(QuickJS.ScriptDelegate fn, string arg1, UnityEngine.UIElements.VisualElement arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<string, bool>))]
+        public static unsafe bool _QuickJSDelegates53(QuickJS.ScriptDelegate fn, string arg)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            bool ret0;
+            var succ = QuickJS.Binding.Values.js_get_primitive(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.ModeService.ModeChangedArgs>))]
+        public static unsafe void _QuickJSDelegates54(QuickJS.ScriptDelegate fn, UnityEditor.ModeService.ModeChangedArgs obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_structvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.Progress.Item[]>))]
+        public static unsafe void _QuickJSDelegates55(QuickJS.ScriptDelegate fn, UnityEditor.Progress.Item[] obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<bool, bool>))]
+        public static unsafe bool _QuickJSDelegates56(QuickJS.ScriptDelegate fn, bool arg)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            bool ret0;
+            var succ = QuickJS.Binding.Values.js_get_primitive(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEngine.Object[]>))]
+        public static unsafe UnityEngine.Object[] _QuickJSDelegates57(QuickJS.ScriptDelegate fn)
+        {
+            var ctx = fn.ctx;
+            var rval = fn.Invoke(ctx);
+            if (rval.IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEngine.Object[] ret0;
+            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.LightingExplorerTableColumn[]>))]
+        public static unsafe UnityEditor.LightingExplorerTableColumn[] _QuickJSDelegates58(QuickJS.ScriptDelegate fn)
+        {
+            var ctx = fn.ctx;
+            var rval = fn.Invoke(ctx);
+            if (rval.IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.LightingExplorerTableColumn[] ret0;
+            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.LightingExplorerTableColumn.OnGUIDelegate))]
+        public static unsafe void _QuickJSDelegates59(QuickJS.ScriptDelegate fn, UnityEngine.Rect r, UnityEditor.SerializedProperty prop, UnityEditor.SerializedProperty[] dependencies)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[3];
+            argv[0] = QuickJS.Binding.Values.js_push_structvalue(ctx, r);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, prop);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[2] = Values.js_push_classvalue(ctx, dependencies);
+            if (argv[2].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 3, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                JSApi.JS_FreeValue(ctx, argv[2]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            JSApi.JS_FreeValue(ctx, argv[2]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.LightingExplorerTableColumn.ComparePropertiesDelegate))]
+        public static unsafe int _QuickJSDelegates60(QuickJS.ScriptDelegate fn, UnityEditor.SerializedProperty lhs, UnityEditor.SerializedProperty rhs)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, lhs);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, rhs);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            int ret0;
+            var succ = QuickJS.Binding.Values.js_get_primitive(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.LightingExplorerTableColumn.CopyPropertiesDelegate))]
+        public static unsafe void _QuickJSDelegates61(QuickJS.ScriptDelegate fn, UnityEditor.SerializedProperty target, UnityEditor.SerializedProperty source)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, target);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, source);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+#endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.AnimationUtility.OnCurveWasModified))]
-        public static unsafe void _QuickJSDelegates38(QuickJS.ScriptDelegate fn, UnityEngine.AnimationClip clip, UnityEditor.EditorCurveBinding binding, UnityEditor.AnimationUtility.CurveModifiedType type)
+        public static unsafe void _QuickJSDelegates62(QuickJS.ScriptDelegate fn, UnityEngine.AnimationClip clip, UnityEditor.EditorCurveBinding binding, UnityEditor.AnimationUtility.CurveModifiedType type)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -1313,8 +2190,111 @@ namespace jsb {
         }
 #endif
 #if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.ObjectChangeEvents.ObjectChangeEventsHandler))]
+        public static unsafe void _QuickJSDelegates63(QuickJS.ScriptDelegate fn, ref UnityEditor.ObjectChangeEventStream stream)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = JSApi.JS_NewObject(ctx);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var context = ScriptEngine.GetContext(ctx);
+            JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), Values.js_push_structvalue(ctx, stream));
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+            if (refVal0.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            if (!Values.js_get_structvalue(ctx, refVal0, out stream))
+            {
+                JSApi.JS_FreeValue(ctx, rval);
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, refVal0);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates63", typeof(UnityEditor.ObjectChangeEventStream), 0);
+            }
+            JSApi.JS_FreeValue(ctx, refVal0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.CommandHandler))]
+        public static unsafe void _QuickJSDelegates64(QuickJS.ScriptDelegate fn, UnityEditor.CommandExecuteContext context)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, context);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.Editor>))]
+        public static unsafe UnityEditor.Editor _QuickJSDelegates65(QuickJS.ScriptDelegate fn)
+        {
+            var ctx = fn.ctx;
+            var rval = fn.Invoke(ctx);
+            if (rval.IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEditor.Editor ret0;
+            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEngine.Object>))]
+        public static unsafe UnityEngine.Object _QuickJSDelegates66(QuickJS.ScriptDelegate fn)
+        {
+            var ctx = fn.ctx;
+            var rval = fn.Invoke(ctx);
+            if (rval.IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            UnityEngine.Object ret0;
+            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+#if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.AudioCurveRendering.AudioCurveEvaluator))]
-        public static unsafe float _QuickJSDelegates39(QuickJS.ScriptDelegate fn, float x)
+        public static unsafe float _QuickJSDelegates67(QuickJS.ScriptDelegate fn, float x)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1345,7 +2325,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.AudioCurveRendering.AudioCurveAndColorEvaluator))]
-        public static unsafe float _QuickJSDelegates40(QuickJS.ScriptDelegate fn, float x, out UnityEngine.Color col)
+        public static unsafe float _QuickJSDelegates68(QuickJS.ScriptDelegate fn, float x, out UnityEngine.Color col)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -1381,7 +2361,7 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, argv[0]);
                 JSApi.JS_FreeValue(ctx, argv[1]);
                 JSApi.JS_FreeValue(ctx, refVal1);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates40", typeof(UnityEngine.Color), 1);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates68", typeof(UnityEngine.Color), 1);
             }
             JSApi.JS_FreeValue(ctx, refVal1);
             float ret0;
@@ -1401,7 +2381,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.AudioCurveRendering.AudioMinMaxCurveAndColorEvaluator))]
-        public static unsafe void _QuickJSDelegates41(QuickJS.ScriptDelegate fn, float x, out UnityEngine.Color col, out float minValue, out float maxValue)
+        public static unsafe void _QuickJSDelegates69(QuickJS.ScriptDelegate fn, float x, out UnityEngine.Color col, out float minValue, out float maxValue)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[4];
@@ -1458,7 +2438,7 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, argv[2]);
                 JSApi.JS_FreeValue(ctx, argv[3]);
                 JSApi.JS_FreeValue(ctx, refVal1);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates41", typeof(UnityEngine.Color), 1);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates69", typeof(UnityEngine.Color), 1);
             }
             JSApi.JS_FreeValue(ctx, refVal1);
             var refVal2 = Values.js_read_wrap(ctx, argv[2]);
@@ -1479,7 +2459,7 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, argv[2]);
                 JSApi.JS_FreeValue(ctx, argv[3]);
                 JSApi.JS_FreeValue(ctx, refVal2);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates41", typeof(float), 2);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates69", typeof(float), 2);
             }
             JSApi.JS_FreeValue(ctx, refVal2);
             var refVal3 = Values.js_read_wrap(ctx, argv[3]);
@@ -1500,7 +2480,7 @@ namespace jsb {
                 JSApi.JS_FreeValue(ctx, argv[2]);
                 JSApi.JS_FreeValue(ctx, argv[3]);
                 JSApi.JS_FreeValue(ctx, refVal3);
-                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates41", typeof(float), 3);
+                throw new ParameterException(typeof(_QuickJSDelegates), "_QuickJSDelegates69", typeof(float), 3);
             }
             JSApi.JS_FreeValue(ctx, refVal3);
             JSApi.JS_FreeValue(ctx, rval);
@@ -1511,300 +2491,8 @@ namespace jsb {
         }
 #endif
 #if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.CommandHandler))]
-        public static unsafe void _QuickJSDelegates42(QuickJS.ScriptDelegate fn, UnityEditor.CommandExecuteContext context)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[1];
-            argv[0] = Values.js_push_classvalue(ctx, context);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 1, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-        }
-#endif
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.ModeService.ModeChangedArgs>))]
-        public static unsafe void _QuickJSDelegates43(QuickJS.ScriptDelegate fn, UnityEditor.ModeService.ModeChangedArgs obj)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[1];
-            argv[0] = Values.js_push_structvalue(ctx, obj);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 1, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-        }
-#endif
-        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEngine.Object[]>))]
-        public static unsafe UnityEngine.Object[] _QuickJSDelegates44(QuickJS.ScriptDelegate fn)
-        {
-            var ctx = fn.ctx;
-            var rval = fn.Invoke(ctx);
-            if (rval.IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            UnityEngine.Object[] ret0;
-            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.LightingExplorerTableColumn[]>))]
-        public static unsafe UnityEditor.LightingExplorerTableColumn[] _QuickJSDelegates45(QuickJS.ScriptDelegate fn)
-        {
-            var ctx = fn.ctx;
-            var rval = fn.Invoke(ctx);
-            if (rval.IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            UnityEditor.LightingExplorerTableColumn[] ret0;
-            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#endif
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.LightingExplorerTableColumn.OnGUIDelegate))]
-        public static unsafe void _QuickJSDelegates46(QuickJS.ScriptDelegate fn, UnityEngine.Rect r, UnityEditor.SerializedProperty prop, UnityEditor.SerializedProperty[] dependencies)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[3];
-            argv[0] = QuickJS.Binding.Values.js_push_structvalue(ctx, r);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            argv[1] = Values.js_push_classvalue(ctx, prop);
-            if (argv[1].IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            argv[2] = Values.js_push_classvalue(ctx, dependencies);
-            if (argv[2].IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                JSApi.JS_FreeValue(ctx, argv[1]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 3, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                JSApi.JS_FreeValue(ctx, argv[1]);
-                JSApi.JS_FreeValue(ctx, argv[2]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-            JSApi.JS_FreeValue(ctx, argv[1]);
-            JSApi.JS_FreeValue(ctx, argv[2]);
-        }
-#endif
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.LightingExplorerTableColumn.ComparePropertiesDelegate))]
-        public static unsafe int _QuickJSDelegates47(QuickJS.ScriptDelegate fn, UnityEditor.SerializedProperty lhs, UnityEditor.SerializedProperty rhs)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[2];
-            argv[0] = Values.js_push_classvalue(ctx, lhs);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            argv[1] = Values.js_push_classvalue(ctx, rhs);
-            if (argv[1].IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 2, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                JSApi.JS_FreeValue(ctx, argv[1]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            int ret0;
-            var succ = QuickJS.Binding.Values.js_get_primitive(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-            JSApi.JS_FreeValue(ctx, argv[1]);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#endif
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.LightingExplorerTableColumn.CopyPropertiesDelegate))]
-        public static unsafe void _QuickJSDelegates48(QuickJS.ScriptDelegate fn, UnityEditor.SerializedProperty target, UnityEditor.SerializedProperty source)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[2];
-            argv[0] = Values.js_push_classvalue(ctx, target);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            argv[1] = Values.js_push_classvalue(ctx, source);
-            if (argv[1].IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 2, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                JSApi.JS_FreeValue(ctx, argv[1]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-            JSApi.JS_FreeValue(ctx, argv[1]);
-        }
-#endif
-        [QuickJS.JSDelegateAttribute(typeof(System.Action<string, UnityEngine.UIElements.VisualElement>))]
-        public static unsafe void _QuickJSDelegates49(QuickJS.ScriptDelegate fn, string arg1, UnityEngine.UIElements.VisualElement arg2)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[2];
-            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            argv[1] = Values.js_push_classvalue(ctx, arg2);
-            if (argv[1].IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 2, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                JSApi.JS_FreeValue(ctx, argv[1]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-            JSApi.JS_FreeValue(ctx, argv[1]);
-        }
-        [QuickJS.JSDelegateAttribute(typeof(System.Func<string, bool>))]
-        public static unsafe bool _QuickJSDelegates50(QuickJS.ScriptDelegate fn, string arg)
-        {
-            var ctx = fn.ctx;
-            var argv = stackalloc JSValue[1];
-            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg);
-            if (argv[0].IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            var rval = fn.Invoke(ctx, 1, argv);
-            if (rval.IsException())
-            {
-                JSApi.JS_FreeValue(ctx, argv[0]);
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            bool ret0;
-            var succ = QuickJS.Binding.Values.js_get_primitive(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            JSApi.JS_FreeValue(ctx, argv[0]);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.Editor>))]
-        public static unsafe UnityEditor.Editor _QuickJSDelegates51(QuickJS.ScriptDelegate fn)
-        {
-            var ctx = fn.ctx;
-            var rval = fn.Invoke(ctx);
-            if (rval.IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            UnityEditor.Editor ret0;
-            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#endif
-        [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEngine.Object>))]
-        public static unsafe UnityEngine.Object _QuickJSDelegates52(QuickJS.ScriptDelegate fn)
-        {
-            var ctx = fn.ctx;
-            var rval = fn.Invoke(ctx);
-            if (rval.IsException())
-            {
-                throw new System.Exception(ctx.GetExceptionString());
-            }
-            UnityEngine.Object ret0;
-            var succ = Values.js_get_classvalue(ctx, rval, out ret0);
-            JSApi.JS_FreeValue(ctx, rval);
-            if (succ)
-            {
-                return ret0;
-            }
-            else
-            {
-                throw new System.Exception("js exception caught");
-            }
-        }
-#if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.PluginImporter.IncludeInBuildDelegate))]
-        public static unsafe bool _QuickJSDelegates53(QuickJS.ScriptDelegate fn, string path)
+        public static unsafe bool _QuickJSDelegates70(QuickJS.ScriptDelegate fn, string path)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1833,13 +2521,39 @@ namespace jsb {
             }
         }
 #endif
-#if UNITY_EDITOR
-        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Hardware.Usb.OnDevicesChangedHandler))]
-        public static unsafe void _QuickJSDelegates54(QuickJS.ScriptDelegate fn, UnityEditor.Hardware.UsbDevice[] devices)
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<int, byte[]>))]
+        public static unsafe void _QuickJSDelegates71(QuickJS.ScriptDelegate fn, int arg1, byte[] arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<byte[]>))]
+        public static unsafe void _QuickJSDelegates72(QuickJS.ScriptDelegate fn, byte[] obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
-            argv[0] = Values.js_push_classvalue(ctx, devices);
+            argv[0] = Values.js_push_classvalue(ctx, obj);
             if (argv[0].IsException())
             {
                 throw new System.Exception(ctx.GetExceptionString());
@@ -1853,10 +2567,129 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, rval);
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<int, UnityEditor.MPE.ProcessState>))]
+        public static unsafe void _QuickJSDelegates73(QuickJS.ScriptDelegate fn, int arg1, UnityEditor.MPE.ProcessState arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, (int)arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
 #endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<string, object[]>))]
+        public static unsafe void _QuickJSDelegates74(QuickJS.ScriptDelegate fn, string arg1, object[] arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+        [QuickJS.JSDelegateAttribute(typeof(System.Func<string, object[], object>))]
+        public static unsafe object _QuickJSDelegates75(QuickJS.ScriptDelegate fn, string arg1, object[] arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            object ret0;
+            var succ = Values.js_get_var(ctx, rval, out ret0);
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+            if (succ)
+            {
+                return ret0;
+            }
+            else
+            {
+                throw new System.Exception("js exception caught");
+            }
+        }
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<System.Exception, object[]>))]
+        public static unsafe void _QuickJSDelegates76(QuickJS.ScriptDelegate fn, System.Exception arg1, object[] arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Analytics.AnalyticsSettings.RequireInBuildDelegate))]
-        public static unsafe bool _QuickJSDelegates55(QuickJS.ScriptDelegate fn)
+        public static unsafe bool _QuickJSDelegates77(QuickJS.ScriptDelegate fn)
         {
             var ctx = fn.ctx;
             var rval = fn.Invoke(ctx);
@@ -1877,12 +2710,12 @@ namespace jsb {
             }
         }
 #endif
-        [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<float>))]
-        public static unsafe void _QuickJSDelegates56(QuickJS.ScriptDelegate fn, float arg0)
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Playables.PlayableGraph>))]
+        public static unsafe void _QuickJSDelegates78(QuickJS.ScriptDelegate fn, UnityEngine.Playables.PlayableGraph obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
-            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg0);
+            argv[0] = Values.js_push_structvalue(ctx, obj);
             if (argv[0].IsException())
             {
                 throw new System.Exception(ctx.GetExceptionString());
@@ -1898,7 +2731,7 @@ namespace jsb {
         }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.Connect.UnityOAuth.AuthCodeResponse>))]
-        public static unsafe void _QuickJSDelegates57(QuickJS.ScriptDelegate fn, UnityEditor.Connect.UnityOAuth.AuthCodeResponse obj)
+        public static unsafe void _QuickJSDelegates79(QuickJS.ScriptDelegate fn, UnityEditor.Connect.UnityOAuth.AuthCodeResponse obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1917,12 +2750,98 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
 #endif
-        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Playables.PlayableGraph>))]
-        public static unsafe void _QuickJSDelegates58(QuickJS.ScriptDelegate fn, UnityEngine.Playables.PlayableGraph obj)
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Object, bool>))]
+        public static unsafe void _QuickJSDelegates80(QuickJS.ScriptDelegate fn, UnityEngine.Object arg1, bool arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_classvalue(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Object>))]
+        public static unsafe void _QuickJSDelegates81(QuickJS.ScriptDelegate fn, UnityEngine.Object obj)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
-            argv[0] = Values.js_push_structvalue(ctx, obj);
+            argv[0] = QuickJS.Binding.Values.js_push_classvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+        [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<float>))]
+        public static unsafe void _QuickJSDelegates82(QuickJS.ScriptDelegate fn, float arg0)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg0);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.Overlays.Layout>))]
+        public static unsafe void _QuickJSDelegates83(QuickJS.ScriptDelegate fn, UnityEditor.Overlays.Layout obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, (int)obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.Vector3>))]
+        public static unsafe void _QuickJSDelegates84(QuickJS.ScriptDelegate fn, UnityEngine.Vector3 obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = QuickJS.Binding.Values.js_push_structvalue(ctx, obj);
             if (argv[0].IsException())
             {
                 throw new System.Exception(ctx.GetExceptionString());
@@ -1938,7 +2857,7 @@ namespace jsb {
         }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Handles.SizeFunction))]
-        public static unsafe float _QuickJSDelegates59(QuickJS.ScriptDelegate fn, UnityEngine.Vector3 position)
+        public static unsafe float _QuickJSDelegates85(QuickJS.ScriptDelegate fn, UnityEngine.Vector3 position)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1969,7 +2888,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader.HeaderCallback))]
-        public static unsafe void _QuickJSDelegates60(QuickJS.ScriptDelegate fn, UnityEditor.IMGUI.Controls.MultiColumnHeader multiColumnHeader)
+        public static unsafe void _QuickJSDelegates86(QuickJS.ScriptDelegate fn, UnityEditor.IMGUI.Controls.MultiColumnHeader multiColumnHeader)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -1988,8 +2907,56 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
 #endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<int, int>))]
+        public static unsafe void _QuickJSDelegates87(QuickJS.ScriptDelegate fn, int arg1, int arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = QuickJS.Binding.Values.js_push_primitive(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(UnityEditor.Hardware.Usb.OnDevicesChangedHandler))]
+        public static unsafe void _QuickJSDelegates88(QuickJS.ScriptDelegate fn, UnityEditor.Hardware.UsbDevice[] devices)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, devices);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<UnityEngine.SceneManagement.Scene, UnityEngine.SceneManagement.Scene>))]
-        public static unsafe void _QuickJSDelegates61(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
+        public static unsafe void _QuickJSDelegates89(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2017,7 +2984,7 @@ namespace jsb {
         }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.NewSceneCreatedCallback))]
-        public static unsafe void _QuickJSDelegates62(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.NewSceneSetup setup, UnityEditor.SceneManagement.NewSceneMode mode)
+        public static unsafe void _QuickJSDelegates90(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.NewSceneSetup setup, UnityEditor.SceneManagement.NewSceneMode mode)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -2055,7 +3022,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneOpeningCallback))]
-        public static unsafe void _QuickJSDelegates63(QuickJS.ScriptDelegate fn, string path, UnityEditor.SceneManagement.OpenSceneMode mode)
+        public static unsafe void _QuickJSDelegates91(QuickJS.ScriptDelegate fn, string path, UnityEditor.SceneManagement.OpenSceneMode mode)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2084,7 +3051,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneOpenedCallback))]
-        public static unsafe void _QuickJSDelegates64(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.OpenSceneMode mode)
+        public static unsafe void _QuickJSDelegates92(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.OpenSceneMode mode)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2113,7 +3080,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneClosingCallback))]
-        public static unsafe void _QuickJSDelegates65(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, bool removingScene)
+        public static unsafe void _QuickJSDelegates93(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, bool removingScene)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2144,7 +3111,7 @@ namespace jsb {
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneClosedCallback))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneSavedCallback))]
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneDirtiedCallback))]
-        public static unsafe void _QuickJSDelegates66(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene)
+        public static unsafe void _QuickJSDelegates94(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -2165,7 +3132,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(UnityEditor.SceneManagement.EditorSceneManager.SceneSavingCallback))]
-        public static unsafe void _QuickJSDelegates67(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, string path)
+        public static unsafe void _QuickJSDelegates95(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene scene, string path)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2193,7 +3160,7 @@ namespace jsb {
         }
 #endif
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<UnityEngine.SceneManagement.Scene, UnityEngine.SceneManagement.LoadSceneMode>))]
-        public static unsafe void _QuickJSDelegates68(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.LoadSceneMode arg1)
+        public static unsafe void _QuickJSDelegates96(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.LoadSceneMode arg1)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2220,7 +3187,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<UnityEngine.SceneManagement.Scene>))]
-        public static unsafe void _QuickJSDelegates69(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene arg0)
+        public static unsafe void _QuickJSDelegates97(QuickJS.ScriptDelegate fn, UnityEngine.SceneManagement.Scene arg0)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -2240,7 +3207,7 @@ namespace jsb {
         }
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo[]>))]
-        public static unsafe UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo[] _QuickJSDelegates70(QuickJS.ScriptDelegate fn)
+        public static unsafe UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo[] _QuickJSDelegates98(QuickJS.ScriptDelegate fn)
         {
             var ctx = fn.ctx;
             var rval = fn.Invoke(ctx);
@@ -2263,7 +3230,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo, string>))]
-        public static unsafe string _QuickJSDelegates71(QuickJS.ScriptDelegate fn, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo arg)
+        public static unsafe string _QuickJSDelegates99(QuickJS.ScriptDelegate fn, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo arg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -2294,7 +3261,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.GenericMenu, UnityEngine.GameObject>))]
-        public static unsafe void _QuickJSDelegates72(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu arg1, UnityEngine.GameObject arg2)
+        public static unsafe void _QuickJSDelegates100(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu arg1, UnityEngine.GameObject arg2)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2323,7 +3290,7 @@ namespace jsb {
 #endif
 #if UNITY_EDITOR
         [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.GenericMenu, UnityEngine.SceneManagement.Scene>))]
-        public static unsafe void _QuickJSDelegates73(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu arg1, UnityEngine.SceneManagement.Scene arg2)
+        public static unsafe void _QuickJSDelegates101(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu arg1, UnityEngine.SceneManagement.Scene arg2)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2350,8 +3317,98 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
 #endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.GenericMenu, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo>))]
+        public static unsafe void _QuickJSDelegates102(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu arg1, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo arg2)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, arg1);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_structvalue(ctx, arg2);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.GenericMenu>))]
+        public static unsafe void _QuickJSDelegates103(QuickJS.ScriptDelegate fn, UnityEditor.GenericMenu obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+#if UNITY_EDITOR
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEditor.SceneManagement.PrefabStage>))]
+        public static unsafe void _QuickJSDelegates104(QuickJS.ScriptDelegate fn, UnityEditor.SceneManagement.PrefabStage obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
+#endif
+        [QuickJS.JSDelegateAttribute(typeof(System.Action<UnityEngine.GameObject>))]
+        public static unsafe void _QuickJSDelegates105(QuickJS.ScriptDelegate fn, UnityEngine.GameObject obj)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[1];
+            argv[0] = Values.js_push_classvalue(ctx, obj);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 1, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+        }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.UI.InputField.OnValidateInput))]
-        public static unsafe char _QuickJSDelegates74(QuickJS.ScriptDelegate fn, string text, int charIndex, char addedChar)
+        public static unsafe char _QuickJSDelegates106(QuickJS.ScriptDelegate fn, string text, int charIndex, char addedChar)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[3];
@@ -2397,7 +3454,7 @@ namespace jsb {
             }
         }
         [QuickJS.JSDelegateAttribute(typeof(System.Func<UnityEngine.UI.ILayoutElement, float>))]
-        public static unsafe float _QuickJSDelegates75(QuickJS.ScriptDelegate fn, UnityEngine.UI.ILayoutElement arg)
+        public static unsafe float _QuickJSDelegates107(QuickJS.ScriptDelegate fn, UnityEngine.UI.ILayoutElement arg)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -2425,8 +3482,35 @@ namespace jsb {
                 throw new System.Exception("js exception caught");
             }
         }
+        [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IPointerMoveHandler>))]
+        public static unsafe void _QuickJSDelegates108(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerMoveHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        {
+            var ctx = fn.ctx;
+            var argv = stackalloc JSValue[2];
+            argv[0] = Values.js_push_classvalue(ctx, handler);
+            if (argv[0].IsException())
+            {
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            argv[1] = Values.js_push_classvalue(ctx, eventData);
+            if (argv[1].IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            var rval = fn.Invoke(ctx, 2, argv);
+            if (rval.IsException())
+            {
+                JSApi.JS_FreeValue(ctx, argv[0]);
+                JSApi.JS_FreeValue(ctx, argv[1]);
+                throw new System.Exception(ctx.GetExceptionString());
+            }
+            JSApi.JS_FreeValue(ctx, rval);
+            JSApi.JS_FreeValue(ctx, argv[0]);
+            JSApi.JS_FreeValue(ctx, argv[1]);
+        }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IPointerEnterHandler>))]
-        public static unsafe void _QuickJSDelegates76(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerEnterHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates109(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerEnterHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2453,7 +3537,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IPointerExitHandler>))]
-        public static unsafe void _QuickJSDelegates77(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerExitHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates110(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerExitHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2480,7 +3564,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IPointerDownHandler>))]
-        public static unsafe void _QuickJSDelegates78(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerDownHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates111(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerDownHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2507,7 +3591,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IPointerUpHandler>))]
-        public static unsafe void _QuickJSDelegates79(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerUpHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates112(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerUpHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2534,7 +3618,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IPointerClickHandler>))]
-        public static unsafe void _QuickJSDelegates80(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates113(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2561,7 +3645,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IInitializePotentialDragHandler>))]
-        public static unsafe void _QuickJSDelegates81(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IInitializePotentialDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates114(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IInitializePotentialDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2588,7 +3672,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IBeginDragHandler>))]
-        public static unsafe void _QuickJSDelegates82(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IBeginDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates115(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IBeginDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2615,7 +3699,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IDragHandler>))]
-        public static unsafe void _QuickJSDelegates83(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates116(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2642,7 +3726,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IEndDragHandler>))]
-        public static unsafe void _QuickJSDelegates84(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IEndDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates117(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IEndDragHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2669,7 +3753,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IDropHandler>))]
-        public static unsafe void _QuickJSDelegates85(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IDropHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates118(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IDropHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2696,7 +3780,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IScrollHandler>))]
-        public static unsafe void _QuickJSDelegates86(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IScrollHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates119(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IScrollHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2723,7 +3807,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IUpdateSelectedHandler>))]
-        public static unsafe void _QuickJSDelegates87(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IUpdateSelectedHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates120(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IUpdateSelectedHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2750,7 +3834,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.ISelectHandler>))]
-        public static unsafe void _QuickJSDelegates88(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.ISelectHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates121(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.ISelectHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2777,7 +3861,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IDeselectHandler>))]
-        public static unsafe void _QuickJSDelegates89(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IDeselectHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates122(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IDeselectHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2804,7 +3888,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.IMoveHandler>))]
-        public static unsafe void _QuickJSDelegates90(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IMoveHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates123(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.IMoveHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2831,7 +3915,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.ISubmitHandler>))]
-        public static unsafe void _QuickJSDelegates91(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.ISubmitHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates124(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.ISubmitHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2858,7 +3942,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.EventSystems.ExecuteEvents.EventFunction<UnityEngine.EventSystems.ICancelHandler>))]
-        public static unsafe void _QuickJSDelegates92(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.ICancelHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
+        public static unsafe void _QuickJSDelegates125(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.ICancelHandler handler, UnityEngine.EventSystems.BaseEventData eventData)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[2];
@@ -2885,7 +3969,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[1]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<UnityEngine.Vector2>))]
-        public static unsafe void _QuickJSDelegates93(QuickJS.ScriptDelegate fn, UnityEngine.Vector2 arg0)
+        public static unsafe void _QuickJSDelegates126(QuickJS.ScriptDelegate fn, UnityEngine.Vector2 arg0)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];
@@ -2904,7 +3988,7 @@ namespace jsb {
             JSApi.JS_FreeValue(ctx, argv[0]);
         }
         [QuickJS.JSDelegateAttribute(typeof(UnityEngine.Events.UnityAction<UnityEngine.EventSystems.BaseEventData>))]
-        public static unsafe void _QuickJSDelegates94(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.BaseEventData arg0)
+        public static unsafe void _QuickJSDelegates127(QuickJS.ScriptDelegate fn, UnityEngine.EventSystems.BaseEventData arg0)
         {
             var ctx = fn.ctx;
             var argv = stackalloc JSValue[1];

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
     // Type: UnityEngine.Physics
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Physics
@@ -4631,6 +4631,37 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_defaultMaxDepenetrationVelocity(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Physics.defaultMaxDepenetrationVelocity;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_defaultMaxDepenetrationVelocity(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Physics), "defaultMaxDepenetrationVelocity", typeof(float), 0);
+                }
+                UnityEngine.Physics.defaultMaxDepenetrationVelocity = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_defaultSolverIterations(JSContext ctx, JSValue this_obj)
         {
             try
@@ -4716,6 +4747,37 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEngine.Physics), "defaultMaxAngularSpeed", typeof(float), 0);
                 }
                 UnityEngine.Physics.defaultMaxAngularSpeed = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_improvedPatchFriction(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Physics.improvedPatchFriction;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_improvedPatchFriction(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Physics), "improvedPatchFriction", typeof(bool), 0);
+                }
+                UnityEngine.Physics.improvedPatchFriction = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -4994,9 +5056,11 @@ namespace jsb {
             cls.AddProperty(true, "queriesHitTriggers", BindStaticRead_queriesHitTriggers, BindStaticWrite_queriesHitTriggers);
             cls.AddProperty(true, "queriesHitBackfaces", BindStaticRead_queriesHitBackfaces, BindStaticWrite_queriesHitBackfaces);
             cls.AddProperty(true, "bounceThreshold", BindStaticRead_bounceThreshold, BindStaticWrite_bounceThreshold);
+            cls.AddProperty(true, "defaultMaxDepenetrationVelocity", BindStaticRead_defaultMaxDepenetrationVelocity, BindStaticWrite_defaultMaxDepenetrationVelocity);
             cls.AddProperty(true, "defaultSolverIterations", BindStaticRead_defaultSolverIterations, BindStaticWrite_defaultSolverIterations);
             cls.AddProperty(true, "defaultSolverVelocityIterations", BindStaticRead_defaultSolverVelocityIterations, BindStaticWrite_defaultSolverVelocityIterations);
             cls.AddProperty(true, "defaultMaxAngularSpeed", BindStaticRead_defaultMaxAngularSpeed, BindStaticWrite_defaultMaxAngularSpeed);
+            cls.AddProperty(true, "improvedPatchFriction", BindStaticRead_improvedPatchFriction, BindStaticWrite_improvedPatchFriction);
             cls.AddProperty(true, "defaultPhysicsScene", BindStaticRead_defaultPhysicsScene, null);
             cls.AddProperty(true, "autoSimulation", BindStaticRead_autoSimulation, BindStaticWrite_autoSimulation);
             cls.AddProperty(true, "autoSyncTransforms", BindStaticRead_autoSyncTransforms, BindStaticWrite_autoSyncTransforms);

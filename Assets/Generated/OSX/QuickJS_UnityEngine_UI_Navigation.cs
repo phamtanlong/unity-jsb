@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.Navigation
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_Navigation
@@ -115,6 +115,48 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEngine.UI.Navigation), "mode", typeof(UnityEngine.UI.Navigation.Mode), 0);
                 }
                 self.mode = value;
+                Values.js_rebind_this(ctx, this_obj, ref self);
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_wrapAround(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.UI.Navigation self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.wrapAround;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_wrapAround(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.UI.Navigation self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.UI.Navigation), "wrapAround", typeof(bool), 0);
+                }
+                self.wrapAround = value;
                 Values.js_rebind_this(ctx, this_obj, ref self);
                 return JSApi.JS_UNDEFINED;
             }
@@ -309,6 +351,7 @@ namespace jsb {
             var cls = register.CreateClass("Navigation", typeof(UnityEngine.UI.Navigation), BindConstructor);
             cls.AddMethod(false, "Equals", Bind_Equals);
             cls.AddProperty(false, "mode", BindRead_mode, BindWrite_mode);
+            cls.AddProperty(false, "wrapAround", BindRead_wrapAround, BindWrite_wrapAround);
             cls.AddProperty(false, "selectOnUp", BindRead_selectOnUp, BindWrite_selectOnUp);
             cls.AddProperty(false, "selectOnDown", BindRead_selectOnDown, BindWrite_selectOnDown);
             cls.AddProperty(false, "selectOnLeft", BindRead_selectOnLeft, BindWrite_selectOnLeft);

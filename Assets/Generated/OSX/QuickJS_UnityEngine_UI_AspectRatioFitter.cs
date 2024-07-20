@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.AspectRatioFitter
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_AspectRatioFitter
@@ -57,6 +57,50 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SetLayoutVertical", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_IsComponentValidOnObject(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.UI.AspectRatioFitter self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.IsComponentValidOnObject();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsComponentValidOnObject", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_IsAspectModeValid(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.UI.AspectRatioFitter self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.IsAspectModeValid();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsAspectModeValid", argc);
             }
             catch (Exception exception)
             {
@@ -150,6 +194,8 @@ namespace jsb {
             var cls = register.CreateClass("AspectRatioFitter", typeof(UnityEngine.UI.AspectRatioFitter), QuickJS.JSNative.class_private_ctor);
             cls.AddMethod(false, "SetLayoutHorizontal", Bind_SetLayoutHorizontal);
             cls.AddMethod(false, "SetLayoutVertical", Bind_SetLayoutVertical);
+            cls.AddMethod(false, "IsComponentValidOnObject", Bind_IsComponentValidOnObject);
+            cls.AddMethod(false, "IsAspectModeValid", Bind_IsAspectModeValid);
             cls.AddProperty(false, "aspectMode", BindRead_aspectMode, BindWrite_aspectMode);
             cls.AddProperty(false, "aspectRatio", BindRead_aspectRatio, BindWrite_aspectRatio);
             return cls;

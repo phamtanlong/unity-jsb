@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Time
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Time
@@ -51,11 +51,37 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_timeAsDouble(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Time.timeAsDouble;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_timeSinceLevelLoad(JSContext ctx, JSValue this_obj)
         {
             try
             {
                 var ret = UnityEngine.Time.timeSinceLevelLoad;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_timeSinceLevelLoadAsDouble(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Time.timeSinceLevelLoadAsDouble;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -90,6 +116,19 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_fixedTimeAsDouble(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Time.fixedTimeAsDouble;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_unscaledTime(JSContext ctx, JSValue this_obj)
         {
             try
@@ -103,11 +142,37 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_unscaledTimeAsDouble(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Time.unscaledTimeAsDouble;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_fixedUnscaledTime(JSContext ctx, JSValue this_obj)
         {
             try
             {
                 var ret = UnityEngine.Time.fixedUnscaledTime;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_fixedUnscaledTimeAsDouble(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Time.fixedUnscaledTimeAsDouble;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -318,6 +383,19 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_realtimeSinceStartupAsDouble(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Time.realtimeSinceStartupAsDouble;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_captureDeltaTime(JSContext ctx, JSValue this_obj)
         {
             try
@@ -396,11 +474,16 @@ namespace jsb {
         {
             var cls = register.CreateClass("Time", typeof(UnityEngine.Time), BindConstructor);
             cls.AddProperty(true, "time", BindStaticRead_time, null);
+            cls.AddProperty(true, "timeAsDouble", BindStaticRead_timeAsDouble, null);
             cls.AddProperty(true, "timeSinceLevelLoad", BindStaticRead_timeSinceLevelLoad, null);
+            cls.AddProperty(true, "timeSinceLevelLoadAsDouble", BindStaticRead_timeSinceLevelLoadAsDouble, null);
             cls.AddProperty(true, "deltaTime", BindStaticRead_deltaTime, null);
             cls.AddProperty(true, "fixedTime", BindStaticRead_fixedTime, null);
+            cls.AddProperty(true, "fixedTimeAsDouble", BindStaticRead_fixedTimeAsDouble, null);
             cls.AddProperty(true, "unscaledTime", BindStaticRead_unscaledTime, null);
+            cls.AddProperty(true, "unscaledTimeAsDouble", BindStaticRead_unscaledTimeAsDouble, null);
             cls.AddProperty(true, "fixedUnscaledTime", BindStaticRead_fixedUnscaledTime, null);
+            cls.AddProperty(true, "fixedUnscaledTimeAsDouble", BindStaticRead_fixedUnscaledTimeAsDouble, null);
             cls.AddProperty(true, "unscaledDeltaTime", BindStaticRead_unscaledDeltaTime, null);
             cls.AddProperty(true, "fixedUnscaledDeltaTime", BindStaticRead_fixedUnscaledDeltaTime, null);
             cls.AddProperty(true, "fixedDeltaTime", BindStaticRead_fixedDeltaTime, BindStaticWrite_fixedDeltaTime);
@@ -411,6 +494,7 @@ namespace jsb {
             cls.AddProperty(true, "frameCount", BindStaticRead_frameCount, null);
             cls.AddProperty(true, "renderedFrameCount", BindStaticRead_renderedFrameCount, null);
             cls.AddProperty(true, "realtimeSinceStartup", BindStaticRead_realtimeSinceStartup, null);
+            cls.AddProperty(true, "realtimeSinceStartupAsDouble", BindStaticRead_realtimeSinceStartupAsDouble, null);
             cls.AddProperty(true, "captureDeltaTime", BindStaticRead_captureDeltaTime, BindStaticWrite_captureDeltaTime);
             cls.AddProperty(true, "captureFramerate", BindStaticRead_captureFramerate, BindStaticWrite_captureFramerate);
             cls.AddProperty(true, "inFixedTimeStep", BindStaticRead_inFixedTimeStep, null);

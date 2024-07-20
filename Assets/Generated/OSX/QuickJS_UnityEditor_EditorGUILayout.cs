@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.EditorGUILayout
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_EditorGUILayout
@@ -528,6 +528,62 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("LabelField", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_LinkButton(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc >= 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_param_types(ctx, 1, argv, typeof(UnityEngine.GUILayoutOption)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "LinkButton", typeof(string), 0);
+                            }
+                            UnityEngine.GUILayoutOption[] arg1 = null;
+                            if (argc - 1 > 0)
+                            {
+                                arg1 = new UnityEngine.GUILayoutOption[argc - 1];
+                                for (var i = 1; i < argc; i++)
+                                {
+                                    Values.js_get_classvalue(ctx, argv[i], out arg1[i - 1]);
+                                }
+                            }
+                            var ret = UnityEditor.EditorGUILayout.LinkButton(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.GUIContent)) && Values.js_match_param_types(ctx, 1, argv, typeof(UnityEngine.GUILayoutOption)))
+                        {
+                            UnityEngine.GUIContent arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "LinkButton", typeof(UnityEngine.GUIContent), 0);
+                            }
+                            UnityEngine.GUILayoutOption[] arg1 = null;
+                            if (argc - 1 > 0)
+                            {
+                                arg1 = new UnityEngine.GUILayoutOption[argc - 1];
+                                for (var i = 1; i < argc; i++)
+                                {
+                                    Values.js_get_classvalue(ctx, argv[i], out arg1[i - 1]);
+                                }
+                            }
+                            var ret = UnityEditor.EditorGUILayout.LinkButton(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("LinkButton", argc);
             }
             catch (Exception exception)
             {
@@ -5158,6 +5214,40 @@ namespace jsb {
                 {
                     if (argc >= 4)
                     {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[2], typeof(System.Type)) && Values.js_match_type(ctx, argv[3], typeof(UnityEngine.Object)) && Values.js_match_param_types(ctx, 4, argv, typeof(UnityEngine.GUILayoutOption)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(string), 0);
+                            }
+                            UnityEngine.Object arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.Object), 1);
+                            }
+                            System.Type arg2;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(System.Type), 2);
+                            }
+                            UnityEngine.Object arg3;
+                            if (!Values.js_get_classvalue(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.Object), 3);
+                            }
+                            UnityEngine.GUILayoutOption[] arg4 = null;
+                            if (argc - 4 > 0)
+                            {
+                                arg4 = new UnityEngine.GUILayoutOption[argc - 4];
+                                for (var i = 4; i < argc; i++)
+                                {
+                                    Values.js_get_classvalue(ctx, argv[i], out arg4[i - 4]);
+                                }
+                            }
+                            var ret = UnityEditor.EditorGUILayout.ObjectField(arg0, arg1, arg2, arg3, arg4);
+                            return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                        }
                         if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[2], typeof(System.Type)) && Values.js_match_type(ctx, argv[3], typeof(bool)) && Values.js_match_param_types(ctx, 4, argv, typeof(UnityEngine.GUILayoutOption)))
                         {
                             string arg0;
@@ -5179,6 +5269,40 @@ namespace jsb {
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
                             {
                                 throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(bool), 3);
+                            }
+                            UnityEngine.GUILayoutOption[] arg4 = null;
+                            if (argc - 4 > 0)
+                            {
+                                arg4 = new UnityEngine.GUILayoutOption[argc - 4];
+                                for (var i = 4; i < argc; i++)
+                                {
+                                    Values.js_get_classvalue(ctx, argv[i], out arg4[i - 4]);
+                                }
+                            }
+                            var ret = UnityEditor.EditorGUILayout.ObjectField(arg0, arg1, arg2, arg3, arg4);
+                            return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.GUIContent)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[2], typeof(System.Type)) && Values.js_match_type(ctx, argv[3], typeof(UnityEngine.Object)) && Values.js_match_param_types(ctx, 4, argv, typeof(UnityEngine.GUILayoutOption)))
+                        {
+                            UnityEngine.GUIContent arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.GUIContent), 0);
+                            }
+                            UnityEngine.Object arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.Object), 1);
+                            }
+                            System.Type arg2;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(System.Type), 2);
+                            }
+                            UnityEngine.Object arg3;
+                            if (!Values.js_get_classvalue(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.Object), 3);
                             }
                             UnityEngine.GUILayoutOption[] arg4 = null;
                             if (argc - 4 > 0)
@@ -5229,6 +5353,35 @@ namespace jsb {
                     }
                     if (argc >= 3)
                     {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[1], typeof(System.Type)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.Object)) && Values.js_match_param_types(ctx, 3, argv, typeof(UnityEngine.GUILayoutOption)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.Object), 0);
+                            }
+                            System.Type arg1;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(System.Type), 1);
+                            }
+                            UnityEngine.Object arg2;
+                            if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ObjectField", typeof(UnityEngine.Object), 2);
+                            }
+                            UnityEngine.GUILayoutOption[] arg3 = null;
+                            if (argc - 3 > 0)
+                            {
+                                arg3 = new UnityEngine.GUILayoutOption[argc - 3];
+                                for (var i = 3; i < argc; i++)
+                                {
+                                    Values.js_get_classvalue(ctx, argv[i], out arg3[i - 3]);
+                                }
+                            }
+                            var ret = UnityEditor.EditorGUILayout.ObjectField(arg0, arg1, arg2, arg3);
+                            return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                        }
                         if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[1], typeof(System.Type)) && Values.js_match_type(ctx, argv[2], typeof(bool)) && Values.js_match_param_types(ctx, 3, argv, typeof(UnityEngine.GUILayoutOption)))
                         {
                             UnityEngine.Object arg0;
@@ -7773,6 +7926,33 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ToolContextToolbarForTarget(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.GUIContent arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ToolContextToolbarForTarget", typeof(UnityEngine.GUIContent), 0);
+                    }
+                    UnityEngine.Object arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUILayout), "ToolContextToolbarForTarget", typeof(UnityEngine.Object), 1);
+                    }
+                    UnityEditor.EditorGUILayout.ToolContextToolbarForTarget(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ToolContextToolbarForTarget", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_EditorToolbar(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -7804,6 +7984,7 @@ namespace jsb {
             cls.AddMethod(true, "Foldout", BindStatic_Foldout);
             cls.AddMethod(true, "PrefixLabel", BindStatic_PrefixLabel);
             cls.AddMethod(true, "LabelField", BindStatic_LabelField);
+            cls.AddMethod(true, "LinkButton", BindStatic_LinkButton);
             cls.AddMethod(true, "Toggle", BindStatic_Toggle);
             cls.AddMethod(true, "ToggleLeft", BindStatic_ToggleLeft);
             cls.AddMethod(true, "TextField", BindStatic_TextField);
@@ -7864,6 +8045,7 @@ namespace jsb {
             cls.AddMethod(true, "GradientField", BindStatic_GradientField);
             cls.AddMethod(true, "Knob", BindStatic_Knob);
             cls.AddMethod(true, "EditorToolbarForTarget", BindStatic_EditorToolbarForTarget);
+            cls.AddMethod(true, "ToolContextToolbarForTarget", BindStatic_ToolContextToolbarForTarget);
             cls.AddMethod(true, "EditorToolbar", BindStatic_EditorToolbar);
             return cls;
         }

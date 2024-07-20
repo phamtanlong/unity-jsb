@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.LightEditor+Settings
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_LightEditor_Settings
@@ -136,17 +136,12 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                if (argc == 0)
                 {
                     UnityEditor.LightEditor.Settings self;
                     if (!Values.js_get_classvalue(ctx, this_obj, out self))
                     {
                         throw new ThisBoundException();
-                    }
-                    bool arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.LightEditor.Settings), "DrawRange", typeof(bool), 0);
                     }
                     self.DrawRange();
                     return JSApi.JS_UNDEFINED;

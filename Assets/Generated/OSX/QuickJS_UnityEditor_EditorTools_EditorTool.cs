@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,12 +14,56 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.EditorTools.EditorTool
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_EditorTools_EditorTool
     {
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_OnActivated(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.EditorTools.EditorTool self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.OnActivated();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("OnActivated", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_OnWillBeDeactivated(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.EditorTools.EditorTool self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.OnWillBeDeactivated();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("OnWillBeDeactivated", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_OnToolGUI(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -123,14 +167,35 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_gridSnapEnabled(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.EditorTools.EditorTool self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.gridSnapEnabled;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("EditorTool", typeof(UnityEditor.EditorTools.EditorTool), QuickJS.JSNative.class_private_ctor);
+            cls.AddMethod(false, "OnActivated", Bind_OnActivated);
+            cls.AddMethod(false, "OnWillBeDeactivated", Bind_OnWillBeDeactivated);
             cls.AddMethod(false, "OnToolGUI", Bind_OnToolGUI);
             cls.AddMethod(false, "IsAvailable", Bind_IsAvailable);
             cls.AddProperty(false, "targets", BindRead_targets, null);
             cls.AddProperty(false, "target", BindRead_target, null);
             cls.AddProperty(false, "toolbarIcon", BindRead_toolbarIcon, null);
+            cls.AddProperty(false, "gridSnapEnabled", BindRead_gridSnapEnabled, null);
             return cls;
         }
     }

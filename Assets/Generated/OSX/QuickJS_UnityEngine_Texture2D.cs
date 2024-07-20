@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Texture2D
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Texture2D
@@ -221,383 +221,6 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("constructor", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_Compress(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Texture2D self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    bool arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Texture2D), "Compress", typeof(bool), 0);
-                    }
-                    self.Compress(arg0);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("Compress", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_ClearRequestedMipmapLevel(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    UnityEngine.Texture2D self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    self.ClearRequestedMipmapLevel();
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("ClearRequestedMipmapLevel", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_IsRequestedMipmapLevelLoaded(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    UnityEngine.Texture2D self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    var ret = self.IsRequestedMipmapLevelLoaded();
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("IsRequestedMipmapLevelLoaded", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_ClearMinimumMipmapLevel(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    UnityEngine.Texture2D self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    self.ClearMinimumMipmapLevel();
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("ClearMinimumMipmapLevel", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_UpdateExternalTexture(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Texture2D self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    System.IntPtr arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Texture2D), "UpdateExternalTexture", typeof(System.IntPtr), 0);
-                    }
-                    self.UpdateExternalTexture(arg0);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("UpdateExternalTexture", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetRawTextureData(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    UnityEngine.Texture2D self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    var ret = self.GetRawTextureData();
-                    return Values.js_push_classvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("GetRawTextureData", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetPixels(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 5)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        int arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 0);
-                        }
-                        int arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 1);
-                        }
-                        int arg2;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 2);
-                        }
-                        int arg3;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 3);
-                        }
-                        int arg4;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 4);
-                        }
-                        var ret = self.GetPixels(arg0, arg1, arg2, arg3, arg4);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                    if (argc == 4)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        int arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 0);
-                        }
-                        int arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 1);
-                        }
-                        int arg2;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 2);
-                        }
-                        int arg3;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 3);
-                        }
-                        var ret = self.GetPixels(arg0, arg1, arg2, arg3);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                    if (argc == 1)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        int arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 0);
-                        }
-                        var ret = self.GetPixels(arg0);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                    if (argc == 0)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        var ret = self.GetPixels();
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("GetPixels", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetPixels32(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 1)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        int arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels32", typeof(int), 0);
-                        }
-                        var ret = self.GetPixels32(arg0);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                    if (argc == 0)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        var ret = self.GetPixels32();
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("GetPixels32", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_PackTextures(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 4)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        UnityEngine.Texture2D[] arg0;
-                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(UnityEngine.Texture2D[]), 0);
-                        }
-                        int arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 1);
-                        }
-                        int arg2;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 2);
-                        }
-                        bool arg3;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(bool), 3);
-                        }
-                        var ret = self.PackTextures(arg0, arg1, arg2, arg3);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                    if (argc == 3)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        UnityEngine.Texture2D[] arg0;
-                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(UnityEngine.Texture2D[]), 0);
-                        }
-                        int arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 1);
-                        }
-                        int arg2;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 2);
-                        }
-                        var ret = self.PackTextures(arg0, arg1, arg2);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                    if (argc == 2)
-                    {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        UnityEngine.Texture2D[] arg0;
-                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(UnityEngine.Texture2D[]), 0);
-                        }
-                        int arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 1);
-                        }
-                        var ret = self.PackTextures(arg0, arg1);
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("PackTextures", argc);
             }
             catch (Exception exception)
             {
@@ -1030,7 +653,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_Resize(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_Reinitialize(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -1038,33 +661,66 @@ namespace jsb {
                 {
                     if (argc == 4)
                     {
-                        UnityEngine.Texture2D self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)) && Values.js_match_type(ctx, argv[1], typeof(int)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.TextureFormat)) && Values.js_match_type(ctx, argv[3], typeof(bool)))
                         {
-                            throw new ThisBoundException();
+                            UnityEngine.Texture2D self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(int), 0);
+                            }
+                            int arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(int), 1);
+                            }
+                            UnityEngine.TextureFormat arg2;
+                            if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(UnityEngine.TextureFormat), 2);
+                            }
+                            bool arg3;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(bool), 3);
+                            }
+                            var ret = self.Reinitialize(arg0, arg1, arg2, arg3);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                         }
-                        int arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)) && Values.js_match_type(ctx, argv[1], typeof(int)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.Experimental.Rendering.GraphicsFormat)) && Values.js_match_type(ctx, argv[3], typeof(bool)))
                         {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(int), 0);
+                            UnityEngine.Texture2D self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(int), 0);
+                            }
+                            int arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(int), 1);
+                            }
+                            UnityEngine.Experimental.Rendering.GraphicsFormat arg2;
+                            if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(UnityEngine.Experimental.Rendering.GraphicsFormat), 2);
+                            }
+                            bool arg3;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(bool), 3);
+                            }
+                            var ret = self.Reinitialize(arg0, arg1, arg2, arg3);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                         }
-                        int arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(int), 1);
-                        }
-                        UnityEngine.TextureFormat arg2;
-                        if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(UnityEngine.TextureFormat), 2);
-                        }
-                        bool arg3;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(bool), 3);
-                        }
-                        var ret = self.Reinitialize(arg0, arg1, arg2, arg3);
-                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
                     if (argc == 2)
                     {
@@ -1076,18 +732,18 @@ namespace jsb {
                         int arg0;
                         if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                         {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(int), 0);
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(int), 0);
                         }
                         int arg1;
                         if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
                         {
-                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Resize", typeof(int), 1);
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "Reinitialize", typeof(int), 1);
                         }
                         var ret = self.Reinitialize(arg0, arg1);
                         return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
                 } while(false);
-                throw new NoSuitableMethodException("Resize", argc);
+                throw new NoSuitableMethodException("Reinitialize", argc);
             }
             catch (Exception exception)
             {
@@ -1283,6 +939,383 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("SetPixels32", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetPixels(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 5)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        int arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 1);
+                        }
+                        int arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 2);
+                        }
+                        int arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 3);
+                        }
+                        int arg4;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 4);
+                        }
+                        var ret = self.GetPixels(arg0, arg1, arg2, arg3, arg4);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 4)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        int arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 1);
+                        }
+                        int arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 2);
+                        }
+                        int arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 3);
+                        }
+                        var ret = self.GetPixels(arg0, arg1, arg2, arg3);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 1)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        int arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels", typeof(int), 0);
+                        }
+                        var ret = self.GetPixels(arg0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 0)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        var ret = self.GetPixels();
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetPixels", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_Compress(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Texture2D self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    bool arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Texture2D), "Compress", typeof(bool), 0);
+                    }
+                    self.Compress(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("Compress", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ClearRequestedMipmapLevel(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Texture2D self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.ClearRequestedMipmapLevel();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ClearRequestedMipmapLevel", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_IsRequestedMipmapLevelLoaded(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Texture2D self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.IsRequestedMipmapLevelLoaded();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsRequestedMipmapLevelLoaded", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ClearMinimumMipmapLevel(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Texture2D self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.ClearMinimumMipmapLevel();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ClearMinimumMipmapLevel", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_UpdateExternalTexture(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Texture2D self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    System.IntPtr arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Texture2D), "UpdateExternalTexture", typeof(System.IntPtr), 0);
+                    }
+                    self.UpdateExternalTexture(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("UpdateExternalTexture", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetRawTextureData(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Texture2D self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.GetRawTextureData();
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetRawTextureData", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetPixels32(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        int arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "GetPixels32", typeof(int), 0);
+                        }
+                        var ret = self.GetPixels32(arg0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 0)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        var ret = self.GetPixels32();
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetPixels32", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_PackTextures(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 4)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.Texture2D[] arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(UnityEngine.Texture2D[]), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 1);
+                        }
+                        int arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 2);
+                        }
+                        bool arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(bool), 3);
+                        }
+                        var ret = self.PackTextures(arg0, arg1, arg2, arg3);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 3)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.Texture2D[] arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(UnityEngine.Texture2D[]), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 1);
+                        }
+                        int arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 2);
+                        }
+                        var ret = self.PackTextures(arg0, arg1, arg2);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEngine.Texture2D self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.Texture2D[] arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(UnityEngine.Texture2D[]), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Texture2D), "PackTextures", typeof(int), 1);
+                        }
+                        var ret = self.PackTextures(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("PackTextures", argc);
             }
             catch (Exception exception)
             {
@@ -1566,6 +1599,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_ignoreMipmapLimit(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Texture2D self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.ignoreMipmapLimit;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_ignoreMipmapLimit(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Texture2D self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Texture2D), "ignoreMipmapLimit", typeof(bool), 0);
+                }
+                self.ignoreMipmapLimit = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_whiteTexture(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1654,6 +1728,24 @@ namespace jsb {
                     throw new ThisBoundException();
                 }
                 var ret = self.isReadable;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_vtOnly(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Texture2D self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.vtOnly;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -1899,24 +1991,24 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Texture2D", typeof(UnityEngine.Texture2D), BindConstructor);
-            cls.AddMethod(false, "Compress", Bind_Compress);
-            cls.AddMethod(false, "ClearRequestedMipmapLevel", Bind_ClearRequestedMipmapLevel);
-            cls.AddMethod(false, "IsRequestedMipmapLevelLoaded", Bind_IsRequestedMipmapLevelLoaded);
-            cls.AddMethod(false, "ClearMinimumMipmapLevel", Bind_ClearMinimumMipmapLevel);
-            cls.AddMethod(false, "UpdateExternalTexture", Bind_UpdateExternalTexture);
-            cls.AddMethod(false, "GetRawTextureData", Bind_GetRawTextureData);
-            cls.AddMethod(false, "GetPixels", Bind_GetPixels);
-            cls.AddMethod(false, "GetPixels32", Bind_GetPixels32);
-            cls.AddMethod(false, "PackTextures", Bind_PackTextures);
             cls.AddMethod(false, "SetPixel", Bind_SetPixel);
             cls.AddMethod(false, "SetPixels", Bind_SetPixels);
             cls.AddMethod(false, "GetPixel", Bind_GetPixel);
             cls.AddMethod(false, "GetPixelBilinear", Bind_GetPixelBilinear);
             cls.AddMethod(false, "LoadRawTextureData", Bind_LoadRawTextureData);
             cls.AddMethod(false, "Apply", Bind_Apply);
-            cls.AddMethod(false, "Resize", Bind_Resize);
+            cls.AddMethod(false, "Reinitialize", Bind_Reinitialize);
             cls.AddMethod(false, "ReadPixels", Bind_ReadPixels);
             cls.AddMethod(false, "SetPixels32", Bind_SetPixels32);
+            cls.AddMethod(false, "GetPixels", Bind_GetPixels);
+            cls.AddMethod(false, "Compress", Bind_Compress);
+            cls.AddMethod(false, "ClearRequestedMipmapLevel", Bind_ClearRequestedMipmapLevel);
+            cls.AddMethod(false, "IsRequestedMipmapLevelLoaded", Bind_IsRequestedMipmapLevelLoaded);
+            cls.AddMethod(false, "ClearMinimumMipmapLevel", Bind_ClearMinimumMipmapLevel);
+            cls.AddMethod(false, "UpdateExternalTexture", Bind_UpdateExternalTexture);
+            cls.AddMethod(false, "GetRawTextureData", Bind_GetRawTextureData);
+            cls.AddMethod(false, "GetPixels32", Bind_GetPixels32);
+            cls.AddMethod(false, "PackTextures", Bind_PackTextures);
             cls.AddMethod(false, "EncodeToTGA", Bind_EncodeToTGA);
             cls.AddMethod(false, "EncodeToPNG", Bind_EncodeToPNG);
             cls.AddMethod(false, "EncodeToJPG", Bind_EncodeToJPG);
@@ -1925,6 +2017,7 @@ namespace jsb {
             cls.AddMethod(true, "CreateExternalTexture", BindStatic_CreateExternalTexture);
             cls.AddMethod(true, "GenerateAtlas", BindStatic_GenerateAtlas);
             cls.AddProperty(false, "format", BindRead_format, null);
+            cls.AddProperty(false, "ignoreMipmapLimit", BindRead_ignoreMipmapLimit, BindWrite_ignoreMipmapLimit);
             cls.AddProperty(true, "whiteTexture", BindStaticRead_whiteTexture, null);
             cls.AddProperty(true, "blackTexture", BindStaticRead_blackTexture, null);
             cls.AddProperty(true, "redTexture", BindStaticRead_redTexture, null);
@@ -1932,6 +2025,7 @@ namespace jsb {
             cls.AddProperty(true, "linearGrayTexture", BindStaticRead_linearGrayTexture, null);
             cls.AddProperty(true, "normalTexture", BindStaticRead_normalTexture, null);
             cls.AddProperty(false, "isReadable", BindRead_isReadable, null);
+            cls.AddProperty(false, "vtOnly", BindRead_vtOnly, null);
             cls.AddProperty(false, "streamingMipmaps", BindRead_streamingMipmaps, null);
             cls.AddProperty(false, "streamingMipmapsPriority", BindRead_streamingMipmapsPriority, null);
             cls.AddProperty(false, "requestedMipmapLevel", BindRead_requestedMipmapLevel, BindWrite_requestedMipmapLevel);

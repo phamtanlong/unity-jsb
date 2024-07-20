@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
     // Type: UnityEngine.Collider
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Collider
@@ -191,6 +191,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_attachedArticulationBody(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Collider self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.attachedArticulationBody;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_isTrigger(JSContext ctx, JSValue this_obj)
         {
             try
@@ -291,6 +309,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_hasModifiableContacts(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Collider self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.hasModifiableContacts;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_hasModifiableContacts(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Collider self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Collider), "hasModifiableContacts", typeof(bool), 0);
+                }
+                self.hasModifiableContacts = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_sharedMaterial(JSContext ctx, JSValue this_obj)
         {
             try
@@ -380,9 +439,11 @@ namespace jsb {
             cls.AddMethod(false, "ClosestPointOnBounds", Bind_ClosestPointOnBounds);
             cls.AddProperty(false, "enabled", BindRead_enabled, BindWrite_enabled);
             cls.AddProperty(false, "attachedRigidbody", BindRead_attachedRigidbody, null);
+            cls.AddProperty(false, "attachedArticulationBody", BindRead_attachedArticulationBody, null);
             cls.AddProperty(false, "isTrigger", BindRead_isTrigger, BindWrite_isTrigger);
             cls.AddProperty(false, "contactOffset", BindRead_contactOffset, BindWrite_contactOffset);
             cls.AddProperty(false, "bounds", BindRead_bounds, null);
+            cls.AddProperty(false, "hasModifiableContacts", BindRead_hasModifiableContacts, BindWrite_hasModifiableContacts);
             cls.AddProperty(false, "sharedMaterial", BindRead_sharedMaterial, BindWrite_sharedMaterial);
             cls.AddProperty(false, "material", BindRead_material, BindWrite_material);
             return cls;

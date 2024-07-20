@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.EditorGUIUtility
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_EditorGUIUtility
@@ -141,6 +141,94 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("QueueGameViewInputEvent", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetIconForObject(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Object arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUIUtility), "SetIconForObject", typeof(UnityEngine.Object), 0);
+                    }
+                    UnityEngine.Texture2D arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUIUtility), "SetIconForObject", typeof(UnityEngine.Texture2D), 1);
+                    }
+                    UnityEditor.EditorGUIUtility.SetIconForObject(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetIconForObject", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetIconForObject(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Object arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUIUtility), "GetIconForObject", typeof(UnityEngine.Object), 0);
+                    }
+                    var ret = UnityEditor.EditorGUIUtility.GetIconForObject(arg0);
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetIconForObject", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetMainWindowPosition(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.EditorGUIUtility.GetMainWindowPosition();
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetMainWindowPosition", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetMainWindowPosition(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Rect arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUIUtility), "SetMainWindowPosition", typeof(UnityEngine.Rect), 0);
+                    }
+                    UnityEditor.EditorGUIUtility.SetMainWindowPosition(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetMainWindowPosition", argc);
             }
             catch (Exception exception)
             {
@@ -1494,6 +1582,10 @@ namespace jsb {
             cls.AddMethod(true, "SetWantsMouseJumping", BindStatic_SetWantsMouseJumping);
             cls.AddMethod(true, "IsDisplayReferencedByCameras", BindStatic_IsDisplayReferencedByCameras);
             cls.AddMethod(true, "QueueGameViewInputEvent", BindStatic_QueueGameViewInputEvent);
+            cls.AddMethod(true, "SetIconForObject", BindStatic_SetIconForObject);
+            cls.AddMethod(true, "GetIconForObject", BindStatic_GetIconForObject);
+            cls.AddMethod(true, "GetMainWindowPosition", BindStatic_GetMainWindowPosition);
+            cls.AddMethod(true, "SetMainWindowPosition", BindStatic_SetMainWindowPosition);
             cls.AddMethod(true, "PointsToPixels", BindStatic_PointsToPixels);
             cls.AddMethod(true, "PixelsToPoints", BindStatic_PixelsToPoints);
             cls.AddMethod(true, "GetFlowLayoutedRects", BindStatic_GetFlowLayoutedRects);

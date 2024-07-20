@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.HorizontalOrVerticalLayoutGroup
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_HorizontalOrVerticalLayoutGroup
@@ -306,6 +306,47 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_reverseArrangement(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.UI.HorizontalOrVerticalLayoutGroup self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.reverseArrangement;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_reverseArrangement(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.UI.HorizontalOrVerticalLayoutGroup self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.UI.HorizontalOrVerticalLayoutGroup), "reverseArrangement", typeof(bool), 0);
+                }
+                self.reverseArrangement = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("HorizontalOrVerticalLayoutGroup", typeof(UnityEngine.UI.HorizontalOrVerticalLayoutGroup), QuickJS.JSNative.class_private_ctor);
@@ -316,6 +357,7 @@ namespace jsb {
             cls.AddProperty(false, "childControlHeight", BindRead_childControlHeight, BindWrite_childControlHeight);
             cls.AddProperty(false, "childScaleWidth", BindRead_childScaleWidth, BindWrite_childScaleWidth);
             cls.AddProperty(false, "childScaleHeight", BindRead_childScaleHeight, BindWrite_childScaleHeight);
+            cls.AddProperty(false, "reverseArrangement", BindRead_reverseArrangement, BindWrite_reverseArrangement);
             return cls;
         }
     }

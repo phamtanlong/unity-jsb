@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.EditorGUI
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_EditorGUI
@@ -1118,6 +1118,36 @@ namespace jsb {
                 {
                     if (argc == 5)
                     {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(string)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[3], typeof(System.Type)) && Values.js_match_type(ctx, argv[4], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Rect arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Rect), 0);
+                            }
+                            string arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(string), 1);
+                            }
+                            UnityEngine.Object arg2;
+                            if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Object), 2);
+                            }
+                            System.Type arg3;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(System.Type), 3);
+                            }
+                            UnityEngine.Object arg4;
+                            if (!Values.js_get_classvalue(ctx, argv[4], out arg4))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Object), 4);
+                            }
+                            var ret = UnityEditor.EditorGUI.ObjectField(arg0, arg1, arg2, arg3, arg4);
+                            return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                        }
                         if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(string)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[3], typeof(System.Type)) && Values.js_match_type(ctx, argv[4], typeof(bool)))
                         {
                             UnityEngine.Rect arg0;
@@ -1144,6 +1174,36 @@ namespace jsb {
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
                             {
                                 throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(bool), 4);
+                            }
+                            var ret = UnityEditor.EditorGUI.ObjectField(arg0, arg1, arg2, arg3, arg4);
+                            return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GUIContent)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[3], typeof(System.Type)) && Values.js_match_type(ctx, argv[4], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Rect arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Rect), 0);
+                            }
+                            UnityEngine.GUIContent arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.GUIContent), 1);
+                            }
+                            UnityEngine.Object arg2;
+                            if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Object), 2);
+                            }
+                            System.Type arg3;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(System.Type), 3);
+                            }
+                            UnityEngine.Object arg4;
+                            if (!Values.js_get_classvalue(ctx, argv[4], out arg4))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Object), 4);
                             }
                             var ret = UnityEditor.EditorGUI.ObjectField(arg0, arg1, arg2, arg3, arg4);
                             return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
@@ -1205,6 +1265,31 @@ namespace jsb {
                             }
                             UnityEditor.EditorGUI.ObjectField(arg0, arg1, arg2, arg3);
                             return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[2], typeof(System.Type)) && Values.js_match_type(ctx, argv[3], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Rect arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Rect), 0);
+                            }
+                            UnityEngine.Object arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Object), 1);
+                            }
+                            System.Type arg2;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(System.Type), 2);
+                            }
+                            UnityEngine.Object arg3;
+                            if (!Values.js_get_classvalue(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "ObjectField", typeof(UnityEngine.Object), 3);
+                            }
+                            var ret = UnityEditor.EditorGUI.ObjectField(arg0, arg1, arg2, arg3);
+                            return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
                         }
                         if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[2], typeof(System.Type)) && Values.js_match_type(ctx, argv[3], typeof(bool)))
                         {
@@ -3558,6 +3643,54 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("LabelField", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_LinkButton(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(string)))
+                        {
+                            UnityEngine.Rect arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "LinkButton", typeof(UnityEngine.Rect), 0);
+                            }
+                            string arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "LinkButton", typeof(string), 1);
+                            }
+                            var ret = UnityEditor.EditorGUI.LinkButton(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Rect)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GUIContent)))
+                        {
+                            UnityEngine.Rect arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "LinkButton", typeof(UnityEngine.Rect), 0);
+                            }
+                            UnityEngine.GUIContent arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.EditorGUI), "LinkButton", typeof(UnityEngine.GUIContent), 1);
+                            }
+                            var ret = UnityEditor.EditorGUI.LinkButton(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("LinkButton", argc);
             }
             catch (Exception exception)
             {
@@ -7114,12 +7247,69 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DrawRect(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Rect arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUI), "DrawRect", typeof(UnityEngine.Rect), 0);
+                    }
+                    UnityEngine.Color arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorGUI), "DrawRect", typeof(UnityEngine.Color), 1);
+                    }
+                    UnityEditor.EditorGUI.DrawRect(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("DrawRect", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_GradientField(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
                 do
                 {
+                    if (argc == 5)
+                    {
+                        UnityEngine.Rect arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "GradientField", typeof(UnityEngine.Rect), 0);
+                        }
+                        UnityEngine.GUIContent arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "GradientField", typeof(UnityEngine.GUIContent), 1);
+                        }
+                        UnityEngine.Gradient arg2;
+                        if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "GradientField", typeof(UnityEngine.Gradient), 2);
+                        }
+                        bool arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "GradientField", typeof(bool), 3);
+                        }
+                        UnityEngine.ColorSpace arg4;
+                        if (!Values.js_get_enumvalue(ctx, argv[4], out arg4))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "GradientField", typeof(UnityEngine.ColorSpace), 4);
+                        }
+                        var ret = UnityEditor.EditorGUI.GradientField(arg0, arg1, arg2, arg3, arg4);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
                     if (argc == 4)
                     {
                         UnityEngine.Rect arg0;
@@ -7211,33 +7401,6 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_DrawRect(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 2)
-                {
-                    UnityEngine.Rect arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.EditorGUI), "DrawRect", typeof(UnityEngine.Rect), 0);
-                    }
-                    UnityEngine.Color arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.EditorGUI), "DrawRect", typeof(UnityEngine.Color), 1);
-                    }
-                    UnityEditor.EditorGUI.DrawRect(arg0, arg1);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("DrawRect", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_showMixedValue(JSContext ctx, JSValue this_obj)
         {
@@ -7313,6 +7476,38 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_hyperLinkClicked(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action<UnityEditor.EditorWindow, UnityEditor.HyperLinkClickedEventArgs> value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "hyperLinkClicked", typeof(System.Action<UnityEditor.EditorWindow, UnityEditor.HyperLinkClickedEventArgs>), 1);
+                        }
+                        UnityEditor.EditorGUI.hyperLinkClicked += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorGUI), "hyperLinkClicked", typeof(System.Action<UnityEditor.EditorWindow, UnityEditor.HyperLinkClickedEventArgs>), 1);
+                        }
+                        UnityEditor.EditorGUI.hyperLinkClicked -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("EditorGUI", typeof(UnityEditor.EditorGUI), QuickJS.JSNative.class_private_ctor);
@@ -7356,6 +7551,7 @@ namespace jsb {
             cls.AddMethod(true, "DrawTextureTransparent", BindStatic_DrawTextureTransparent);
             cls.AddMethod(true, "DrawPreviewTexture", BindStatic_DrawPreviewTexture);
             cls.AddMethod(true, "LabelField", BindStatic_LabelField);
+            cls.AddMethod(true, "LinkButton", BindStatic_LinkButton);
             cls.AddMethod(true, "ToggleLeft", BindStatic_ToggleLeft);
             cls.AddMethod(true, "TextField", BindStatic_TextField);
             cls.AddMethod(true, "DelayedTextField", BindStatic_DelayedTextField);
@@ -7380,11 +7576,12 @@ namespace jsb {
             cls.AddMethod(true, "PropertyField", BindStatic_PropertyField);
             cls.AddMethod(true, "BeginFoldoutHeaderGroup", BindStatic_BeginFoldoutHeaderGroup);
             cls.AddMethod(true, "EndFoldoutHeaderGroup", BindStatic_EndFoldoutHeaderGroup);
-            cls.AddMethod(true, "GradientField", BindStatic_GradientField);
             cls.AddMethod(true, "DrawRect", BindStatic_DrawRect);
+            cls.AddMethod(true, "GradientField", BindStatic_GradientField);
             cls.AddProperty(true, "showMixedValue", BindStaticRead_showMixedValue, BindStaticWrite_showMixedValue);
             cls.AddProperty(true, "actionKey", BindStaticRead_actionKey, null);
             cls.AddProperty(true, "indentLevel", BindStaticRead_indentLevel, BindStaticWrite_indentLevel);
+            cls.AddMethod(true, "hyperLinkClicked", BindStaticEvent_hyperLinkClicked);
             return cls;
         }
     }

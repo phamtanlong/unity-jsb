@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Matrix4x4
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Matrix4x4
@@ -354,6 +354,28 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetPosition(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Matrix4x4 self;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.GetPosition();
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetPosition", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_SetColumn(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -534,6 +556,26 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Matrix4x4 self;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Matrix4x4), "ToString", typeof(string), 0);
+                        }
+                        System.IFormatProvider arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Matrix4x4), "ToString", typeof(System.IFormatProvider), 1);
+                        }
+                        var ret = self.ToString(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
                     if (argc == 1)
                     {
                         UnityEngine.Matrix4x4 self;
@@ -1969,6 +2011,7 @@ namespace jsb {
             cls.AddMethod(false, "Equals", Bind_Equals);
             cls.AddMethod(false, "GetColumn", Bind_GetColumn);
             cls.AddMethod(false, "GetRow", Bind_GetRow);
+            cls.AddMethod(false, "GetPosition", Bind_GetPosition);
             cls.AddMethod(false, "SetColumn", Bind_SetColumn);
             cls.AddMethod(false, "SetRow", Bind_SetRow);
             cls.AddMethod(false, "MultiplyPoint", Bind_MultiplyPoint);

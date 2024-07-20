@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.GraphicRaycaster
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_GraphicRaycaster
@@ -170,6 +170,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_blockingMask(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.UI.GraphicRaycaster self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.blockingMask;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_blockingMask(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.UI.GraphicRaycaster self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.LayerMask value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.UI.GraphicRaycaster), "blockingMask", typeof(UnityEngine.LayerMask), 0);
+                }
+                self.blockingMask = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_eventCamera(JSContext ctx, JSValue this_obj)
         {
             try
@@ -195,6 +236,7 @@ namespace jsb {
             cls.AddProperty(false, "renderOrderPriority", BindRead_renderOrderPriority, null);
             cls.AddProperty(false, "ignoreReversedGraphics", BindRead_ignoreReversedGraphics, BindWrite_ignoreReversedGraphics);
             cls.AddProperty(false, "blockingObjects", BindRead_blockingObjects, BindWrite_blockingObjects);
+            cls.AddProperty(false, "blockingMask", BindRead_blockingMask, BindWrite_blockingMask);
             cls.AddProperty(false, "eventCamera", BindRead_eventCamera, null);
             return cls;
         }

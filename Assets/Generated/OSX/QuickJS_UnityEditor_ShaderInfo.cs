@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.ShaderInfo
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_ShaderInfo
@@ -88,12 +88,31 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_hasWarnings(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ShaderInfo self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.hasWarnings;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("ShaderInfo", typeof(UnityEditor.ShaderInfo), BindConstructor);
             cls.AddProperty(false, "name", BindRead_name, null);
             cls.AddProperty(false, "supported", BindRead_supported, null);
             cls.AddProperty(false, "hasErrors", BindRead_hasErrors, null);
+            cls.AddProperty(false, "hasWarnings", BindRead_hasWarnings, null);
             return cls;
         }
     }

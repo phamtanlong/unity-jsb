@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.EditorWindow
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_EditorWindow
@@ -363,6 +363,50 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SaveChanges(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.EditorWindow self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.SaveChanges();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SaveChanges", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_DiscardChanges(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.EditorWindow self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.DiscardChanges();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("DiscardChanges", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_Close(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -449,6 +493,41 @@ namespace jsb {
                     return Values.js_push_classvalue(ctx, ret);
                 }
                 throw new NoSuitableMethodException("GetExtraPaneTypes", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_TryGetOverlay(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEditor.EditorWindow self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorWindow), "TryGetOverlay", typeof(string), 0);
+                    }
+                    UnityEditor.Overlays.Overlay arg1;
+                    var ret = self.TryGetOverlay(arg0, out arg1);
+                    var out0 = Values.js_push_classvalue(ctx, arg1);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("TryGetOverlay", argc);
             }
             catch (Exception exception)
             {
@@ -578,6 +657,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_wantsLessLayoutEvents(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.EditorWindow self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.wantsLessLayoutEvents;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_wantsLessLayoutEvents(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.EditorWindow self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.EditorWindow), "wantsLessLayoutEvents", typeof(bool), 0);
+                }
+                self.wantsLessLayoutEvents = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_autoRepaintOnSceneChange(JSContext ctx, JSValue this_obj)
         {
             try
@@ -660,6 +780,42 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_hasFocus(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.EditorWindow self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.hasFocus;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_docked(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.EditorWindow self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.docked;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_focusedWindow(JSContext ctx, JSValue this_obj)
         {
             try
@@ -679,6 +835,42 @@ namespace jsb {
             {
                 var ret = UnityEditor.EditorWindow.mouseOverWindow;
                 return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_hasUnsavedChanges(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.EditorWindow self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.hasUnsavedChanges;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_saveChangesMessage(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.EditorWindow self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.saveChangesMessage;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -906,20 +1098,28 @@ namespace jsb {
             cls.AddMethod(false, "Show", Bind_Show);
             cls.AddMethod(false, "ShowAuxWindow", Bind_ShowAuxWindow);
             cls.AddMethod(false, "ShowModal", Bind_ShowModal);
+            cls.AddMethod(false, "SaveChanges", Bind_SaveChanges);
+            cls.AddMethod(false, "DiscardChanges", Bind_DiscardChanges);
             cls.AddMethod(false, "Close", Bind_Close);
             cls.AddMethod(false, "Repaint", Bind_Repaint);
             cls.AddMethod(false, "SendEvent", Bind_SendEvent);
             cls.AddMethod(false, "GetExtraPaneTypes", Bind_GetExtraPaneTypes);
+            cls.AddMethod(false, "TryGetOverlay", Bind_TryGetOverlay);
             cls.AddMethod(true, "GetWindow", QuickJS.Unity.EditorWindowFix.BindStatic_GetWindow);
             cls.AddMethod(true, "FocusWindowIfItsOpen", BindStatic_FocusWindowIfItsOpen);
             cls.AddRawMethod(true, "CreateWindow", QuickJS.Unity.EditorWindowFix.CreateWindow);
             cls.AddProperty(false, "rootVisualElement", BindRead_rootVisualElement, null);
             cls.AddProperty(false, "wantsMouseMove", BindRead_wantsMouseMove, BindWrite_wantsMouseMove);
             cls.AddProperty(false, "wantsMouseEnterLeaveWindow", BindRead_wantsMouseEnterLeaveWindow, BindWrite_wantsMouseEnterLeaveWindow);
+            cls.AddProperty(false, "wantsLessLayoutEvents", BindRead_wantsLessLayoutEvents, BindWrite_wantsLessLayoutEvents);
             cls.AddProperty(false, "autoRepaintOnSceneChange", BindRead_autoRepaintOnSceneChange, BindWrite_autoRepaintOnSceneChange);
             cls.AddProperty(false, "maximized", BindRead_maximized, BindWrite_maximized);
+            cls.AddProperty(false, "hasFocus", BindRead_hasFocus, null);
+            cls.AddProperty(false, "docked", BindRead_docked, null);
             cls.AddProperty(true, "focusedWindow", BindStaticRead_focusedWindow, null);
             cls.AddProperty(true, "mouseOverWindow", BindStaticRead_mouseOverWindow, null);
+            cls.AddProperty(false, "hasUnsavedChanges", BindRead_hasUnsavedChanges, null);
+            cls.AddProperty(false, "saveChangesMessage", BindRead_saveChangesMessage, null);
             cls.AddProperty(false, "minSize", BindRead_minSize, BindWrite_minSize);
             cls.AddProperty(false, "maxSize", BindRead_maxSize, BindWrite_maxSize);
             cls.AddProperty(false, "titleContent", BindRead_titleContent, BindWrite_titleContent);

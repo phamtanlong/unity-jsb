@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.MeshUtility
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_MeshUtility
@@ -118,6 +118,54 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_AcquireReadOnlyMeshData(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Mesh)))
+                        {
+                            UnityEngine.Mesh arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.MeshUtility), "AcquireReadOnlyMeshData", typeof(UnityEngine.Mesh), 0);
+                            }
+                            var ret = UnityEditor.MeshUtility.AcquireReadOnlyMeshData(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Mesh[])))
+                        {
+                            UnityEngine.Mesh[] arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.MeshUtility), "AcquireReadOnlyMeshData", typeof(UnityEngine.Mesh[]), 0);
+                            }
+                            var ret = UnityEditor.MeshUtility.AcquireReadOnlyMeshData(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(System.Collections.Generic.List<UnityEngine.Mesh>)))
+                        {
+                            System.Collections.Generic.List<UnityEngine.Mesh> arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.MeshUtility), "AcquireReadOnlyMeshData", typeof(System.Collections.Generic.List<UnityEngine.Mesh>), 0);
+                            }
+                            var ret = UnityEditor.MeshUtility.AcquireReadOnlyMeshData(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("AcquireReadOnlyMeshData", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("MeshUtility", typeof(UnityEditor.MeshUtility), QuickJS.JSNative.class_private_ctor);
@@ -125,6 +173,7 @@ namespace jsb {
             cls.AddMethod(true, "SetMeshCompression", BindStatic_SetMeshCompression);
             cls.AddMethod(true, "GetMeshCompression", BindStatic_GetMeshCompression);
             cls.AddMethod(true, "SetPerTriangleUV2", BindStatic_SetPerTriangleUV2);
+            cls.AddMethod(true, "AcquireReadOnlyMeshData", BindStatic_AcquireReadOnlyMeshData);
             return cls;
         }
     }

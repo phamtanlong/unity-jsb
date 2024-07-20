@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Handles
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Handles
@@ -51,21 +51,44 @@ namespace jsb {
         {
             try
             {
-                if (argc == 2)
+                do
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    if (argc == 3)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(UnityEngine.Vector3), 0);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(UnityEngine.Vector3), 1);
+                        }
+                        float arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(float), 2);
+                        }
+                        UnityEditor.Handles.DrawLine(arg0, arg1, arg2);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(UnityEngine.Vector3), 1);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawLine", typeof(UnityEngine.Vector3), 1);
+                        }
+                        UnityEditor.Handles.DrawLine(arg0, arg1);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    UnityEditor.Handles.DrawLine(arg0, arg1);
-                    return JSApi.JS_UNDEFINED;
-                }
+                } while(false);
                 throw new NoSuitableMethodException("DrawLine", argc);
             }
             catch (Exception exception)
@@ -1195,31 +1218,54 @@ namespace jsb {
         {
             try
             {
-                if (argc == 4)
+                do
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    if (argc == 4)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Vector3), 0);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Vector3), 1);
+                        }
+                        UnityEngine.Quaternion arg2;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Quaternion), 2);
+                        }
+                        float arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(float), 3);
+                        }
+                        var ret = UnityEditor.Handles.ScaleHandle(arg0, arg1, arg2, arg3);
+                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
                     }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    if (argc == 3)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Vector3), 1);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Vector3), 1);
+                        }
+                        UnityEngine.Quaternion arg2;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Quaternion), 2);
+                        }
+                        var ret = UnityEditor.Handles.ScaleHandle(arg0, arg1, arg2);
+                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
                     }
-                    UnityEngine.Quaternion arg2;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(UnityEngine.Quaternion), 2);
-                    }
-                    float arg3;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "ScaleHandle", typeof(float), 3);
-                    }
-                    var ret = UnityEditor.Handles.ScaleHandle(arg0, arg1, arg2, arg3);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("ScaleHandle", argc);
             }
             catch (Exception exception)
@@ -2059,26 +2105,54 @@ namespace jsb {
         {
             try
             {
-                if (argc == 3)
+                do
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    if (argc == 4)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(UnityEngine.Vector3), 0);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(UnityEngine.Vector3), 1);
+                        }
+                        float arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(float), 2);
+                        }
+                        float arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(float), 3);
+                        }
+                        UnityEditor.Handles.DrawWireDisc(arg0, arg1, arg2, arg3);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    if (argc == 3)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(UnityEngine.Vector3), 1);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(UnityEngine.Vector3), 1);
+                        }
+                        float arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(float), 2);
+                        }
+                        UnityEditor.Handles.DrawWireDisc(arg0, arg1, arg2);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireDisc", typeof(float), 2);
-                    }
-                    UnityEditor.Handles.DrawWireDisc(arg0, arg1, arg2);
-                    return JSApi.JS_UNDEFINED;
-                }
+                } while(false);
                 throw new NoSuitableMethodException("DrawWireDisc", argc);
             }
             catch (Exception exception)
@@ -2091,36 +2165,74 @@ namespace jsb {
         {
             try
             {
-                if (argc == 5)
+                do
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    if (argc == 6)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 0);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 1);
+                        }
+                        UnityEngine.Vector3 arg2;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 2);
+                        }
+                        float arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 3);
+                        }
+                        float arg4;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 4);
+                        }
+                        float arg5;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[5], out arg5))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 5);
+                        }
+                        UnityEditor.Handles.DrawWireArc(arg0, arg1, arg2, arg3, arg4, arg5);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    if (argc == 5)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 1);
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 1);
+                        }
+                        UnityEngine.Vector3 arg2;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 2);
+                        }
+                        float arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 3);
+                        }
+                        float arg4;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 4);
+                        }
+                        UnityEditor.Handles.DrawWireArc(arg0, arg1, arg2, arg3, arg4);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    UnityEngine.Vector3 arg2;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(UnityEngine.Vector3), 2);
-                    }
-                    float arg3;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 3);
-                    }
-                    float arg4;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawWireArc", typeof(float), 4);
-                    }
-                    UnityEditor.Handles.DrawWireArc(arg0, arg1, arg2, arg3, arg4);
-                    return JSApi.JS_UNDEFINED;
-                }
+                } while(false);
                 throw new NoSuitableMethodException("DrawWireArc", argc);
             }
             catch (Exception exception)
@@ -2417,6 +2529,31 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 4)
+                    {
+                        UnityEngine.Rect arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawCamera", typeof(UnityEngine.Rect), 0);
+                        }
+                        UnityEngine.Camera arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawCamera", typeof(UnityEngine.Camera), 1);
+                        }
+                        UnityEditor.DrawCameraMode arg2;
+                        if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawCamera", typeof(UnityEditor.DrawCameraMode), 2);
+                        }
+                        bool arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Handles), "DrawCamera", typeof(bool), 3);
+                        }
+                        UnityEditor.Handles.DrawCamera(arg0, arg1, arg2, arg3);
+                        return JSApi.JS_UNDEFINED;
+                    }
                     if (argc == 3)
                     {
                         UnityEngine.Rect arg0;
@@ -2577,26 +2714,125 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_DoPositionHandle(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue BindStatic_DrawTexture3DSDF(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
-                if (argc == 2)
+                if (argc == 4)
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    UnityEngine.Texture arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DoPositionHandle", typeof(UnityEngine.Vector3), 0);
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSDF", typeof(UnityEngine.Texture), 0);
                     }
-                    UnityEngine.Quaternion arg1;
+                    float arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSDF", typeof(float), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSDF", typeof(float), 2);
+                    }
+                    UnityEngine.Gradient arg3;
+                    if (!Values.js_get_classvalue(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSDF", typeof(UnityEngine.Gradient), 3);
+                    }
+                    UnityEditor.Handles.DrawTexture3DSDF(arg0, arg1, arg2, arg3);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("DrawTexture3DSDF", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DrawTexture3DSlice(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 5)
+                {
+                    UnityEngine.Texture arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSlice", typeof(UnityEngine.Texture), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
                     if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
                     {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DoPositionHandle", typeof(UnityEngine.Quaternion), 1);
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSlice", typeof(UnityEngine.Vector3), 1);
                     }
-                    var ret = UnityEditor.Handles.DoPositionHandle(arg0, arg1);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                    UnityEngine.FilterMode arg2;
+                    if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSlice", typeof(UnityEngine.FilterMode), 2);
+                    }
+                    bool arg3;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSlice", typeof(bool), 3);
+                    }
+                    UnityEngine.Gradient arg4;
+                    if (!Values.js_get_classvalue(ctx, argv[4], out arg4))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DSlice", typeof(UnityEngine.Gradient), 4);
+                    }
+                    UnityEditor.Handles.DrawTexture3DSlice(arg0, arg1, arg2, arg3, arg4);
+                    return JSApi.JS_UNDEFINED;
                 }
-                throw new NoSuitableMethodException("DoPositionHandle", argc);
+                throw new NoSuitableMethodException("DrawTexture3DSlice", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DrawTexture3DVolume(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 6)
+                {
+                    UnityEngine.Texture arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DVolume", typeof(UnityEngine.Texture), 0);
+                    }
+                    float arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DVolume", typeof(float), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DVolume", typeof(float), 2);
+                    }
+                    UnityEngine.FilterMode arg3;
+                    if (!Values.js_get_enumvalue(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DVolume", typeof(UnityEngine.FilterMode), 3);
+                    }
+                    bool arg4;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[4], out arg4))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DVolume", typeof(bool), 4);
+                    }
+                    UnityEngine.Gradient arg5;
+                    if (!Values.js_get_classvalue(ctx, argv[5], out arg5))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DrawTexture3DVolume", typeof(UnityEngine.Gradient), 5);
+                    }
+                    UnityEditor.Handles.DrawTexture3DVolume(arg0, arg1, arg2, arg3, arg4, arg5);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("DrawTexture3DVolume", argc);
             }
             catch (Exception exception)
             {
@@ -2624,43 +2860,6 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
                 }
                 throw new NoSuitableMethodException("DoRotationHandle", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_DoScaleHandle(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 4)
-                {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(UnityEngine.Vector3), 0);
-                    }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(UnityEngine.Vector3), 1);
-                    }
-                    UnityEngine.Quaternion arg2;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(UnityEngine.Quaternion), 2);
-                    }
-                    float arg3;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(float), 3);
-                    }
-                    var ret = UnityEditor.Handles.DoScaleHandle(arg0, arg1, arg2, arg3);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("DoScaleHandle", argc);
             }
             catch (Exception exception)
             {
@@ -3035,6 +3234,228 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DoScaleHandle(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 4)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(UnityEngine.Vector3), 1);
+                    }
+                    UnityEngine.Quaternion arg2;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(UnityEngine.Quaternion), 2);
+                    }
+                    float arg3;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DoScaleHandle", typeof(float), 3);
+                    }
+                    var ret = UnityEditor.Handles.DoScaleHandle(arg0, arg1, arg2, arg3);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("DoScaleHandle", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DoPositionHandle(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DoPositionHandle", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Handles), "DoPositionHandle", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    var ret = UnityEditor.Handles.DoPositionHandle(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("DoPositionHandle", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_xAxisColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.xAxisColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_yAxisColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.yAxisColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_zAxisColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.zAxisColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_centerColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.centerColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_selectedColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.selectedColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_preselectionColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.preselectionColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_secondaryColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.secondaryColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_UIColliderHandleColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.UIColliderHandleColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_lineThickness(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Handles.lineThickness;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_currentCamera(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.Handles self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.currentCamera;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_currentCamera(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.Handles self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Camera value;
+                if (!Values.js_get_classvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.Handles), "currentCamera", typeof(UnityEngine.Camera), 0);
+                }
+                self.currentCamera = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_lighting(JSContext ctx, JSValue this_obj)
         {
@@ -3172,138 +3593,6 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_xAxisColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.xAxisColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_yAxisColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.yAxisColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_zAxisColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.zAxisColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_centerColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.centerColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_selectedColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.selectedColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_preselectionColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.preselectionColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_secondaryColor(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Handles.secondaryColor;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_currentCamera(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                UnityEditor.Handles self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                var ret = self.currentCamera;
-                return Values.js_push_classvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindWrite_currentCamera(JSContext ctx, JSValue this_obj, JSValue arg_val)
-        {
-            try
-            {
-                UnityEditor.Handles self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                UnityEngine.Camera value;
-                if (!Values.js_get_classvalue(ctx, arg_val, out value))
-                {
-                    throw new ParameterException(typeof(UnityEditor.Handles), "currentCamera", typeof(UnityEngine.Camera), 0);
-                }
-                self.currentCamera = value;
-                return JSApi.JS_UNDEFINED;
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Handles", typeof(UnityEditor.Handles), QuickJS.JSNative.class_private_ctor);
@@ -3355,15 +3644,13 @@ namespace jsb {
             cls.AddMethod(true, "BeginGUI", BindStatic_BeginGUI);
             cls.AddMethod(true, "EndGUI", BindStatic_EndGUI);
             cls.AddMethod(true, "MakeBezierPoints", BindStatic_MakeBezierPoints);
-            cls.AddMethod(true, "DoPositionHandle", BindStatic_DoPositionHandle);
+            cls.AddMethod(true, "DrawTexture3DSDF", BindStatic_DrawTexture3DSDF);
+            cls.AddMethod(true, "DrawTexture3DSlice", BindStatic_DrawTexture3DSlice);
+            cls.AddMethod(true, "DrawTexture3DVolume", BindStatic_DrawTexture3DVolume);
             cls.AddMethod(true, "DoRotationHandle", BindStatic_DoRotationHandle);
-            cls.AddMethod(true, "DoScaleHandle", BindStatic_DoScaleHandle);
             cls.AddMethod(true, "TransformHandle", BindStatic_TransformHandle);
-            cls.AddProperty(true, "lighting", BindStaticRead_lighting, BindStaticWrite_lighting);
-            cls.AddProperty(true, "color", BindStaticRead_color, BindStaticWrite_color);
-            cls.AddProperty(true, "zTest", BindStaticRead_zTest, BindStaticWrite_zTest);
-            cls.AddProperty(true, "matrix", BindStaticRead_matrix, BindStaticWrite_matrix);
-            cls.AddProperty(true, "inverseMatrix", BindStaticRead_inverseMatrix, null);
+            cls.AddMethod(true, "DoScaleHandle", BindStatic_DoScaleHandle);
+            cls.AddMethod(true, "DoPositionHandle", BindStatic_DoPositionHandle);
             cls.AddProperty(true, "xAxisColor", BindStaticRead_xAxisColor, null);
             cls.AddProperty(true, "yAxisColor", BindStaticRead_yAxisColor, null);
             cls.AddProperty(true, "zAxisColor", BindStaticRead_zAxisColor, null);
@@ -3371,7 +3658,14 @@ namespace jsb {
             cls.AddProperty(true, "selectedColor", BindStaticRead_selectedColor, null);
             cls.AddProperty(true, "preselectionColor", BindStaticRead_preselectionColor, null);
             cls.AddProperty(true, "secondaryColor", BindStaticRead_secondaryColor, null);
+            cls.AddProperty(true, "UIColliderHandleColor", BindStaticRead_UIColliderHandleColor, null);
+            cls.AddProperty(true, "lineThickness", BindStaticRead_lineThickness, null);
             cls.AddProperty(false, "currentCamera", BindRead_currentCamera, BindWrite_currentCamera);
+            cls.AddProperty(true, "lighting", BindStaticRead_lighting, BindStaticWrite_lighting);
+            cls.AddProperty(true, "color", BindStaticRead_color, BindStaticWrite_color);
+            cls.AddProperty(true, "zTest", BindStaticRead_zTest, BindStaticWrite_zTest);
+            cls.AddProperty(true, "matrix", BindStaticRead_matrix, BindStaticWrite_matrix);
+            cls.AddProperty(true, "inverseMatrix", BindStaticRead_inverseMatrix, null);
             return cls;
         }
     }

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Callbacks.OnOpenAssetAttribute
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Callbacks_OnOpenAssetAttribute
@@ -27,16 +27,46 @@ namespace jsb {
             {
                 do
                 {
-                    if (argc == 1)
+                    if (argc == 2)
                     {
                         int arg0;
                         if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                         {
                             throw new ParameterException(typeof(UnityEditor.Callbacks.OnOpenAssetAttribute), ".ctor", typeof(int), 0);
                         }
-                        var o = new UnityEditor.Callbacks.OnOpenAssetAttribute(arg0);
+                        UnityEditor.Callbacks.OnOpenAssetAttributeMode arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Callbacks.OnOpenAssetAttribute), ".ctor", typeof(UnityEditor.Callbacks.OnOpenAssetAttributeMode), 1);
+                        }
+                        var o = new UnityEditor.Callbacks.OnOpenAssetAttribute(arg0, arg1);
                         var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
                         return val;
+                    }
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.Callbacks.OnOpenAssetAttributeMode)))
+                        {
+                            UnityEditor.Callbacks.OnOpenAssetAttributeMode arg0;
+                            if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Callbacks.OnOpenAssetAttribute), ".ctor", typeof(UnityEditor.Callbacks.OnOpenAssetAttributeMode), 0);
+                            }
+                            var o = new UnityEditor.Callbacks.OnOpenAssetAttribute(arg0);
+                            var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                            return val;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Callbacks.OnOpenAssetAttribute), ".ctor", typeof(int), 0);
+                            }
+                            var o = new UnityEditor.Callbacks.OnOpenAssetAttribute(arg0);
+                            var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                            return val;
+                        }
                     }
                     if (argc == 0)
                     {

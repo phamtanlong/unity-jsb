@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Quaternion
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Quaternion
@@ -383,6 +383,26 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Quaternion self;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Quaternion), "ToString", typeof(string), 0);
+                        }
+                        System.IFormatProvider arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Quaternion), "ToString", typeof(System.IFormatProvider), 1);
+                        }
+                        var ret = self.ToString(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
                     if (argc == 1)
                     {
                         UnityEngine.Quaternion self;
@@ -417,243 +437,31 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_FromToRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_Compare(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
                 if (argc == 2)
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    UnityEngine.Quaternion self;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
                     {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "FromToRotation", typeof(UnityEngine.Vector3), 0);
+                        throw new ThisBoundException();
                     }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "FromToRotation", typeof(UnityEngine.Vector3), 1);
-                    }
-                    var ret = UnityEngine.Quaternion.FromToRotation(arg0, arg1);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("FromToRotation", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_Inverse(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
                     UnityEngine.Quaternion arg0;
                     if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Inverse", typeof(UnityEngine.Quaternion), 0);
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "Compare", typeof(UnityEngine.Quaternion), 0);
                     }
-                    var ret = UnityEngine.Quaternion.Inverse(arg0);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                    int arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "Compare", typeof(int), 1);
+                    }
+                    var ret = TMPro.TMPro_ExtensionMethods.Compare(self, arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
-                throw new NoSuitableMethodException("Inverse", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_Slerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 3)
-                {
-                    UnityEngine.Quaternion arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Slerp", typeof(UnityEngine.Quaternion), 0);
-                    }
-                    UnityEngine.Quaternion arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Slerp", typeof(UnityEngine.Quaternion), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Slerp", typeof(float), 2);
-                    }
-                    var ret = UnityEngine.Quaternion.Slerp(arg0, arg1, arg2);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("Slerp", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_SlerpUnclamped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 3)
-                {
-                    UnityEngine.Quaternion arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "SlerpUnclamped", typeof(UnityEngine.Quaternion), 0);
-                    }
-                    UnityEngine.Quaternion arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "SlerpUnclamped", typeof(UnityEngine.Quaternion), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "SlerpUnclamped", typeof(float), 2);
-                    }
-                    var ret = UnityEngine.Quaternion.SlerpUnclamped(arg0, arg1, arg2);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("SlerpUnclamped", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_Lerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 3)
-                {
-                    UnityEngine.Quaternion arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Lerp", typeof(UnityEngine.Quaternion), 0);
-                    }
-                    UnityEngine.Quaternion arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Lerp", typeof(UnityEngine.Quaternion), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Lerp", typeof(float), 2);
-                    }
-                    var ret = UnityEngine.Quaternion.Lerp(arg0, arg1, arg2);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("Lerp", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_LerpUnclamped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 3)
-                {
-                    UnityEngine.Quaternion arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "LerpUnclamped", typeof(UnityEngine.Quaternion), 0);
-                    }
-                    UnityEngine.Quaternion arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "LerpUnclamped", typeof(UnityEngine.Quaternion), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "LerpUnclamped", typeof(float), 2);
-                    }
-                    var ret = UnityEngine.Quaternion.LerpUnclamped(arg0, arg1, arg2);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("LerpUnclamped", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_AngleAxis(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 2)
-                {
-                    float arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "AngleAxis", typeof(float), 0);
-                    }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Quaternion), "AngleAxis", typeof(UnityEngine.Vector3), 1);
-                    }
-                    var ret = UnityEngine.Quaternion.AngleAxis(arg0, arg1);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("AngleAxis", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_LookRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 2)
-                    {
-                        UnityEngine.Vector3 arg0;
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Quaternion), "LookRotation", typeof(UnityEngine.Vector3), 0);
-                        }
-                        UnityEngine.Vector3 arg1;
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Quaternion), "LookRotation", typeof(UnityEngine.Vector3), 1);
-                        }
-                        var ret = UnityEngine.Quaternion.LookRotation(arg0, arg1);
-                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                    }
-                    if (argc == 1)
-                    {
-                        UnityEngine.Vector3 arg0;
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Quaternion), "LookRotation", typeof(UnityEngine.Vector3), 0);
-                        }
-                        var ret = UnityEngine.Quaternion.LookRotation(arg0);
-                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("LookRotation", argc);
+                throw new NoSuitableMethodException("Compare", argc);
             }
             catch (Exception exception)
             {
@@ -909,6 +717,250 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
                 }
                 throw new NoSuitableMethodException("Normalize", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FromToRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "FromToRotation", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "FromToRotation", typeof(UnityEngine.Vector3), 1);
+                    }
+                    var ret = UnityEngine.Quaternion.FromToRotation(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("FromToRotation", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_Inverse(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Quaternion arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Inverse", typeof(UnityEngine.Quaternion), 0);
+                    }
+                    var ret = UnityEngine.Quaternion.Inverse(arg0);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("Inverse", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_Slerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Quaternion arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Slerp", typeof(UnityEngine.Quaternion), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Slerp", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Slerp", typeof(float), 2);
+                    }
+                    var ret = UnityEngine.Quaternion.Slerp(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("Slerp", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SlerpUnclamped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Quaternion arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "SlerpUnclamped", typeof(UnityEngine.Quaternion), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "SlerpUnclamped", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "SlerpUnclamped", typeof(float), 2);
+                    }
+                    var ret = UnityEngine.Quaternion.SlerpUnclamped(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("SlerpUnclamped", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_Lerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Quaternion arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Lerp", typeof(UnityEngine.Quaternion), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Lerp", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "Lerp", typeof(float), 2);
+                    }
+                    var ret = UnityEngine.Quaternion.Lerp(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("Lerp", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_LerpUnclamped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Quaternion arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "LerpUnclamped", typeof(UnityEngine.Quaternion), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "LerpUnclamped", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "LerpUnclamped", typeof(float), 2);
+                    }
+                    var ret = UnityEngine.Quaternion.LerpUnclamped(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("LerpUnclamped", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_AngleAxis(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    float arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "AngleAxis", typeof(float), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Quaternion), "AngleAxis", typeof(UnityEngine.Vector3), 1);
+                    }
+                    var ret = UnityEngine.Quaternion.AngleAxis(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("AngleAxis", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_LookRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Quaternion), "LookRotation", typeof(UnityEngine.Vector3), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Quaternion), "LookRotation", typeof(UnityEngine.Vector3), 1);
+                        }
+                        var ret = UnityEngine.Quaternion.LookRotation(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                    }
+                    if (argc == 1)
+                    {
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Quaternion), "LookRotation", typeof(UnityEngine.Vector3), 0);
+                        }
+                        var ret = UnityEngine.Quaternion.LookRotation(arg0);
+                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("LookRotation", argc);
             }
             catch (Exception exception)
             {
@@ -1253,14 +1305,7 @@ namespace jsb {
             cls.AddMethod(false, "GetHashCode", Bind_GetHashCode);
             cls.AddMethod(false, "Equals", Bind_Equals);
             cls.AddMethod(false, "toString", Bind_ToString);
-            cls.AddMethod(true, "FromToRotation", BindStatic_FromToRotation);
-            cls.AddMethod(true, "Inverse", BindStatic_Inverse);
-            cls.AddMethod(true, "Slerp", BindStatic_Slerp);
-            cls.AddMethod(true, "SlerpUnclamped", BindStatic_SlerpUnclamped);
-            cls.AddMethod(true, "Lerp", BindStatic_Lerp);
-            cls.AddMethod(true, "LerpUnclamped", BindStatic_LerpUnclamped);
-            cls.AddMethod(true, "AngleAxis", BindStatic_AngleAxis);
-            cls.AddMethod(true, "LookRotation", BindStatic_LookRotation);
+            cls.AddMethod(false, "Compare", Bind_Compare);
             cls.AddMethod(true, "op_Multiply", BindStatic_op_Multiply);
             cls.AddMethod(true, "op_Equality", BindStatic_op_Equality);
             cls.AddMethod(true, "op_Inequality", BindStatic_op_Inequality);
@@ -1269,6 +1314,14 @@ namespace jsb {
             cls.AddMethod(true, "Euler", BindStatic_Euler);
             cls.AddMethod(true, "RotateTowards", BindStatic_RotateTowards);
             cls.AddMethod(true, "Normalize", BindStatic_Normalize);
+            cls.AddMethod(true, "FromToRotation", BindStatic_FromToRotation);
+            cls.AddMethod(true, "Inverse", BindStatic_Inverse);
+            cls.AddMethod(true, "Slerp", BindStatic_Slerp);
+            cls.AddMethod(true, "SlerpUnclamped", BindStatic_SlerpUnclamped);
+            cls.AddMethod(true, "Lerp", BindStatic_Lerp);
+            cls.AddMethod(true, "LerpUnclamped", BindStatic_LerpUnclamped);
+            cls.AddMethod(true, "AngleAxis", BindStatic_AngleAxis);
+            cls.AddMethod(true, "LookRotation", BindStatic_LookRotation);
             cls.AddProperty(true, "identity", BindStaticRead_identity, null);
             cls.AddProperty(false, "eulerAngles", BindRead_eulerAngles, BindWrite_eulerAngles);
             cls.AddProperty(false, "normalized", BindRead_normalized, null);

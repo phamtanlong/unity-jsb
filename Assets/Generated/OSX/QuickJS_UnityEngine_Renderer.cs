@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Renderer
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Renderer
@@ -31,6 +31,50 @@ namespace jsb {
                     return val;
                 }
                 throw new NoSuitableMethodException("constructor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ResetBounds(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Renderer self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.ResetBounds();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ResetBounds", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ResetLocalBounds(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Renderer self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.ResetLocalBounds();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ResetLocalBounds", argc);
             }
             catch (Exception exception)
             {
@@ -280,6 +324,70 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_bounds(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Renderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Bounds value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Renderer), "bounds", typeof(UnityEngine.Bounds), 0);
+                }
+                self.bounds = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_localBounds(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Renderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.localBounds;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_localBounds(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Renderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Bounds value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Renderer), "localBounds", typeof(UnityEngine.Bounds), 0);
+                }
+                self.localBounds = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_enabled(JSContext ctx, JSValue this_obj)
         {
@@ -455,6 +563,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEngine.Renderer), "forceRenderingOff", typeof(bool), 0);
                 }
                 self.forceRenderingOff = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_staticShadowCaster(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Renderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.staticShadowCaster;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_staticShadowCaster(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Renderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Renderer), "staticShadowCaster", typeof(bool), 0);
+                }
+                self.staticShadowCaster = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -1339,6 +1488,8 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Renderer", typeof(UnityEngine.Renderer), BindConstructor);
+            cls.AddMethod(false, "ResetBounds", Bind_ResetBounds);
+            cls.AddMethod(false, "ResetLocalBounds", Bind_ResetLocalBounds);
             cls.AddMethod(false, "HasPropertyBlock", Bind_HasPropertyBlock);
             cls.AddMethod(false, "SetPropertyBlock", Bind_SetPropertyBlock);
             cls.AddMethod(false, "GetPropertyBlock", Bind_GetPropertyBlock);
@@ -1346,12 +1497,14 @@ namespace jsb {
             cls.AddMethod(false, "GetSharedMaterials", Bind_GetSharedMaterials);
             cls.AddMethod(false, "GetClosestReflectionProbes", Bind_GetClosestReflectionProbes);
             cls.AddMethod(false, "UpdateGIMaterials", Bind_UpdateGIMaterials);
-            cls.AddProperty(false, "bounds", BindRead_bounds, null);
+            cls.AddProperty(false, "bounds", BindRead_bounds, BindWrite_bounds);
+            cls.AddProperty(false, "localBounds", BindRead_localBounds, BindWrite_localBounds);
             cls.AddProperty(false, "enabled", BindRead_enabled, BindWrite_enabled);
             cls.AddProperty(false, "isVisible", BindRead_isVisible, null);
             cls.AddProperty(false, "shadowCastingMode", BindRead_shadowCastingMode, BindWrite_shadowCastingMode);
             cls.AddProperty(false, "receiveShadows", BindRead_receiveShadows, BindWrite_receiveShadows);
             cls.AddProperty(false, "forceRenderingOff", BindRead_forceRenderingOff, BindWrite_forceRenderingOff);
+            cls.AddProperty(false, "staticShadowCaster", BindRead_staticShadowCaster, BindWrite_staticShadowCaster);
             cls.AddProperty(false, "motionVectorGenerationMode", BindRead_motionVectorGenerationMode, BindWrite_motionVectorGenerationMode);
             cls.AddProperty(false, "lightProbeUsage", BindRead_lightProbeUsage, BindWrite_lightProbeUsage);
             cls.AddProperty(false, "reflectionProbeUsage", BindRead_reflectionProbeUsage, BindWrite_reflectionProbeUsage);

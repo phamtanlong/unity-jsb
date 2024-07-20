@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.SceneManagement.SceneHierarchyHooks
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_SceneManagement_SceneHierarchyHooks
@@ -156,6 +156,70 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_addItemsToSubSceneHeaderContextMenu(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action<UnityEditor.GenericMenu, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo> value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneManagement.SceneHierarchyHooks), "addItemsToSubSceneHeaderContextMenu", typeof(System.Action<UnityEditor.GenericMenu, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo>), 1);
+                        }
+                        UnityEditor.SceneManagement.SceneHierarchyHooks.addItemsToSubSceneHeaderContextMenu += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneManagement.SceneHierarchyHooks), "addItemsToSubSceneHeaderContextMenu", typeof(System.Action<UnityEditor.GenericMenu, UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo>), 1);
+                        }
+                        UnityEditor.SceneManagement.SceneHierarchyHooks.addItemsToSubSceneHeaderContextMenu -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_addItemsToCreateMenu(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action<UnityEditor.GenericMenu> value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneManagement.SceneHierarchyHooks), "addItemsToCreateMenu", typeof(System.Action<UnityEditor.GenericMenu>), 1);
+                        }
+                        UnityEditor.SceneManagement.SceneHierarchyHooks.addItemsToCreateMenu += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneManagement.SceneHierarchyHooks), "addItemsToCreateMenu", typeof(System.Action<UnityEditor.GenericMenu>), 1);
+                        }
+                        UnityEditor.SceneManagement.SceneHierarchyHooks.addItemsToCreateMenu -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStaticDelegate_provideSubScenes(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -265,6 +329,8 @@ namespace jsb {
             cls.AddMethod(true, "CanMoveTransformToScene", BindStatic_CanMoveTransformToScene);
             cls.AddMethod(true, "addItemsToGameObjectContextMenu", BindStaticEvent_addItemsToGameObjectContextMenu);
             cls.AddMethod(true, "addItemsToSceneHeaderContextMenu", BindStaticEvent_addItemsToSceneHeaderContextMenu);
+            cls.AddMethod(true, "addItemsToSubSceneHeaderContextMenu", BindStaticEvent_addItemsToSubSceneHeaderContextMenu);
+            cls.AddMethod(true, "addItemsToCreateMenu", BindStaticEvent_addItemsToCreateMenu);
             cls.AddMethod(true, "provideSubScenes", BindStaticDelegate_provideSubScenes);
             cls.AddMethod(true, "provideSubSceneName", BindStaticDelegate_provideSubSceneName);
             return cls;

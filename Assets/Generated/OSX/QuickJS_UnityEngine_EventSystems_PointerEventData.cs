@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.EventSystems.PointerEventData
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventSystems_PointerEventData
@@ -242,6 +242,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "pointerDrag", typeof(UnityEngine.GameObject), 0);
                 }
                 self.pointerDrag = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_pointerClick(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.pointerClick;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_pointerClick(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.GameObject value;
+                if (!Values.js_get_classvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "pointerClick", typeof(UnityEngine.GameObject), 0);
+                }
+                self.pointerClick = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -783,6 +824,375 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_pressure(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.pressure;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_pressure(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "pressure", typeof(float), 0);
+                }
+                self.pressure = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_tangentialPressure(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.tangentialPressure;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_tangentialPressure(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "tangentialPressure", typeof(float), 0);
+                }
+                self.tangentialPressure = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_altitudeAngle(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.altitudeAngle;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_altitudeAngle(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "altitudeAngle", typeof(float), 0);
+                }
+                self.altitudeAngle = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_azimuthAngle(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.azimuthAngle;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_azimuthAngle(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "azimuthAngle", typeof(float), 0);
+                }
+                self.azimuthAngle = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_twist(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.twist;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_twist(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "twist", typeof(float), 0);
+                }
+                self.twist = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_radius(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.radius;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_radius(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Vector2 value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "radius", typeof(UnityEngine.Vector2), 0);
+                }
+                self.radius = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_radiusVariance(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.radiusVariance;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_radiusVariance(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Vector2 value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "radiusVariance", typeof(UnityEngine.Vector2), 0);
+                }
+                self.radiusVariance = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_fullyExited(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.fullyExited;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_fullyExited(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "fullyExited", typeof(bool), 0);
+                }
+                self.fullyExited = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_reentered(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.reentered;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_reentered(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.PointerEventData self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.PointerEventData), "reentered", typeof(bool), 0);
+                }
+                self.reentered = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_enterEventCamera(JSContext ctx, JSValue this_obj)
         {
             try
@@ -910,6 +1320,7 @@ namespace jsb {
             cls.AddProperty(false, "lastPress", BindRead_lastPress, null);
             cls.AddProperty(false, "rawPointerPress", BindRead_rawPointerPress, BindWrite_rawPointerPress);
             cls.AddProperty(false, "pointerDrag", BindRead_pointerDrag, BindWrite_pointerDrag);
+            cls.AddProperty(false, "pointerClick", BindRead_pointerClick, BindWrite_pointerClick);
             cls.AddProperty(false, "pointerCurrentRaycast", BindRead_pointerCurrentRaycast, BindWrite_pointerCurrentRaycast);
             cls.AddProperty(false, "pointerPressRaycast", BindRead_pointerPressRaycast, BindWrite_pointerPressRaycast);
             cls.AddProperty(false, "eligibleForClick", BindRead_eligibleForClick, BindWrite_eligibleForClick);
@@ -923,6 +1334,15 @@ namespace jsb {
             cls.AddProperty(false, "useDragThreshold", BindRead_useDragThreshold, BindWrite_useDragThreshold);
             cls.AddProperty(false, "dragging", BindRead_dragging, BindWrite_dragging);
             cls.AddProperty(false, "button", BindRead_button, BindWrite_button);
+            cls.AddProperty(false, "pressure", BindRead_pressure, BindWrite_pressure);
+            cls.AddProperty(false, "tangentialPressure", BindRead_tangentialPressure, BindWrite_tangentialPressure);
+            cls.AddProperty(false, "altitudeAngle", BindRead_altitudeAngle, BindWrite_altitudeAngle);
+            cls.AddProperty(false, "azimuthAngle", BindRead_azimuthAngle, BindWrite_azimuthAngle);
+            cls.AddProperty(false, "twist", BindRead_twist, BindWrite_twist);
+            cls.AddProperty(false, "radius", BindRead_radius, BindWrite_radius);
+            cls.AddProperty(false, "radiusVariance", BindRead_radiusVariance, BindWrite_radiusVariance);
+            cls.AddProperty(false, "fullyExited", BindRead_fullyExited, BindWrite_fullyExited);
+            cls.AddProperty(false, "reentered", BindRead_reentered, BindWrite_reentered);
             cls.AddProperty(false, "enterEventCamera", BindRead_enterEventCamera, null);
             cls.AddProperty(false, "pressEventCamera", BindRead_pressEventCamera, null);
             cls.AddProperty(false, "pointerPress", BindRead_pointerPress, BindWrite_pointerPress);

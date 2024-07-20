@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Color
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Color
@@ -148,6 +148,26 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Color self;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Color), "ToString", typeof(string), 0);
+                        }
+                        System.IFormatProvider arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Color), "ToString", typeof(System.IFormatProvider), 1);
+                        }
+                        var ret = self.ToString(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
                     if (argc == 1)
                     {
                         UnityEngine.Color self;
@@ -245,6 +265,87 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("Equals", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_Compare(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Color self;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Color arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "Compare", typeof(UnityEngine.Color), 0);
+                    }
+                    var ret = TMPro.TMPro_ExtensionMethods.Compare(self, arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("Compare", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_CompareRGB(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Color self;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Color arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "CompareRGB", typeof(UnityEngine.Color), 0);
+                    }
+                    var ret = TMPro.TMPro_ExtensionMethods.CompareRGB(self, arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("CompareRGB", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_MinAlpha(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Color self;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Color arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "MinAlpha", typeof(UnityEngine.Color), 0);
+                    }
+                    var ret = TMPro.TMPro_ExtensionMethods.MinAlpha(self, arg0);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("MinAlpha", argc);
             }
             catch (Exception exception)
             {
@@ -1242,6 +1343,9 @@ namespace jsb {
             cls.AddMethod(false, "toString", Bind_ToString);
             cls.AddMethod(false, "GetHashCode", Bind_GetHashCode);
             cls.AddMethod(false, "Equals", Bind_Equals);
+            cls.AddMethod(false, "Compare", Bind_Compare);
+            cls.AddMethod(false, "CompareRGB", Bind_CompareRGB);
+            cls.AddMethod(false, "MinAlpha", Bind_MinAlpha);
             cls.AddMethod(true, "op_Addition", BindStatic_op_Addition);
             cls.AddMethod(true, "op_Subtraction", BindStatic_op_Subtraction);
             cls.AddMethod(true, "op_Multiply", BindStatic_op_Multiply);

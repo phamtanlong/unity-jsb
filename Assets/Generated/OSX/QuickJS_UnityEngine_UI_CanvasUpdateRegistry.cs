@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.CanvasUpdateRegistry
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_CanvasUpdateRegistry
@@ -130,6 +130,28 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DisableCanvasElementForRebuild(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.UI.ICanvasElement arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.UI.CanvasUpdateRegistry), "DisableCanvasElementForRebuild", typeof(UnityEngine.UI.ICanvasElement), 0);
+                    }
+                    UnityEngine.UI.CanvasUpdateRegistry.DisableCanvasElementForRebuild(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("DisableCanvasElementForRebuild", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_IsRebuildingLayout(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -184,6 +206,7 @@ namespace jsb {
             cls.AddMethod(true, "RegisterCanvasElementForGraphicRebuild", BindStatic_RegisterCanvasElementForGraphicRebuild);
             cls.AddMethod(true, "TryRegisterCanvasElementForGraphicRebuild", BindStatic_TryRegisterCanvasElementForGraphicRebuild);
             cls.AddMethod(true, "UnRegisterCanvasElementForRebuild", BindStatic_UnRegisterCanvasElementForRebuild);
+            cls.AddMethod(true, "DisableCanvasElementForRebuild", BindStatic_DisableCanvasElementForRebuild);
             cls.AddMethod(true, "IsRebuildingLayout", BindStatic_IsRebuildingLayout);
             cls.AddMethod(true, "IsRebuildingGraphics", BindStatic_IsRebuildingGraphics);
             cls.AddProperty(true, "instance", BindStaticRead_instance, null);

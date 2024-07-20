@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.KeyCode
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_KeyCode
@@ -149,8 +149,10 @@ namespace jsb {
             cls.AddConstValue("LeftControl", 306);
             cls.AddConstValue("RightAlt", 307);
             cls.AddConstValue("LeftAlt", 308);
+            cls.AddConstValue("RightMeta", 309);
             cls.AddConstValue("RightCommand", 309);
             cls.AddConstValue("RightApple", 309);
+            cls.AddConstValue("LeftMeta", 310);
             cls.AddConstValue("LeftCommand", 310);
             cls.AddConstValue("LeftApple", 310);
             cls.AddConstValue("LeftWindows", 311);

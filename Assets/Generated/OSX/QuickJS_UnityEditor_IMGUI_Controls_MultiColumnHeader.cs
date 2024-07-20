@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.IMGUI.Controls.MultiColumnHeader
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_IMGUI_Controls_MultiColumnHeader
@@ -383,88 +383,6 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_sortedColumnIndex(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                var ret = self.sortedColumnIndex;
-                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindWrite_sortedColumnIndex(JSContext ctx, JSValue this_obj, JSValue arg_val)
-        {
-            try
-            {
-                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                int value;
-                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
-                {
-                    throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "sortedColumnIndex", typeof(int), 0);
-                }
-                self.sortedColumnIndex = value;
-                return JSApi.JS_UNDEFINED;
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_state(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                var ret = self.state;
-                return Values.js_push_classvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindWrite_state(JSContext ctx, JSValue this_obj, JSValue arg_val)
-        {
-            try
-            {
-                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                UnityEditor.IMGUI.Controls.MultiColumnHeaderState value;
-                if (!Values.js_get_classvalue(ctx, arg_val, out value))
-                {
-                    throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "state", typeof(UnityEditor.IMGUI.Controls.MultiColumnHeaderState), 0);
-                }
-                self.state = value;
-                return JSApi.JS_UNDEFINED;
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_height(JSContext ctx, JSValue this_obj)
         {
             try
@@ -546,6 +464,88 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_sortedColumnIndex(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.sortedColumnIndex;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_sortedColumnIndex(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "sortedColumnIndex", typeof(int), 0);
+                }
+                self.sortedColumnIndex = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_state(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.state;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_state(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEditor.IMGUI.Controls.MultiColumnHeaderState value;
+                if (!Values.js_get_classvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "state", typeof(UnityEditor.IMGUI.Controls.MultiColumnHeaderState), 0);
+                }
+                self.state = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindEvent_sortingChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -614,6 +614,74 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindEvent_columnSettingsChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
+                Values.js_get_classvalue(ctx, this_obj, out self);
+                System.Action<int> value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "columnSettingsChanged", typeof(System.Action<int>), 1);
+                        }
+                        self.columnSettingsChanged += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "columnSettingsChanged", typeof(System.Action<int>), 1);
+                        }
+                        self.columnSettingsChanged -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindEvent_columnsSwapped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                UnityEditor.IMGUI.Controls.MultiColumnHeader self;
+                Values.js_get_classvalue(ctx, this_obj, out self);
+                System.Action<int, int> value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "columnsSwapped", typeof(System.Action<int, int>), 1);
+                        }
+                        self.columnsSwapped += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), "columnsSwapped", typeof(System.Action<int, int>), 1);
+                        }
+                        self.columnsSwapped -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("MultiColumnHeader", typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), BindConstructor);
@@ -629,12 +697,14 @@ namespace jsb {
             cls.AddMethod(false, "ResizeToFit", Bind_ResizeToFit);
             cls.AddMethod(false, "OnGUI", Bind_OnGUI);
             cls.AddMethod(false, "Repaint", Bind_Repaint);
-            cls.AddProperty(false, "sortedColumnIndex", BindRead_sortedColumnIndex, BindWrite_sortedColumnIndex);
-            cls.AddProperty(false, "state", BindRead_state, BindWrite_state);
             cls.AddProperty(false, "height", BindRead_height, BindWrite_height);
             cls.AddProperty(false, "canSort", BindRead_canSort, BindWrite_canSort);
+            cls.AddProperty(false, "sortedColumnIndex", BindRead_sortedColumnIndex, BindWrite_sortedColumnIndex);
+            cls.AddProperty(false, "state", BindRead_state, BindWrite_state);
             cls.AddMethod(false, "sortingChanged", BindEvent_sortingChanged);
             cls.AddMethod(false, "visibleColumnsChanged", BindEvent_visibleColumnsChanged);
+            cls.AddMethod(false, "columnSettingsChanged", BindEvent_columnSettingsChanged);
+            cls.AddMethod(false, "columnsSwapped", BindEvent_columnsSwapped);
             return cls;
         }
     }

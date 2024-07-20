@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.HierarchyProperty
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_HierarchyProperty
@@ -810,6 +810,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_isSceneHeader(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.HierarchyProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.isSceneHeader;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_isValid(JSContext ctx, JSValue this_obj)
         {
             try
@@ -966,6 +984,7 @@ namespace jsb {
             cls.AddProperty(false, "guid", BindRead_guid, null);
             cls.AddProperty(false, "alphaSorted", BindRead_alphaSorted, BindWrite_alphaSorted);
             cls.AddProperty(false, "showSceneHeaders", BindRead_showSceneHeaders, BindWrite_showSceneHeaders);
+            cls.AddProperty(false, "isSceneHeader", BindRead_isSceneHeader, null);
             cls.AddProperty(false, "isValid", BindRead_isValid, null);
             cls.AddProperty(false, "isMainRepresentation", BindRead_isMainRepresentation, null);
             cls.AddProperty(false, "hasFullPreviewImage", BindRead_hasFullPreviewImage, null);

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.LightingExplorerTab
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_LightingExplorerTab
@@ -25,7 +25,7 @@ namespace jsb {
         {
             try
             {
-                if (argc == 3)
+                if (argc == 4)
                 {
                     string arg0;
                     if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
@@ -42,7 +42,12 @@ namespace jsb {
                     {
                         throw new ParameterException(typeof(UnityEditor.LightingExplorerTab), ".ctor", typeof(System.Func<UnityEditor.LightingExplorerTableColumn[]>), 2);
                     }
-                    var o = new UnityEditor.LightingExplorerTab(arg0, arg1, arg2);
+                    bool arg3;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.LightingExplorerTab), ".ctor", typeof(bool), 3);
+                    }
+                    var o = new UnityEditor.LightingExplorerTab(arg0, arg1, arg2, arg3);
                     var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
                     return val;
                 }

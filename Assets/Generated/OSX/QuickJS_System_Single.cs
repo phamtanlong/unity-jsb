@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit/mscorlib.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos/mscorlib.dll
     // Type: System.Single
     [JSBindingAttribute]
     public class QuickJS_System_Single
@@ -260,7 +260,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_IsPositiveInfinity(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue BindStatic_IsNaN(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -269,12 +269,34 @@ namespace jsb {
                     float arg0;
                     if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(float), "IsPositiveInfinity", typeof(float), 0);
+                        throw new ParameterException(typeof(float), "IsNaN", typeof(float), 0);
                     }
-                    var ret = float.IsPositiveInfinity(arg0);
+                    var ret = float.IsNaN(arg0);
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
-                throw new NoSuitableMethodException("IsPositiveInfinity", argc);
+                throw new NoSuitableMethodException("IsNaN", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsNegative(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    float arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(float), "IsNegative", typeof(float), 0);
+                    }
+                    var ret = float.IsNegative(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsNegative", argc);
             }
             catch (Exception exception)
             {
@@ -304,7 +326,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_IsNaN(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue BindStatic_IsNormal(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -313,12 +335,56 @@ namespace jsb {
                     float arg0;
                     if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(float), "IsNaN", typeof(float), 0);
+                        throw new ParameterException(typeof(float), "IsNormal", typeof(float), 0);
                     }
-                    var ret = float.IsNaN(arg0);
+                    var ret = float.IsNormal(arg0);
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
-                throw new NoSuitableMethodException("IsNaN", argc);
+                throw new NoSuitableMethodException("IsNormal", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsPositiveInfinity(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    float arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(float), "IsPositiveInfinity", typeof(float), 0);
+                    }
+                    var ret = float.IsPositiveInfinity(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsPositiveInfinity", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsSubnormal(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    float arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(float), "IsSubnormal", typeof(float), 0);
+                    }
+                    var ret = float.IsSubnormal(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsSubnormal", argc);
             }
             catch (Exception exception)
             {
@@ -730,9 +796,12 @@ namespace jsb {
             cls.AddMethod(false, "toString", Bind_ToString);
             cls.AddMethod(false, "GetTypeCode", Bind_GetTypeCode);
             cls.AddMethod(true, "IsInfinity", BindStatic_IsInfinity);
-            cls.AddMethod(true, "IsPositiveInfinity", BindStatic_IsPositiveInfinity);
-            cls.AddMethod(true, "IsNegativeInfinity", BindStatic_IsNegativeInfinity);
             cls.AddMethod(true, "IsNaN", BindStatic_IsNaN);
+            cls.AddMethod(true, "IsNegative", BindStatic_IsNegative);
+            cls.AddMethod(true, "IsNegativeInfinity", BindStatic_IsNegativeInfinity);
+            cls.AddMethod(true, "IsNormal", BindStatic_IsNormal);
+            cls.AddMethod(true, "IsPositiveInfinity", BindStatic_IsPositiveInfinity);
+            cls.AddMethod(true, "IsSubnormal", BindStatic_IsSubnormal);
             cls.AddMethod(true, "op_Equality", BindStatic_op_Equality);
             cls.AddMethod(true, "op_Inequality", BindStatic_op_Inequality);
             cls.AddMethod(true, "op_LessThan", BindStatic_op_LessThan);

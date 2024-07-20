@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.ShaderUtil
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_ShaderUtil
@@ -69,16 +69,34 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    UnityEngine.Shader arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderMessages", typeof(UnityEngine.Shader), 0);
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderMessages", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEditor.Rendering.ShaderCompilerPlatform arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderMessages", typeof(UnityEditor.Rendering.ShaderCompilerPlatform), 1);
+                        }
+                        var ret = UnityEditor.ShaderUtil.GetShaderMessages(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
                     }
-                    var ret = UnityEditor.ShaderUtil.GetShaderMessages(arg0);
-                    return Values.js_push_classvalue(ctx, ret);
-                }
+                    if (argc == 1)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderMessages", typeof(UnityEngine.Shader), 0);
+                        }
+                        var ret = UnityEditor.ShaderUtil.GetShaderMessages(arg0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("GetShaderMessages", argc);
             }
             catch (Exception exception)
@@ -594,6 +612,28 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetShaderInfo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Shader arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderInfo", typeof(UnityEngine.Shader), 0);
+                    }
+                    var ret = UnityEditor.ShaderUtil.GetShaderInfo(arg0);
+                    return Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetShaderInfo", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_SetAsyncCompilation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -695,6 +735,414 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("CompilePass", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCustomEditorForRenderPipeline(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Shader)) && Values.js_match_type(ctx, argv[1], typeof(string)))
+                        {
+                            UnityEngine.Shader arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetCustomEditorForRenderPipeline", typeof(UnityEngine.Shader), 0);
+                            }
+                            string arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetCustomEditorForRenderPipeline", typeof(string), 1);
+                            }
+                            var ret = UnityEditor.ShaderUtil.GetCustomEditorForRenderPipeline(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Shader)) && Values.js_match_type(ctx, argv[1], typeof(System.Type)))
+                        {
+                            UnityEngine.Shader arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetCustomEditorForRenderPipeline", typeof(UnityEngine.Shader), 0);
+                            }
+                            System.Type arg1;
+                            if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetCustomEditorForRenderPipeline", typeof(System.Type), 1);
+                            }
+                            var ret = UnityEditor.ShaderUtil.GetCustomEditorForRenderPipeline(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetCustomEditorForRenderPipeline", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCurrentCustomEditor(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Shader arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetCurrentCustomEditor", typeof(UnityEngine.Shader), 0);
+                    }
+                    var ret = UnityEditor.ShaderUtil.GetCurrentCustomEditor(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetCurrentCustomEditor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetShaderPlatformKeywordsForBuildTarget(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 3)
+                    {
+                        UnityEditor.Rendering.ShaderCompilerPlatform arg0;
+                        if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderPlatformKeywordsForBuildTarget", typeof(UnityEditor.Rendering.ShaderCompilerPlatform), 0);
+                        }
+                        UnityEditor.BuildTarget arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderPlatformKeywordsForBuildTarget", typeof(UnityEditor.BuildTarget), 1);
+                        }
+                        UnityEngine.Rendering.GraphicsTier arg2;
+                        if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderPlatformKeywordsForBuildTarget", typeof(UnityEngine.Rendering.GraphicsTier), 2);
+                        }
+                        var ret = UnityEditor.ShaderUtil.GetShaderPlatformKeywordsForBuildTarget(arg0, arg1, arg2);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEditor.Rendering.ShaderCompilerPlatform arg0;
+                        if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderPlatformKeywordsForBuildTarget", typeof(UnityEditor.Rendering.ShaderCompilerPlatform), 0);
+                        }
+                        UnityEditor.BuildTarget arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetShaderPlatformKeywordsForBuildTarget", typeof(UnityEditor.BuildTarget), 1);
+                        }
+                        var ret = UnityEditor.ShaderUtil.GetShaderPlatformKeywordsForBuildTarget(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetShaderPlatformKeywordsForBuildTarget", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetPassKeywords(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 4)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEngine.Rendering.PassIdentifier arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEngine.Rendering.PassIdentifier), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEditor.Rendering.ShaderType arg2;
+                        if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEditor.Rendering.ShaderType), 2);
+                        }
+                        UnityEditor.Rendering.ShaderCompilerPlatform arg3;
+                        if (!Values.js_get_enumvalue(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEditor.Rendering.ShaderCompilerPlatform), 3);
+                        }
+                        var ret = UnityEditor.ShaderUtil.GetPassKeywords(arg0, in arg1, arg2, arg3);
+                        var out0 = Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 3)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEngine.Rendering.PassIdentifier arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEngine.Rendering.PassIdentifier), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEditor.Rendering.ShaderType arg2;
+                        if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEditor.Rendering.ShaderType), 2);
+                        }
+                        var ret = UnityEditor.ShaderUtil.GetPassKeywords(arg0, in arg1, arg2);
+                        var out0 = Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEngine.Rendering.PassIdentifier arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "GetPassKeywords", typeof(UnityEngine.Rendering.PassIdentifier), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        var ret = UnityEditor.ShaderUtil.GetPassKeywords(arg0, in arg1);
+                        var out0 = Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetPassKeywords", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_PassHasKeyword(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 5)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEngine.Rendering.PassIdentifier arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Rendering.PassIdentifier), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEngine.Rendering.LocalKeyword arg2;
+                        var refVal2 = Values.js_read_wrap(ctx, argv[2]);
+                        if (refVal2.IsException())
+                        {
+                            return refVal2;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal2, out arg2))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal2);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Rendering.LocalKeyword), 2);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal2);
+                        UnityEditor.Rendering.ShaderType arg3;
+                        if (!Values.js_get_enumvalue(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEditor.Rendering.ShaderType), 3);
+                        }
+                        UnityEditor.Rendering.ShaderCompilerPlatform arg4;
+                        if (!Values.js_get_enumvalue(ctx, argv[4], out arg4))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEditor.Rendering.ShaderCompilerPlatform), 4);
+                        }
+                        var ret = UnityEditor.ShaderUtil.PassHasKeyword(arg0, in arg1, in arg2, arg3, arg4);
+                        var out0 = Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        var out1 = Values.js_push_structvalue(ctx, arg2);
+                        if (JSApi.JS_IsException(out1))
+                        {
+                            return out1;
+                        }
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 4)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEngine.Rendering.PassIdentifier arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Rendering.PassIdentifier), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEngine.Rendering.LocalKeyword arg2;
+                        var refVal2 = Values.js_read_wrap(ctx, argv[2]);
+                        if (refVal2.IsException())
+                        {
+                            return refVal2;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal2, out arg2))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal2);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Rendering.LocalKeyword), 2);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal2);
+                        UnityEditor.Rendering.ShaderType arg3;
+                        if (!Values.js_get_enumvalue(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEditor.Rendering.ShaderType), 3);
+                        }
+                        var ret = UnityEditor.ShaderUtil.PassHasKeyword(arg0, in arg1, in arg2, arg3);
+                        var out0 = Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        var out1 = Values.js_push_structvalue(ctx, arg2);
+                        if (JSApi.JS_IsException(out1))
+                        {
+                            return out1;
+                        }
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 3)
+                    {
+                        UnityEngine.Shader arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Shader), 0);
+                        }
+                        UnityEngine.Rendering.PassIdentifier arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Rendering.PassIdentifier), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEngine.Rendering.LocalKeyword arg2;
+                        var refVal2 = Values.js_read_wrap(ctx, argv[2]);
+                        if (refVal2.IsException())
+                        {
+                            return refVal2;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal2, out arg2))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal2);
+                            throw new ParameterException(typeof(UnityEditor.ShaderUtil), "PassHasKeyword", typeof(UnityEngine.Rendering.LocalKeyword), 2);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal2);
+                        var ret = UnityEditor.ShaderUtil.PassHasKeyword(arg0, in arg1, in arg2);
+                        var out0 = Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        var out1 = Values.js_push_structvalue(ctx, arg2);
+                        if (JSApi.JS_IsException(out1))
+                        {
+                            return out1;
+                        }
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("PassHasKeyword", argc);
             }
             catch (Exception exception)
             {
@@ -961,6 +1409,28 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ShaderHasWarnings(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Shader arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.ShaderUtil), "ShaderHasWarnings", typeof(UnityEngine.Shader), 0);
+                    }
+                    var ret = UnityEditor.ShaderUtil.ShaderHasWarnings(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("ShaderHasWarnings", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_hardwareSupportsRectRenderTexture(JSContext ctx, JSValue this_obj)
         {
@@ -1042,10 +1512,16 @@ namespace jsb {
             cls.AddMethod(true, "UpdateShaderAsset", BindStatic_UpdateShaderAsset);
             cls.AddMethod(true, "RegisterShader", BindStatic_RegisterShader);
             cls.AddMethod(true, "GetAllShaderInfo", BindStatic_GetAllShaderInfo);
+            cls.AddMethod(true, "GetShaderInfo", BindStatic_GetShaderInfo);
             cls.AddMethod(true, "SetAsyncCompilation", BindStatic_SetAsyncCompilation);
             cls.AddMethod(true, "RestoreAsyncCompilation", BindStatic_RestoreAsyncCompilation);
             cls.AddMethod(true, "IsPassCompiled", BindStatic_IsPassCompiled);
             cls.AddMethod(true, "CompilePass", BindStatic_CompilePass);
+            cls.AddMethod(true, "GetCustomEditorForRenderPipeline", BindStatic_GetCustomEditorForRenderPipeline);
+            cls.AddMethod(true, "GetCurrentCustomEditor", BindStatic_GetCurrentCustomEditor);
+            cls.AddMethod(true, "GetShaderPlatformKeywordsForBuildTarget", BindStatic_GetShaderPlatformKeywordsForBuildTarget);
+            cls.AddMethod(true, "GetPassKeywords", BindStatic_GetPassKeywords);
+            cls.AddMethod(true, "PassHasKeyword", BindStatic_PassHasKeyword);
             cls.AddMethod(true, "GetPropertyCount", BindStatic_GetPropertyCount);
             cls.AddMethod(true, "GetPropertyName", BindStatic_GetPropertyName);
             cls.AddMethod(true, "GetPropertyType", BindStatic_GetPropertyType);
@@ -1056,6 +1532,7 @@ namespace jsb {
             cls.AddMethod(true, "IsShaderPropertyNonModifiableTexureProperty", BindStatic_IsShaderPropertyNonModifiableTexureProperty);
             cls.AddMethod(true, "GetShaderData", BindStatic_GetShaderData);
             cls.AddMethod(true, "ShaderHasError", BindStatic_ShaderHasError);
+            cls.AddMethod(true, "ShaderHasWarnings", BindStatic_ShaderHasWarnings);
             cls.AddProperty(true, "hardwareSupportsRectRenderTexture", BindStaticRead_hardwareSupportsRectRenderTexture, null);
             cls.AddProperty(true, "anythingCompiling", BindStaticRead_anythingCompiling, null);
             cls.AddProperty(true, "allowAsyncCompilation", BindStaticRead_allowAsyncCompilation, BindStaticWrite_allowAsyncCompilation);

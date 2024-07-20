@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +15,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Hash128
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Hash128
@@ -148,6 +148,72 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_Append(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Hash128 self;
+                            if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Hash128), "Append", typeof(string), 0);
+                            }
+                            self.Append(arg0);
+                            Values.js_rebind_this(ctx, this_obj, ref self);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Hash128 self;
+                            if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Hash128), "Append", typeof(int), 0);
+                            }
+                            self.Append(arg0);
+                            Values.js_rebind_this(ctx, this_obj, ref self);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(float)))
+                        {
+                            UnityEngine.Hash128 self;
+                            if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            float arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Hash128), "Append", typeof(float), 0);
+                            }
+                            self.Append(arg0);
+                            Values.js_rebind_this(ctx, this_obj, ref self);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("Append", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_Equals(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -244,16 +310,42 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEngine.Hash128), "Compute", typeof(string), 0);
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Hash128), "Compute", typeof(string), 0);
+                            }
+                            var ret = UnityEngine.Hash128.Compute(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Hash128), "Compute", typeof(int), 0);
+                            }
+                            var ret = UnityEngine.Hash128.Compute(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(float)))
+                        {
+                            float arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Hash128), "Compute", typeof(float), 0);
+                            }
+                            var ret = UnityEngine.Hash128.Compute(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
                     }
-                    var ret = UnityEngine.Hash128.Compute(arg0);
-                    return Values.js_push_structvalue(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("Compute", argc);
             }
             catch (Exception exception)
@@ -448,6 +540,7 @@ namespace jsb {
             cls.AddSelfOperator("<", BindStatic_op_LessThan_qjs, 2);
             cls.AddMethod(false, "CompareTo", Bind_CompareTo);
             cls.AddMethod(false, "toString", Bind_ToString);
+            cls.AddMethod(false, "Append", Bind_Append);
             cls.AddMethod(false, "Equals", Bind_Equals);
             cls.AddMethod(false, "GetHashCode", Bind_GetHashCode);
             cls.AddMethod(true, "Parse", BindStatic_Parse);

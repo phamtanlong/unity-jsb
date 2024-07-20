@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Selection
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Selection
@@ -47,16 +47,6 @@ namespace jsb {
                 {
                     if (argc == 1)
                     {
-                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
-                        {
-                            int arg0;
-                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                            {
-                                throw new ParameterException(typeof(UnityEditor.Selection), "Contains", typeof(int), 0);
-                            }
-                            var ret = UnityEditor.Selection.Contains(arg0);
-                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                        }
                         if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)))
                         {
                             UnityEngine.Object arg0;
@@ -67,9 +57,46 @@ namespace jsb {
                             var ret = UnityEditor.Selection.Contains(arg0);
                             return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                         }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Selection), "Contains", typeof(int), 0);
+                            }
+                            var ret = UnityEditor.Selection.Contains(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
                     }
                 } while(false);
                 throw new NoSuitableMethodException("Contains", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetFiltered(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    System.Type arg0;
+                    if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Selection), "GetFiltered", typeof(System.Type), 0);
+                    }
+                    UnityEditor.SelectionMode arg1;
+                    if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Selection), "GetFiltered", typeof(UnityEditor.SelectionMode), 1);
+                    }
+                    var ret = UnityEditor.Selection.GetFiltered(arg0, arg1);
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetFiltered", argc);
             }
             catch (Exception exception)
             {
@@ -119,33 +146,6 @@ namespace jsb {
                     return Values.js_push_classvalue(ctx, ret);
                 }
                 throw new NoSuitableMethodException("GetTransforms", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_GetFiltered(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 2)
-                {
-                    System.Type arg0;
-                    if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Selection), "GetFiltered", typeof(System.Type), 0);
-                    }
-                    UnityEditor.SelectionMode arg1;
-                    if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Selection), "GetFiltered", typeof(UnityEditor.SelectionMode), 1);
-                    }
-                    var ret = UnityEditor.Selection.GetFiltered(arg0, arg1);
-                    return Values.js_push_classvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("GetFiltered", argc);
             }
             catch (Exception exception)
             {
@@ -390,6 +390,19 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_count(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Selection.count;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStaticDelegate_selectionChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -445,9 +458,9 @@ namespace jsb {
         {
             var cls = register.CreateClass("Selection", typeof(UnityEditor.Selection), BindConstructor);
             cls.AddMethod(true, "Contains", BindStatic_Contains);
+            cls.AddMethod(true, "GetFiltered", BindStatic_GetFiltered);
             cls.AddMethod(true, "SetActiveObjectWithContext", BindStatic_SetActiveObjectWithContext);
             cls.AddMethod(true, "GetTransforms", BindStatic_GetTransforms);
-            cls.AddMethod(true, "GetFiltered", BindStatic_GetFiltered);
             cls.AddProperty(true, "transforms", BindStaticRead_transforms, null);
             cls.AddProperty(true, "activeTransform", BindStaticRead_activeTransform, BindStaticWrite_activeTransform);
             cls.AddProperty(true, "gameObjects", BindStaticRead_gameObjects, null);
@@ -458,6 +471,7 @@ namespace jsb {
             cls.AddProperty(true, "objects", BindStaticRead_objects, BindStaticWrite_objects);
             cls.AddProperty(true, "instanceIDs", BindStaticRead_instanceIDs, BindStaticWrite_instanceIDs);
             cls.AddProperty(true, "assetGUIDs", BindStaticRead_assetGUIDs, null);
+            cls.AddProperty(true, "count", BindStaticRead_count, null);
             cls.AddMethod(true, "selectionChanged", BindStaticDelegate_selectionChanged);
             return cls;
         }

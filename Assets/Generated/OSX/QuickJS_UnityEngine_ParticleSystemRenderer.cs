@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
     // Type: UnityEngine.ParticleSystemRenderer
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_ParticleSystemRenderer
@@ -108,6 +108,83 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("SetMeshes", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetMeshWeightings(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.ParticleSystemRenderer self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    float[] arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "GetMeshWeightings", typeof(float[]), 0);
+                    }
+                    var ret = self.GetMeshWeightings(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetMeshWeightings", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetMeshWeightings(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        UnityEngine.ParticleSystemRenderer self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        float[] arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "SetMeshWeightings", typeof(float[]), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "SetMeshWeightings", typeof(int), 1);
+                        }
+                        self.SetMeshWeightings(arg0, arg1);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    if (argc == 1)
+                    {
+                        UnityEngine.ParticleSystemRenderer self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        float[] arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "SetMeshWeightings", typeof(float[]), 0);
+                        }
+                        self.SetMeshWeightings(arg0);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("SetMeshWeightings", argc);
             }
             catch (Exception exception)
             {
@@ -363,6 +440,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "renderMode", typeof(UnityEngine.ParticleSystemRenderMode), 0);
                 }
                 self.renderMode = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_meshDistribution(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.ParticleSystemRenderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.meshDistribution;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_meshDistribution(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.ParticleSystemRenderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.ParticleSystemMeshDistribution value;
+                if (!Values.js_get_enumvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "meshDistribution", typeof(UnityEngine.ParticleSystemMeshDistribution), 0);
+                }
+                self.meshDistribution = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -986,6 +1104,88 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_freeformStretching(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.ParticleSystemRenderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.freeformStretching;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_freeformStretching(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.ParticleSystemRenderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "freeformStretching", typeof(bool), 0);
+                }
+                self.freeformStretching = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_rotateWithStretchDirection(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.ParticleSystemRenderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.rotateWithStretchDirection;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_rotateWithStretchDirection(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.ParticleSystemRenderer self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.ParticleSystemRenderer), "rotateWithStretchDirection", typeof(bool), 0);
+                }
+                self.rotateWithStretchDirection = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_mesh(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1067,12 +1267,15 @@ namespace jsb {
             var cls = register.CreateClass("ParticleSystemRenderer", typeof(UnityEngine.ParticleSystemRenderer), BindConstructor);
             cls.AddMethod(false, "GetMeshes", Bind_GetMeshes);
             cls.AddMethod(false, "SetMeshes", Bind_SetMeshes);
+            cls.AddMethod(false, "GetMeshWeightings", Bind_GetMeshWeightings);
+            cls.AddMethod(false, "SetMeshWeightings", Bind_SetMeshWeightings);
             cls.AddMethod(false, "BakeMesh", Bind_BakeMesh);
             cls.AddMethod(false, "BakeTrailsMesh", Bind_BakeTrailsMesh);
             cls.AddMethod(false, "SetActiveVertexStreams", Bind_SetActiveVertexStreams);
             cls.AddMethod(false, "GetActiveVertexStreams", Bind_GetActiveVertexStreams);
             cls.AddProperty(false, "alignment", BindRead_alignment, BindWrite_alignment);
             cls.AddProperty(false, "renderMode", BindRead_renderMode, BindWrite_renderMode);
+            cls.AddProperty(false, "meshDistribution", BindRead_meshDistribution, BindWrite_meshDistribution);
             cls.AddProperty(false, "sortMode", BindRead_sortMode, BindWrite_sortMode);
             cls.AddProperty(false, "lengthScale", BindRead_lengthScale, BindWrite_lengthScale);
             cls.AddProperty(false, "velocityScale", BindRead_velocityScale, BindWrite_velocityScale);
@@ -1088,6 +1291,8 @@ namespace jsb {
             cls.AddProperty(false, "trailMaterial", BindRead_trailMaterial, BindWrite_trailMaterial);
             cls.AddProperty(false, "enableGPUInstancing", BindRead_enableGPUInstancing, BindWrite_enableGPUInstancing);
             cls.AddProperty(false, "allowRoll", BindRead_allowRoll, BindWrite_allowRoll);
+            cls.AddProperty(false, "freeformStretching", BindRead_freeformStretching, BindWrite_freeformStretching);
+            cls.AddProperty(false, "rotateWithStretchDirection", BindRead_rotateWithStretchDirection, BindWrite_rotateWithStretchDirection);
             cls.AddProperty(false, "mesh", BindRead_mesh, BindWrite_mesh);
             cls.AddProperty(false, "meshCount", BindRead_meshCount, null);
             cls.AddProperty(false, "activeVertexStreamsCount", BindRead_activeVertexStreamsCount, null);

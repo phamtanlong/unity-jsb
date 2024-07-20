@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Camera
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Camera
@@ -1150,6 +1150,33 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("RenderDontRestore", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SubmitRenderRequests(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Camera self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    System.Collections.Generic.List<UnityEngine.Camera.RenderRequest> arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Camera), "SubmitRenderRequests", typeof(System.Collections.Generic.List<UnityEngine.Camera.RenderRequest>), 0);
+                    }
+                    self.SubmitRenderRequests(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SubmitRenderRequests", argc);
             }
             catch (Exception exception)
             {
@@ -3696,6 +3723,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_sceneViewFilterMode(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Camera self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.sceneViewFilterMode;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_commandBufferCount(JSContext ctx, JSValue this_obj)
         {
             try
@@ -3902,6 +3947,7 @@ namespace jsb {
             cls.AddMethod(false, "Render", Bind_Render);
             cls.AddMethod(false, "RenderWithShader", Bind_RenderWithShader);
             cls.AddMethod(false, "RenderDontRestore", Bind_RenderDontRestore);
+            cls.AddMethod(false, "SubmitRenderRequests", Bind_SubmitRenderRequests);
             cls.AddMethod(false, "CopyFrom", Bind_CopyFrom);
             cls.AddMethod(false, "RemoveCommandBuffers", Bind_RemoveCommandBuffers);
             cls.AddMethod(false, "RemoveAllCommandBuffers", Bind_RemoveAllCommandBuffers);
@@ -3977,6 +4023,7 @@ namespace jsb {
             cls.AddProperty(false, "stereoActiveEye", BindRead_stereoActiveEye, null);
             cls.AddProperty(true, "allCamerasCount", BindStaticRead_allCamerasCount, null);
             cls.AddProperty(true, "allCameras", BindStaticRead_allCameras, null);
+            cls.AddProperty(false, "sceneViewFilterMode", BindRead_sceneViewFilterMode, null);
             cls.AddProperty(false, "commandBufferCount", BindRead_commandBufferCount, null);
             cls.AddMethod(true, "onPreCull", BindStaticDelegate_onPreCull);
             cls.AddMethod(true, "onPreRender", BindStaticDelegate_onPreRender);

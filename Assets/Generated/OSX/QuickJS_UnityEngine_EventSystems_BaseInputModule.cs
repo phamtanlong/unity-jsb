@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.EventSystems.BaseInputModule
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventSystems_BaseInputModule
@@ -178,6 +178,33 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ConvertUIToolkitPointerId(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.EventSystems.BaseInputModule self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.EventSystems.PointerEventData arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.EventSystems.BaseInputModule), "ConvertUIToolkitPointerId", typeof(UnityEngine.EventSystems.PointerEventData), 0);
+                    }
+                    var ret = self.ConvertUIToolkitPointerId(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("ConvertUIToolkitPointerId", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_input(JSContext ctx, JSValue this_obj)
         {
@@ -247,6 +274,7 @@ namespace jsb {
             cls.AddMethod(false, "ActivateModule", Bind_ActivateModule);
             cls.AddMethod(false, "UpdateModule", Bind_UpdateModule);
             cls.AddMethod(false, "IsModuleSupported", Bind_IsModuleSupported);
+            cls.AddMethod(false, "ConvertUIToolkitPointerId", Bind_ConvertUIToolkitPointerId);
             cls.AddProperty(false, "input", BindRead_input, null);
             cls.AddProperty(false, "inputOverride", BindRead_inputOverride, BindWrite_inputOverride);
             return cls;

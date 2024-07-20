@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.PrefabUtility
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_PrefabUtility
@@ -36,6 +36,28 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
                 }
                 throw new NoSuitableMethodException("GetPrefabInstanceHandle", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_HasManagedReferencesWithMissingTypes(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Object arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "HasManagedReferencesWithMissingTypes", typeof(UnityEngine.Object), 0);
+                    }
+                    var ret = UnityEditor.PrefabUtility.HasManagedReferencesWithMissingTypes(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("HasManagedReferencesWithMissingTypes", argc);
             }
             catch (Exception exception)
             {
@@ -112,28 +134,6 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
                 throw new NoSuitableMethodException("HasPrefabInstanceAnyOverrides", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_InstantiateAttachedAsset(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Object arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "InstantiateAttachedAsset", typeof(UnityEngine.Object), 0);
-                    }
-                    var ret = UnityEditor.PrefabUtility.InstantiateAttachedAsset(arg0);
-                    return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("InstantiateAttachedAsset", argc);
             }
             catch (Exception exception)
             {
@@ -415,28 +415,6 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_IsDisconnectedFromPrefabAsset(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Object arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "IsDisconnectedFromPrefabAsset", typeof(UnityEngine.Object), 0);
-                    }
-                    var ret = UnityEditor.PrefabUtility.IsDisconnectedFromPrefabAsset(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("IsDisconnectedFromPrefabAsset", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_IsPrefabAssetMissing(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -518,6 +496,68 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
                 throw new NoSuitableMethodException("IsDefaultOverride", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FindAllInstancesOfPrefab(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        UnityEngine.GameObject arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.PrefabUtility), "FindAllInstancesOfPrefab", typeof(UnityEngine.GameObject), 0);
+                        }
+                        UnityEngine.SceneManagement.Scene arg1;
+                        if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.PrefabUtility), "FindAllInstancesOfPrefab", typeof(UnityEngine.SceneManagement.Scene), 1);
+                        }
+                        var ret = UnityEditor.PrefabUtility.FindAllInstancesOfPrefab(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 1)
+                    {
+                        UnityEngine.GameObject arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.PrefabUtility), "FindAllInstancesOfPrefab", typeof(UnityEngine.GameObject), 0);
+                        }
+                        var ret = UnityEditor.PrefabUtility.FindAllInstancesOfPrefab(arg0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("FindAllInstancesOfPrefab", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_MergePrefabInstance(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.GameObject arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "MergePrefabInstance", typeof(UnityEngine.GameObject), 0);
+                    }
+                    UnityEditor.PrefabUtility.MergePrefabInstance(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("MergePrefabInstance", argc);
             }
             catch (Exception exception)
             {
@@ -845,6 +885,38 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("ApplyAddedGameObject", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ApplyAddedGameObjects(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.GameObject[] arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "ApplyAddedGameObjects", typeof(UnityEngine.GameObject[]), 0);
+                    }
+                    string arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "ApplyAddedGameObjects", typeof(string), 1);
+                    }
+                    UnityEditor.InteractionMode arg2;
+                    if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "ApplyAddedGameObjects", typeof(UnityEditor.InteractionMode), 2);
+                    }
+                    UnityEditor.PrefabUtility.ApplyAddedGameObjects(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ApplyAddedGameObjects", argc);
             }
             catch (Exception exception)
             {
@@ -1331,6 +1403,38 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_UnpackAllInstancesOfPrefab(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.GameObject arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "UnpackAllInstancesOfPrefab", typeof(UnityEngine.GameObject), 0);
+                    }
+                    UnityEditor.PrefabUnpackMode arg1;
+                    if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "UnpackAllInstancesOfPrefab", typeof(UnityEditor.PrefabUnpackMode), 1);
+                    }
+                    UnityEditor.InteractionMode arg2;
+                    if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PrefabUtility), "UnpackAllInstancesOfPrefab", typeof(UnityEditor.InteractionMode), 2);
+                    }
+                    UnityEditor.PrefabUtility.UnpackAllInstancesOfPrefab(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("UnpackAllInstancesOfPrefab", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_IsPartOfPrefabThatCanBeAppliedTo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -1495,10 +1599,10 @@ namespace jsb {
         {
             var cls = register.CreateClass("PrefabUtility", typeof(UnityEditor.PrefabUtility), QuickJS.JSNative.class_private_ctor);
             cls.AddMethod(true, "GetPrefabInstanceHandle", BindStatic_GetPrefabInstanceHandle);
+            cls.AddMethod(true, "HasManagedReferencesWithMissingTypes", BindStatic_HasManagedReferencesWithMissingTypes);
             cls.AddMethod(true, "GetPropertyModifications", BindStatic_GetPropertyModifications);
             cls.AddMethod(true, "SetPropertyModifications", BindStatic_SetPropertyModifications);
             cls.AddMethod(true, "HasPrefabInstanceAnyOverrides", BindStatic_HasPrefabInstanceAnyOverrides);
-            cls.AddMethod(true, "InstantiateAttachedAsset", BindStatic_InstantiateAttachedAsset);
             cls.AddMethod(true, "RecordPrefabInstancePropertyModifications", BindStatic_RecordPrefabInstancePropertyModifications);
             cls.AddMethod(true, "UnpackPrefabInstanceAndReturnNewOutermostRoots", BindStatic_UnpackPrefabInstanceAndReturnNewOutermostRoots);
             cls.AddMethod(true, "LoadPrefabContentsIntoPreviewScene", BindStatic_LoadPrefabContentsIntoPreviewScene);
@@ -1511,11 +1615,12 @@ namespace jsb {
             cls.AddMethod(true, "IsPartOfModelPrefab", BindStatic_IsPartOfModelPrefab);
             cls.AddMethod(true, "IsPartOfVariantPrefab", BindStatic_IsPartOfVariantPrefab);
             cls.AddMethod(true, "IsPartOfImmutablePrefab", BindStatic_IsPartOfImmutablePrefab);
-            cls.AddMethod(true, "IsDisconnectedFromPrefabAsset", BindStatic_IsDisconnectedFromPrefabAsset);
             cls.AddMethod(true, "IsPrefabAssetMissing", BindStatic_IsPrefabAssetMissing);
             cls.AddMethod(true, "GetOutermostPrefabInstanceRoot", BindStatic_GetOutermostPrefabInstanceRoot);
             cls.AddMethod(true, "GetNearestPrefabInstanceRoot", BindStatic_GetNearestPrefabInstanceRoot);
             cls.AddMethod(true, "IsDefaultOverride", BindStatic_IsDefaultOverride);
+            cls.AddMethod(true, "FindAllInstancesOfPrefab", BindStatic_FindAllInstancesOfPrefab);
+            cls.AddMethod(true, "MergePrefabInstance", BindStatic_MergePrefabInstance);
             cls.AddMethod(true, "RevertPrefabInstance", BindStatic_RevertPrefabInstance);
             cls.AddMethod(true, "ApplyPrefabInstance", BindStatic_ApplyPrefabInstance);
             cls.AddMethod(true, "ApplyPropertyOverride", BindStatic_ApplyPropertyOverride);
@@ -1527,6 +1632,7 @@ namespace jsb {
             cls.AddMethod(true, "ApplyRemovedComponent", BindStatic_ApplyRemovedComponent);
             cls.AddMethod(true, "RevertRemovedComponent", BindStatic_RevertRemovedComponent);
             cls.AddMethod(true, "ApplyAddedGameObject", BindStatic_ApplyAddedGameObject);
+            cls.AddMethod(true, "ApplyAddedGameObjects", BindStatic_ApplyAddedGameObjects);
             cls.AddMethod(true, "RevertAddedGameObject", BindStatic_RevertAddedGameObject);
             cls.AddMethod(true, "GetObjectOverrides", BindStatic_GetObjectOverrides);
             cls.AddMethod(true, "GetAddedComponents", BindStatic_GetAddedComponents);
@@ -1542,6 +1648,7 @@ namespace jsb {
             cls.AddMethod(true, "InstantiatePrefab", BindStatic_InstantiatePrefab);
             cls.AddMethod(true, "IsAddedGameObjectOverride", BindStatic_IsAddedGameObjectOverride);
             cls.AddMethod(true, "UnpackPrefabInstance", BindStatic_UnpackPrefabInstance);
+            cls.AddMethod(true, "UnpackAllInstancesOfPrefab", BindStatic_UnpackAllInstancesOfPrefab);
             cls.AddMethod(true, "IsPartOfPrefabThatCanBeAppliedTo", BindStatic_IsPartOfPrefabThatCanBeAppliedTo);
             cls.AddMethod(true, "GetPrefabInstanceStatus", BindStatic_GetPrefabInstanceStatus);
             cls.AddMethod(true, "GetPrefabAssetType", BindStatic_GetPrefabAssetType);

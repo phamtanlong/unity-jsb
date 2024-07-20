@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit/mscorlib.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos/mscorlib.dll
     // Type: System.Enum
     [JSBindingAttribute]
     public class QuickJS_System_Enum
@@ -539,6 +539,72 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_TryParse(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 4)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(System.Enum), "TryParse", typeof(System.Type), 0);
+                        }
+                        string arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(System.Enum), "TryParse", typeof(string), 1);
+                        }
+                        bool arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(System.Enum), "TryParse", typeof(bool), 2);
+                        }
+                        object arg3;
+                        var ret = System.Enum.TryParse(arg0, arg1, arg2, out arg3);
+                        var out0 = QuickJS.Binding.Values.js_push_object(ctx, arg3);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[3], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 3)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(System.Enum), "TryParse", typeof(System.Type), 0);
+                        }
+                        string arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(System.Enum), "TryParse", typeof(string), 1);
+                        }
+                        object arg2;
+                        var ret = System.Enum.TryParse(arg0, arg1, out arg2);
+                        var out0 = QuickJS.Binding.Values.js_push_object(ctx, arg2);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("TryParse", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Enum", typeof(System.Enum), QuickJS.JSNative.class_private_ctor);
@@ -556,6 +622,7 @@ namespace jsb {
             cls.AddMethod(true, "ToObject", BindStatic_ToObject);
             cls.AddMethod(true, "IsDefined", BindStatic_IsDefined);
             cls.AddMethod(true, "Format", BindStatic_Format);
+            cls.AddMethod(true, "TryParse", BindStatic_TryParse);
             return cls;
         }
     }

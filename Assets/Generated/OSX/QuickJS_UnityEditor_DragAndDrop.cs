@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.DragAndDrop
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_DragAndDrop
@@ -137,6 +137,149 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("AcceptDrag", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_HasHandler(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    int arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.DragAndDrop), "HasHandler", typeof(int), 0);
+                    }
+                    System.Delegate arg1;
+                    if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.DragAndDrop), "HasHandler", typeof(System.Delegate), 1);
+                    }
+                    var ret = UnityEditor.DragAndDrop.HasHandler(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("HasHandler", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_AddDropHandler(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.ProjectBrowserDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.ProjectBrowserDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "AddDropHandler", typeof(UnityEditor.DragAndDrop.ProjectBrowserDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.AddDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.SceneDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.SceneDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "AddDropHandler", typeof(UnityEditor.DragAndDrop.SceneDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.AddDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.HierarchyDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.HierarchyDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "AddDropHandler", typeof(UnityEditor.DragAndDrop.HierarchyDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.AddDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.InspectorDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.InspectorDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "AddDropHandler", typeof(UnityEditor.DragAndDrop.InspectorDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.AddDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("AddDropHandler", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_RemoveDropHandler(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.ProjectBrowserDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.ProjectBrowserDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "RemoveDropHandler", typeof(UnityEditor.DragAndDrop.ProjectBrowserDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.RemoveDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.SceneDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.SceneDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "RemoveDropHandler", typeof(UnityEditor.DragAndDrop.SceneDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.RemoveDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.HierarchyDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.HierarchyDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "RemoveDropHandler", typeof(UnityEditor.DragAndDrop.HierarchyDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.RemoveDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.DragAndDrop.InspectorDropHandler)))
+                        {
+                            UnityEditor.DragAndDrop.InspectorDropHandler arg0;
+                            if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.DragAndDrop), "RemoveDropHandler", typeof(UnityEditor.DragAndDrop.InspectorDropHandler), 0);
+                            }
+                            UnityEditor.DragAndDrop.RemoveDropHandler(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("RemoveDropHandler", argc);
             }
             catch (Exception exception)
             {
@@ -275,6 +418,9 @@ namespace jsb {
             cls.AddMethod(true, "GetGenericData", BindStatic_GetGenericData);
             cls.AddMethod(true, "SetGenericData", BindStatic_SetGenericData);
             cls.AddMethod(true, "AcceptDrag", BindStatic_AcceptDrag);
+            cls.AddMethod(true, "HasHandler", BindStatic_HasHandler);
+            cls.AddMethod(true, "AddDropHandler", BindStatic_AddDropHandler);
+            cls.AddMethod(true, "RemoveDropHandler", BindStatic_RemoveDropHandler);
             cls.AddProperty(true, "objectReferences", BindStaticRead_objectReferences, BindStaticWrite_objectReferences);
             cls.AddProperty(true, "paths", BindStaticRead_paths, BindStaticWrite_paths);
             cls.AddProperty(true, "activeControlID", BindStaticRead_activeControlID, BindStaticWrite_activeControlID);

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.ShaderImporter
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_ShaderImporter
@@ -178,6 +178,47 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_preprocessorOverride(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ShaderImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.preprocessorOverride;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_preprocessorOverride(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ShaderImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEditor.PreprocessorOverride value;
+                if (!Values.js_get_enumvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ShaderImporter), "preprocessorOverride", typeof(UnityEditor.PreprocessorOverride), 0);
+                }
+                self.preprocessorOverride = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("ShaderImporter", typeof(UnityEditor.ShaderImporter), BindConstructor);
@@ -186,6 +227,7 @@ namespace jsb {
             cls.AddMethod(false, "GetDefaultTexture", Bind_GetDefaultTexture);
             cls.AddMethod(false, "SetNonModifiableTextures", Bind_SetNonModifiableTextures);
             cls.AddMethod(false, "GetNonModifiableTexture", Bind_GetNonModifiableTexture);
+            cls.AddProperty(false, "preprocessorOverride", BindRead_preprocessorOverride, BindWrite_preprocessorOverride);
             return cls;
         }
     }

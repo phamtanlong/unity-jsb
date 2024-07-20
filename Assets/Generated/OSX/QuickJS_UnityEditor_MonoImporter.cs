@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.MonoImporter
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_MonoImporter
@@ -120,6 +120,55 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetIcon(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEditor.MonoImporter self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Texture2D arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.MonoImporter), "SetIcon", typeof(UnityEngine.Texture2D), 0);
+                    }
+                    self.SetIcon(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetIcon", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetIcon(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.MonoImporter self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.GetIcon();
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetIcon", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_GetAllRuntimeMonoScripts(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -191,6 +240,8 @@ namespace jsb {
             cls.AddMethod(false, "SetDefaultReferences", Bind_SetDefaultReferences);
             cls.AddMethod(false, "GetScript", Bind_GetScript);
             cls.AddMethod(false, "GetDefaultReference", Bind_GetDefaultReference);
+            cls.AddMethod(false, "SetIcon", Bind_SetIcon);
+            cls.AddMethod(false, "GetIcon", Bind_GetIcon);
             cls.AddMethod(true, "GetAllRuntimeMonoScripts", BindStatic_GetAllRuntimeMonoScripts);
             cls.AddMethod(true, "SetExecutionOrder", BindStatic_SetExecutionOrder);
             cls.AddMethod(true, "GetExecutionOrder", BindStatic_GetExecutionOrder);

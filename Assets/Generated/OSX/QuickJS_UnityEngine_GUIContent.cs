@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
     // Type: UnityEngine.GUIContent
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_GUIContent
@@ -142,6 +142,28 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("constructor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ToString(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.GUIContent self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.ToString();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("toString", argc);
             }
             catch (Exception exception)
             {
@@ -305,6 +327,7 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("GUIContent", typeof(UnityEngine.GUIContent), BindConstructor);
+            cls.AddMethod(false, "toString", Bind_ToString);
             cls.AddProperty(false, "text", BindRead_text, BindWrite_text);
             cls.AddProperty(false, "image", BindRead_image, BindWrite_image);
             cls.AddProperty(false, "tooltip", BindRead_tooltip, BindWrite_tooltip);

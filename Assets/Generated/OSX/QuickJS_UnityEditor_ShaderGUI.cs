@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.ShaderGUI
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_ShaderGUI
@@ -217,6 +217,33 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ValidateMaterial(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEditor.ShaderGUI self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Material arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.ShaderGUI), "ValidateMaterial", typeof(UnityEngine.Material), 0);
+                    }
+                    self.ValidateMaterial(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ValidateMaterial", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("ShaderGUI", typeof(UnityEditor.ShaderGUI), QuickJS.JSNative.class_private_ctor);
@@ -226,6 +253,7 @@ namespace jsb {
             cls.AddMethod(false, "OnMaterialPreviewSettingsGUI", Bind_OnMaterialPreviewSettingsGUI);
             cls.AddMethod(false, "OnClosed", Bind_OnClosed);
             cls.AddMethod(false, "AssignNewShaderToMaterial", Bind_AssignNewShaderToMaterial);
+            cls.AddMethod(false, "ValidateMaterial", Bind_ValidateMaterial);
             return cls;
         }
     }

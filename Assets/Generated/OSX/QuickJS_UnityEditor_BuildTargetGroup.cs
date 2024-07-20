@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.BuildTargetGroup
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_BuildTargetGroup
@@ -50,10 +50,12 @@ namespace jsb {
             cls.AddConstValue("Lumin", 28);
             cls.AddConstValue("Stadia", 29);
             cls.AddConstValue("CloudRendering", 30);
+            cls.AddConstValue("LinuxHeadlessSimulation", 30);
             cls.AddConstValue("GameCoreScarlett", 31);
             cls.AddConstValue("GameCoreXboxSeries", 31);
             cls.AddConstValue("GameCoreXboxOne", 32);
             cls.AddConstValue("PS5", 33);
+            cls.AddConstValue("EmbeddedLinux", 34);
             return cls;
         }
     }

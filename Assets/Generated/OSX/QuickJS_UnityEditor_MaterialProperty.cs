@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.MaterialProperty
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_MaterialProperty
@@ -365,6 +365,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_intValue(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.MaterialProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.intValue;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_intValue(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.MaterialProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.MaterialProperty), "intValue", typeof(int), 0);
+                }
+                self.intValue = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_textureValue(JSContext ctx, JSValue this_obj)
         {
             try
@@ -518,6 +559,7 @@ namespace jsb {
             cls.AddProperty(false, "colorValue", BindRead_colorValue, BindWrite_colorValue);
             cls.AddProperty(false, "vectorValue", BindRead_vectorValue, BindWrite_vectorValue);
             cls.AddProperty(false, "floatValue", BindRead_floatValue, BindWrite_floatValue);
+            cls.AddProperty(false, "intValue", BindRead_intValue, BindWrite_intValue);
             cls.AddProperty(false, "textureValue", BindRead_textureValue, BindWrite_textureValue);
             cls.AddProperty(false, "textureScaleAndOffset", BindRead_textureScaleAndOffset, BindWrite_textureScaleAndOffset);
             cls.AddMethod(false, "applyPropertyCallback", BindDelegate_applyPropertyCallback);

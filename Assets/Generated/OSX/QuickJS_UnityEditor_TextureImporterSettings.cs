@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.TextureImporterSettings
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_TextureImporterSettings
@@ -776,6 +776,88 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_flipbookRows(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.flipbookRows;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_flipbookRows(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.TextureImporterSettings), "flipbookRows", typeof(int), 0);
+                }
+                self.flipbookRows = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_flipbookColumns(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.flipbookColumns;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_flipbookColumns(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.TextureImporterSettings), "flipbookColumns", typeof(int), 0);
+                }
+                self.flipbookColumns = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_readable(JSContext ctx, JSValue this_obj)
         {
             try
@@ -891,6 +973,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEditor.TextureImporterSettings), "streamingMipmapsPriority", typeof(int), 0);
                 }
                 self.streamingMipmapsPriority = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_vtOnly(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.vtOnly;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_vtOnly(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.TextureImporterSettings), "vtOnly", typeof(bool), 0);
+                }
+                self.vtOnly = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -1391,6 +1514,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_ignorePngGamma(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.ignorePngGamma;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_ignorePngGamma(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.TextureImporterSettings self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.TextureImporterSettings), "ignorePngGamma", typeof(bool), 0);
+                }
+                self.ignorePngGamma = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_spriteMode(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1781,9 +1945,12 @@ namespace jsb {
             cls.AddProperty(false, "normalMapFilter", BindRead_normalMapFilter, BindWrite_normalMapFilter);
             cls.AddProperty(false, "alphaSource", BindRead_alphaSource, BindWrite_alphaSource);
             cls.AddProperty(false, "singleChannelComponent", BindRead_singleChannelComponent, BindWrite_singleChannelComponent);
+            cls.AddProperty(false, "flipbookRows", BindRead_flipbookRows, BindWrite_flipbookRows);
+            cls.AddProperty(false, "flipbookColumns", BindRead_flipbookColumns, BindWrite_flipbookColumns);
             cls.AddProperty(false, "readable", BindRead_readable, BindWrite_readable);
             cls.AddProperty(false, "streamingMipmaps", BindRead_streamingMipmaps, BindWrite_streamingMipmaps);
             cls.AddProperty(false, "streamingMipmapsPriority", BindRead_streamingMipmapsPriority, BindWrite_streamingMipmapsPriority);
+            cls.AddProperty(false, "vtOnly", BindRead_vtOnly, BindWrite_vtOnly);
             cls.AddProperty(false, "npotScale", BindRead_npotScale, BindWrite_npotScale);
             cls.AddProperty(false, "generateCubemap", BindRead_generateCubemap, BindWrite_generateCubemap);
             cls.AddProperty(false, "cubemapConvolution", BindRead_cubemapConvolution, BindWrite_cubemapConvolution);
@@ -1796,6 +1963,7 @@ namespace jsb {
             cls.AddProperty(false, "wrapModeV", BindRead_wrapModeV, BindWrite_wrapModeV);
             cls.AddProperty(false, "wrapModeW", BindRead_wrapModeW, BindWrite_wrapModeW);
             cls.AddProperty(false, "alphaIsTransparency", BindRead_alphaIsTransparency, BindWrite_alphaIsTransparency);
+            cls.AddProperty(false, "ignorePngGamma", BindRead_ignorePngGamma, BindWrite_ignorePngGamma);
             cls.AddProperty(false, "spriteMode", BindRead_spriteMode, BindWrite_spriteMode);
             cls.AddProperty(false, "spritePixelsPerUnit", BindRead_spritePixelsPerUnit, BindWrite_spritePixelsPerUnit);
             cls.AddProperty(false, "spriteTessellationDetail", BindRead_spriteTessellationDetail, BindWrite_spriteTessellationDetail);

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.ToggleGroup
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_ToggleGroup
@@ -172,6 +172,28 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetFirstActiveToggle(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.UI.ToggleGroup self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.GetFirstActiveToggle();
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetFirstActiveToggle", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_SetAllTogglesOff(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -248,6 +270,7 @@ namespace jsb {
             cls.AddMethod(false, "EnsureValidState", Bind_EnsureValidState);
             cls.AddMethod(false, "AnyTogglesOn", Bind_AnyTogglesOn);
             cls.AddMethod(false, "ActiveToggles", Bind_ActiveToggles);
+            cls.AddMethod(false, "GetFirstActiveToggle", Bind_GetFirstActiveToggle);
             cls.AddMethod(false, "SetAllTogglesOff", Bind_SetAllTogglesOff);
             cls.AddProperty(false, "allowSwitchOff", BindRead_allowSwitchOff, BindWrite_allowSwitchOff);
             return cls;

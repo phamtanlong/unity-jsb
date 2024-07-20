@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Transform
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Transform
@@ -95,6 +95,112 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SetPositionAndRotation", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetLocalPositionAndRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Transform self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Transform), "SetLocalPositionAndRotation", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Transform), "SetLocalPositionAndRotation", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    self.SetLocalPositionAndRotation(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetLocalPositionAndRotation", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetPositionAndRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Transform self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Vector3 arg0;
+                    UnityEngine.Quaternion arg1;
+                    self.GetPositionAndRotation(out arg0, out arg1);
+                    var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg0);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                    var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+                    if (JSApi.JS_IsException(out1))
+                    {
+                        return out1;
+                    }
+                    JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("GetPositionAndRotation", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetLocalPositionAndRotation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Transform self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Vector3 arg0;
+                    UnityEngine.Quaternion arg1;
+                    self.GetLocalPositionAndRotation(out arg0, out arg1);
+                    var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg0);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                    var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+                    if (JSApi.JS_IsException(out1))
+                    {
+                        return out1;
+                    }
+                    JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("GetLocalPositionAndRotation", argc);
             }
             catch (Exception exception)
             {
@@ -1871,6 +1977,9 @@ namespace jsb {
             var cls = register.CreateClass("Transform", typeof(UnityEngine.Transform), QuickJS.JSNative.class_private_ctor);
             cls.AddMethod(false, "SetParent", Bind_SetParent);
             cls.AddMethod(false, "SetPositionAndRotation", Bind_SetPositionAndRotation);
+            cls.AddMethod(false, "SetLocalPositionAndRotation", Bind_SetLocalPositionAndRotation);
+            cls.AddMethod(false, "GetPositionAndRotation", Bind_GetPositionAndRotation);
+            cls.AddMethod(false, "GetLocalPositionAndRotation", Bind_GetLocalPositionAndRotation);
             cls.AddMethod(false, "Translate", Bind_Translate);
             cls.AddMethod(false, "Rotate", Bind_Rotate);
             cls.AddMethod(false, "RotateAround", Bind_RotateAround);

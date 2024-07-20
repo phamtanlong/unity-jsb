@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.RectTransform
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_RectTransform
@@ -528,6 +528,24 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_drivenByObject(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.RectTransform self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.drivenByObject;
+                return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStaticEvent_reapplyDrivenProperties(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -577,6 +595,7 @@ namespace jsb {
             cls.AddProperty(false, "anchoredPosition3D", BindRead_anchoredPosition3D, BindWrite_anchoredPosition3D);
             cls.AddProperty(false, "offsetMin", BindRead_offsetMin, BindWrite_offsetMin);
             cls.AddProperty(false, "offsetMax", BindRead_offsetMax, BindWrite_offsetMax);
+            cls.AddProperty(false, "drivenByObject", BindRead_drivenByObject, null);
             cls.AddMethod(true, "reapplyDrivenProperties", BindStaticEvent_reapplyDrivenProperties);
             return cls;
         }

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.ModelImporter
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_ModelImporter
@@ -735,6 +735,88 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_bakeAxisConversion(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.bakeAxisConversion;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_bakeAxisConversion(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "bakeAxisConversion", typeof(bool), 0);
+                }
+                self.bakeAxisConversion = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_optimizeBones(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.optimizeBones;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_optimizeBones(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "optimizeBones", typeof(bool), 0);
+                }
+                self.optimizeBones = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_keepQuads(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1022,6 +1104,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_secondaryUVMarginMethod(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.secondaryUVMarginMethod;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_secondaryUVMarginMethod(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEditor.ModelImporterSecondaryUVMarginMethod value;
+                if (!Values.js_get_enumvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "secondaryUVMarginMethod", typeof(UnityEditor.ModelImporterSecondaryUVMarginMethod), 0);
+                }
+                self.secondaryUVMarginMethod = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_secondaryUVPackMargin(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1055,6 +1178,88 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEditor.ModelImporter), "secondaryUVPackMargin", typeof(float), 0);
                 }
                 self.secondaryUVPackMargin = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_secondaryUVMinLightmapResolution(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.secondaryUVMinLightmapResolution;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_secondaryUVMinLightmapResolution(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "secondaryUVMinLightmapResolution", typeof(float), 0);
+                }
+                self.secondaryUVMinLightmapResolution = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_secondaryUVMinObjectScale(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.secondaryUVMinObjectScale;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_secondaryUVMinObjectScale(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                float value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "secondaryUVMinObjectScale", typeof(float), 0);
+                }
+                self.secondaryUVMinObjectScale = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -1761,6 +1966,88 @@ namespace jsb {
                 }
                 var ret = self.isTangentImportSupported;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_removeConstantScaleCurves(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.removeConstantScaleCurves;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_removeConstantScaleCurves(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "removeConstantScaleCurves", typeof(bool), 0);
+                }
+                self.removeConstantScaleCurves = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_strictVertexDataChecks(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.strictVertexDataChecks;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_strictVertexDataChecks(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.ModelImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.ModelImporter), "strictVertexDataChecks", typeof(bool), 0);
+                }
+                self.strictVertexDataChecks = value;
+                return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
             {
@@ -2750,6 +3037,8 @@ namespace jsb {
             cls.AddProperty(false, "normalSmoothingAngle", BindRead_normalSmoothingAngle, BindWrite_normalSmoothingAngle);
             cls.AddProperty(false, "swapUVChannels", BindRead_swapUVChannels, BindWrite_swapUVChannels);
             cls.AddProperty(false, "weldVertices", BindRead_weldVertices, BindWrite_weldVertices);
+            cls.AddProperty(false, "bakeAxisConversion", BindRead_bakeAxisConversion, BindWrite_bakeAxisConversion);
+            cls.AddProperty(false, "optimizeBones", BindRead_optimizeBones, BindWrite_optimizeBones);
             cls.AddProperty(false, "keepQuads", BindRead_keepQuads, BindWrite_keepQuads);
             cls.AddProperty(false, "indexFormat", BindRead_indexFormat, BindWrite_indexFormat);
             cls.AddProperty(false, "preserveHierarchy", BindRead_preserveHierarchy, BindWrite_preserveHierarchy);
@@ -2757,7 +3046,10 @@ namespace jsb {
             cls.AddProperty(false, "secondaryUVAngleDistortion", BindRead_secondaryUVAngleDistortion, BindWrite_secondaryUVAngleDistortion);
             cls.AddProperty(false, "secondaryUVAreaDistortion", BindRead_secondaryUVAreaDistortion, BindWrite_secondaryUVAreaDistortion);
             cls.AddProperty(false, "secondaryUVHardAngle", BindRead_secondaryUVHardAngle, BindWrite_secondaryUVHardAngle);
+            cls.AddProperty(false, "secondaryUVMarginMethod", BindRead_secondaryUVMarginMethod, BindWrite_secondaryUVMarginMethod);
             cls.AddProperty(false, "secondaryUVPackMargin", BindRead_secondaryUVPackMargin, BindWrite_secondaryUVPackMargin);
+            cls.AddProperty(false, "secondaryUVMinLightmapResolution", BindRead_secondaryUVMinLightmapResolution, BindWrite_secondaryUVMinLightmapResolution);
+            cls.AddProperty(false, "secondaryUVMinObjectScale", BindRead_secondaryUVMinObjectScale, BindWrite_secondaryUVMinObjectScale);
             cls.AddProperty(false, "generateAnimations", BindRead_generateAnimations, BindWrite_generateAnimations);
             cls.AddProperty(false, "importedTakeInfos", BindRead_importedTakeInfos, null);
             cls.AddProperty(false, "transformPaths", BindRead_transformPaths, null);
@@ -2778,6 +3070,8 @@ namespace jsb {
             cls.AddProperty(false, "isBakeIKSupported", BindRead_isBakeIKSupported, null);
             cls.AddProperty(false, "resampleCurves", BindRead_resampleCurves, BindWrite_resampleCurves);
             cls.AddProperty(false, "isTangentImportSupported", BindRead_isTangentImportSupported, null);
+            cls.AddProperty(false, "removeConstantScaleCurves", BindRead_removeConstantScaleCurves, BindWrite_removeConstantScaleCurves);
+            cls.AddProperty(false, "strictVertexDataChecks", BindRead_strictVertexDataChecks, BindWrite_strictVertexDataChecks);
             cls.AddProperty(false, "meshCompression", BindRead_meshCompression, BindWrite_meshCompression);
             cls.AddProperty(false, "importAnimation", BindRead_importAnimation, BindWrite_importAnimation);
             cls.AddProperty(false, "optimizeGameObjects", BindRead_optimizeGameObjects, BindWrite_optimizeGameObjects);

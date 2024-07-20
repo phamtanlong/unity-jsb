@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.BuildPipeline
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_BuildPipeline
@@ -163,6 +163,38 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("BuildPlayer", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_WriteBootConfig(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.BuildPipeline), "WriteBootConfig", typeof(string), 0);
+                    }
+                    UnityEditor.BuildTarget arg1;
+                    if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.BuildPipeline), "WriteBootConfig", typeof(UnityEditor.BuildTarget), 1);
+                    }
+                    UnityEditor.BuildOptions arg2;
+                    if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.BuildPipeline), "WriteBootConfig", typeof(UnityEditor.BuildOptions), 2);
+                    }
+                    UnityEditor.BuildPipeline.WriteBootConfig(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("WriteBootConfig", argc);
             }
             catch (Exception exception)
             {
@@ -323,7 +355,7 @@ namespace jsb {
             {
                 do
                 {
-                    if (argc == 3)
+                    if (argc == 4)
                     {
                         UnityEditor.BuildTargetGroup arg0;
                         if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
@@ -340,8 +372,56 @@ namespace jsb {
                         {
                             throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(UnityEditor.BuildOptions), 2);
                         }
-                        var ret = UnityEditor.BuildPipeline.GetPlaybackEngineDirectory(arg0, arg1, arg2);
+                        bool arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(bool), 3);
+                        }
+                        var ret = UnityEditor.BuildPipeline.GetPlaybackEngineDirectory(arg0, arg1, arg2, arg3);
                         return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 3)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.BuildTarget)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.BuildOptions)) && Values.js_match_type(ctx, argv[2], typeof(bool)))
+                        {
+                            UnityEditor.BuildTarget arg0;
+                            if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(UnityEditor.BuildTarget), 0);
+                            }
+                            UnityEditor.BuildOptions arg1;
+                            if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(UnityEditor.BuildOptions), 1);
+                            }
+                            bool arg2;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(bool), 2);
+                            }
+                            var ret = UnityEditor.BuildPipeline.GetPlaybackEngineDirectory(arg0, arg1, arg2);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.BuildTargetGroup)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.BuildTarget)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.BuildOptions)))
+                        {
+                            UnityEditor.BuildTargetGroup arg0;
+                            if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(UnityEditor.BuildTargetGroup), 0);
+                            }
+                            UnityEditor.BuildTarget arg1;
+                            if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(UnityEditor.BuildTarget), 1);
+                            }
+                            UnityEditor.BuildOptions arg2;
+                            if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlaybackEngineDirectory", typeof(UnityEditor.BuildOptions), 2);
+                            }
+                            var ret = UnityEditor.BuildPipeline.GetPlaybackEngineDirectory(arg0, arg1, arg2);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
                     }
                     if (argc == 2)
                     {
@@ -360,6 +440,33 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("GetPlaybackEngineDirectory", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetPlayerConnectionInitiateMode(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEditor.BuildTarget arg0;
+                    if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlayerConnectionInitiateMode", typeof(UnityEditor.BuildTarget), 0);
+                    }
+                    UnityEditor.BuildOptions arg1;
+                    if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.BuildPipeline), "GetPlayerConnectionInitiateMode", typeof(UnityEditor.BuildOptions), 1);
+                    }
+                    var ret = UnityEditor.BuildPipeline.GetPlayerConnectionInitiateMode(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+                }
+                throw new NoSuitableMethodException("GetPlayerConnectionInitiateMode", argc);
             }
             catch (Exception exception)
             {
@@ -386,11 +493,13 @@ namespace jsb {
             cls.AddMethod(true, "GetBuildTargetName", BindStatic_GetBuildTargetName);
             cls.AddMethod(true, "BuildCanBeAppended", BindStatic_BuildCanBeAppended);
             cls.AddMethod(true, "BuildPlayer", BindStatic_BuildPlayer);
+            cls.AddMethod(true, "WriteBootConfig", BindStatic_WriteBootConfig);
             cls.AddMethod(true, "BuildAssetBundles", BindStatic_BuildAssetBundles);
             cls.AddMethod(true, "GetCRCForAssetBundle", BindStatic_GetCRCForAssetBundle);
             cls.AddMethod(true, "GetHashForAssetBundle", BindStatic_GetHashForAssetBundle);
             cls.AddMethod(true, "IsBuildTargetSupported", BindStatic_IsBuildTargetSupported);
             cls.AddMethod(true, "GetPlaybackEngineDirectory", BindStatic_GetPlaybackEngineDirectory);
+            cls.AddMethod(true, "GetPlayerConnectionInitiateMode", BindStatic_GetPlayerConnectionInitiateMode);
             cls.AddProperty(true, "isBuildingPlayer", BindStaticRead_isBuildingPlayer, null);
             return cls;
         }

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.ColorBlock
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_ColorBlock
@@ -491,6 +491,24 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_defaultColorBlock(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.UI.ColorBlock value;
+                if (!Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.UI.ColorBlock), "defaultColorBlock", typeof(UnityEngine.UI.ColorBlock), 0);
+                }
+                UnityEngine.UI.ColorBlock.defaultColorBlock = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("ColorBlock", typeof(UnityEngine.UI.ColorBlock), BindConstructor);
@@ -506,7 +524,7 @@ namespace jsb {
             cls.AddProperty(false, "disabledColor", BindRead_disabledColor, BindWrite_disabledColor);
             cls.AddProperty(false, "colorMultiplier", BindRead_colorMultiplier, BindWrite_colorMultiplier);
             cls.AddProperty(false, "fadeDuration", BindRead_fadeDuration, BindWrite_fadeDuration);
-            cls.AddProperty(true, "defaultColorBlock", BindStaticRead_defaultColorBlock, null);
+            cls.AddField(true, "defaultColorBlock", BindStaticRead_defaultColorBlock, BindStaticWrite_defaultColorBlock);
             return cls;
         }
     }

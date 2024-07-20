@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Object
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Object
@@ -345,17 +345,85 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    System.Type arg0;
-                    if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsOfType", typeof(System.Type), 0);
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsOfType", typeof(System.Type), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsOfType", typeof(bool), 1);
+                        }
+                        var ret = UnityEngine.Object.FindObjectsOfType(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
                     }
-                    var ret = UnityEngine.Object.FindObjectsOfType(arg0);
-                    return Values.js_push_classvalue(ctx, ret);
-                }
+                    if (argc == 1)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsOfType", typeof(System.Type), 0);
+                        }
+                        var ret = UnityEngine.Object.FindObjectsOfType(arg0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("FindObjectsOfType", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FindObjectsByType(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 3)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsByType", typeof(System.Type), 0);
+                        }
+                        UnityEngine.FindObjectsInactive arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsByType", typeof(UnityEngine.FindObjectsInactive), 1);
+                        }
+                        UnityEngine.FindObjectsSortMode arg2;
+                        if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsByType", typeof(UnityEngine.FindObjectsSortMode), 2);
+                        }
+                        var ret = UnityEngine.Object.FindObjectsByType(arg0, arg1, arg2);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsByType", typeof(System.Type), 0);
+                        }
+                        UnityEngine.FindObjectsSortMode arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectsByType", typeof(UnityEngine.FindObjectsSortMode), 1);
+                        }
+                        var ret = UnityEngine.Object.FindObjectsByType(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("FindObjectsByType", argc);
             }
             catch (Exception exception)
             {
@@ -389,17 +457,115 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    System.Type arg0;
-                    if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEngine.Object), "FindObjectOfType", typeof(System.Type), 0);
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectOfType", typeof(System.Type), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectOfType", typeof(bool), 1);
+                        }
+                        var ret = UnityEngine.Object.FindObjectOfType(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
                     }
-                    var ret = UnityEngine.Object.FindObjectOfType(arg0);
-                    return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
-                }
+                    if (argc == 1)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindObjectOfType", typeof(System.Type), 0);
+                        }
+                        var ret = UnityEngine.Object.FindObjectOfType(arg0);
+                        return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("FindObjectOfType", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FindFirstObjectByType(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindFirstObjectByType", typeof(System.Type), 0);
+                        }
+                        UnityEngine.FindObjectsInactive arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindFirstObjectByType", typeof(UnityEngine.FindObjectsInactive), 1);
+                        }
+                        var ret = UnityEngine.Object.FindFirstObjectByType(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 1)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindFirstObjectByType", typeof(System.Type), 0);
+                        }
+                        var ret = UnityEngine.Object.FindFirstObjectByType(arg0);
+                        return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("FindFirstObjectByType", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FindAnyObjectByType(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindAnyObjectByType", typeof(System.Type), 0);
+                        }
+                        UnityEngine.FindObjectsInactive arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindAnyObjectByType", typeof(UnityEngine.FindObjectsInactive), 1);
+                        }
+                        var ret = UnityEngine.Object.FindAnyObjectByType(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 1)
+                    {
+                        System.Type arg0;
+                        if (!QuickJS.Binding.Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Object), "FindAnyObjectByType", typeof(System.Type), 0);
+                        }
+                        var ret = UnityEngine.Object.FindAnyObjectByType(arg0);
+                        return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("FindAnyObjectByType", argc);
             }
             catch (Exception exception)
             {
@@ -554,8 +720,11 @@ namespace jsb {
             cls.AddMethod(true, "Destroy", BindStatic_Destroy);
             cls.AddMethod(true, "DestroyImmediate", BindStatic_DestroyImmediate);
             cls.AddMethod(true, "FindObjectsOfType", BindStatic_FindObjectsOfType);
+            cls.AddMethod(true, "FindObjectsByType", BindStatic_FindObjectsByType);
             cls.AddMethod(true, "DontDestroyOnLoad", BindStatic_DontDestroyOnLoad);
             cls.AddMethod(true, "FindObjectOfType", BindStatic_FindObjectOfType);
+            cls.AddMethod(true, "FindFirstObjectByType", BindStatic_FindFirstObjectByType);
+            cls.AddMethod(true, "FindAnyObjectByType", BindStatic_FindAnyObjectByType);
             cls.AddMethod(true, "op_Equality", BindStatic_op_Equality);
             cls.AddMethod(true, "op_Inequality", BindStatic_op_Inequality);
             cls.AddProperty(false, "name", BindRead_name, BindWrite_name);

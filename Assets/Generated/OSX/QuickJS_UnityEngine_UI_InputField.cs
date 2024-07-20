@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.InputField
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_InputField
@@ -1021,6 +1021,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_onSubmit(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.UI.InputField self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.onSubmit;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_onSubmit(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.UI.InputField self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.UI.InputField.SubmitEvent value;
+                if (!Values.js_get_classvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.UI.InputField), "onSubmit", typeof(UnityEngine.UI.InputField.SubmitEvent), 0);
+                }
+                self.onSubmit = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_onValueChanged(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1784,6 +1825,7 @@ namespace jsb {
             cls.AddProperty(false, "customCaretColor", BindRead_customCaretColor, BindWrite_customCaretColor);
             cls.AddProperty(false, "selectionColor", BindRead_selectionColor, BindWrite_selectionColor);
             cls.AddProperty(false, "onEndEdit", BindRead_onEndEdit, BindWrite_onEndEdit);
+            cls.AddProperty(false, "onSubmit", BindRead_onSubmit, BindWrite_onSubmit);
             cls.AddProperty(false, "onValueChanged", BindRead_onValueChanged, BindWrite_onValueChanged);
             cls.AddProperty(false, "characterLimit", BindRead_characterLimit, BindWrite_characterLimit);
             cls.AddProperty(false, "contentType", BindRead_contentType, BindWrite_contentType);

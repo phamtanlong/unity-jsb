@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Vector2
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Vector2
@@ -198,6 +198,26 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector2 self;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector2), "ToString", typeof(string), 0);
+                        }
+                        System.IFormatProvider arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector2), "ToString", typeof(System.IFormatProvider), 1);
+                        }
+                        var ret = self.ToString(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
                     if (argc == 1)
                     {
                         UnityEngine.Vector2 self;

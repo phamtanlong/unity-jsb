@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Texture
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Texture
@@ -670,6 +670,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_isDataSRGB(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Texture self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.isDataSRGB;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_totalTextureMemory(JSContext ctx, JSValue this_obj)
         {
             try
@@ -942,6 +960,7 @@ namespace jsb {
             cls.AddProperty(false, "mipMapBias", BindRead_mipMapBias, BindWrite_mipMapBias);
             cls.AddProperty(false, "texelSize", BindRead_texelSize, null);
             cls.AddProperty(false, "updateCount", BindRead_updateCount, null);
+            cls.AddProperty(false, "isDataSRGB", BindRead_isDataSRGB, null);
             cls.AddProperty(true, "totalTextureMemory", BindStaticRead_totalTextureMemory, null);
             cls.AddProperty(true, "desiredTextureMemory", BindStaticRead_desiredTextureMemory, null);
             cls.AddProperty(true, "targetTextureMemory", BindStaticRead_targetTextureMemory, null);

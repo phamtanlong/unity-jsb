@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: jsb.core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/jsb.core.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/jsb.core.dll
     // Type: QuickJS.Unity.JSSerializationContext
     [JSBindingAttribute]
     public class QuickJS_QuickJS_Unity_JSSerializationContext
@@ -105,18 +105,31 @@ namespace jsb {
         {
             try
             {
-                if (argc == 0)
+                do
                 {
-                    QuickJS.Unity.JSSerializationContext self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    if (argc == 0)
                     {
-                        throw new ThisBoundException();
+                        if (Values.js_match_type(ctx, argv[0], typeof(QuickJS.ScriptRuntime)))
+                        {
+                            QuickJS.Unity.JSSerializationContext self1;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self1))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            QuickJS.ScriptRuntime arg0;
+                            arg0 = ScriptEngine.GetRuntime(ctx);
+                            var ret1 = self1.AllocByteBuffer(arg0);
+                            return Values.js_push_classvalue(ctx, ret1);
+                        }
+                        QuickJS.Unity.JSSerializationContext self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        var ret = self.AllocByteBuffer();
+                        return Values.js_push_classvalue(ctx, ret);
                     }
-                    QuickJS.ScriptRuntime arg0;
-                    arg0 = ScriptEngine.GetRuntime(ctx);
-                    var ret = self.AllocByteBuffer(arg0);
-                    return Values.js_push_classvalue(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("AllocByteBuffer", argc);
             }
             catch (Exception exception)

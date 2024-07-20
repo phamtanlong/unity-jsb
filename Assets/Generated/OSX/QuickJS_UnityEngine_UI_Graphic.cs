@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.Graphic
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_Graphic
@@ -101,6 +101,28 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SetMaterialDirty", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetRaycastDirty(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.UI.Graphic self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.SetRaycastDirty();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetRaycastDirty", argc);
             }
             catch (Exception exception)
             {
@@ -678,6 +700,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_raycastPadding(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.UI.Graphic self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.raycastPadding;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_raycastPadding(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.UI.Graphic self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Vector4 value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.UI.Graphic), "raycastPadding", typeof(UnityEngine.Vector4), 0);
+                }
+                self.raycastPadding = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_depth(JSContext ctx, JSValue this_obj)
         {
             try
@@ -851,6 +914,7 @@ namespace jsb {
             cls.AddMethod(false, "SetLayoutDirty", Bind_SetLayoutDirty);
             cls.AddMethod(false, "SetVerticesDirty", Bind_SetVerticesDirty);
             cls.AddMethod(false, "SetMaterialDirty", Bind_SetMaterialDirty);
+            cls.AddMethod(false, "SetRaycastDirty", Bind_SetRaycastDirty);
             cls.AddMethod(false, "OnCullingChanged", Bind_OnCullingChanged);
             cls.AddMethod(false, "Rebuild", Bind_Rebuild);
             cls.AddMethod(false, "LayoutComplete", Bind_LayoutComplete);
@@ -870,6 +934,7 @@ namespace jsb {
             cls.AddProperty(true, "defaultGraphicMaterial", BindStaticRead_defaultGraphicMaterial, null);
             cls.AddProperty(false, "color", BindRead_color, BindWrite_color);
             cls.AddProperty(false, "raycastTarget", BindRead_raycastTarget, BindWrite_raycastTarget);
+            cls.AddProperty(false, "raycastPadding", BindRead_raycastPadding, BindWrite_raycastPadding);
             cls.AddProperty(false, "depth", BindRead_depth, null);
             cls.AddProperty(false, "rectTransform", BindRead_rectTransform, null);
             cls.AddProperty(false, "canvas", BindRead_canvas, null);

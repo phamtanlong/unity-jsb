@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit/mscorlib.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos/mscorlib.dll
     // Type: System.DateTime
     [JSBindingAttribute]
     public class QuickJS_System_DateTime
@@ -2169,19 +2169,6 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_UtcNow(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = System.DateTime.UtcNow;
-                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_Second(JSContext ctx, JSValue this_obj)
         {
             try
@@ -2267,6 +2254,19 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_UtcNow(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = System.DateTime.UtcNow;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_MinValue(JSContext ctx, JSValue this_obj)
         {
             try
@@ -2285,6 +2285,19 @@ namespace jsb {
             try
             {
                 var ret = System.DateTime.MaxValue;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_UnixEpoch(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = System.DateTime.UnixEpoch;
                 return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
             }
             catch (Exception exception)
@@ -2353,14 +2366,15 @@ namespace jsb {
             cls.AddProperty(false, "Minute", BindRead_Minute, null);
             cls.AddProperty(false, "Month", BindRead_Month, null);
             cls.AddProperty(true, "Now", BindStaticRead_Now, null);
-            cls.AddProperty(true, "UtcNow", BindStaticRead_UtcNow, null);
             cls.AddProperty(false, "Second", BindRead_Second, null);
             cls.AddProperty(false, "Ticks", BindRead_Ticks, null);
             cls.AddProperty(false, "TimeOfDay", BindRead_TimeOfDay, null);
             cls.AddProperty(true, "Today", BindStaticRead_Today, null);
             cls.AddProperty(false, "Year", BindRead_Year, null);
+            cls.AddProperty(true, "UtcNow", BindStaticRead_UtcNow, null);
             cls.AddField(true, "MinValue", BindStaticRead_MinValue, null);
             cls.AddField(true, "MaxValue", BindStaticRead_MaxValue, null);
+            cls.AddField(true, "UnixEpoch", BindStaticRead_UnixEpoch, null);
             return cls;
         }
     }

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Vector3Int
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Vector3Int
@@ -24,27 +24,46 @@ namespace jsb {
         {
             try
             {
-                if (argc == 3)
+                do
                 {
-                    int arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    if (argc == 3)
                     {
-                        throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 0);
+                        int arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 1);
+                        }
+                        int arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 2);
+                        }
+                        var o = new UnityEngine.Vector3Int(arg0, arg1, arg2);
+                        var val = QuickJS.Binding.Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                        return val;
                     }
-                    int arg1;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 1);
+                        int arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 0);
+                        }
+                        int arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 1);
+                        }
+                        var o = new UnityEngine.Vector3Int(arg0, arg1);
+                        var val = QuickJS.Binding.Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                        return val;
                     }
-                    int arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3Int), ".ctor", typeof(int), 2);
-                    }
-                    var o = new UnityEngine.Vector3Int(arg0, arg1, arg2);
-                    var val = QuickJS.Binding.Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
-                    return val;
-                }
+                } while(false);
                 throw new NoSuitableMethodException("constructor", argc);
             }
             catch (Exception exception)
@@ -288,6 +307,26 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector3Int self;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), "ToString", typeof(string), 0);
+                        }
+                        System.IFormatProvider arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3Int), "ToString", typeof(System.IFormatProvider), 1);
+                        }
+                        var ret = self.ToString(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
                     if (argc == 1)
                     {
                         UnityEngine.Vector3Int self;
@@ -1210,6 +1249,32 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_forward(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Vector3Int.forward;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_back(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEngine.Vector3Int.back;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Vector3Int", typeof(UnityEngine.Vector3Int), BindConstructor);
@@ -1256,6 +1321,8 @@ namespace jsb {
             cls.AddProperty(true, "down", BindStaticRead_down, null);
             cls.AddProperty(true, "left", BindStaticRead_left, null);
             cls.AddProperty(true, "right", BindStaticRead_right, null);
+            cls.AddProperty(true, "forward", BindStaticRead_forward, null);
+            cls.AddProperty(true, "back", BindStaticRead_back, null);
             return cls;
         }
     }

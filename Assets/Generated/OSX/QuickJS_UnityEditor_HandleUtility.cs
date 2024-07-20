@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,54 +14,12 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.HandleUtility
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_HandleUtility
     {
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_DistancePointBezier(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 5)
-                {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 0);
-                    }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 1);
-                    }
-                    UnityEngine.Vector3 arg2;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 2);
-                    }
-                    UnityEngine.Vector3 arg3;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[3], out arg3))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 3);
-                    }
-                    UnityEngine.Vector3 arg4;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[4], out arg4))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 4);
-                    }
-                    var ret = UnityEditor.HandleUtility.DistancePointBezier(arg0, arg1, arg2, arg3, arg4);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("DistancePointBezier", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_CalcLineTranslation(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -227,22 +185,109 @@ namespace jsb {
         {
             try
             {
-                if (argc == 2)
+                do
+                {
+                    if (argc == 3)
+                    {
+                        UnityEditor.CameraProjectionCache arg0;
+                        if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(UnityEditor.CameraProjectionCache), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(UnityEngine.Vector3), 1);
+                        }
+                        float arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(float), 2);
+                        }
+                        var ret = UnityEditor.HandleUtility.DistanceToCircle(arg0, arg1, arg2);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(UnityEngine.Vector3), 0);
+                        }
+                        float arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(float), 1);
+                        }
+                        var ret = UnityEditor.HandleUtility.DistanceToCircle(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("DistanceToCircle", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DistanceToCone(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
                 {
                     UnityEngine.Vector3 arg0;
                     if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(UnityEngine.Vector3), 0);
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCone", typeof(UnityEngine.Vector3), 0);
                     }
-                    float arg1;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
                     {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCircle", typeof(float), 1);
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCone", typeof(UnityEngine.Quaternion), 1);
                     }
-                    var ret = UnityEditor.HandleUtility.DistanceToCircle(arg0, arg1);
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCone", typeof(float), 2);
+                    }
+                    var ret = UnityEditor.HandleUtility.DistanceToCone(arg0, arg1, arg2);
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
-                throw new NoSuitableMethodException("DistanceToCircle", argc);
+                throw new NoSuitableMethodException("DistanceToCone", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DistanceToCube(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCube", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Quaternion arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCube", typeof(UnityEngine.Quaternion), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistanceToCube", typeof(float), 2);
+                    }
+                    var ret = UnityEditor.HandleUtility.DistanceToCube(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("DistanceToCube", argc);
             }
             catch (Exception exception)
             {
@@ -643,16 +688,34 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "WorldToGUIPointWithDepth", typeof(UnityEngine.Vector3), 0);
+                        UnityEngine.Camera arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "WorldToGUIPointWithDepth", typeof(UnityEngine.Camera), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "WorldToGUIPointWithDepth", typeof(UnityEngine.Vector3), 1);
+                        }
+                        var ret = UnityEditor.HandleUtility.WorldToGUIPointWithDepth(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
                     }
-                    var ret = UnityEditor.HandleUtility.WorldToGUIPointWithDepth(arg0);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
+                    if (argc == 1)
+                    {
+                        UnityEngine.Vector3 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "WorldToGUIPointWithDepth", typeof(UnityEngine.Vector3), 0);
+                        }
+                        var ret = UnityEditor.HandleUtility.WorldToGUIPointWithDepth(arg0);
+                        return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("WorldToGUIPointWithDepth", argc);
             }
             catch (Exception exception)
@@ -777,12 +840,185 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FindNearestVertex(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 4)
+                    {
+                        UnityEngine.Vector2 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "FindNearestVertex", typeof(UnityEngine.Vector2), 0);
+                        }
+                        UnityEngine.Transform[] arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "FindNearestVertex", typeof(UnityEngine.Transform[]), 1);
+                        }
+                        UnityEngine.Transform[] arg2;
+                        if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "FindNearestVertex", typeof(UnityEngine.Transform[]), 2);
+                        }
+                        UnityEngine.Vector3 arg3;
+                        var ret = UnityEditor.HandleUtility.FindNearestVertex(arg0, arg1, arg2, out arg3);
+                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg3);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[3], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 3)
+                    {
+                        UnityEngine.Vector2 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "FindNearestVertex", typeof(UnityEngine.Vector2), 0);
+                        }
+                        UnityEngine.Transform[] arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "FindNearestVertex", typeof(UnityEngine.Transform[]), 1);
+                        }
+                        UnityEngine.Vector3 arg2;
+                        var ret = UnityEditor.HandleUtility.FindNearestVertex(arg0, arg1, out arg2);
+                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg2);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector2 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "FindNearestVertex", typeof(UnityEngine.Vector2), 0);
+                        }
+                        UnityEngine.Vector3 arg1;
+                        var ret = UnityEditor.HandleUtility.FindNearestVertex(arg0, out arg1);
+                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("FindNearestVertex", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_PickGameObject(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
                 do
                 {
+                    if (argc == 5)
+                    {
+                        UnityEngine.Vector2 arg0;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.Vector2), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(bool), 1);
+                        }
+                        UnityEngine.GameObject[] arg2;
+                        if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.GameObject[]), 2);
+                        }
+                        UnityEngine.GameObject[] arg3;
+                        if (!Values.js_get_classvalue(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.GameObject[]), 3);
+                        }
+                        int arg4;
+                        var ret = UnityEditor.HandleUtility.PickGameObject(arg0, arg1, arg2, arg3, out arg4);
+                        var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg4);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[4], context.GetAtom("value"), out0);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 4)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Vector2)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GameObject[])) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.GameObject[])) && Values.js_match_type_hint(ctx, argv[3], typeof(int)))
+                        {
+                            UnityEngine.Vector2 arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.Vector2), 0);
+                            }
+                            UnityEngine.GameObject[] arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.GameObject[]), 1);
+                            }
+                            UnityEngine.GameObject[] arg2;
+                            if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.GameObject[]), 2);
+                            }
+                            int arg3;
+                            var ret = UnityEditor.HandleUtility.PickGameObject(arg0, arg1, arg2, out arg3);
+                            var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg3);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[3], context.GetAtom("value"), out0);
+                            return Values.js_push_classvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Vector2)) && Values.js_match_type(ctx, argv[1], typeof(bool)) && Values.js_match_type(ctx, argv[2], typeof(UnityEngine.GameObject[])) && Values.js_match_type(ctx, argv[3], typeof(UnityEngine.GameObject[])))
+                        {
+                            UnityEngine.Vector2 arg0;
+                            if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.Vector2), 0);
+                            }
+                            bool arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(bool), 1);
+                            }
+                            UnityEngine.GameObject[] arg2;
+                            if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.GameObject[]), 2);
+                            }
+                            UnityEngine.GameObject[] arg3;
+                            if (!Values.js_get_classvalue(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.HandleUtility), "PickGameObject", typeof(UnityEngine.GameObject[]), 3);
+                            }
+                            var ret = UnityEditor.HandleUtility.PickGameObject(arg0, arg1, arg2, arg3);
+                            return Values.js_push_classvalue(ctx, ret);
+                        }
+                    }
                     if (argc == 3)
                     {
                         if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Vector2)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GameObject[])) && Values.js_match_type_hint(ctx, argv[2], typeof(int)))
@@ -940,6 +1176,43 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_PlaceObject(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Vector2 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "PlaceObject", typeof(UnityEngine.Vector2), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    UnityEngine.Vector3 arg2;
+                    var ret = UnityEditor.HandleUtility.PlaceObject(arg0, out arg1, out arg2);
+                    var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                    var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg2);
+                    if (JSApi.JS_IsException(out1))
+                    {
+                        return out1;
+                    }
+                    JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("PlaceObject", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_Repaint(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -950,6 +1223,48 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("Repaint", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DistancePointBezier(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 5)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 1);
+                    }
+                    UnityEngine.Vector3 arg2;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 2);
+                    }
+                    UnityEngine.Vector3 arg3;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 3);
+                    }
+                    UnityEngine.Vector3 arg4;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[4], out arg4))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.HandleUtility), "DistancePointBezier", typeof(UnityEngine.Vector3), 4);
+                    }
+                    var ret = UnityEditor.HandleUtility.DistancePointBezier(arg0, arg1, arg2, arg3, arg4);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("DistancePointBezier", argc);
             }
             catch (Exception exception)
             {
@@ -1039,16 +1354,81 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_pickGameObjectCustomPasses(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                UnityEditor.HandleUtility.PickGameObjectCallback value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "pickGameObjectCustomPasses", typeof(UnityEditor.HandleUtility.PickGameObjectCallback), 1);
+                        }
+                        UnityEditor.HandleUtility.pickGameObjectCustomPasses += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "pickGameObjectCustomPasses", typeof(UnityEditor.HandleUtility.PickGameObjectCallback), 1);
+                        }
+                        UnityEditor.HandleUtility.pickGameObjectCustomPasses -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_placeObjectCustomPasses(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                UnityEditor.HandleUtility.PlaceObjectDelegate value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "placeObjectCustomPasses", typeof(UnityEditor.HandleUtility.PlaceObjectDelegate), 1);
+                        }
+                        UnityEditor.HandleUtility.placeObjectCustomPasses += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.HandleUtility), "placeObjectCustomPasses", typeof(UnityEditor.HandleUtility.PlaceObjectDelegate), 1);
+                        }
+                        UnityEditor.HandleUtility.placeObjectCustomPasses -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("HandleUtility", typeof(UnityEditor.HandleUtility), QuickJS.JSNative.class_private_ctor);
-            cls.AddMethod(true, "DistancePointBezier", BindStatic_DistancePointBezier);
             cls.AddMethod(true, "CalcLineTranslation", BindStatic_CalcLineTranslation);
             cls.AddMethod(true, "PointOnLineParameter", BindStatic_PointOnLineParameter);
             cls.AddMethod(true, "ProjectPointLine", BindStatic_ProjectPointLine);
             cls.AddMethod(true, "DistancePointLine", BindStatic_DistancePointLine);
             cls.AddMethod(true, "DistanceToLine", BindStatic_DistanceToLine);
             cls.AddMethod(true, "DistanceToCircle", BindStatic_DistanceToCircle);
+            cls.AddMethod(true, "DistanceToCone", BindStatic_DistanceToCone);
+            cls.AddMethod(true, "DistanceToCube", BindStatic_DistanceToCube);
             cls.AddMethod(true, "DistanceToRectangle", BindStatic_DistanceToRectangle);
             cls.AddMethod(true, "DistancePointToLine", BindStatic_DistancePointToLine);
             cls.AddMethod(true, "DistancePointToLineSegment", BindStatic_DistancePointToLineSegment);
@@ -1067,16 +1447,21 @@ namespace jsb {
             cls.AddMethod(true, "GUIPointToWorldRay", BindStatic_GUIPointToWorldRay);
             cls.AddMethod(true, "WorldPointToSizedRect", BindStatic_WorldPointToSizedRect);
             cls.AddMethod(true, "PickRectObjects", BindStatic_PickRectObjects);
+            cls.AddMethod(true, "FindNearestVertex", BindStatic_FindNearestVertex);
             cls.AddMethod(true, "PickGameObject", BindStatic_PickGameObject);
             cls.AddMethod(true, "PushCamera", BindStatic_PushCamera);
             cls.AddMethod(true, "PopCamera", BindStatic_PopCamera);
             cls.AddMethod(true, "RaySnap", BindStatic_RaySnap);
+            cls.AddMethod(true, "PlaceObject", BindStatic_PlaceObject);
             cls.AddMethod(true, "Repaint", BindStatic_Repaint);
+            cls.AddMethod(true, "DistancePointBezier", BindStatic_DistancePointBezier);
             cls.AddProperty(true, "acceleration", BindStaticRead_acceleration, null);
             cls.AddProperty(true, "niceMouseDelta", BindStaticRead_niceMouseDelta, null);
             cls.AddProperty(true, "niceMouseDeltaZoom", BindStaticRead_niceMouseDeltaZoom, null);
             cls.AddProperty(true, "nearestControl", BindStaticRead_nearestControl, BindStaticWrite_nearestControl);
             cls.AddProperty(true, "handleMaterial", BindStaticRead_handleMaterial, null);
+            cls.AddMethod(true, "pickGameObjectCustomPasses", BindStaticEvent_pickGameObjectCustomPasses);
+            cls.AddMethod(true, "placeObjectCustomPasses", BindStaticEvent_placeObjectCustomPasses);
             return cls;
         }
     }

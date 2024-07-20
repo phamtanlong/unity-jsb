@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,11 +14,32 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.EventSystems.ExecuteEvents
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventSystems_ExecuteEvents
     {
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticDelegate_pointerMoveHandler(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                switch(op)
+                {
+                    case Values.EVT_OP_GET:
+                    {
+                        var ret = UnityEngine.EventSystems.ExecuteEvents.pointerMoveHandler;
+                        return Values.js_push_delegate(ctx, ret);
+                    }
+                    default: throw new JSException("invalid event op");
+                }
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStaticDelegate_pointerEnterHandler(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -379,6 +400,7 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("ExecuteEvents", typeof(UnityEngine.EventSystems.ExecuteEvents), QuickJS.JSNative.class_private_ctor);
+            cls.AddMethod(true, "pointerMoveHandler", BindStaticDelegate_pointerMoveHandler);
             cls.AddMethod(true, "pointerEnterHandler", BindStaticDelegate_pointerEnterHandler);
             cls.AddMethod(true, "pointerExitHandler", BindStaticDelegate_pointerExitHandler);
             cls.AddMethod(true, "pointerDownHandler", BindStaticDelegate_pointerDownHandler);

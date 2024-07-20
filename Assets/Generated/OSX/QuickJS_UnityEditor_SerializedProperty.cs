@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.SerializedProperty
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_SerializedProperty
@@ -1313,6 +1313,24 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_managedReferenceValue(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.managedReferenceValue;
+                return QuickJS.Binding.Values.js_push_object(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
         public static JSValue BindWrite_managedReferenceValue(JSContext ctx, JSValue this_obj, JSValue arg_val)
         {
@@ -1329,6 +1347,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEditor.SerializedProperty), "managedReferenceValue", typeof(object), 0);
                 }
                 self.managedReferenceValue = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_managedReferenceId(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.managedReferenceId;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_managedReferenceId(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                long value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.SerializedProperty), "managedReferenceId", typeof(long), 0);
+                }
+                self.managedReferenceId = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -1447,6 +1506,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEditor.SerializedProperty), "enumValueIndex", typeof(int), 0);
                 }
                 self.enumValueIndex = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_enumValueFlag(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.enumValueFlag;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_enumValueFlag(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.SerializedProperty), "enumValueFlag", typeof(int), 0);
+                }
+                self.enumValueFlag = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -1901,6 +2001,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_hash128Value(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.hash128Value;
+                return Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_hash128Value(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Hash128 value;
+                if (!Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.SerializedProperty), "hash128Value", typeof(UnityEngine.Hash128), 0);
+                }
+                self.hash128Value = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_isArray(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1953,6 +2094,24 @@ namespace jsb {
                 }
                 self.arraySize = value;
                 return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_minArraySize(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.SerializedProperty self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.minArraySize;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -2046,11 +2205,13 @@ namespace jsb {
             cls.AddProperty(false, "colorValue", BindRead_colorValue, BindWrite_colorValue);
             cls.AddProperty(false, "animationCurveValue", BindRead_animationCurveValue, BindWrite_animationCurveValue);
             cls.AddProperty(false, "objectReferenceValue", BindRead_objectReferenceValue, BindWrite_objectReferenceValue);
-            cls.AddProperty(false, "managedReferenceValue", null, BindWrite_managedReferenceValue);
+            cls.AddProperty(false, "managedReferenceValue", BindRead_managedReferenceValue, BindWrite_managedReferenceValue);
+            cls.AddProperty(false, "managedReferenceId", BindRead_managedReferenceId, BindWrite_managedReferenceId);
             cls.AddProperty(false, "managedReferenceFullTypename", BindRead_managedReferenceFullTypename, null);
             cls.AddProperty(false, "managedReferenceFieldTypename", BindRead_managedReferenceFieldTypename, null);
             cls.AddProperty(false, "objectReferenceInstanceIDValue", BindRead_objectReferenceInstanceIDValue, BindWrite_objectReferenceInstanceIDValue);
             cls.AddProperty(false, "enumValueIndex", BindRead_enumValueIndex, BindWrite_enumValueIndex);
+            cls.AddProperty(false, "enumValueFlag", BindRead_enumValueFlag, BindWrite_enumValueFlag);
             cls.AddProperty(false, "enumNames", BindRead_enumNames, null);
             cls.AddProperty(false, "enumDisplayNames", BindRead_enumDisplayNames, null);
             cls.AddProperty(false, "vector2Value", BindRead_vector2Value, BindWrite_vector2Value);
@@ -2063,8 +2224,10 @@ namespace jsb {
             cls.AddProperty(false, "rectIntValue", BindRead_rectIntValue, BindWrite_rectIntValue);
             cls.AddProperty(false, "boundsValue", BindRead_boundsValue, BindWrite_boundsValue);
             cls.AddProperty(false, "boundsIntValue", BindRead_boundsIntValue, BindWrite_boundsIntValue);
+            cls.AddProperty(false, "hash128Value", BindRead_hash128Value, BindWrite_hash128Value);
             cls.AddProperty(false, "isArray", BindRead_isArray, null);
             cls.AddProperty(false, "arraySize", BindRead_arraySize, BindWrite_arraySize);
+            cls.AddProperty(false, "minArraySize", BindRead_minArraySize, null);
             cls.AddProperty(false, "isFixedBuffer", BindRead_isFixedBuffer, null);
             cls.AddProperty(false, "fixedBufferSize", BindRead_fixedBufferSize, null);
             return cls;

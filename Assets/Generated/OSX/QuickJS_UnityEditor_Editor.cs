@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Editor
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Editor
@@ -438,6 +438,28 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("Initialize", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_Cleanup(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.Editor self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.Cleanup();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("Cleanup", argc);
             }
             catch (Exception exception)
             {
@@ -961,6 +983,7 @@ namespace jsb {
             cls.AddMethod(false, "ReloadPreviewInstances", Bind_ReloadPreviewInstances);
             cls.AddMethod(false, "UseDefaultMargins", Bind_UseDefaultMargins);
             cls.AddMethod(false, "Initialize", Bind_Initialize);
+            cls.AddMethod(false, "Cleanup", Bind_Cleanup);
             cls.AddMethod(false, "MoveNextTarget", Bind_MoveNextTarget);
             cls.AddMethod(false, "ResetTarget", Bind_ResetTarget);
             cls.AddMethod(true, "CreateEditorWithContext", BindStatic_CreateEditorWithContext);

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.GameObjectUtility
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_GameObjectUtility
@@ -322,6 +322,33 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    ulong arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.GameObjectUtility), "ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext", typeof(ulong), 0);
+                    }
+                    UnityEngine.GameObject arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.GameObjectUtility), "ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext", typeof(UnityEngine.GameObject), 1);
+                    }
+                    var ret = UnityEditor.GameObjectUtility.ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("GameObjectUtility", typeof(UnityEditor.GameObjectUtility), BindConstructor);
@@ -337,6 +364,7 @@ namespace jsb {
             cls.AddMethod(true, "SetParentAndAlign", BindStatic_SetParentAndAlign);
             cls.AddMethod(true, "GetMonoBehavioursWithMissingScriptCount", BindStatic_GetMonoBehavioursWithMissingScriptCount);
             cls.AddMethod(true, "RemoveMonoBehavioursWithMissingScript", BindStatic_RemoveMonoBehavioursWithMissingScript);
+            cls.AddMethod(true, "ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext", BindStatic_ModifyMaskIfGameObjectIsHiddenForPrefabModeInContext);
             return cls;
         }
     }

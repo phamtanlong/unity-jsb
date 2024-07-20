@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.EventSystems.RaycastResult
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventSystems_RaycastResult
@@ -307,6 +307,90 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_sortingGroupID(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.RaycastResult self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.sortingGroupID;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_sortingGroupID(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.RaycastResult self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.RaycastResult), "sortingGroupID", typeof(int), 0);
+                }
+                self.sortingGroupID = value;
+                Values.js_rebind_this(ctx, this_obj, ref self);
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_sortingGroupOrder(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.EventSystems.RaycastResult self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.sortingGroupOrder;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_sortingGroupOrder(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.EventSystems.RaycastResult self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.EventSystems.RaycastResult), "sortingGroupOrder", typeof(int), 0);
+                }
+                self.sortingGroupOrder = value;
+                Values.js_rebind_this(ctx, this_obj, ref self);
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_sortingLayer(JSContext ctx, JSValue this_obj)
         {
             try
@@ -569,6 +653,8 @@ namespace jsb {
             cls.AddField(false, "distance", BindRead_distance, BindWrite_distance);
             cls.AddField(false, "index", BindRead_index, BindWrite_index);
             cls.AddField(false, "depth", BindRead_depth, BindWrite_depth);
+            cls.AddField(false, "sortingGroupID", BindRead_sortingGroupID, BindWrite_sortingGroupID);
+            cls.AddField(false, "sortingGroupOrder", BindRead_sortingGroupOrder, BindWrite_sortingGroupOrder);
             cls.AddField(false, "sortingLayer", BindRead_sortingLayer, BindWrite_sortingLayer);
             cls.AddField(false, "sortingOrder", BindRead_sortingOrder, BindWrite_sortingOrder);
             cls.AddField(false, "worldPosition", BindRead_worldPosition, BindWrite_worldPosition);

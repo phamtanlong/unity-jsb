@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.BuildPlayerOptions
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_BuildPlayerOptions
@@ -245,6 +245,48 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_subtarget(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.BuildPlayerOptions self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.subtarget;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_subtarget(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.BuildPlayerOptions self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.BuildPlayerOptions), "subtarget", typeof(int), 0);
+                }
+                self.subtarget = value;
+                Values.js_rebind_this(ctx, this_obj, ref self);
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_options(JSContext ctx, JSValue this_obj)
         {
             try
@@ -286,6 +328,48 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_extraScriptingDefines(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.BuildPlayerOptions self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.extraScriptingDefines;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_extraScriptingDefines(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.BuildPlayerOptions self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                string[] value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.BuildPlayerOptions), "extraScriptingDefines", typeof(string[]), 0);
+                }
+                self.extraScriptingDefines = value;
+                Values.js_rebind_this(ctx, this_obj, ref self);
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("BuildPlayerOptions", typeof(UnityEditor.BuildPlayerOptions), BindConstructor);
@@ -294,7 +378,9 @@ namespace jsb {
             cls.AddProperty(false, "assetBundleManifestPath", BindRead_assetBundleManifestPath, BindWrite_assetBundleManifestPath);
             cls.AddProperty(false, "targetGroup", BindRead_targetGroup, BindWrite_targetGroup);
             cls.AddProperty(false, "target", BindRead_target, BindWrite_target);
+            cls.AddProperty(false, "subtarget", BindRead_subtarget, BindWrite_subtarget);
             cls.AddProperty(false, "options", BindRead_options, BindWrite_options);
+            cls.AddProperty(false, "extraScriptingDefines", BindRead_extraScriptingDefines, BindWrite_extraScriptingDefines);
             return cls;
         }
     }

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.AnimationUtility
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_AnimationUtility
@@ -377,6 +377,38 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetObjectReferenceCurves(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.AnimationClip arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationUtility), "SetObjectReferenceCurves", typeof(UnityEngine.AnimationClip), 0);
+                    }
+                    UnityEditor.EditorCurveBinding[] arg1;
+                    if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationUtility), "SetObjectReferenceCurves", typeof(UnityEditor.EditorCurveBinding[]), 1);
+                    }
+                    UnityEditor.ObjectReferenceKeyframe[][] arg2;
+                    if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationUtility), "SetObjectReferenceCurves", typeof(UnityEditor.ObjectReferenceKeyframe[][]), 2);
+                    }
+                    UnityEditor.AnimationUtility.SetObjectReferenceCurves(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetObjectReferenceCurves", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_GetEditorCurve(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -429,6 +461,38 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SetEditorCurve", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetEditorCurves(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.AnimationClip arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationUtility), "SetEditorCurves", typeof(UnityEngine.AnimationClip), 0);
+                    }
+                    UnityEditor.EditorCurveBinding[] arg1;
+                    if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationUtility), "SetEditorCurves", typeof(UnityEditor.EditorCurveBinding[]), 1);
+                    }
+                    UnityEngine.AnimationCurve[] arg2;
+                    if (!Values.js_get_classvalue(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationUtility), "SetEditorCurves", typeof(UnityEngine.AnimationCurve[]), 2);
+                    }
+                    UnityEditor.AnimationUtility.SetEditorCurves(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetEditorCurves", argc);
             }
             catch (Exception exception)
             {
@@ -857,8 +921,10 @@ namespace jsb {
             cls.AddMethod(true, "GetObjectReferenceCurveBindings", BindStatic_GetObjectReferenceCurveBindings);
             cls.AddMethod(true, "GetObjectReferenceCurve", BindStatic_GetObjectReferenceCurve);
             cls.AddMethod(true, "SetObjectReferenceCurve", BindStatic_SetObjectReferenceCurve);
+            cls.AddMethod(true, "SetObjectReferenceCurves", BindStatic_SetObjectReferenceCurves);
             cls.AddMethod(true, "GetEditorCurve", BindStatic_GetEditorCurve);
             cls.AddMethod(true, "SetEditorCurve", BindStatic_SetEditorCurve);
+            cls.AddMethod(true, "SetEditorCurves", BindStatic_SetEditorCurves);
             cls.AddMethod(true, "GetKeyLeftTangentMode", BindStatic_GetKeyLeftTangentMode);
             cls.AddMethod(true, "GetKeyRightTangentMode", BindStatic_GetKeyRightTangentMode);
             cls.AddMethod(true, "GetKeyBroken", BindStatic_GetKeyBroken);

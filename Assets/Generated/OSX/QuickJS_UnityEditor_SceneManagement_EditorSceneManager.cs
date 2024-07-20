@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.SceneManagement.EditorSceneManager
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_SceneManagement_EditorSceneManager
@@ -32,6 +32,28 @@ namespace jsb {
                     return val;
                 }
                 throw new NoSuitableMethodException("constructor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsReloading(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.SceneManagement.Scene arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.SceneManagement.EditorSceneManager), "IsReloading", typeof(UnityEngine.SceneManagement.Scene), 0);
+                    }
+                    var ret = UnityEditor.SceneManagement.EditorSceneManager.IsReloading(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsReloading", argc);
             }
             catch (Exception exception)
             {
@@ -322,23 +344,6 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_SaveCurrentModifiedScenesIfUserWantsTo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    var ret = UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("SaveCurrentModifiedScenesIfUserWantsTo", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_SaveModifiedScenesIfUserWantsTo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -549,6 +554,23 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SaveCurrentModifiedScenesIfUserWantsTo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("SaveCurrentModifiedScenesIfUserWantsTo", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_SaveScene(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -668,6 +690,19 @@ namespace jsb {
             try
             {
                 var ret = UnityEditor.SceneManagement.EditorSceneManager.loadedSceneCount;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_loadedRootSceneCount(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.SceneManagement.EditorSceneManager.loadedRootSceneCount;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -1054,6 +1089,7 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("EditorSceneManager", typeof(UnityEditor.SceneManagement.EditorSceneManager), BindConstructor);
+            cls.AddMethod(true, "IsReloading", BindStatic_IsReloading);
             cls.AddMethod(true, "OpenScene", BindStatic_OpenScene);
             cls.AddMethod(true, "NewScene", BindStatic_NewScene);
             cls.AddMethod(true, "NewPreviewScene", BindStatic_NewPreviewScene);
@@ -1065,7 +1101,6 @@ namespace jsb {
             cls.AddMethod(true, "MoveSceneAfter", BindStatic_MoveSceneAfter);
             cls.AddMethod(true, "SaveOpenScenes", BindStatic_SaveOpenScenes);
             cls.AddMethod(true, "SaveScenes", BindStatic_SaveScenes);
-            cls.AddMethod(true, "SaveCurrentModifiedScenesIfUserWantsTo", BindStatic_SaveCurrentModifiedScenesIfUserWantsTo);
             cls.AddMethod(true, "SaveModifiedScenesIfUserWantsTo", BindStatic_SaveModifiedScenesIfUserWantsTo);
             cls.AddMethod(true, "EnsureUntitledSceneHasBeenSaved", BindStatic_EnsureUntitledSceneHasBeenSaved);
             cls.AddMethod(true, "MarkSceneDirty", BindStatic_MarkSceneDirty);
@@ -1076,10 +1111,12 @@ namespace jsb {
             cls.AddMethod(true, "GetSceneCullingMask", BindStatic_GetSceneCullingMask);
             cls.AddMethod(true, "SetSceneCullingMask", BindStatic_SetSceneCullingMask);
             cls.AddMethod(true, "CalculateAvailableSceneCullingMask", BindStatic_CalculateAvailableSceneCullingMask);
+            cls.AddMethod(true, "SaveCurrentModifiedScenesIfUserWantsTo", BindStatic_SaveCurrentModifiedScenesIfUserWantsTo);
             cls.AddMethod(true, "SaveScene", BindStatic_SaveScene);
             cls.AddMethod(true, "LoadSceneInPlayMode", BindStatic_LoadSceneInPlayMode);
             cls.AddMethod(true, "LoadSceneAsyncInPlayMode", BindStatic_LoadSceneAsyncInPlayMode);
             cls.AddProperty(true, "loadedSceneCount", BindStaticRead_loadedSceneCount, null);
+            cls.AddProperty(true, "loadedRootSceneCount", BindStaticRead_loadedRootSceneCount, null);
             cls.AddProperty(true, "previewSceneCount", BindStaticRead_previewSceneCount, null);
             cls.AddProperty(true, "preventCrossSceneReferences", BindStaticRead_preventCrossSceneReferences, BindStaticWrite_preventCrossSceneReferences);
             cls.AddProperty(true, "playModeStartScene", BindStaticRead_playModeStartScene, BindStaticWrite_playModeStartScene);

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.EditorStyles
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_EditorStyles
@@ -32,6 +32,88 @@ namespace jsb {
                     return val;
                 }
                 throw new NoSuitableMethodException("constructor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_FromUSS(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 3)
+                    {
+                        UnityEngine.GUIStyle arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorStyles), "FromUSS", typeof(UnityEngine.GUIStyle), 0);
+                        }
+                        string arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorStyles), "FromUSS", typeof(string), 1);
+                        }
+                        string arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorStyles), "FromUSS", typeof(string), 2);
+                        }
+                        var ret = UnityEditor.EditorStyles.FromUSS(arg0, arg1, arg2);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorStyles), "FromUSS", typeof(string), 0);
+                        }
+                        string arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.EditorStyles), "FromUSS", typeof(string), 1);
+                        }
+                        var ret = UnityEditor.EditorStyles.FromUSS(arg0, arg1);
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("FromUSS", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ApplyUSS(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.GUIStyle arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorStyles), "ApplyUSS", typeof(UnityEngine.GUIStyle), 0);
+                    }
+                    string arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorStyles), "ApplyUSS", typeof(string), 1);
+                    }
+                    string arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.EditorStyles), "ApplyUSS", typeof(string), 2);
+                    }
+                    var ret = UnityEditor.EditorStyles.ApplyUSS(arg0, arg1, arg2);
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("ApplyUSS", argc);
             }
             catch (Exception exception)
             {
@@ -662,9 +744,37 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_iconButton(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.EditorStyles.iconButton;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_selectionRect(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.EditorStyles.selectionRect;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("EditorStyles", typeof(UnityEditor.EditorStyles), BindConstructor);
+            cls.AddMethod(true, "FromUSS", BindStatic_FromUSS);
+            cls.AddMethod(true, "ApplyUSS", BindStatic_ApplyUSS);
             cls.AddProperty(true, "label", BindStaticRead_label, null);
             cls.AddProperty(true, "miniLabel", BindStaticRead_miniLabel, null);
             cls.AddProperty(true, "largeLabel", BindStaticRead_largeLabel, null);
@@ -713,6 +823,8 @@ namespace jsb {
             cls.AddProperty(true, "inspectorFullWidthMargins", BindStaticRead_inspectorFullWidthMargins, null);
             cls.AddProperty(true, "helpBox", BindStaticRead_helpBox, null);
             cls.AddProperty(true, "toolbarSearchField", BindStaticRead_toolbarSearchField, null);
+            cls.AddProperty(true, "iconButton", BindStaticRead_iconButton, null);
+            cls.AddProperty(true, "selectionRect", BindStaticRead_selectionRect, null);
             return cls;
         }
     }

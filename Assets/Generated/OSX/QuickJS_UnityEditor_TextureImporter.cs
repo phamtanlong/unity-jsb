@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.TextureImporter
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_TextureImporter
@@ -276,6 +276,43 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("ClearPlatformTextureSettings", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetSourceTextureWidthAndHeight(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEditor.TextureImporter self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    int arg0;
+                    int arg1;
+                    self.GetSourceTextureWidthAndHeight(out arg0, out arg1);
+                    var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg0);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                    var out1 = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+                    if (JSApi.JS_IsException(out1))
+                    {
+                        return out1;
+                    }
+                    JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("GetSourceTextureWidthAndHeight", argc);
             }
             catch (Exception exception)
             {
@@ -951,6 +988,47 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEditor.TextureImporter), "streamingMipmapsPriority", typeof(int), 0);
                 }
                 self.streamingMipmapsPriority = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_vtOnly(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.TextureImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.vtOnly;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_vtOnly(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.TextureImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.TextureImporter), "vtOnly", typeof(bool), 0);
+                }
+                self.vtOnly = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -2165,6 +2243,47 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_ignorePngGamma(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.TextureImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.ignorePngGamma;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_ignorePngGamma(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.TextureImporter self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.TextureImporter), "ignorePngGamma", typeof(bool), 0);
+                }
+                self.ignorePngGamma = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("TextureImporter", typeof(UnityEditor.TextureImporter), BindConstructor);
@@ -2173,6 +2292,7 @@ namespace jsb {
             cls.AddMethod(false, "GetAutomaticFormat", Bind_GetAutomaticFormat);
             cls.AddMethod(false, "SetPlatformTextureSettings", Bind_SetPlatformTextureSettings);
             cls.AddMethod(false, "ClearPlatformTextureSettings", Bind_ClearPlatformTextureSettings);
+            cls.AddMethod(false, "GetSourceTextureWidthAndHeight", Bind_GetSourceTextureWidthAndHeight);
             cls.AddMethod(false, "DoesSourceTextureHaveAlpha", Bind_DoesSourceTextureHaveAlpha);
             cls.AddMethod(false, "ReadTextureSettings", Bind_ReadTextureSettings);
             cls.AddMethod(false, "SetTextureSettings", Bind_SetTextureSettings);
@@ -2191,6 +2311,7 @@ namespace jsb {
             cls.AddProperty(false, "isReadable", BindRead_isReadable, BindWrite_isReadable);
             cls.AddProperty(false, "streamingMipmaps", BindRead_streamingMipmaps, BindWrite_streamingMipmaps);
             cls.AddProperty(false, "streamingMipmapsPriority", BindRead_streamingMipmapsPriority, BindWrite_streamingMipmapsPriority);
+            cls.AddProperty(false, "vtOnly", BindRead_vtOnly, BindWrite_vtOnly);
             cls.AddProperty(false, "mipmapEnabled", BindRead_mipmapEnabled, BindWrite_mipmapEnabled);
             cls.AddProperty(false, "borderMipmap", BindRead_borderMipmap, BindWrite_borderMipmap);
             cls.AddProperty(false, "sRGBTexture", BindRead_sRGBTexture, BindWrite_sRGBTexture);
@@ -2221,6 +2342,7 @@ namespace jsb {
             cls.AddProperty(false, "spriteBorder", BindRead_spriteBorder, BindWrite_spriteBorder);
             cls.AddProperty(false, "textureType", BindRead_textureType, BindWrite_textureType);
             cls.AddProperty(false, "textureShape", BindRead_textureShape, BindWrite_textureShape);
+            cls.AddProperty(false, "ignorePngGamma", BindRead_ignorePngGamma, BindWrite_ignorePngGamma);
             return cls;
         }
     }

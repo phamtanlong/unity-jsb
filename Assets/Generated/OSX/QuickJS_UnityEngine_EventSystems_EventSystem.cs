@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.EventSystems.EventSystem
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventSystems_EventSystem
@@ -179,6 +179,38 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
                 throw new NoSuitableMethodException("toString", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetUITookitEventSystemOverride(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.EventSystems.EventSystem arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.EventSystems.EventSystem), "SetUITookitEventSystemOverride", typeof(UnityEngine.EventSystems.EventSystem), 0);
+                    }
+                    bool arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.EventSystems.EventSystem), "SetUITookitEventSystemOverride", typeof(bool), 1);
+                    }
+                    bool arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.EventSystems.EventSystem), "SetUITookitEventSystemOverride", typeof(bool), 2);
+                    }
+                    UnityEngine.EventSystems.EventSystem.SetUITookitEventSystemOverride(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetUITookitEventSystemOverride", argc);
             }
             catch (Exception exception)
             {
@@ -419,6 +451,7 @@ namespace jsb {
             cls.AddMethod(false, "RaycastAll", Bind_RaycastAll);
             cls.AddMethod(false, "IsPointerOverGameObject", Bind_IsPointerOverGameObject);
             cls.AddMethod(false, "toString", Bind_ToString);
+            cls.AddMethod(true, "SetUITookitEventSystemOverride", BindStatic_SetUITookitEventSystemOverride);
             cls.AddProperty(true, "current", BindStaticRead_current, BindStaticWrite_current);
             cls.AddProperty(false, "sendNavigationEvents", BindRead_sendNavigationEvents, BindWrite_sendNavigationEvents);
             cls.AddProperty(false, "pixelDragThreshold", BindRead_pixelDragThreshold, BindWrite_pixelDragThreshold);

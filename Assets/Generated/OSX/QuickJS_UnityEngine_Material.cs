@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Material
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Material
@@ -60,30 +60,15 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_HasProperty(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_SetInt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
                 do
                 {
-                    if (argc == 1)
+                    if (argc == 2)
                     {
-                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
-                        {
-                            UnityEngine.Material self;
-                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                            {
-                                throw new ThisBoundException();
-                            }
-                            int arg0;
-                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                            {
-                                throw new ParameterException(typeof(UnityEngine.Material), "HasProperty", typeof(int), 0);
-                            }
-                            var ret = self.HasProperty(arg0);
-                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                        }
-                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(int)))
                         {
                             UnityEngine.Material self;
                             if (!Values.js_get_classvalue(ctx, this_obj, out self))
@@ -93,493 +78,39 @@ namespace jsb {
                             string arg0;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "HasProperty", typeof(string), 0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(string), 0);
                             }
-                            var ret = self.HasProperty(arg0);
-                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                            int arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(int), 1);
+                            }
+                            self.SetInt(arg0, arg1);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)) && Values.js_match_type(ctx, argv[1], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(int), 0);
+                            }
+                            int arg1;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(int), 1);
+                            }
+                            self.SetInt(arg0, arg1);
+                            return JSApi.JS_UNDEFINED;
                         }
                     }
                 } while(false);
-                throw new NoSuitableMethodException("HasProperty", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_EnableKeyword(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "EnableKeyword", typeof(string), 0);
-                    }
-                    self.EnableKeyword(arg0);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("EnableKeyword", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_DisableKeyword(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "DisableKeyword", typeof(string), 0);
-                    }
-                    self.DisableKeyword(arg0);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("DisableKeyword", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_IsKeywordEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "IsKeywordEnabled", typeof(string), 0);
-                    }
-                    var ret = self.IsKeywordEnabled(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("IsKeywordEnabled", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_SetShaderPassEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 2)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "SetShaderPassEnabled", typeof(string), 0);
-                    }
-                    bool arg1;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "SetShaderPassEnabled", typeof(bool), 1);
-                    }
-                    self.SetShaderPassEnabled(arg0, arg1);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("SetShaderPassEnabled", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetShaderPassEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "GetShaderPassEnabled", typeof(string), 0);
-                    }
-                    var ret = self.GetShaderPassEnabled(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("GetShaderPassEnabled", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetPassName(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    int arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "GetPassName", typeof(int), 0);
-                    }
-                    var ret = self.GetPassName(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("GetPassName", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_FindPass(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "FindPass", typeof(string), 0);
-                    }
-                    var ret = self.FindPass(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("FindPass", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_SetOverrideTag(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 2)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "SetOverrideTag", typeof(string), 0);
-                    }
-                    string arg1;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "SetOverrideTag", typeof(string), 1);
-                    }
-                    self.SetOverrideTag(arg0, arg1);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("SetOverrideTag", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetTag(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 3)
-                    {
-                        UnityEngine.Material self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        string arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(string), 0);
-                        }
-                        bool arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(bool), 1);
-                        }
-                        string arg2;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(string), 2);
-                        }
-                        var ret = self.GetTag(arg0, arg1, arg2);
-                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                    }
-                    if (argc == 2)
-                    {
-                        UnityEngine.Material self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        string arg0;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(string), 0);
-                        }
-                        bool arg1;
-                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(bool), 1);
-                        }
-                        var ret = self.GetTag(arg0, arg1);
-                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("GetTag", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_Lerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 3)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    UnityEngine.Material arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "Lerp", typeof(UnityEngine.Material), 0);
-                    }
-                    UnityEngine.Material arg1;
-                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "Lerp", typeof(UnityEngine.Material), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "Lerp", typeof(float), 2);
-                    }
-                    self.Lerp(arg0, arg1, arg2);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("Lerp", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_SetPass(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    int arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "SetPass", typeof(int), 0);
-                    }
-                    var ret = self.SetPass(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("SetPass", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_CopyPropertiesFromMaterial(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 1)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    UnityEngine.Material arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Material), "CopyPropertiesFromMaterial", typeof(UnityEngine.Material), 0);
-                    }
-                    self.CopyPropertiesFromMaterial(arg0);
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("CopyPropertiesFromMaterial", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_ComputeCRC(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    UnityEngine.Material self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    var ret = self.ComputeCRC();
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("ComputeCRC", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetTexturePropertyNames(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 1)
-                    {
-                        UnityEngine.Material self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        System.Collections.Generic.List<string> arg0;
-                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTexturePropertyNames", typeof(System.Collections.Generic.List<string>), 0);
-                        }
-                        self.GetTexturePropertyNames(arg0);
-                        return JSApi.JS_UNDEFINED;
-                    }
-                    if (argc == 0)
-                    {
-                        UnityEngine.Material self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        var ret = self.GetTexturePropertyNames();
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("GetTexturePropertyNames", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetTexturePropertyNameIDs(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 1)
-                    {
-                        UnityEngine.Material self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        System.Collections.Generic.List<int> arg0;
-                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
-                        {
-                            throw new ParameterException(typeof(UnityEngine.Material), "GetTexturePropertyNameIDs", typeof(System.Collections.Generic.List<int>), 0);
-                        }
-                        self.GetTexturePropertyNameIDs(arg0);
-                        return JSApi.JS_UNDEFINED;
-                    }
-                    if (argc == 0)
-                    {
-                        UnityEngine.Material self;
-                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                        {
-                            throw new ThisBoundException();
-                        }
-                        var ret = self.GetTexturePropertyNameIDs();
-                        return Values.js_push_classvalue(ctx, ret);
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("GetTexturePropertyNameIDs", argc);
+                throw new NoSuitableMethodException("SetInt", argc);
             }
             catch (Exception exception)
             {
@@ -645,7 +176,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_SetInt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_SetInteger(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -663,14 +194,14 @@ namespace jsb {
                             string arg0;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(string), 0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInteger", typeof(string), 0);
                             }
                             int arg1;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(int), 1);
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInteger", typeof(int), 1);
                             }
-                            self.SetInt(arg0, arg1);
+                            self.SetInteger(arg0, arg1);
                             return JSApi.JS_UNDEFINED;
                         }
                         if (Values.js_match_type(ctx, argv[0], typeof(int)) && Values.js_match_type(ctx, argv[1], typeof(int)))
@@ -683,19 +214,19 @@ namespace jsb {
                             int arg0;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(int), 0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInteger", typeof(int), 0);
                             }
                             int arg1;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "SetInt", typeof(int), 1);
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetInteger", typeof(int), 1);
                             }
-                            self.SetInt(arg0, arg1);
+                            self.SetInteger(arg0, arg1);
                             return JSApi.JS_UNDEFINED;
                         }
                     }
                 } while(false);
-                throw new NoSuitableMethodException("SetInt", argc);
+                throw new NoSuitableMethodException("SetInteger", argc);
             }
             catch (Exception exception)
             {
@@ -1036,6 +567,46 @@ namespace jsb {
                             self.SetBuffer(arg0, arg1);
                             return JSApi.JS_UNDEFINED;
                         }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GraphicsBuffer)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetBuffer", typeof(string), 0);
+                            }
+                            UnityEngine.GraphicsBuffer arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetBuffer", typeof(UnityEngine.GraphicsBuffer), 1);
+                            }
+                            self.SetBuffer(arg0, arg1);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GraphicsBuffer)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetBuffer", typeof(int), 0);
+                            }
+                            UnityEngine.GraphicsBuffer arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetBuffer", typeof(UnityEngine.GraphicsBuffer), 1);
+                            }
+                            self.SetBuffer(arg0, arg1);
+                            return JSApi.JS_UNDEFINED;
+                        }
                     }
                 } while(false);
                 throw new NoSuitableMethodException("SetBuffer", argc);
@@ -1100,6 +671,66 @@ namespace jsb {
                             if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
                             {
                                 throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(UnityEngine.ComputeBuffer), 1);
+                            }
+                            int arg2;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(int), 2);
+                            }
+                            int arg3;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(int), 3);
+                            }
+                            self.SetConstantBuffer(arg0, arg1, arg2, arg3);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GraphicsBuffer)) && Values.js_match_type(ctx, argv[2], typeof(int)) && Values.js_match_type(ctx, argv[3], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(string), 0);
+                            }
+                            UnityEngine.GraphicsBuffer arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(UnityEngine.GraphicsBuffer), 1);
+                            }
+                            int arg2;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(int), 2);
+                            }
+                            int arg3;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(int), 3);
+                            }
+                            self.SetConstantBuffer(arg0, arg1, arg2, arg3);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)) && Values.js_match_type(ctx, argv[1], typeof(UnityEngine.GraphicsBuffer)) && Values.js_match_type(ctx, argv[2], typeof(int)) && Values.js_match_type(ctx, argv[3], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(int), 0);
+                            }
+                            UnityEngine.GraphicsBuffer arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "SetConstantBuffer", typeof(UnityEngine.GraphicsBuffer), 1);
                             }
                             int arg2;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
@@ -1516,6 +1147,54 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetInt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "GetInt", typeof(string), 0);
+                            }
+                            var ret = self.GetInt(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "GetInt", typeof(int), 0);
+                            }
+                            var ret = self.GetInt(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetInt", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_GetFloat(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -1564,7 +1243,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_GetInt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_GetInteger(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -1582,9 +1261,9 @@ namespace jsb {
                             string arg0;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "GetInt", typeof(string), 0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "GetInteger", typeof(string), 0);
                             }
-                            var ret = self.GetInt(arg0);
+                            var ret = self.GetInteger(arg0);
                             return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                         }
                         if (Values.js_match_type(ctx, argv[0], typeof(int)))
@@ -1597,14 +1276,14 @@ namespace jsb {
                             int arg0;
                             if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                             {
-                                throw new ParameterException(typeof(UnityEngine.Material), "GetInt", typeof(int), 0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "GetInteger", typeof(int), 0);
                             }
-                            var ret = self.GetInt(arg0);
+                            var ret = self.GetInteger(arg0);
                             return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                         }
                     }
                 } while(false);
-                throw new NoSuitableMethodException("GetInt", argc);
+                throw new NoSuitableMethodException("GetInteger", argc);
             }
             catch (Exception exception)
             {
@@ -2379,6 +2058,1143 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasProperty(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasProperty", typeof(int), 0);
+                            }
+                            var ret = self.HasProperty(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasProperty", typeof(string), 0);
+                            }
+                            var ret = self.HasProperty(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasProperty", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasFloat(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasFloat", typeof(string), 0);
+                            }
+                            var ret = self.HasFloat(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasFloat", typeof(int), 0);
+                            }
+                            var ret = self.HasFloat(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasFloat", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasInt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasInt", typeof(string), 0);
+                            }
+                            var ret = self.HasInt(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasInt", typeof(int), 0);
+                            }
+                            var ret = self.HasInt(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasInt", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasInteger(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasInteger", typeof(string), 0);
+                            }
+                            var ret = self.HasInteger(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasInteger", typeof(int), 0);
+                            }
+                            var ret = self.HasInteger(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasInteger", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasTexture(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasTexture", typeof(string), 0);
+                            }
+                            var ret = self.HasTexture(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasTexture", typeof(int), 0);
+                            }
+                            var ret = self.HasTexture(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasTexture", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasMatrix(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasMatrix", typeof(string), 0);
+                            }
+                            var ret = self.HasMatrix(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasMatrix", typeof(int), 0);
+                            }
+                            var ret = self.HasMatrix(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasMatrix", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasVector(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasVector", typeof(string), 0);
+                            }
+                            var ret = self.HasVector(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasVector", typeof(int), 0);
+                            }
+                            var ret = self.HasVector(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasVector", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasColor(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasColor", typeof(string), 0);
+                            }
+                            var ret = self.HasColor(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasColor", typeof(int), 0);
+                            }
+                            var ret = self.HasColor(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasColor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasBuffer(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasBuffer", typeof(string), 0);
+                            }
+                            var ret = self.HasBuffer(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasBuffer", typeof(int), 0);
+                            }
+                            var ret = self.HasBuffer(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasBuffer", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_HasConstantBuffer(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasConstantBuffer", typeof(string), 0);
+                            }
+                            var ret = self.HasConstantBuffer(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "HasConstantBuffer", typeof(int), 0);
+                            }
+                            var ret = self.HasConstantBuffer(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("HasConstantBuffer", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_EnableKeyword(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "EnableKeyword", typeof(string), 0);
+                            }
+                            self.EnableKeyword(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type_hint(ctx, argv[0], typeof(UnityEngine.Rendering.LocalKeyword)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            UnityEngine.Rendering.LocalKeyword arg0;
+                            var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                            if (refVal0.IsException())
+                            {
+                                return refVal0;
+                            }
+                            if (!Values.js_get_structvalue(ctx, refVal0, out arg0))
+                            {
+                                JSApi.JS_FreeValue(ctx, refVal0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "EnableKeyword", typeof(UnityEngine.Rendering.LocalKeyword), 0);
+                            }
+                            JSApi.JS_FreeValue(ctx, refVal0);
+                            self.EnableKeyword(in arg0);
+                            var out0 = Values.js_push_structvalue(ctx, arg0);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("EnableKeyword", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_DisableKeyword(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "DisableKeyword", typeof(string), 0);
+                            }
+                            self.DisableKeyword(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type_hint(ctx, argv[0], typeof(UnityEngine.Rendering.LocalKeyword)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            UnityEngine.Rendering.LocalKeyword arg0;
+                            var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                            if (refVal0.IsException())
+                            {
+                                return refVal0;
+                            }
+                            if (!Values.js_get_structvalue(ctx, refVal0, out arg0))
+                            {
+                                JSApi.JS_FreeValue(ctx, refVal0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "DisableKeyword", typeof(UnityEngine.Rendering.LocalKeyword), 0);
+                            }
+                            JSApi.JS_FreeValue(ctx, refVal0);
+                            self.DisableKeyword(in arg0);
+                            var out0 = Values.js_push_structvalue(ctx, arg0);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("DisableKeyword", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_IsKeywordEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEngine.Material), "IsKeywordEnabled", typeof(string), 0);
+                            }
+                            var ret = self.IsKeywordEnabled(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type_hint(ctx, argv[0], typeof(UnityEngine.Rendering.LocalKeyword)))
+                        {
+                            UnityEngine.Material self;
+                            if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                            {
+                                throw new ThisBoundException();
+                            }
+                            UnityEngine.Rendering.LocalKeyword arg0;
+                            var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                            if (refVal0.IsException())
+                            {
+                                return refVal0;
+                            }
+                            if (!Values.js_get_structvalue(ctx, refVal0, out arg0))
+                            {
+                                JSApi.JS_FreeValue(ctx, refVal0);
+                                throw new ParameterException(typeof(UnityEngine.Material), "IsKeywordEnabled", typeof(UnityEngine.Rendering.LocalKeyword), 0);
+                            }
+                            JSApi.JS_FreeValue(ctx, refVal0);
+                            var ret = self.IsKeywordEnabled(in arg0);
+                            var out0 = Values.js_push_structvalue(ctx, arg0);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("IsKeywordEnabled", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetKeyword(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Rendering.LocalKeyword arg0;
+                    var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                    if (refVal0.IsException())
+                    {
+                        return refVal0;
+                    }
+                    if (!Values.js_get_structvalue(ctx, refVal0, out arg0))
+                    {
+                        JSApi.JS_FreeValue(ctx, refVal0);
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetKeyword", typeof(UnityEngine.Rendering.LocalKeyword), 0);
+                    }
+                    JSApi.JS_FreeValue(ctx, refVal0);
+                    bool arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetKeyword", typeof(bool), 1);
+                    }
+                    self.SetKeyword(in arg0, arg1);
+                    var out0 = Values.js_push_structvalue(ctx, arg0);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetKeyword", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetShaderPassEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetShaderPassEnabled", typeof(string), 0);
+                    }
+                    bool arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetShaderPassEnabled", typeof(bool), 1);
+                    }
+                    self.SetShaderPassEnabled(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetShaderPassEnabled", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetShaderPassEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "GetShaderPassEnabled", typeof(string), 0);
+                    }
+                    var ret = self.GetShaderPassEnabled(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetShaderPassEnabled", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetPassName(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    int arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "GetPassName", typeof(int), 0);
+                    }
+                    var ret = self.GetPassName(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetPassName", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_FindPass(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "FindPass", typeof(string), 0);
+                    }
+                    var ret = self.FindPass(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("FindPass", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetOverrideTag(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetOverrideTag", typeof(string), 0);
+                    }
+                    string arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetOverrideTag", typeof(string), 1);
+                    }
+                    self.SetOverrideTag(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetOverrideTag", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetTag(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 3)
+                    {
+                        UnityEngine.Material self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(string), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(bool), 1);
+                        }
+                        string arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(string), 2);
+                        }
+                        var ret = self.GetTag(arg0, arg1, arg2);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEngine.Material self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(string), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTag", typeof(bool), 1);
+                        }
+                        var ret = self.GetTag(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetTag", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_Lerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Material arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "Lerp", typeof(UnityEngine.Material), 0);
+                    }
+                    UnityEngine.Material arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "Lerp", typeof(UnityEngine.Material), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "Lerp", typeof(float), 2);
+                    }
+                    self.Lerp(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("Lerp", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_SetPass(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    int arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "SetPass", typeof(int), 0);
+                    }
+                    var ret = self.SetPass(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("SetPass", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_CopyPropertiesFromMaterial(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Material arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "CopyPropertiesFromMaterial", typeof(UnityEngine.Material), 0);
+                    }
+                    self.CopyPropertiesFromMaterial(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("CopyPropertiesFromMaterial", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_CopyMatchingPropertiesFromMaterial(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Material arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Material), "CopyMatchingPropertiesFromMaterial", typeof(UnityEngine.Material), 0);
+                    }
+                    self.CopyMatchingPropertiesFromMaterial(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("CopyMatchingPropertiesFromMaterial", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_ComputeCRC(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Material self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    var ret = self.ComputeCRC();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("ComputeCRC", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetTexturePropertyNames(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        UnityEngine.Material self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        System.Collections.Generic.List<string> arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTexturePropertyNames", typeof(System.Collections.Generic.List<string>), 0);
+                        }
+                        self.GetTexturePropertyNames(arg0);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    if (argc == 0)
+                    {
+                        UnityEngine.Material self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        var ret = self.GetTexturePropertyNames();
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetTexturePropertyNames", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_GetTexturePropertyNameIDs(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        UnityEngine.Material self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        System.Collections.Generic.List<int> arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Material), "GetTexturePropertyNameIDs", typeof(System.Collections.Generic.List<int>), 0);
+                        }
+                        self.GetTexturePropertyNameIDs(arg0);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    if (argc == 0)
+                    {
+                        UnityEngine.Material self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        var ret = self.GetTexturePropertyNameIDs();
+                        return Values.js_push_classvalue(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("GetTexturePropertyNameIDs", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_shader(JSContext ctx, JSValue this_obj)
         {
@@ -2626,6 +3442,47 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_enabledKeywords(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Material self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.enabledKeywords;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_enabledKeywords(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Material self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                UnityEngine.Rendering.LocalKeyword[] value;
+                if (!Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Material), "enabledKeywords", typeof(UnityEngine.Rendering.LocalKeyword[]), 0);
+                }
+                self.enabledKeywords = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_globalIlluminationFlags(JSContext ctx, JSValue this_obj)
         {
             try
@@ -2810,24 +3667,9 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Material", typeof(UnityEngine.Material), BindConstructor);
-            cls.AddMethod(false, "HasProperty", Bind_HasProperty);
-            cls.AddMethod(false, "EnableKeyword", Bind_EnableKeyword);
-            cls.AddMethod(false, "DisableKeyword", Bind_DisableKeyword);
-            cls.AddMethod(false, "IsKeywordEnabled", Bind_IsKeywordEnabled);
-            cls.AddMethod(false, "SetShaderPassEnabled", Bind_SetShaderPassEnabled);
-            cls.AddMethod(false, "GetShaderPassEnabled", Bind_GetShaderPassEnabled);
-            cls.AddMethod(false, "GetPassName", Bind_GetPassName);
-            cls.AddMethod(false, "FindPass", Bind_FindPass);
-            cls.AddMethod(false, "SetOverrideTag", Bind_SetOverrideTag);
-            cls.AddMethod(false, "GetTag", Bind_GetTag);
-            cls.AddMethod(false, "Lerp", Bind_Lerp);
-            cls.AddMethod(false, "SetPass", Bind_SetPass);
-            cls.AddMethod(false, "CopyPropertiesFromMaterial", Bind_CopyPropertiesFromMaterial);
-            cls.AddMethod(false, "ComputeCRC", Bind_ComputeCRC);
-            cls.AddMethod(false, "GetTexturePropertyNames", Bind_GetTexturePropertyNames);
-            cls.AddMethod(false, "GetTexturePropertyNameIDs", Bind_GetTexturePropertyNameIDs);
-            cls.AddMethod(false, "SetFloat", Bind_SetFloat);
             cls.AddMethod(false, "SetInt", Bind_SetInt);
+            cls.AddMethod(false, "SetFloat", Bind_SetFloat);
+            cls.AddMethod(false, "SetInteger", Bind_SetInteger);
             cls.AddMethod(false, "SetColor", Bind_SetColor);
             cls.AddMethod(false, "SetVector", Bind_SetVector);
             cls.AddMethod(false, "SetMatrix", Bind_SetMatrix);
@@ -2838,8 +3680,9 @@ namespace jsb {
             cls.AddMethod(false, "SetColorArray", Bind_SetColorArray);
             cls.AddMethod(false, "SetVectorArray", Bind_SetVectorArray);
             cls.AddMethod(false, "SetMatrixArray", Bind_SetMatrixArray);
-            cls.AddMethod(false, "GetFloat", Bind_GetFloat);
             cls.AddMethod(false, "GetInt", Bind_GetInt);
+            cls.AddMethod(false, "GetFloat", Bind_GetFloat);
+            cls.AddMethod(false, "GetInteger", Bind_GetInteger);
             cls.AddMethod(false, "GetColor", Bind_GetColor);
             cls.AddMethod(false, "GetVector", Bind_GetVector);
             cls.AddMethod(false, "GetMatrix", Bind_GetMatrix);
@@ -2852,12 +3695,40 @@ namespace jsb {
             cls.AddMethod(false, "SetTextureScale", Bind_SetTextureScale);
             cls.AddMethod(false, "GetTextureOffset", Bind_GetTextureOffset);
             cls.AddMethod(false, "GetTextureScale", Bind_GetTextureScale);
+            cls.AddMethod(false, "HasProperty", Bind_HasProperty);
+            cls.AddMethod(false, "HasFloat", Bind_HasFloat);
+            cls.AddMethod(false, "HasInt", Bind_HasInt);
+            cls.AddMethod(false, "HasInteger", Bind_HasInteger);
+            cls.AddMethod(false, "HasTexture", Bind_HasTexture);
+            cls.AddMethod(false, "HasMatrix", Bind_HasMatrix);
+            cls.AddMethod(false, "HasVector", Bind_HasVector);
+            cls.AddMethod(false, "HasColor", Bind_HasColor);
+            cls.AddMethod(false, "HasBuffer", Bind_HasBuffer);
+            cls.AddMethod(false, "HasConstantBuffer", Bind_HasConstantBuffer);
+            cls.AddMethod(false, "EnableKeyword", Bind_EnableKeyword);
+            cls.AddMethod(false, "DisableKeyword", Bind_DisableKeyword);
+            cls.AddMethod(false, "IsKeywordEnabled", Bind_IsKeywordEnabled);
+            cls.AddMethod(false, "SetKeyword", Bind_SetKeyword);
+            cls.AddMethod(false, "SetShaderPassEnabled", Bind_SetShaderPassEnabled);
+            cls.AddMethod(false, "GetShaderPassEnabled", Bind_GetShaderPassEnabled);
+            cls.AddMethod(false, "GetPassName", Bind_GetPassName);
+            cls.AddMethod(false, "FindPass", Bind_FindPass);
+            cls.AddMethod(false, "SetOverrideTag", Bind_SetOverrideTag);
+            cls.AddMethod(false, "GetTag", Bind_GetTag);
+            cls.AddMethod(false, "Lerp", Bind_Lerp);
+            cls.AddMethod(false, "SetPass", Bind_SetPass);
+            cls.AddMethod(false, "CopyPropertiesFromMaterial", Bind_CopyPropertiesFromMaterial);
+            cls.AddMethod(false, "CopyMatchingPropertiesFromMaterial", Bind_CopyMatchingPropertiesFromMaterial);
+            cls.AddMethod(false, "ComputeCRC", Bind_ComputeCRC);
+            cls.AddMethod(false, "GetTexturePropertyNames", Bind_GetTexturePropertyNames);
+            cls.AddMethod(false, "GetTexturePropertyNameIDs", Bind_GetTexturePropertyNameIDs);
             cls.AddProperty(false, "shader", BindRead_shader, BindWrite_shader);
             cls.AddProperty(false, "color", BindRead_color, BindWrite_color);
             cls.AddProperty(false, "mainTexture", BindRead_mainTexture, BindWrite_mainTexture);
             cls.AddProperty(false, "mainTextureOffset", BindRead_mainTextureOffset, BindWrite_mainTextureOffset);
             cls.AddProperty(false, "mainTextureScale", BindRead_mainTextureScale, BindWrite_mainTextureScale);
             cls.AddProperty(false, "renderQueue", BindRead_renderQueue, BindWrite_renderQueue);
+            cls.AddProperty(false, "enabledKeywords", BindRead_enabledKeywords, BindWrite_enabledKeywords);
             cls.AddProperty(false, "globalIlluminationFlags", BindRead_globalIlluminationFlags, BindWrite_globalIlluminationFlags);
             cls.AddProperty(false, "doubleSidedGI", BindRead_doubleSidedGI, BindWrite_doubleSidedGI);
             cls.AddProperty(false, "enableInstancing", BindRead_enableInstancing, BindWrite_enableInstancing);

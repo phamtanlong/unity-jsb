@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -24,7 +24,7 @@ namespace jsb.gen {
         {
             Values.register_type_caster<Example.Jankfest>(Example.ValueTest.js_get_classvalue);
             Values.register_type_caster<Example.Jankfest>(Example.ValueTest.js_push_classvalue);
-            runtime.AddStaticModuleProxy("UnityEngine", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEngine", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(UnityEngine.ParticleSystem), jsb.QuickJS_UnityEngine_ParticleSystem.Bind, "ParticleSystem");
                 runtime.AddTypeReference(module, typeof(UnityEngine.ParticleSystemRenderer), jsb.QuickJS_UnityEngine_ParticleSystemRenderer.Bind, "ParticleSystemRenderer");
@@ -48,7 +48,7 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.Texture2D), jsb.QuickJS_UnityEngine_Texture2D.Bind, "Texture2D");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Material), jsb.QuickJS_UnityEngine_Material.Bind, "Material");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Time), jsb.QuickJS_UnityEngine_Time.Bind, "Time");
-                // runtime.AddTypeReference(module, typeof(UnityEngine.Random), jsb.QuickJS_UnityEngine_Random.Bind, "Random");
+                runtime.AddTypeReference(module, typeof(UnityEngine.Random), jsb.QuickJS_UnityEngine_Random.Bind, "Random");
                 runtime.AddTypeReference(module, typeof(UnityEngine.GameObject), jsb.QuickJS_UnityEngine_GameObject.Bind, "GameObject");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Camera), jsb.QuickJS_UnityEngine_Camera.Bind, "Camera");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Behaviour), jsb.QuickJS_UnityEngine_Behaviour.Bind, "Behaviour");
@@ -108,11 +108,11 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.AssetBundleManifest), jsb.QuickJS_UnityEngine_AssetBundleManifest.Bind, "AssetBundleManifest");
 #endif
             });
-            runtime.AddStaticModuleProxy("System.Net", (rt, module) =>
+            runtime.AddStaticModuleProxy("System.Net", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(System.Net.IPHostEntry), jsb.QuickJS_System_Net_IPHostEntry.Bind, "IPHostEntry");
             });
-            runtime.AddStaticModuleProxy("System", (rt, module) =>
+            runtime.AddStaticModuleProxy("System", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(System.DateTime), jsb.QuickJS_System_DateTime.Bind, "DateTime");
                 runtime.AddTypeReference(module, typeof(object), jsb.QuickJS_System_Object.Bind, "Object");
@@ -131,12 +131,12 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(System.Delegate), jsb.QuickJS_System_Delegate.Bind, "Delegate");
                 runtime.AddTypeReference(module, typeof(System.Exception), jsb.QuickJS_System_Exception.Bind, "Exception");
             });
-            runtime.AddStaticModuleProxy("System.IO", (rt, module) =>
+            runtime.AddStaticModuleProxy("System.IO", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(System.IO.FileInfo), jsb.QuickJS_System_IO_FileInfo.Bind, "FileInfo");
                 runtime.AddTypeReference(module, typeof(System.IO.File), jsb.QuickJS_System_IO_File.Bind, "File");
             });
-            runtime.AddStaticModuleProxy("global", (rt, module) =>
+            runtime.AddStaticModuleProxy("global", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(TWrapper<int>), jsb.QuickJS_TWrapper_Int32.Bind, "TWrapper_Int32");
                 runtime.AddTypeReference(module, typeof(TWrapper<UnityEngine.Vector3>), jsb.QuickJS_TWrapper_Vector3.Bind, "TWrapper_Vector3");
@@ -147,7 +147,7 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(NoNamespaceBase), jsb.QuickJS_NoNamespaceBase.Bind, "NoNamespaceBase");
                 runtime.AddTypeReference(module, typeof(SampleBehaviour), jsb.QuickJS_SampleBehaviour.Bind, "SampleBehaviour");
             });
-            runtime.AddStaticModuleProxy("AnotherNamespace1", (rt, module) =>
+            runtime.AddStaticModuleProxy("AnotherNamespace1", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(AnotherNamespace1.TSCodeGenTest.InnerClass<int>), jsb.QuickJS_AnotherNamespace1_TSCodeGenTest_InnerClass_Int32.Bind, "TSCodeGenTest", "InnerClass_Int32");
                 runtime.AddTypeReference(module, typeof(AnotherNamespace1.TSCodeGenTest2<int>), jsb.QuickJS_AnotherNamespace1_TSCodeGenTest2_Int32.Bind, "TSCodeGenTest2_Int32");
@@ -156,11 +156,11 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(AnotherNamespace1.Dummy), jsb.QuickJS_AnotherNamespace1_Dummy.Bind, "Dummy");
                 runtime.AddTypeReference(module, typeof(AnotherNamespace1.Dummy.DummyInner), jsb.QuickJS_AnotherNamespace1_Dummy_DummyInner.Bind, "Dummy", "DummyInner");
             });
-            runtime.AddStaticModuleProxy("AnotherNamespace2", (rt, module) =>
+            runtime.AddStaticModuleProxy("AnotherNamespace2", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(AnotherNamespace2.TSCodeGenTest), jsb.QuickJS_AnotherNamespace2_TSCodeGenTest.Bind, "TSCodeGenTest");
             });
-            runtime.AddStaticModuleProxy("Example", (rt, module) =>
+            runtime.AddStaticModuleProxy("Example", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(Example.DisposableObject), jsb.QuickJS_Example_DisposableObject.Bind, "DisposableObject");
                 runtime.AddTypeReference(module, typeof(Example.ArrayTest), jsb.QuickJS_Example_ArrayTest.Bind, "ArrayTest");
@@ -171,63 +171,63 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(Example.ValueTest), jsb.QuickJS_Example_ValueTest.Bind, "ValueTest");
                 runtime.AddTypeReference(module, typeof(Example.DelegateTest.InnerTest), jsb.QuickJS_Example_DelegateTest_InnerTest.Bind, "DelegateTest", "InnerTest");
             });
-            runtime.AddStaticModuleProxy("QuickJS.Unity", (rt, module) =>
+            runtime.AddStaticModuleProxy("QuickJS.Unity", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(QuickJS.Unity.JSSerializationContext), jsb.QuickJS_QuickJS_Unity_JSSerializationContext.Bind, "JSSerializationContext");
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(QuickJS.Unity.UnityHelper), jsb.QuickJS_QuickJS_Unity_UnityHelper.Bind, "UnityHelper");
 #endif
             });
-            runtime.AddStaticModuleProxy("QuickJS.Binding", (rt, module) =>
+            runtime.AddStaticModuleProxy("QuickJS.Binding", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(QuickJS.Binding.Prefs), jsb.QuickJS_QuickJS_Binding_Prefs.Bind, "Prefs");
 #endif
             });
-            runtime.AddStaticModuleProxy("QuickJS.Utils", (rt, module) =>
+            runtime.AddStaticModuleProxy("QuickJS.Utils", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(QuickJS.Utils.TSConfig), jsb.QuickJS_QuickJS_Utils_TSConfig.Bind, "TSConfig");
                 runtime.AddTypeReference(module, typeof(QuickJS.Utils.TSConfig.CompilerOptions), jsb.QuickJS_QuickJS_Utils_TSConfig_CompilerOptions.Bind, "TSConfig", "CompilerOptions");
 #endif
             });
-            runtime.AddStaticModuleProxy("System.Collections", (rt, module) =>
+            runtime.AddStaticModuleProxy("System.Collections", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(System.Collections.IEnumerator), jsb.QuickJS_System_Collections_IEnumerator.Bind, "IEnumerator");
             });
-            runtime.AddStaticModuleProxy("System.Collections.Generic", (rt, module) =>
+            runtime.AddStaticModuleProxy("System.Collections.Generic", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(System.Collections.Generic.IEnumerable<string>), jsb.QuickJS_System_Collections_Generic_IEnumerable_String.Bind, "IEnumerable_String");
             });
-            runtime.AddStaticModuleProxy("UnityEditor.IMGUI.Controls", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.IMGUI.Controls", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.SearchField), jsb.QuickJS_UnityEditor_IMGUI_Controls_SearchField.Bind, "SearchField");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.ArcHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_ArcHandle.Bind, "ArcHandle");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.JointAngularLimitHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_JointAngularLimitHandle.Bind, "JointAngularLimitHandle");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.BoxBoundsHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_BoxBoundsHandle.Bind, "BoxBoundsHandle");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_PrimitiveBoundsHandle.Bind, "PrimitiveBoundsHandle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.AdvancedDropdownItem), jsb.QuickJS_UnityEditor_IMGUI_Controls_AdvancedDropdownItem.Bind, "AdvancedDropdownItem");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.AdvancedDropdownState), jsb.QuickJS_UnityEditor_IMGUI_Controls_AdvancedDropdownState.Bind, "AdvancedDropdownState");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.CapsuleBoundsHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_CapsuleBoundsHandle.Bind, "CapsuleBoundsHandle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_PrimitiveBoundsHandle.Bind, "PrimitiveBoundsHandle");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.CapsuleBoundsHandle.HeightAxis), jsb.QuickJS_UnityEditor_IMGUI_Controls_CapsuleBoundsHandle_HeightAxis.Bind, "CapsuleBoundsHandle", "HeightAxis");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes), jsb.QuickJS_UnityEditor_IMGUI_Controls_PrimitiveBoundsHandle_Axes.Bind, "PrimitiveBoundsHandle", "Axes");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.SphereBoundsHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_SphereBoundsHandle.Bind, "SphereBoundsHandle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.BoxBoundsHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_BoxBoundsHandle.Bind, "BoxBoundsHandle");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader), jsb.QuickJS_UnityEditor_IMGUI_Controls_MultiColumnHeader.Bind, "MultiColumnHeader");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader.DefaultGUI), jsb.QuickJS_UnityEditor_IMGUI_Controls_MultiColumnHeader_DefaultGUI.Bind, "MultiColumnHeader", "DefaultGUI");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.MultiColumnHeader.DefaultStyles), jsb.QuickJS_UnityEditor_IMGUI_Controls_MultiColumnHeader_DefaultStyles.Bind, "MultiColumnHeader", "DefaultStyles");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeViewState), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeViewState.Bind, "TreeViewState");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.MultiColumnHeaderState), jsb.QuickJS_UnityEditor_IMGUI_Controls_MultiColumnHeaderState.Bind, "MultiColumnHeaderState");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column), jsb.QuickJS_UnityEditor_IMGUI_Controls_MultiColumnHeaderState_Column.Bind, "MultiColumnHeaderState", "Column");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeViewState), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeViewState.Bind, "TreeViewState");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeViewItem), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeViewItem.Bind, "TreeViewItem");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.AdvancedDropdown), jsb.QuickJS_UnityEditor_IMGUI_Controls_AdvancedDropdown.Bind, "AdvancedDropdown");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeView), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeView.Bind, "TreeView");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeView.DefaultGUI), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeView_DefaultGUI.Bind, "TreeView", "DefaultGUI");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeView.DefaultStyles), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeView_DefaultStyles.Bind, "TreeView", "DefaultStyles");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.TreeViewSelectionOptions), jsb.QuickJS_UnityEditor_IMGUI_Controls_TreeViewSelectionOptions.Bind, "TreeViewSelectionOptions");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.AdvancedDropdownItem), jsb.QuickJS_UnityEditor_IMGUI_Controls_AdvancedDropdownItem.Bind, "AdvancedDropdownItem");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.AdvancedDropdownState), jsb.QuickJS_UnityEditor_IMGUI_Controls_AdvancedDropdownState.Bind, "AdvancedDropdownState");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.AdvancedDropdown), jsb.QuickJS_UnityEditor_IMGUI_Controls_AdvancedDropdown.Bind, "AdvancedDropdown");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IMGUI.Controls.JointAngularLimitHandle), jsb.QuickJS_UnityEditor_IMGUI_Controls_JointAngularLimitHandle.Bind, "JointAngularLimitHandle");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorStyles), jsb.QuickJS_UnityEditor_EditorStyles.Bind, "EditorStyles");
@@ -272,84 +272,65 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.BuildPipeline), jsb.QuickJS_UnityEditor_BuildPipeline.Bind, "BuildPipeline");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AssetDatabase), jsb.QuickJS_UnityEditor_AssetDatabase.Bind, "AssetDatabase");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ShaderUtil), jsb.QuickJS_UnityEditor_ShaderUtil.Bind, "ShaderUtil");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.EditorUtility), jsb.QuickJS_UnityEditor_EditorUtility.Bind, "EditorUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorUtility), jsb.QuickJS_UnityEditor_EditorUtility.Bind, "EditorUtility");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUI), jsb.QuickJS_UnityEditor_EditorGUI.Bind, "EditorGUI");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUIUtility), jsb.QuickJS_UnityEditor_EditorGUIUtility.Bind, "EditorGUIUtility");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout), jsb.QuickJS_UnityEditor_EditorGUILayout.Bind, "EditorGUILayout");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorApplication), jsb.QuickJS_UnityEditor_EditorApplication.Bind, "EditorApplication");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Editor), jsb.QuickJS_UnityEditor_Editor.Bind, "Editor");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorWindow), jsb.QuickJS_UnityEditor_EditorWindow.Bind, "EditorWindow");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ActiveEditorTracker), jsb.QuickJS_UnityEditor_ActiveEditorTracker.Bind, "ActiveEditorTracker");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ArrayUtility), jsb.QuickJS_UnityEditor_ArrayUtility.Bind, "ArrayUtility");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssemblyReloadEvents), jsb.QuickJS_UnityEditor_AssemblyReloadEvents.Bind, "AssemblyReloadEvents");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetDeleteResult), jsb.QuickJS_UnityEditor_AssetDeleteResult.Bind, "AssetDeleteResult");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetMoveResult), jsb.QuickJS_UnityEditor_AssetMoveResult.Bind, "AssetMoveResult");
-                runtime.AddTypeReference(module, typeof(UnityEditor.CanAppendBuild), jsb.QuickJS_UnityEditor_CanAppendBuild.Bind, "CanAppendBuild");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetBundleBuild), jsb.QuickJS_UnityEditor_AssetBundleBuild.Bind, "AssetBundleBuild");
-                runtime.AddTypeReference(module, typeof(UnityEditor.BuildPlayerWindow), jsb.QuickJS_UnityEditor_BuildPlayerWindow.Bind, "BuildPlayerWindow");
-                runtime.AddTypeReference(module, typeof(UnityEditor.BuildPlayerWindow.BuildMethodException), jsb.QuickJS_UnityEditor_BuildPlayerWindow_BuildMethodException.Bind, "BuildPlayerWindow", "BuildMethodException");
-                runtime.AddTypeReference(module, typeof(UnityEditor.BuildPlayerWindow.DefaultBuildMethods), jsb.QuickJS_UnityEditor_BuildPlayerWindow_DefaultBuildMethods.Bind, "BuildPlayerWindow", "DefaultBuildMethods");
-                runtime.AddTypeReference(module, typeof(UnityEditor.BuildTargetGroup), jsb.QuickJS_UnityEditor_BuildTargetGroup.Bind, "BuildTargetGroup");
-                runtime.AddTypeReference(module, typeof(UnityEditor.DefaultAsset), jsb.QuickJS_UnityEditor_DefaultAsset.Bind, "DefaultAsset");
-                runtime.AddTypeReference(module, typeof(UnityEditor.DragAndDropVisualMode), jsb.QuickJS_UnityEditor_DragAndDropVisualMode.Bind, "DragAndDropVisualMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.DragAndDrop), jsb.QuickJS_UnityEditor_DragAndDrop.Bind, "DragAndDrop");
-                runtime.AddTypeReference(module, typeof(UnityEditor.GizmoType), jsb.QuickJS_UnityEditor_GizmoType.Bind, "GizmoType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorBuildSettingsScene), jsb.QuickJS_UnityEditor_EditorBuildSettingsScene.Bind, "EditorBuildSettingsScene");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorBuildSettings), jsb.QuickJS_UnityEditor_EditorBuildSettings.Bind, "EditorBuildSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.GUID), jsb.QuickJS_UnityEditor_GUID.Bind, "GUID");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUI.DisabledGroupScope), jsb.QuickJS_UnityEditor_EditorGUI_DisabledGroupScope.Bind, "EditorGUI", "DisabledGroupScope");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUI.DisabledScope), jsb.QuickJS_UnityEditor_EditorGUI_DisabledScope.Bind, "EditorGUI", "DisabledScope");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUI.ChangeCheckScope), jsb.QuickJS_UnityEditor_EditorGUI_ChangeCheckScope.Bind, "EditorGUI", "ChangeCheckScope");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUI.IndentLevelScope), jsb.QuickJS_UnityEditor_EditorGUI_IndentLevelScope.Bind, "EditorGUI", "IndentLevelScope");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUI.PropertyScope), jsb.QuickJS_UnityEditor_EditorGUI_PropertyScope.Bind, "EditorGUI", "PropertyScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.ToggleGroupScope), jsb.QuickJS_UnityEditor_EditorGUILayout_ToggleGroupScope.Bind, "EditorGUILayout", "ToggleGroupScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.HorizontalScope), jsb.QuickJS_UnityEditor_EditorGUILayout_HorizontalScope.Bind, "EditorGUILayout", "HorizontalScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.VerticalScope), jsb.QuickJS_UnityEditor_EditorGUILayout_VerticalScope.Bind, "EditorGUILayout", "VerticalScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.ScrollViewScope), jsb.QuickJS_UnityEditor_EditorGUILayout_ScrollViewScope.Bind, "EditorGUILayout", "ScrollViewScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.FadeGroupScope), jsb.QuickJS_UnityEditor_EditorGUILayout_FadeGroupScope.Bind, "EditorGUILayout", "FadeGroupScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSkin), jsb.QuickJS_UnityEditor_EditorSkin.Bind, "EditorSkin");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUIUtility.IconSizeScope), jsb.QuickJS_UnityEditor_EditorGUIUtility_IconSizeScope.Bind, "EditorGUIUtility", "IconSizeScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SessionState), jsb.QuickJS_UnityEditor_SessionState.Bind, "SessionState");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SerializationMode), jsb.QuickJS_UnityEditor_SerializationMode.Bind, "SerializationMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorBehaviorMode), jsb.QuickJS_UnityEditor_EditorBehaviorMode.Bind, "EditorBehaviorMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SpritePackerMode), jsb.QuickJS_UnityEditor_SpritePackerMode.Bind, "SpritePackerMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LineEndingsMode), jsb.QuickJS_UnityEditor_LineEndingsMode.Bind, "LineEndingsMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetPipelineMode), jsb.QuickJS_UnityEditor_AssetPipelineMode.Bind, "AssetPipelineMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.CacheServerMode), jsb.QuickJS_UnityEditor_CacheServerMode.Bind, "CacheServerMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.CacheServerValidationMode), jsb.QuickJS_UnityEditor_CacheServerValidationMode.Bind, "CacheServerValidationMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EnterPlayModeOptions), jsb.QuickJS_UnityEditor_EnterPlayModeOptions.Bind, "EnterPlayModeOptions");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ExternalVersionControl), jsb.QuickJS_UnityEditor_ExternalVersionControl.Bind, "ExternalVersionControl");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.EditorSettings), jsb.QuickJS_UnityEditor_EditorSettings.Bind, "EditorSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PS4BuildSubtarget), jsb.QuickJS_UnityEditor_PS4BuildSubtarget.Bind, "PS4BuildSubtarget");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PS5BuildSubtarget), jsb.QuickJS_UnityEditor_PS5BuildSubtarget.Bind, "PS5BuildSubtarget");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PS5BuildCompressionType), jsb.QuickJS_UnityEditor_PS5BuildCompressionType.Bind, "PS5BuildCompressionType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PS4HardwareTarget), jsb.QuickJS_UnityEditor_PS4HardwareTarget.Bind, "PS4HardwareTarget");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XboxBuildSubtarget), jsb.QuickJS_UnityEditor_XboxBuildSubtarget.Bind, "XboxBuildSubtarget");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneDeployMethod), jsb.QuickJS_UnityEditor_XboxOneDeployMethod.Bind, "XboxOneDeployMethod");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneDeployDrive), jsb.QuickJS_UnityEditor_XboxOneDeployDrive.Bind, "XboxOneDeployDrive");
-                runtime.AddTypeReference(module, typeof(UnityEditor.MobileTextureSubtarget), jsb.QuickJS_UnityEditor_MobileTextureSubtarget.Bind, "MobileTextureSubtarget");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XcodeBuildConfig), jsb.QuickJS_UnityEditor_iOSBuildType.Bind, "iOSBuildType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SwitchRomCompressionType), jsb.QuickJS_UnityEditor_SwitchRomCompressionType.Bind, "SwitchRomCompressionType");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.EditorUserBuildSettings), jsb.QuickJS_UnityEditor_EditorUserBuildSettings.Bind, "EditorUserBuildSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SemanticMergeMode), jsb.QuickJS_UnityEditor_SemanticMergeMode.Bind, "SemanticMergeMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorUserSettings), jsb.QuickJS_UnityEditor_EditorUserSettings.Bind, "EditorUserSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSelectedRenderState), jsb.QuickJS_UnityEditor_EditorSelectedRenderState.Bind, "EditorSelectedRenderState");
-                runtime.AddTypeReference(module, typeof(UnityEditor.InteractionMode), jsb.QuickJS_UnityEditor_InteractionMode.Bind, "InteractionMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.TextureCompressionQuality), jsb.QuickJS_UnityEditor_TextureCompressionQuality.Bind, "TextureCompressionQuality");
-                runtime.AddTypeReference(module, typeof(UnityEditor.DialogOptOutDecisionType), jsb.QuickJS_UnityEditor_DialogOptOutDecisionType.Bind, "DialogOptOutDecisionType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SceneAsset), jsb.QuickJS_UnityEditor_SceneAsset.Bind, "SceneAsset");
-                runtime.AddTypeReference(module, typeof(UnityEditor.GUID), jsb.QuickJS_UnityEditor_GUID.Bind, "GUID");
-                runtime.AddTypeReference(module, typeof(UnityEditor.GlobalObjectId), jsb.QuickJS_UnityEditor_GlobalObjectId.Bind, "GlobalObjectId");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Handles.DrawingScope), jsb.QuickJS_UnityEditor_Handles_DrawingScope.Bind, "Handles", "DrawingScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Help), jsb.QuickJS_UnityEditor_Help.Bind, "Help");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IHasCustomMenu), jsb.QuickJS_UnityEditor_IHasCustomMenu.Bind, "IHasCustomMenu");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CanAppendBuild), jsb.QuickJS_UnityEditor_CanAppendBuild.Bind, "CanAppendBuild");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetBundleBuild), jsb.QuickJS_UnityEditor_AssetBundleBuild.Bind, "AssetBundleBuild");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerConnectionInitiateMode), jsb.QuickJS_UnityEditor_PlayerConnectionInitiateMode.Bind, "PlayerConnectionInitiateMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.MaterialProperty), jsb.QuickJS_UnityEditor_MaterialProperty.Bind, "MaterialProperty");
                 runtime.AddTypeReference(module, typeof(UnityEditor.MaterialProperty.PropType), jsb.QuickJS_UnityEditor_MaterialProperty_PropType.Bind, "MaterialProperty", "PropType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.MaterialProperty.PropFlags), jsb.QuickJS_UnityEditor_MaterialProperty_PropFlags.Bind, "MaterialProperty", "PropFlags");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Menu), jsb.QuickJS_UnityEditor_Menu.Bind, "Menu");
-                runtime.AddTypeReference(module, typeof(UnityEditor.MenuCommand), jsb.QuickJS_UnityEditor_MenuCommand.Bind, "MenuCommand");
-                runtime.AddTypeReference(module, typeof(UnityEditor.MonoScript), jsb.QuickJS_UnityEditor_MonoScript.Bind, "MonoScript");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectNames), jsb.QuickJS_UnityEditor_ObjectNames.Bind, "ObjectNames");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PackageInfo), jsb.QuickJS_UnityEditor_PackageInfo.Bind, "PackageInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings), jsb.QuickJS_UnityEditor_PlayerSettings.Bind, "PlayerSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAApplicationShowName), jsb.QuickJS_UnityEditor_PlayerSettings_WSAApplicationShowName.Bind, "PlayerSettings", "WSAApplicationShowName");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSADefaultTileSize), jsb.QuickJS_UnityEditor_PlayerSettings_WSADefaultTileSize.Bind, "PlayerSettings", "WSADefaultTileSize");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAApplicationForegroundText), jsb.QuickJS_UnityEditor_PlayerSettings_WSAApplicationForegroundText.Bind, "PlayerSettings", "WSAApplicationForegroundText");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSACapability), jsb.QuickJS_UnityEditor_PlayerSettings_WSACapability.Bind, "PlayerSettings", "WSACapability");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSATargetFamily), jsb.QuickJS_UnityEditor_PlayerSettings_WSATargetFamily.Bind, "PlayerSettings", "WSATargetFamily");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAImageScale), jsb.QuickJS_UnityEditor_PlayerSettings_WSAImageScale.Bind, "PlayerSettings", "WSAImageScale");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAImageType), jsb.QuickJS_UnityEditor_PlayerSettings_WSAImageType.Bind, "PlayerSettings", "WSAImageType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAInputSource), jsb.QuickJS_UnityEditor_PlayerSettings_WSAInputSource.Bind, "PlayerSettings", "WSAInputSource");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSASupportedFileType), jsb.QuickJS_UnityEditor_PlayerSettings_WSASupportedFileType.Bind, "PlayerSettings", "WSASupportedFileType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAFileTypeAssociations), jsb.QuickJS_UnityEditor_PlayerSettings_WSAFileTypeAssociations.Bind, "PlayerSettings", "WSAFileTypeAssociations");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSA), jsb.QuickJS_UnityEditor_PlayerSettings_WSA.Bind, "PlayerSettings", "WSA");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSA.Declarations), jsb.QuickJS_UnityEditor_PlayerSettings_WSA_Declarations.Bind, "PlayerSettings", "WSA", "Declarations");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen.Bind, "PlayerSettings", "SplashScreen");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen.AnimationMode), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen_AnimationMode.Bind, "PlayerSettings", "SplashScreen", "AnimationMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen.DrawMode), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen_DrawMode.Bind, "PlayerSettings", "SplashScreen", "DrawMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen.UnityLogoStyle), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen_UnityLogoStyle.Bind, "PlayerSettings", "SplashScreen", "UnityLogoStyle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.XboxOne), jsb.QuickJS_UnityEditor_PlayerSettings_XboxOne.Bind, "PlayerSettings", "XboxOne");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.tvOS), jsb.QuickJS_UnityEditor_PlayerSettings_tvOS.Bind, "PlayerSettings", "tvOS");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreenLogo), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreenLogo.Bind, "PlayerSettings", "SplashScreenLogo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.EmbeddedLinux), jsb.QuickJS_UnityEditor_PlayerSettings_EmbeddedLinux.Bind, "PlayerSettings", "EmbeddedLinux");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Lumin), jsb.QuickJS_UnityEditor_PlayerSettings_Lumin.Bind, "PlayerSettings", "Lumin");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.macOS), jsb.QuickJS_UnityEditor_PlayerSettings_macOS.Bind, "PlayerSettings", "macOS");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WebGL), jsb.QuickJS_UnityEditor_PlayerSettings_WebGL.Bind, "PlayerSettings", "WebGL");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch), jsb.QuickJS_UnityEditor_PlayerSettings_Switch.Bind, "PlayerSettings", "Switch");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.ScreenResolutionBehavior), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_ScreenResolutionBehavior.Bind, "PlayerSettings", "Switch", "ScreenResolutionBehavior");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.Languages), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_Languages.Bind, "PlayerSettings", "Switch", "Languages");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.StartupUserAccount), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_StartupUserAccount.Bind, "PlayerSettings", "Switch", "StartupUserAccount");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.LogoHandling), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_LogoHandling.Bind, "PlayerSettings", "Switch", "LogoHandling");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.LogoType), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_LogoType.Bind, "PlayerSettings", "Switch", "LogoType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.ApplicationAttribute), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_ApplicationAttribute.Bind, "PlayerSettings", "Switch", "ApplicationAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.RatingCategories), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_RatingCategories.Bind, "PlayerSettings", "Switch", "RatingCategories");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.SupportedNpadStyle), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_SupportedNpadStyle.Bind, "PlayerSettings", "Switch", "SupportedNpadStyle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Android), jsb.QuickJS_UnityEditor_PlayerSettings_Android.Bind, "PlayerSettings", "Android");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.iOS), jsb.QuickJS_UnityEditor_PlayerSettings_iOS.Bind, "PlayerSettings", "iOS");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4), jsb.QuickJS_UnityEditor_PlayerSettings_PS4.Bind, "PlayerSettings", "PS4");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PS4AppCategory), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PS4AppCategory.Bind, "PlayerSettings", "PS4", "PS4AppCategory");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PS4RemotePlayKeyAssignment), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PS4RemotePlayKeyAssignment.Bind, "PlayerSettings", "PS4", "PS4RemotePlayKeyAssignment");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PS4EnterButtonAssignment), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PS4EnterButtonAssignment.Bind, "PlayerSettings", "PS4", "PS4EnterButtonAssignment");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PlayStationVREyeToEyeDistanceSettings), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PlayStationVREyeToEyeDistanceSettings.Bind, "PlayerSettings", "PS4", "PlayStationVREyeToEyeDistanceSettings");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ScriptingImplementation), jsb.QuickJS_UnityEditor_ScriptingImplementation.Bind, "ScriptingImplementation");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Il2CppCompilerConfiguration), jsb.QuickJS_UnityEditor_Il2CppCompilerConfiguration.Bind, "Il2CppCompilerConfiguration");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AspectRatio), jsb.QuickJS_UnityEditor_AspectRatio.Bind, "AspectRatio");
@@ -363,52 +344,110 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.ActionOnDotNetUnhandledException), jsb.QuickJS_UnityEditor_ActionOnDotNetUnhandledException.Bind, "ActionOnDotNetUnhandledException");
                 runtime.AddTypeReference(module, typeof(UnityEditor.GraphicsJobMode), jsb.QuickJS_UnityEditor_GraphicsJobMode.Bind, "GraphicsJobMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IconKind), jsb.QuickJS_UnityEditor_IconKind.Bind, "IconKind");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings), jsb.QuickJS_UnityEditor_PlayerSettings.Bind, "PlayerSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Android), jsb.QuickJS_UnityEditor_PlayerSettings_Android.Bind, "PlayerSettings", "Android");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.iOS), jsb.QuickJS_UnityEditor_PlayerSettings_iOS.Bind, "PlayerSettings", "iOS");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Lumin), jsb.QuickJS_UnityEditor_PlayerSettings_Lumin.Bind, "PlayerSettings", "Lumin");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.macOS), jsb.QuickJS_UnityEditor_PlayerSettings_macOS.Bind, "PlayerSettings", "macOS");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4), jsb.QuickJS_UnityEditor_PlayerSettings_PS4.Bind, "PlayerSettings", "PS4");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PS4AppCategory), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PS4AppCategory.Bind, "PlayerSettings", "PS4", "PS4AppCategory");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PS4RemotePlayKeyAssignment), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PS4RemotePlayKeyAssignment.Bind, "PlayerSettings", "PS4", "PS4RemotePlayKeyAssignment");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PS4EnterButtonAssignment), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PS4EnterButtonAssignment.Bind, "PlayerSettings", "PS4", "PS4EnterButtonAssignment");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS4.PlayStationVREyeToEyeDistanceSettings), jsb.QuickJS_UnityEditor_PlayerSettings_PS4_PlayStationVREyeToEyeDistanceSettings.Bind, "PlayerSettings", "PS4", "PlayStationVREyeToEyeDistanceSettings");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.PS5), jsb.QuickJS_UnityEditor_PlayerSettings_PS5.Bind, "PlayerSettings", "PS5");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreenLogo), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreenLogo.Bind, "PlayerSettings", "SplashScreenLogo");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen.Bind, "PlayerSettings", "SplashScreen");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen.AnimationMode), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen_AnimationMode.Bind, "PlayerSettings", "SplashScreen", "AnimationMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen.DrawMode), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen_DrawMode.Bind, "PlayerSettings", "SplashScreen", "DrawMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.SplashScreen.UnityLogoStyle), jsb.QuickJS_UnityEditor_PlayerSettings_SplashScreen_UnityLogoStyle.Bind, "PlayerSettings", "SplashScreen", "UnityLogoStyle");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch), jsb.QuickJS_UnityEditor_PlayerSettings_Switch.Bind, "PlayerSettings", "Switch");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.ScreenResolutionBehavior), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_ScreenResolutionBehavior.Bind, "PlayerSettings", "Switch", "ScreenResolutionBehavior");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.Languages), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_Languages.Bind, "PlayerSettings", "Switch", "Languages");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.StartupUserAccount), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_StartupUserAccount.Bind, "PlayerSettings", "Switch", "StartupUserAccount");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.TouchScreenUsage), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_TouchScreenUsage.Bind, "PlayerSettings", "Switch", "TouchScreenUsage");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.LogoHandling), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_LogoHandling.Bind, "PlayerSettings", "Switch", "LogoHandling");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.LogoType), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_LogoType.Bind, "PlayerSettings", "Switch", "LogoType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.ApplicationAttribute), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_ApplicationAttribute.Bind, "PlayerSettings", "Switch", "ApplicationAttribute");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.RatingCategories), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_RatingCategories.Bind, "PlayerSettings", "Switch", "RatingCategories");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.Switch.SupportedNpadStyle), jsb.QuickJS_UnityEditor_PlayerSettings_Switch_SupportedNpadStyle.Bind, "PlayerSettings", "Switch", "SupportedNpadStyle");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.tvOS), jsb.QuickJS_UnityEditor_PlayerSettings_tvOS.Bind, "PlayerSettings", "tvOS");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.VRCardboard), jsb.QuickJS_UnityEditor_PlayerSettings_VRCardboard.Bind, "PlayerSettings", "VRCardboard");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.VRDaydream), jsb.QuickJS_UnityEditor_PlayerSettings_VRDaydream.Bind, "PlayerSettings", "VRDaydream");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAApplicationShowName), jsb.QuickJS_UnityEditor_PlayerSettings_WSAApplicationShowName.Bind, "PlayerSettings", "WSAApplicationShowName");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSADefaultTileSize), jsb.QuickJS_UnityEditor_PlayerSettings_WSADefaultTileSize.Bind, "PlayerSettings", "WSADefaultTileSize");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAApplicationForegroundText), jsb.QuickJS_UnityEditor_PlayerSettings_WSAApplicationForegroundText.Bind, "PlayerSettings", "WSAApplicationForegroundText");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSACapability), jsb.QuickJS_UnityEditor_PlayerSettings_WSACapability.Bind, "PlayerSettings", "WSACapability");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSATargetFamily), jsb.QuickJS_UnityEditor_PlayerSettings_WSATargetFamily.Bind, "PlayerSettings", "WSATargetFamily");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAImageScale), jsb.QuickJS_UnityEditor_PlayerSettings_WSAImageScale.Bind, "PlayerSettings", "WSAImageScale");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAImageType), jsb.QuickJS_UnityEditor_PlayerSettings_WSAImageType.Bind, "PlayerSettings", "WSAImageType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAInputSource), jsb.QuickJS_UnityEditor_PlayerSettings_WSAInputSource.Bind, "PlayerSettings", "WSAInputSource");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSASupportedFileType), jsb.QuickJS_UnityEditor_PlayerSettings_WSASupportedFileType.Bind, "PlayerSettings", "WSASupportedFileType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSAFileTypeAssociations), jsb.QuickJS_UnityEditor_PlayerSettings_WSAFileTypeAssociations.Bind, "PlayerSettings", "WSAFileTypeAssociations");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSA), jsb.QuickJS_UnityEditor_PlayerSettings_WSA.Bind, "PlayerSettings", "WSA");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WSA.Declarations), jsb.QuickJS_UnityEditor_PlayerSettings_WSA_Declarations.Bind, "PlayerSettings", "WSA", "Declarations");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.WebGL), jsb.QuickJS_UnityEditor_PlayerSettings_WebGL.Bind, "PlayerSettings", "WebGL");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.VRWindowsMixedReality), jsb.QuickJS_UnityEditor_PlayerSettings_VRWindowsMixedReality.Bind, "PlayerSettings", "VRWindowsMixedReality");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.XboxOne), jsb.QuickJS_UnityEditor_PlayerSettings_XboxOne.Bind, "PlayerSettings", "XboxOne");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PlayerSettings.VROculus), jsb.QuickJS_UnityEditor_PlayerSettings_VROculus.Bind, "PlayerSettings", "VROculus");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AndroidTargetDevices), jsb.QuickJS_UnityEditor_AndroidTargetDevices.Bind, "AndroidTargetDevices");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderPrecisionModel), jsb.QuickJS_UnityEditor_ShaderPrecisionModel.Bind, "ShaderPrecisionModel");
+                runtime.AddTypeReference(module, typeof(UnityEditor.NormalMapEncoding), jsb.QuickJS_UnityEditor_NormalMapEncoding.Bind, "NormalMapEncoding");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WindowsGamepadBackendHint), jsb.QuickJS_UnityEditor_WindowsGamepadBackendHint.Bind, "WindowsGamepadBackendHint");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssemblyReloadEvents), jsb.QuickJS_UnityEditor_AssemblyReloadEvents.Bind, "AssemblyReloadEvents");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSkin), jsb.QuickJS_UnityEditor_EditorSkin.Bind, "EditorSkin");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUIUtility.PropertyCallbackScope), jsb.QuickJS_UnityEditor_EditorGUIUtility_PropertyCallbackScope.Bind, "EditorGUIUtility", "PropertyCallbackScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUIUtility.IconSizeScope), jsb.QuickJS_UnityEditor_EditorGUIUtility_IconSizeScope.Bind, "EditorGUIUtility", "IconSizeScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SessionState), jsb.QuickJS_UnityEditor_SessionState.Bind, "SessionState");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorUserBuildSettings), jsb.QuickJS_UnityEditor_EditorUserBuildSettings.Bind, "EditorUserBuildSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Unsupported), jsb.QuickJS_UnityEditor_Unsupported.Bind, "Unsupported");
+                runtime.AddTypeReference(module, typeof(UnityEditor.HyperLinkClickedEventArgs), jsb.QuickJS_UnityEditor_HyperLinkClickedEventArgs.Bind, "HyperLinkClickedEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ArrayUtility), jsb.QuickJS_UnityEditor_ArrayUtility.Bind, "ArrayUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.InspectorMode), jsb.QuickJS_UnityEditor_InspectorMode.Bind, "InspectorMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.HierarchyType), jsb.QuickJS_UnityEditor_HierarchyType.Bind, "HierarchyType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IconDrawStyle), jsb.QuickJS_UnityEditor_IconDrawStyle.Bind, "IconDrawStyle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.HierarchyProperty), jsb.QuickJS_UnityEditor_HierarchyProperty.Bind, "HierarchyProperty");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ActiveEditorTracker), jsb.QuickJS_UnityEditor_ActiveEditorTracker.Bind, "ActiveEditorTracker");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneEncryptionLevel), jsb.QuickJS_UnityEditor_XboxOneEncryptionLevel.Bind, "XboxOneEncryptionLevel");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOnePackageUpdateGranularity), jsb.QuickJS_UnityEditor_XboxOnePackageUpdateGranularity.Bind, "XboxOnePackageUpdateGranularity");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneLoggingLevel), jsb.QuickJS_UnityEditor_XboxOneLoggingLevel.Bind, "XboxOneLoggingLevel");
+                runtime.AddTypeReference(module, typeof(UnityEditor.tvOSSdkVersion), jsb.QuickJS_UnityEditor_tvOSSdkVersion.Bind, "tvOSSdkVersion");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DragAndDropVisualMode), jsb.QuickJS_UnityEditor_DragAndDropVisualMode.Bind, "DragAndDropVisualMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.HierarchyDropFlags), jsb.QuickJS_UnityEditor_HierarchyDropFlags.Bind, "HierarchyDropFlags");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DragAndDropWindowTarget), jsb.QuickJS_UnityEditor_DragAndDropWindowTarget.Bind, "DragAndDropWindowTarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DragAndDrop), jsb.QuickJS_UnityEditor_DragAndDrop.Bind, "DragAndDrop");
+                runtime.AddTypeReference(module, typeof(UnityEditor.VertexChannelCompressionFlags), jsb.QuickJS_UnityEditor_VertexChannelCompressionFlags.Bind, "VertexChannelCompressionFlags");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PackageInfo), jsb.QuickJS_UnityEditor_PackageInfo.Bind, "PackageInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IHasCustomMenu), jsb.QuickJS_UnityEditor_IHasCustomMenu.Bind, "IHasCustomMenu");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ScriptableWizard), jsb.QuickJS_UnityEditor_ScriptableWizard.Bind, "ScriptableWizard");
+                runtime.AddTypeReference(module, typeof(UnityEditor.GizmoType), jsb.QuickJS_UnityEditor_GizmoType.Bind, "GizmoType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Handles.DrawingScope), jsb.QuickJS_UnityEditor_Handles_DrawingScope.Bind, "Handles", "DrawingScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ExternalVersionControl), jsb.QuickJS_UnityEditor_ExternalVersionControl.Bind, "ExternalVersionControl");
+                runtime.AddTypeReference(module, typeof(UnityEditor.VersionControlSettings), jsb.QuickJS_UnityEditor_VersionControlSettings.Bind, "VersionControlSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Menu), jsb.QuickJS_UnityEditor_Menu.Bind, "Menu");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLExceptionSupport), jsb.QuickJS_UnityEditor_WebGLExceptionSupport.Bind, "WebGLExceptionSupport");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLCompressionFormat), jsb.QuickJS_UnityEditor_WebGLCompressionFormat.Bind, "WebGLCompressionFormat");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLLinkerTarget), jsb.QuickJS_UnityEditor_WebGLLinkerTarget.Bind, "WebGLLinkerTarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLWasmArithmeticExceptions), jsb.QuickJS_UnityEditor_WebGLWasmArithmeticExceptions.Bind, "WebGLWasmArithmeticExceptions");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLDebugSymbolMode), jsb.QuickJS_UnityEditor_WebGLDebugSymbolMode.Bind, "WebGLDebugSymbolMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLPowerPreference), jsb.QuickJS_UnityEditor_WebGLPowerPreference.Bind, "WebGLPowerPreference");
+                runtime.AddTypeReference(module, typeof(UnityEditor.BuildPlayerWindow), jsb.QuickJS_UnityEditor_BuildPlayerWindow.Bind, "BuildPlayerWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.BuildPlayerWindow.BuildMethodException), jsb.QuickJS_UnityEditor_BuildPlayerWindow_BuildMethodException.Bind, "BuildPlayerWindow", "BuildMethodException");
+                runtime.AddTypeReference(module, typeof(UnityEditor.BuildPlayerWindow.DefaultBuildMethods), jsb.QuickJS_UnityEditor_BuildPlayerWindow_DefaultBuildMethods.Bind, "BuildPlayerWindow", "DefaultBuildMethods");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.ToggleGroupScope), jsb.QuickJS_UnityEditor_EditorGUILayout_ToggleGroupScope.Bind, "EditorGUILayout", "ToggleGroupScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.HorizontalScope), jsb.QuickJS_UnityEditor_EditorGUILayout_HorizontalScope.Bind, "EditorGUILayout", "HorizontalScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.VerticalScope), jsb.QuickJS_UnityEditor_EditorGUILayout_VerticalScope.Bind, "EditorGUILayout", "VerticalScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.ScrollViewScope), jsb.QuickJS_UnityEditor_EditorGUILayout_ScrollViewScope.Bind, "EditorGUILayout", "ScrollViewScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorGUILayout.FadeGroupScope), jsb.QuickJS_UnityEditor_EditorGUILayout_FadeGroupScope.Bind, "EditorGUILayout", "FadeGroupScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MenuCommand), jsb.QuickJS_UnityEditor_MenuCommand.Bind, "MenuCommand");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Selection), jsb.QuickJS_UnityEditor_Selection.Bind, "Selection");
+                runtime.AddTypeReference(module, typeof(UnityEditor.StaticOcclusionCulling), jsb.QuickJS_UnityEditor_StaticOcclusionCulling.Bind, "StaticOcclusionCulling");
+                runtime.AddTypeReference(module, typeof(UnityEditor.StaticOcclusionCullingVisualization), jsb.QuickJS_UnityEditor_StaticOcclusionCullingVisualization.Bind, "StaticOcclusionCullingVisualization");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SerializationMode), jsb.QuickJS_UnityEditor_SerializationMode.Bind, "SerializationMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorBehaviorMode), jsb.QuickJS_UnityEditor_EditorBehaviorMode.Bind, "EditorBehaviorMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SpritePackerMode), jsb.QuickJS_UnityEditor_SpritePackerMode.Bind, "SpritePackerMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LineEndingsMode), jsb.QuickJS_UnityEditor_LineEndingsMode.Bind, "LineEndingsMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetPipelineMode), jsb.QuickJS_UnityEditor_AssetPipelineMode.Bind, "AssetPipelineMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CacheServerMode), jsb.QuickJS_UnityEditor_CacheServerMode.Bind, "CacheServerMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CacheServerValidationMode), jsb.QuickJS_UnityEditor_CacheServerValidationMode.Bind, "CacheServerValidationMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EnterPlayModeOptions), jsb.QuickJS_UnityEditor_EnterPlayModeOptions.Bind, "EnterPlayModeOptions");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSettings), jsb.QuickJS_UnityEditor_EditorSettings.Bind, "EditorSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSettings.NamingScheme), jsb.QuickJS_UnityEditor_EditorSettings_NamingScheme.Bind, "EditorSettings", "NamingScheme");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MonoScript), jsb.QuickJS_UnityEditor_MonoScript.Bind, "MonoScript");
+                runtime.AddTypeReference(module, typeof(UnityEditor.UnwrapParam), jsb.QuickJS_UnityEditor_UnwrapParam.Bind, "UnwrapParam");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Unwrapping), jsb.QuickJS_UnityEditor_Unwrapping.Bind, "Unwrapping");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PreprocessorOverride), jsb.QuickJS_UnityEditor_PreprocessorOverride.Bind, "PreprocessorOverride");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderInfo), jsb.QuickJS_UnityEditor_ShaderInfo.Bind, "ShaderInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderMessage), jsb.QuickJS_UnityEditor_ShaderMessage.Bind, "ShaderMessage");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectNames), jsb.QuickJS_UnityEditor_ObjectNames.Bind, "ObjectNames");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SemanticMergeMode), jsb.QuickJS_UnityEditor_SemanticMergeMode.Bind, "SemanticMergeMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorUserSettings), jsb.QuickJS_UnityEditor_EditorUserSettings.Bind, "EditorUserSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Help), jsb.QuickJS_UnityEditor_Help.Bind, "Help");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LODUtility), jsb.QuickJS_UnityEditor_LODUtility.Bind, "LODUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSelectedRenderState), jsb.QuickJS_UnityEditor_EditorSelectedRenderState.Bind, "EditorSelectedRenderState");
+                runtime.AddTypeReference(module, typeof(UnityEditor.InteractionMode), jsb.QuickJS_UnityEditor_InteractionMode.Bind, "InteractionMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TextureCompressionQuality), jsb.QuickJS_UnityEditor_TextureCompressionQuality.Bind, "TextureCompressionQuality");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DialogOptOutDecisionType), jsb.QuickJS_UnityEditor_DialogOptOutDecisionType.Bind, "DialogOptOutDecisionType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneAsset), jsb.QuickJS_UnityEditor_SceneAsset.Bind, "SceneAsset");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SelectionMode), jsb.QuickJS_UnityEditor_SelectionMode.Bind, "SelectionMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.StandaloneBuildSubtarget), jsb.QuickJS_UnityEditor_StandaloneBuildSubtarget.Bind, "StandaloneBuildSubtarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PS4BuildSubtarget), jsb.QuickJS_UnityEditor_PS4BuildSubtarget.Bind, "PS4BuildSubtarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PS4HardwareTarget), jsb.QuickJS_UnityEditor_PS4HardwareTarget.Bind, "PS4HardwareTarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XboxBuildSubtarget), jsb.QuickJS_UnityEditor_XboxBuildSubtarget.Bind, "XboxBuildSubtarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneDeployMethod), jsb.QuickJS_UnityEditor_XboxOneDeployMethod.Bind, "XboxOneDeployMethod");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneDeployDrive), jsb.QuickJS_UnityEditor_XboxOneDeployDrive.Bind, "XboxOneDeployDrive");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AndroidCreateSymbols), jsb.QuickJS_UnityEditor_AndroidCreateSymbols.Bind, "AndroidCreateSymbols");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MobileTextureSubtarget), jsb.QuickJS_UnityEditor_MobileTextureSubtarget.Bind, "MobileTextureSubtarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLTextureSubtarget), jsb.QuickJS_UnityEditor_WebGLTextureSubtarget.Bind, "WebGLTextureSubtarget");
+                runtime.AddTypeReference(module, typeof(UnityEditor.XcodeBuildConfig), jsb.QuickJS_UnityEditor_XcodeBuildConfig.Bind, "XcodeBuildConfig");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SwitchRomCompressionType), jsb.QuickJS_UnityEditor_SwitchRomCompressionType.Bind, "SwitchRomCompressionType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EmbeddedLinuxArchitecture), jsb.QuickJS_UnityEditor_EmbeddedLinuxArchitecture.Bind, "EmbeddedLinuxArchitecture");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetDeleteResult), jsb.QuickJS_UnityEditor_AssetDeleteResult.Bind, "AssetDeleteResult");
+                runtime.AddTypeReference(module, typeof(UnityEditor.GlobalObjectId), jsb.QuickJS_UnityEditor_GlobalObjectId.Bind, "GlobalObjectId");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData), jsb.QuickJS_UnityEditor_ShaderData.Bind, "ShaderData");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.Subshader), jsb.QuickJS_UnityEditor_ShaderData_Subshader.Bind, "ShaderData", "Subshader");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.Pass), jsb.QuickJS_UnityEditor_ShaderData_Pass.Bind, "ShaderData", "Pass");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.PreprocessedVariant), jsb.QuickJS_UnityEditor_ShaderData_PreprocessedVariant.Bind, "ShaderData", "PreprocessedVariant");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.VariantCompileInfo), jsb.QuickJS_UnityEditor_ShaderData_VariantCompileInfo.Bind, "ShaderData", "VariantCompileInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.ConstantBufferInfo), jsb.QuickJS_UnityEditor_ShaderData_ConstantBufferInfo.Bind, "ShaderData", "ConstantBufferInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.ConstantInfo), jsb.QuickJS_UnityEditor_ShaderData_ConstantInfo.Bind, "ShaderData", "ConstantInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.TextureBindingInfo), jsb.QuickJS_UnityEditor_ShaderData_TextureBindingInfo.Bind, "ShaderData", "TextureBindingInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.BuildTargetGroup), jsb.QuickJS_UnityEditor_BuildTargetGroup.Bind, "BuildTargetGroup");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetModificationProcessor), jsb.QuickJS_UnityEditor_AssetModificationProcessor.Bind, "AssetModificationProcessor");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetMoveResult), jsb.QuickJS_UnityEditor_AssetMoveResult.Bind, "AssetMoveResult");
                 runtime.AddTypeReference(module, typeof(UnityEditor.iOSSdkVersion), jsb.QuickJS_UnityEditor_iOSSdkVersion.Bind, "iOSSdkVersion");
                 runtime.AddTypeReference(module, typeof(UnityEditor.iOSTargetDevice), jsb.QuickJS_UnityEditor_iOSTargetDevice.Bind, "iOSTargetDevice");
                 runtime.AddTypeReference(module, typeof(UnityEditor.iOSShowActivityIndicatorOnLoading), jsb.QuickJS_UnityEditor_iOSShowActivityIndicatorOnLoading.Bind, "iOSShowActivityIndicatorOnLoading");
@@ -419,47 +458,111 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.iOSLaunchScreenType), jsb.QuickJS_UnityEditor_iOSLaunchScreenType.Bind, "iOSLaunchScreenType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ProvisioningProfileType), jsb.QuickJS_UnityEditor_ProvisioningProfileType.Bind, "ProvisioningProfileType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.iOSDeviceRequirement), jsb.QuickJS_UnityEditor_iOSDeviceRequirement.Bind, "iOSDeviceRequirement");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.PS5VRRSupport), jsb.QuickJS_UnityEditor_PS5VRRSupport.Bind, "PS5VRRSupport");
-                runtime.AddTypeReference(module, typeof(UnityEditor.tvOSSdkVersion), jsb.QuickJS_UnityEditor_tvOSSdkVersion.Bind, "tvOSSdkVersion");
-                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLExceptionSupport), jsb.QuickJS_UnityEditor_WebGLExceptionSupport.Bind, "WebGLExceptionSupport");
-                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLCompressionFormat), jsb.QuickJS_UnityEditor_WebGLCompressionFormat.Bind, "WebGLCompressionFormat");
-                runtime.AddTypeReference(module, typeof(UnityEditor.WebGLLinkerTarget), jsb.QuickJS_UnityEditor_WebGLLinkerTarget.Bind, "WebGLLinkerTarget");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneEncryptionLevel), jsb.QuickJS_UnityEditor_XboxOneEncryptionLevel.Bind, "XboxOneEncryptionLevel");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOnePackageUpdateGranularity), jsb.QuickJS_UnityEditor_XboxOnePackageUpdateGranularity.Bind, "XboxOnePackageUpdateGranularity");
-                runtime.AddTypeReference(module, typeof(UnityEditor.XboxOneLoggingLevel), jsb.QuickJS_UnityEditor_XboxOneLoggingLevel.Bind, "XboxOneLoggingLevel");
+                runtime.AddTypeReference(module, typeof(UnityEditor.UnityStats), jsb.QuickJS_UnityEditor_UnityStats.Bind, "UnityStats");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneVisibilityManager), jsb.QuickJS_UnityEditor_SceneVisibilityManager.Bind, "SceneVisibilityManager");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ScriptableSingleton<UnityEditor.SceneVisibilityManager>), jsb.QuickJS_UnityEditor_ScriptableSingleton_SceneVisibilityManager.Bind, "ScriptableSingleton_SceneVisibilityManager");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ScriptableWizard), jsb.QuickJS_UnityEditor_ScriptableWizard.Bind, "ScriptableWizard");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SelectionMode), jsb.QuickJS_UnityEditor_SelectionMode.Bind, "SelectionMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Selection), jsb.QuickJS_UnityEditor_Selection.Bind, "Selection");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderInfo), jsb.QuickJS_UnityEditor_ShaderInfo.Bind, "ShaderInfo");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderMessage), jsb.QuickJS_UnityEditor_ShaderMessage.Bind, "ShaderMessage");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData), jsb.QuickJS_UnityEditor_ShaderData.Bind, "ShaderData");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.Subshader), jsb.QuickJS_UnityEditor_ShaderData_Subshader.Bind, "ShaderData", "Subshader");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderData.Pass), jsb.QuickJS_UnityEditor_ShaderData_Pass.Bind, "ShaderData", "Pass");
-                runtime.AddTypeReference(module, typeof(UnityEditor.StaticEditorFlags), jsb.QuickJS_UnityEditor_StaticEditorFlags.Bind, "StaticEditorFlags");
-                runtime.AddTypeReference(module, typeof(UnityEditor.StaticOcclusionCulling), jsb.QuickJS_UnityEditor_StaticOcclusionCulling.Bind, "StaticOcclusionCulling");
-                runtime.AddTypeReference(module, typeof(UnityEditor.StaticOcclusionCullingVisualization), jsb.QuickJS_UnityEditor_StaticOcclusionCullingVisualization.Bind, "StaticOcclusionCullingVisualization");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AndroidTargetDevices), jsb.QuickJS_UnityEditor_AndroidTargetDevices.Bind, "AndroidTargetDevices");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AndroidAutoRotationBehavior), jsb.QuickJS_UnityEditor_AndroidAutoRotationBehavior.Bind, "AndroidAutoRotationBehavior");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorBuildSettingsScene), jsb.QuickJS_UnityEditor_EditorBuildSettingsScene.Bind, "EditorBuildSettingsScene");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorBuildSettings), jsb.QuickJS_UnityEditor_EditorBuildSettings.Bind, "EditorBuildSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DefaultAsset), jsb.QuickJS_UnityEditor_DefaultAsset.Bind, "DefaultAsset");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Undo), jsb.QuickJS_UnityEditor_Undo.Bind, "Undo");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Unsupported), jsb.QuickJS_UnityEditor_Unsupported.Bind, "Unsupported");
-                runtime.AddTypeReference(module, typeof(UnityEditor.UnwrapParam), jsb.QuickJS_UnityEditor_UnwrapParam.Bind, "UnwrapParam");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Unwrapping), jsb.QuickJS_UnityEditor_Unwrapping.Bind, "Unwrapping");
-                runtime.AddTypeReference(module, typeof(UnityEditor.VertexChannelCompressionFlags), jsb.QuickJS_UnityEditor_VertexChannelCompressionFlags.Bind, "VertexChannelCompressionFlags");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AnimationClipSettings), jsb.QuickJS_UnityEditor_AnimationClipSettings.Bind, "AnimationClipSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AnimationMode), jsb.QuickJS_UnityEditor_AnimationMode.Bind, "AnimationMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.StaticEditorFlags), jsb.QuickJS_UnityEditor_StaticEditorFlags.Bind, "StaticEditorFlags");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ManagedReferenceMissingType), jsb.QuickJS_UnityEditor_ManagedReferenceMissingType.Bind, "ManagedReferenceMissingType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SerializationUtility), jsb.QuickJS_UnityEditor_SerializationUtility.Bind, "SerializationUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SettingsScope), jsb.QuickJS_UnityEditor_SettingsScope.Bind, "SettingsScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SettingsProvider), jsb.QuickJS_UnityEditor_SettingsProvider.Bind, "SettingsProvider");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SettingsService), jsb.QuickJS_UnityEditor_SettingsService.Bind, "SettingsService");
+                runtime.AddTypeReference(module, typeof(UnityEditor.GUIDrawer), jsb.QuickJS_UnityEditor_GUIDrawer.Bind, "GUIDrawer");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DecoratorDrawer), jsb.QuickJS_UnityEditor_DecoratorDrawer.Bind, "DecoratorDrawer");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PropertyDrawer), jsb.QuickJS_UnityEditor_PropertyDrawer.Bind, "PropertyDrawer");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ModeService), jsb.QuickJS_UnityEditor_ModeService.Bind, "ModeService");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ModeService.ModeChangedArgs), jsb.QuickJS_UnityEditor_ModeService_ModeChangedArgs.Bind, "ModeService", "ModeChangedArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneView.CameraMode), jsb.QuickJS_UnityEditor_SceneView_CameraMode.Bind, "SceneView", "CameraMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneView.SceneViewState), jsb.QuickJS_UnityEditor_SceneView_SceneViewState.Bind, "SceneView", "SceneViewState");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneView.CameraSettings), jsb.QuickJS_UnityEditor_SceneView_CameraSettings.Bind, "SceneView", "CameraSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Highlighter), jsb.QuickJS_UnityEditor_Highlighter.Bind, "Highlighter");
+                runtime.AddTypeReference(module, typeof(UnityEditor.HighlightSearchMode), jsb.QuickJS_UnityEditor_HighlightSearchMode.Bind, "HighlightSearchMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightingDataAsset), jsb.QuickJS_UnityEditor_LightingDataAsset.Bind, "LightingDataAsset");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings), jsb.QuickJS_UnityEditor_LightmapEditorSettings.Bind, "LightmapEditorSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Lightmapping), jsb.QuickJS_UnityEditor_Lightmapping.Bind, "Lightmapping");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Lightmapping.GIWorkflowMode), jsb.QuickJS_UnityEditor_Lightmapping_GIWorkflowMode.Bind, "Lightmapping", "GIWorkflowMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapParameters), jsb.QuickJS_UnityEditor_LightmapParameters.Bind, "LightmapParameters");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Progress), jsb.QuickJS_UnityEditor_Progress.Bind, "Progress");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Progress.Item), jsb.QuickJS_UnityEditor_Progress_Item.Bind, "Progress", "Item");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Progress.Status), jsb.QuickJS_UnityEditor_Progress_Status.Bind, "Progress", "Status");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Progress.Options), jsb.QuickJS_UnityEditor_Progress_Options.Bind, "Progress", "Options");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Progress.TimeDisplayMode), jsb.QuickJS_UnityEditor_Progress_TimeDisplayMode.Bind, "Progress", "TimeDisplayMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Progress.Priority), jsb.QuickJS_UnityEditor_Progress_Priority.Bind, "Progress", "Priority");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterCubemapConvolution), jsb.QuickJS_UnityEditor_TextureImporterCubemapConvolution.Bind, "TextureImporterCubemapConvolution");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterRGBMMode), jsb.QuickJS_UnityEditor_TextureImporterRGBMMode.Bind, "TextureImporterRGBMMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PreviewRenderUtility), jsb.QuickJS_UnityEditor_PreviewRenderUtility.Bind, "PreviewRenderUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CameraEditor.Settings), jsb.QuickJS_UnityEditor_CameraEditor_Settings.Bind, "CameraEditor", "Settings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderGUI), jsb.QuickJS_UnityEditor_ShaderGUI.Bind, "ShaderGUI");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectPreview), jsb.QuickJS_UnityEditor_ObjectPreview.Bind, "ObjectPreview");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CustomEditorForRenderPipelineAttribute), jsb.QuickJS_UnityEditor_CustomEditorForRenderPipelineAttribute.Bind, "CustomEditorForRenderPipelineAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MaterialPropertyDrawer), jsb.QuickJS_UnityEditor_MaterialPropertyDrawer.Bind, "MaterialPropertyDrawer");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MeshPreview), jsb.QuickJS_UnityEditor_MeshPreview.Bind, "MeshPreview");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightEditor), jsb.QuickJS_UnityEditor_LightEditor.Bind, "LightEditor");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightEditor.Settings), jsb.QuickJS_UnityEditor_LightEditor_Settings.Bind, "LightEditor", "Settings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PrefabUtility.EditPrefabContentsScope), jsb.QuickJS_UnityEditor_PrefabUtility_EditPrefabContentsScope.Bind, "PrefabUtility", "EditPrefabContentsScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PropertyModification), jsb.QuickJS_UnityEditor_PropertyModification.Bind, "PropertyModification");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PrefabUnpackMode), jsb.QuickJS_UnityEditor_PrefabUnpackMode.Bind, "PrefabUnpackMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SaveType), jsb.QuickJS_UnityEditor_SaveType.Bind, "SaveType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchableEditorWindow), jsb.QuickJS_UnityEditor_SearchableEditorWindow.Bind, "SearchableEditorWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchableEditorWindow.SearchMode), jsb.QuickJS_UnityEditor_SearchableEditorWindow_SearchMode.Bind, "SearchableEditorWindow", "SearchMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchableEditorWindow.SearchModeHierarchyWindow), jsb.QuickJS_UnityEditor_SearchableEditorWindow_SearchModeHierarchyWindow.Bind, "SearchableEditorWindow", "SearchModeHierarchyWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ProjectWindowUtil), jsb.QuickJS_UnityEditor_ProjectWindowUtil.Bind, "ProjectWindowUtil");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CameraProjectionCache), jsb.QuickJS_UnityEditor_CameraProjectionCache.Bind, "CameraProjectionCache");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerExtensionAttribute), jsb.QuickJS_UnityEditor_LightingExplorerExtensionAttribute.Bind, "LightingExplorerExtensionAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ILightingExplorerExtension), jsb.QuickJS_UnityEditor_ILightingExplorerExtension.Bind, "ILightingExplorerExtension");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerTab), jsb.QuickJS_UnityEditor_LightingExplorerTab.Bind, "LightingExplorerTab");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerTableColumn), jsb.QuickJS_UnityEditor_LightingExplorerTableColumn.Bind, "LightingExplorerTableColumn");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerTableColumn.DataType), jsb.QuickJS_UnityEditor_LightingExplorerTableColumn_DataType.Bind, "LightingExplorerTableColumn", "DataType");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneModeUtility), jsb.QuickJS_UnityEditor_SceneModeUtility.Bind, "SceneModeUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DefaultLightingExplorerExtension), jsb.QuickJS_UnityEditor_DefaultLightingExplorerExtension.Bind, "DefaultLightingExplorerExtension");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LightingWindowEnvironmentSection), jsb.QuickJS_UnityEditor_LightingWindowEnvironmentSection.Bind, "LightingWindowEnvironmentSection");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ObjectReferenceKeyframe), jsb.QuickJS_UnityEditor_ObjectReferenceKeyframe.Bind, "ObjectReferenceKeyframe");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AnimationClipCurveData), jsb.QuickJS_UnityEditor_AnimationClipCurveData.Bind, "AnimationClipCurveData");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AnimationUtility), jsb.QuickJS_UnityEditor_AnimationUtility.Bind, "AnimationUtility");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AnimationUtility.CurveModifiedType), jsb.QuickJS_UnityEditor_AnimationUtility_CurveModifiedType.Bind, "AnimationUtility", "CurveModifiedType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AnimationUtility.TangentMode), jsb.QuickJS_UnityEditor_AnimationUtility_TangentMode.Bind, "AnimationUtility", "TangentMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AnimationModeDriver), jsb.QuickJS_UnityEditor_AnimationModeDriver.Bind, "AnimationModeDriver");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AnimationMode), jsb.QuickJS_UnityEditor_AnimationMode.Bind, "AnimationMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AnimationClipSettings), jsb.QuickJS_UnityEditor_AnimationClipSettings.Bind, "AnimationClipSettings");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorCurveBinding), jsb.QuickJS_UnityEditor_EditorCurveBinding.Bind, "EditorCurveBinding");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneViewCameraWindow), jsb.QuickJS_UnityEditor_SceneViewCameraWindow.Bind, "SceneViewCameraWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PopupWindowContent), jsb.QuickJS_UnityEditor_PopupWindowContent.Bind, "PopupWindowContent");
                 runtime.AddTypeReference(module, typeof(UnityEditor.DrawCameraMode), jsb.QuickJS_UnityEditor_DrawCameraMode.Bind, "DrawCameraMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MathUtils), jsb.QuickJS_UnityEditor_MathUtils.Bind, "MathUtils");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ExpressionEvaluator), jsb.QuickJS_UnityEditor_ExpressionEvaluator.Bind, "ExpressionEvaluator");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSnapSettings), jsb.QuickJS_UnityEditor_EditorSnapSettings.Bind, "EditorSnapSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.UndoPropertyModification), jsb.QuickJS_UnityEditor_UndoPropertyModification.Bind, "UndoPropertyModification");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectChangeKind), jsb.QuickJS_UnityEditor_ObjectChangeKind.Bind, "ObjectChangeKind");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectChangeEvents), jsb.QuickJS_UnityEditor_ObjectChangeEvents.Bind, "ObjectChangeEvents");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ChangeGameObjectParentEventArgs), jsb.QuickJS_UnityEditor_ChangeGameObjectParentEventArgs.Bind, "ChangeGameObjectParentEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ChangeSceneEventArgs), jsb.QuickJS_UnityEditor_ChangeSceneEventArgs.Bind, "ChangeSceneEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CreateGameObjectHierarchyEventArgs), jsb.QuickJS_UnityEditor_CreateGameObjectHierarchyEventArgs.Bind, "CreateGameObjectHierarchyEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ChangeGameObjectStructureHierarchyEventArgs), jsb.QuickJS_UnityEditor_ChangeGameObjectStructureHierarchyEventArgs.Bind, "ChangeGameObjectStructureHierarchyEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ChangeGameObjectStructureEventArgs), jsb.QuickJS_UnityEditor_ChangeGameObjectStructureEventArgs.Bind, "ChangeGameObjectStructureEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ChangeGameObjectOrComponentPropertiesEventArgs), jsb.QuickJS_UnityEditor_ChangeGameObjectOrComponentPropertiesEventArgs.Bind, "ChangeGameObjectOrComponentPropertiesEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DestroyGameObjectHierarchyEventArgs), jsb.QuickJS_UnityEditor_DestroyGameObjectHierarchyEventArgs.Bind, "DestroyGameObjectHierarchyEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CreateAssetObjectEventArgs), jsb.QuickJS_UnityEditor_CreateAssetObjectEventArgs.Bind, "CreateAssetObjectEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.DestroyAssetObjectEventArgs), jsb.QuickJS_UnityEditor_DestroyAssetObjectEventArgs.Bind, "DestroyAssetObjectEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ChangeAssetObjectPropertiesEventArgs), jsb.QuickJS_UnityEditor_ChangeAssetObjectPropertiesEventArgs.Bind, "ChangeAssetObjectPropertiesEventArgs");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectChangeEventStream), jsb.QuickJS_UnityEditor_ObjectChangeEventStream.Bind, "ObjectChangeEventStream");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectChangeEventStream.Builder), jsb.QuickJS_UnityEditor_ObjectChangeEventStream_Builder.Bind, "ObjectChangeEventStream", "Builder");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IApplyRevertPropertyContextMenuItemProvider), jsb.QuickJS_UnityEditor_IApplyRevertPropertyContextMenuItemProvider.Bind, "IApplyRevertPropertyContextMenuItemProvider");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PopupWindow), jsb.QuickJS_UnityEditor_PopupWindow.Bind, "PopupWindow");
                 runtime.AddTypeReference(module, typeof(UnityEditor.AssetPreview), jsb.QuickJS_UnityEditor_AssetPreview.Bind, "AssetPreview");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetImporter.SourceAssetIdentifier), jsb.QuickJS_UnityEditor_AssetImporter_SourceAssetIdentifier.Bind, "AssetImporter", "SourceAssetIdentifier");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetDatabase.RefreshImportMode), jsb.QuickJS_UnityEditor_AssetDatabase_RefreshImportMode.Bind, "AssetDatabase", "RefreshImportMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.IHVImageFormatImporter), jsb.QuickJS_UnityEditor_IHVImageFormatImporter.Bind, "IHVImageFormatImporter");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderImporter), jsb.QuickJS_UnityEditor_ShaderImporter.Bind, "ShaderImporter");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SpeedTreeImporter), jsb.QuickJS_UnityEditor_SpeedTreeImporter.Bind, "SpeedTreeImporter");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SpeedTreeImporter.MaterialLocation), jsb.QuickJS_UnityEditor_SpeedTreeImporter_MaterialLocation.Bind, "SpeedTreeImporter", "MaterialLocation");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderInclude), jsb.QuickJS_UnityEditor_ShaderInclude.Bind, "ShaderInclude");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderImporter), jsb.QuickJS_UnityEditor_ShaderImporter.Bind, "ShaderImporter");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetImporter.SourceAssetIdentifier), jsb.QuickJS_UnityEditor_AssetImporter_SourceAssetIdentifier.Bind, "AssetImporter", "SourceAssetIdentifier");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ComputeShaderImporter), jsb.QuickJS_UnityEditor_ComputeShaderImporter.Bind, "ComputeShaderImporter");
                 runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterFormat), jsb.QuickJS_UnityEditor_TextureImporterFormat.Bind, "TextureImporterFormat");
                 runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterMipFilter), jsb.QuickJS_UnityEditor_TextureImporterMipFilter.Bind, "TextureImporterMipFilter");
                 runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterGenerateCubemap), jsb.QuickJS_UnityEditor_TextureImporterGenerateCubemap.Bind, "TextureImporterGenerateCubemap");
@@ -475,95 +578,44 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.SpriteMetaData), jsb.QuickJS_UnityEditor_SpriteMetaData.Bind, "SpriteMetaData");
                 runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterSettings), jsb.QuickJS_UnityEditor_TextureImporterSettings.Bind, "TextureImporterSettings");
                 runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterPlatformSettings), jsb.QuickJS_UnityEditor_TextureImporterPlatformSettings.Bind, "TextureImporterPlatformSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetStoreAsset), jsb.QuickJS_UnityEditor_AssetStoreAsset.Bind, "AssetStoreAsset");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AudioCurveRendering), jsb.QuickJS_UnityEditor_AudioCurveRendering.Bind, "AudioCurveRendering");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IAudioEffectPlugin), jsb.QuickJS_UnityEditor_IAudioEffectPlugin.Bind, "IAudioEffectPlugin");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IAudioEffectPluginGUI), jsb.QuickJS_UnityEditor_IAudioEffectPluginGUI.Bind, "IAudioEffectPluginGUI");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Sysroot), jsb.QuickJS_UnityEditor_Sysroot.Bind, "Sysroot");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CloudProjectSettings), jsb.QuickJS_UnityEditor_CloudProjectSettings.Bind, "CloudProjectSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.GameViewSizeGroupType), jsb.QuickJS_UnityEditor_GameViewSizeGroupType.Bind, "GameViewSizeGroupType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.CommandHint), jsb.QuickJS_UnityEditor_CommandHint.Bind, "CommandHint");
                 runtime.AddTypeReference(module, typeof(UnityEditor.CommandExecuteContext), jsb.QuickJS_UnityEditor_CommandExecuteContext.Bind, "CommandExecuteContext");
                 runtime.AddTypeReference(module, typeof(UnityEditor.CommandService), jsb.QuickJS_UnityEditor_CommandService.Bind, "CommandService");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ModeService), jsb.QuickJS_UnityEditor_ModeService.Bind, "ModeService");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ModeService.ModeChangedArgs), jsb.QuickJS_UnityEditor_ModeService_ModeChangedArgs.Bind, "ModeService", "ModeChangedArgs");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightingDataAsset), jsb.QuickJS_UnityEditor_LightingDataAsset.Bind, "LightingDataAsset");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings), jsb.QuickJS_UnityEditor_LightmapEditorSettings.Bind, "LightmapEditorSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings.Lightmapper), jsb.QuickJS_UnityEditor_LightmapEditorSettings_Lightmapper.Bind, "LightmapEditorSettings", "Lightmapper");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings.Sampling), jsb.QuickJS_UnityEditor_LightmapEditorSettings_Sampling.Bind, "LightmapEditorSettings", "Sampling");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings.FilterMode), jsb.QuickJS_UnityEditor_LightmapEditorSettings_FilterMode.Bind, "LightmapEditorSettings", "FilterMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings.DenoiserType), jsb.QuickJS_UnityEditor_LightmapEditorSettings_DenoiserType.Bind, "LightmapEditorSettings", "DenoiserType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapEditorSettings.FilterType), jsb.QuickJS_UnityEditor_LightmapEditorSettings_FilterType.Bind, "LightmapEditorSettings", "FilterType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightmapParameters), jsb.QuickJS_UnityEditor_LightmapParameters.Bind, "LightmapParameters");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Lightmapping), jsb.QuickJS_UnityEditor_Lightmapping.Bind, "Lightmapping");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Lightmapping.GIWorkflowMode), jsb.QuickJS_UnityEditor_Lightmapping_GIWorkflowMode.Bind, "Lightmapping", "GIWorkflowMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PopupWindowContent), jsb.QuickJS_UnityEditor_PopupWindowContent.Bind, "PopupWindowContent");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PopupWindow), jsb.QuickJS_UnityEditor_PopupWindow.Bind, "PopupWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorMaterialUtility), jsb.QuickJS_UnityEditor_EditorMaterialUtility.Bind, "EditorMaterialUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlatformIcon), jsb.QuickJS_UnityEditor_PlatformIcon.Bind, "PlatformIcon");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PlatformIconKind), jsb.QuickJS_UnityEditor_PlatformIconKind.Bind, "PlatformIconKind");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetStoreAsset), jsb.QuickJS_UnityEditor_AssetStoreAsset.Bind, "AssetStoreAsset");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetSettingsProvider), jsb.QuickJS_UnityEditor_AssetSettingsProvider.Bind, "AssetSettingsProvider");
+                runtime.AddTypeReference(module, typeof(UnityEditor.BodyPart), jsb.QuickJS_UnityEditor_BodyPart.Bind, "BodyPart");
+                runtime.AddTypeReference(module, typeof(UnityEditor.BoneState), jsb.QuickJS_UnityEditor_BoneState.Bind, "BoneState");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AnimationWindow), jsb.QuickJS_UnityEditor_AnimationWindow.Bind, "AnimationWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AudioCurveRendering), jsb.QuickJS_UnityEditor_AudioCurveRendering.Bind, "AudioCurveRendering");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IAudioEffectPluginGUI), jsb.QuickJS_UnityEditor_IAudioEffectPluginGUI.Bind, "IAudioEffectPluginGUI");
+                runtime.AddTypeReference(module, typeof(UnityEditor.IAudioEffectPlugin), jsb.QuickJS_UnityEditor_IAudioEffectPlugin.Bind, "IAudioEffectPlugin");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ViewTool), jsb.QuickJS_UnityEditor_ViewTool.Bind, "ViewTool");
                 runtime.AddTypeReference(module, typeof(UnityEditor.PivotMode), jsb.QuickJS_UnityEditor_PivotMode.Bind, "PivotMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.PivotRotation), jsb.QuickJS_UnityEditor_PivotRotation.Bind, "PivotRotation");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Tool), jsb.QuickJS_UnityEditor_Tool.Bind, "Tool");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Tools), jsb.QuickJS_UnityEditor_Tools.Bind, "Tools");
-                runtime.AddTypeReference(module, typeof(UnityEditor.GameViewSizeGroupType), jsb.QuickJS_UnityEditor_GameViewSizeGroupType.Bind, "GameViewSizeGroupType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorMaterialUtility), jsb.QuickJS_UnityEditor_EditorMaterialUtility.Bind, "EditorMaterialUtility");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorSnapSettings), jsb.QuickJS_UnityEditor_EditorSnapSettings.Bind, "EditorSnapSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterCubemapConvolution), jsb.QuickJS_UnityEditor_TextureImporterCubemapConvolution.Bind, "TextureImporterCubemapConvolution");
-                runtime.AddTypeReference(module, typeof(UnityEditor.TextureImporterRGBMMode), jsb.QuickJS_UnityEditor_TextureImporterRGBMMode.Bind, "TextureImporterRGBMMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.CameraEditor.Settings), jsb.QuickJS_UnityEditor_CameraEditor_Settings.Bind, "CameraEditor", "Settings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ObjectPreview), jsb.QuickJS_UnityEditor_ObjectPreview.Bind, "ObjectPreview");
-                runtime.AddTypeReference(module, typeof(UnityEditor.CustomEditorForRenderPipelineAttribute), jsb.QuickJS_UnityEditor_CustomEditorForRenderPipelineAttribute.Bind, "CustomEditorForRenderPipelineAttribute");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightEditor), jsb.QuickJS_UnityEditor_LightEditor.Bind, "LightEditor");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightEditor.Settings), jsb.QuickJS_UnityEditor_LightEditor_Settings.Bind, "LightEditor", "Settings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.MaterialPropertyDrawer), jsb.QuickJS_UnityEditor_MaterialPropertyDrawer.Bind, "MaterialPropertyDrawer");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PreviewRenderUtility), jsb.QuickJS_UnityEditor_PreviewRenderUtility.Bind, "PreviewRenderUtility");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderGUI), jsb.QuickJS_UnityEditor_ShaderGUI.Bind, "ShaderGUI");
-                runtime.AddTypeReference(module, typeof(UnityEditor.BodyPart), jsb.QuickJS_UnityEditor_BodyPart.Bind, "BodyPart");
-                runtime.AddTypeReference(module, typeof(UnityEditor.BoneState), jsb.QuickJS_UnityEditor_BoneState.Bind, "BoneState");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlatformIcon), jsb.QuickJS_UnityEditor_PlatformIcon.Bind, "PlatformIcon");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PlatformIconKind), jsb.QuickJS_UnityEditor_PlatformIconKind.Bind, "PlatformIconKind");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PrefabUnpackMode), jsb.QuickJS_UnityEditor_PrefabUnpackMode.Bind, "PrefabUnpackMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PropertyModification), jsb.QuickJS_UnityEditor_PropertyModification.Bind, "PropertyModification");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SaveType), jsb.QuickJS_UnityEditor_SaveType.Bind, "SaveType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ProjectWindowUtil), jsb.QuickJS_UnityEditor_ProjectWindowUtil.Bind, "ProjectWindowUtil");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SearchableEditorWindow), jsb.QuickJS_UnityEditor_SearchableEditorWindow.Bind, "SearchableEditorWindow");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SearchableEditorWindow.SearchMode), jsb.QuickJS_UnityEditor_SearchableEditorWindow_SearchMode.Bind, "SearchableEditorWindow", "SearchMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SearchableEditorWindow.SearchModeHierarchyWindow), jsb.QuickJS_UnityEditor_SearchableEditorWindow_SearchModeHierarchyWindow.Bind, "SearchableEditorWindow", "SearchModeHierarchyWindow");
-                runtime.AddTypeReference(module, typeof(UnityEditor.DefaultLightingExplorerExtension), jsb.QuickJS_UnityEditor_DefaultLightingExplorerExtension.Bind, "DefaultLightingExplorerExtension");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerTab), jsb.QuickJS_UnityEditor_LightingExplorerTab.Bind, "LightingExplorerTab");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerTableColumn), jsb.QuickJS_UnityEditor_LightingExplorerTableColumn.Bind, "LightingExplorerTableColumn");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerTableColumn.DataType), jsb.QuickJS_UnityEditor_LightingExplorerTableColumn_DataType.Bind, "LightingExplorerTableColumn", "DataType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightingExplorerExtensionAttribute), jsb.QuickJS_UnityEditor_LightingExplorerExtensionAttribute.Bind, "LightingExplorerExtensionAttribute");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ILightingExplorerExtension), jsb.QuickJS_UnityEditor_ILightingExplorerExtension.Bind, "ILightingExplorerExtension");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LightingWindowEnvironmentSection), jsb.QuickJS_UnityEditor_LightingWindowEnvironmentSection.Bind, "LightingWindowEnvironmentSection");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PhysicsDebugWindow), jsb.QuickJS_UnityEditor_PhysicsDebugWindow.Bind, "PhysicsDebugWindow");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SceneModeUtility), jsb.QuickJS_UnityEditor_SceneModeUtility.Bind, "SceneModeUtility");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SceneView.CameraMode), jsb.QuickJS_UnityEditor_SceneView_CameraMode.Bind, "SceneView", "CameraMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SceneView.SceneViewState), jsb.QuickJS_UnityEditor_SceneView_SceneViewState.Bind, "SceneView", "SceneViewState");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SceneView.CameraSettings), jsb.QuickJS_UnityEditor_SceneView_CameraSettings.Bind, "SceneView", "CameraSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.DecoratorDrawer), jsb.QuickJS_UnityEditor_DecoratorDrawer.Bind, "DecoratorDrawer");
-                runtime.AddTypeReference(module, typeof(UnityEditor.GUIDrawer), jsb.QuickJS_UnityEditor_GUIDrawer.Bind, "GUIDrawer");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PropertyDrawer), jsb.QuickJS_UnityEditor_PropertyDrawer.Bind, "PropertyDrawer");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SettingsScope), jsb.QuickJS_UnityEditor_SettingsScope.Bind, "SettingsScope");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SettingsProvider), jsb.QuickJS_UnityEditor_SettingsProvider.Bind, "SettingsProvider");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SettingsService), jsb.QuickJS_UnityEditor_SettingsService.Bind, "SettingsService");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetSettingsProvider), jsb.QuickJS_UnityEditor_AssetSettingsProvider.Bind, "AssetSettingsProvider");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Highlighter), jsb.QuickJS_UnityEditor_Highlighter.Bind, "Highlighter");
-                runtime.AddTypeReference(module, typeof(UnityEditor.HighlightSearchMode), jsb.QuickJS_UnityEditor_HighlightSearchMode.Bind, "HighlightSearchMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.UndoPropertyModification), jsb.QuickJS_UnityEditor_UndoPropertyModification.Bind, "UndoPropertyModification");
-                runtime.AddTypeReference(module, typeof(UnityEditor.CloudProjectSettings), jsb.QuickJS_UnityEditor_CloudProjectSettings.Bind, "CloudProjectSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.ExpressionEvaluator), jsb.QuickJS_UnityEditor_ExpressionEvaluator.Bind, "ExpressionEvaluator");
-                runtime.AddTypeReference(module, typeof(UnityEditor.MathUtils), jsb.QuickJS_UnityEditor_MathUtils.Bind, "MathUtils");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Sysroot), jsb.QuickJS_UnityEditor_Sysroot.Bind, "Sysroot");
                 runtime.AddTypeReference(module, typeof(UnityEditor.RemoveAssetOptions), jsb.QuickJS_UnityEditor_RemoveAssetOptions.Bind, "RemoveAssetOptions");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AndroidAssetPackImporter), jsb.QuickJS_UnityEditor_AndroidAssetPackImporter.Bind, "AndroidAssetPackImporter");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AudioSampleRateSetting), jsb.QuickJS_UnityEditor_AudioSampleRateSetting.Bind, "AudioSampleRateSetting");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AudioImporterSampleSettings), jsb.QuickJS_UnityEditor_AudioImporterSampleSettings.Bind, "AudioImporterSampleSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.MonoImporter), jsb.QuickJS_UnityEditor_MonoImporter.Bind, "MonoImporter");
-                runtime.AddTypeReference(module, typeof(UnityEditor.PluginImporter), jsb.QuickJS_UnityEditor_PluginImporter.Bind, "PluginImporter");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AssetPathToGUIDOptions), jsb.QuickJS_UnityEditor_AssetPathToGUIDOptions.Bind, "AssetPathToGUIDOptions");
+                runtime.AddTypeReference(module, typeof(UnityEditor.CacheServerConnectionChangedParameters), jsb.QuickJS_UnityEditor_CacheServerConnectionChangedParameters.Bind, "CacheServerConnectionChangedParameters");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoCodec), jsb.QuickJS_UnityEditor_VideoCodec.Bind, "VideoCodec");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoBitrateMode), jsb.QuickJS_UnityEditor_VideoBitrateMode.Bind, "VideoBitrateMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.VideoEncodingProfile), jsb.QuickJS_UnityEditor_VideoEncodingProfile.Bind, "VideoEncodingProfile");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoDeinterlaceMode), jsb.QuickJS_UnityEditor_VideoDeinterlaceMode.Bind, "VideoDeinterlaceMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoResizeMode), jsb.QuickJS_UnityEditor_VideoResizeMode.Bind, "VideoResizeMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoSpatialQuality), jsb.QuickJS_UnityEditor_VideoSpatialQuality.Bind, "VideoSpatialQuality");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoEncodeAspectRatio), jsb.QuickJS_UnityEditor_VideoEncodeAspectRatio.Bind, "VideoEncodeAspectRatio");
                 runtime.AddTypeReference(module, typeof(UnityEditor.VideoImporterTargetSettings), jsb.QuickJS_UnityEditor_VideoImporterTargetSettings.Bind, "VideoImporterTargetSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PluginImporter), jsb.QuickJS_UnityEditor_PluginImporter.Bind, "PluginImporter");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MonoImporter), jsb.QuickJS_UnityEditor_MonoImporter.Bind, "MonoImporter");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AudioSampleRateSetting), jsb.QuickJS_UnityEditor_AudioSampleRateSetting.Bind, "AudioSampleRateSetting");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AudioImporterSampleSettings), jsb.QuickJS_UnityEditor_AudioImporterSampleSettings.Bind, "AudioImporterSampleSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.AndroidAssetPackImporter), jsb.QuickJS_UnityEditor_AndroidAssetPackImporter.Bind, "AndroidAssetPackImporter");
                 runtime.AddTypeReference(module, typeof(UnityEditor.MeshOptimizationFlags), jsb.QuickJS_UnityEditor_MeshOptimizationFlags.Bind, "MeshOptimizationFlags");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ClipAnimationMaskType), jsb.QuickJS_UnityEditor_ClipAnimationMaskType.Bind, "ClipAnimationMaskType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ClipAnimationInfoCurve), jsb.QuickJS_UnityEditor_ClipAnimationInfoCurve.Bind, "ClipAnimationInfoCurve");
@@ -583,8 +635,11 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.ModelImporterGenerateAnimations), jsb.QuickJS_UnityEditor_ModelImporterGenerateAnimations.Bind, "ModelImporterGenerateAnimations");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ModelImporterAnimationType), jsb.QuickJS_UnityEditor_ModelImporterAnimationType.Bind, "ModelImporterAnimationType");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ModelImporterHumanoidOversampling), jsb.QuickJS_UnityEditor_ModelImporterHumanoidOversampling.Bind, "ModelImporterHumanoidOversampling");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ModelImporterSecondaryUVMarginMethod), jsb.QuickJS_UnityEditor_ModelImporterSecondaryUVMarginMethod.Bind, "ModelImporterSecondaryUVMarginMethod");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ModelImporterAvatarSetup), jsb.QuickJS_UnityEditor_ModelImporterAvatarSetup.Bind, "ModelImporterAvatarSetup");
                 runtime.AddTypeReference(module, typeof(UnityEditor.ModelImporterSkinWeights), jsb.QuickJS_UnityEditor_ModelImporterSkinWeights.Bind, "ModelImporterSkinWeights");
+                runtime.AddTypeReference(module, typeof(UnityEditor.LocalizationGroup), jsb.QuickJS_UnityEditor_LocalizationGroup.Bind, "LocalizationGroup");
+                runtime.AddTypeReference(module, typeof(UnityEditor.PhysicsDebugWindow), jsb.QuickJS_UnityEditor_PhysicsDebugWindow.Bind, "PhysicsDebugWindow");
                 runtime.AddTypeReference(module, typeof(UnityEditor.PhysicsVisualizationSettings), jsb.QuickJS_UnityEditor_PhysicsVisualizationSettings.Bind, "PhysicsVisualizationSettings");
                 runtime.AddTypeReference(module, typeof(UnityEditor.PhysicsVisualizationSettings.FilterWorkflow), jsb.QuickJS_UnityEditor_PhysicsVisualizationSettings_FilterWorkflow.Bind, "PhysicsVisualizationSettings", "FilterWorkflow");
                 runtime.AddTypeReference(module, typeof(UnityEditor.PhysicsVisualizationSettings.MeshColliderType), jsb.QuickJS_UnityEditor_PhysicsVisualizationSettings_MeshColliderType.Bind, "PhysicsVisualizationSettings", "MeshColliderType");
@@ -602,31 +657,26 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.GridPalette.CellSizing), jsb.QuickJS_UnityEditor_GridPalette_CellSizing.Bind, "GridPalette", "CellSizing");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorAnalytics), jsb.QuickJS_UnityEditor_EditorAnalytics.Bind, "EditorAnalytics");
                 runtime.AddTypeReference(module, typeof(UnityEditor.EditorAnalyticsSessionInfo), jsb.QuickJS_UnityEditor_EditorAnalyticsSessionInfo.Bind, "EditorAnalyticsSessionInfo");
-                runtime.AddTypeReference(module, typeof(UnityEditor.AssetModificationProcessor), jsb.QuickJS_UnityEditor_AssetModificationProcessor.Bind, "AssetModificationProcessor");
-                runtime.AddTypeReference(module, typeof(UnityEditor.InspectorMode), jsb.QuickJS_UnityEditor_InspectorMode.Bind, "InspectorMode");
-                runtime.AddTypeReference(module, typeof(UnityEditor.HierarchyType), jsb.QuickJS_UnityEditor_HierarchyType.Bind, "HierarchyType");
-                runtime.AddTypeReference(module, typeof(UnityEditor.IconDrawStyle), jsb.QuickJS_UnityEditor_IconDrawStyle.Bind, "IconDrawStyle");
-                runtime.AddTypeReference(module, typeof(UnityEditor.HierarchyProperty), jsb.QuickJS_UnityEditor_HierarchyProperty.Bind, "HierarchyProperty");
-                runtime.AddTypeReference(module, typeof(UnityEditor.LODUtility), jsb.QuickJS_UnityEditor_LODUtility.Bind, "LODUtility");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.UnityStats), jsb.QuickJS_UnityEditor_UnityStats.Bind, "UnityStats");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Build.Reporting", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Build.Reporting", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildReport), jsb.QuickJS_UnityEditor_Build_Reporting_BuildReport.Bind, "BuildReport");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildFile), jsb.QuickJS_UnityEditor_Build_Reporting_BuildFile.Bind, "BuildFile");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildResult), jsb.QuickJS_UnityEditor_Build_Reporting_BuildResult.Bind, "BuildResult");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildStep), jsb.QuickJS_UnityEditor_Build_Reporting_BuildStep.Bind, "BuildStep");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildStepMessage), jsb.QuickJS_UnityEditor_Build_Reporting_BuildStepMessage.Bind, "BuildStepMessage");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildSummary), jsb.QuickJS_UnityEditor_Build_Reporting_BuildSummary.Bind, "BuildSummary");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.ScenesUsingAsset), jsb.QuickJS_UnityEditor_Build_Reporting_ScenesUsingAsset.Bind, "ScenesUsingAsset");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.PackedAssets), jsb.QuickJS_UnityEditor_Build_Reporting_PackedAssets.Bind, "PackedAssets");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.CommonRoles), jsb.QuickJS_UnityEditor_Build_Reporting_CommonRoles.Bind, "CommonRoles");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.PackedAssetInfo), jsb.QuickJS_UnityEditor_Build_Reporting_PackedAssetInfo.Bind, "PackedAssetInfo");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.PackedAssets), jsb.QuickJS_UnityEditor_Build_Reporting_PackedAssets.Bind, "PackedAssets");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.StrippingInfo), jsb.QuickJS_UnityEditor_Build_Reporting_StrippingInfo.Bind, "StrippingInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildResult), jsb.QuickJS_UnityEditor_Build_Reporting_BuildResult.Bind, "BuildResult");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildSummary), jsb.QuickJS_UnityEditor_Build_Reporting_BuildSummary.Bind, "BuildSummary");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildStepMessage), jsb.QuickJS_UnityEditor_Build_Reporting_BuildStepMessage.Bind, "BuildStepMessage");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildFile), jsb.QuickJS_UnityEditor_Build_Reporting_BuildFile.Bind, "BuildFile");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.BuildStep), jsb.QuickJS_UnityEditor_Build_Reporting_BuildStep.Bind, "BuildStep");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Reporting.ScenesUsingAssets), jsb.QuickJS_UnityEditor_Build_Reporting_ScenesUsingAssets.Bind, "ScenesUsingAssets");
 #endif
             });
-            runtime.AddStaticModuleProxy("Example.New.World", (rt, module) =>
+            runtime.AddStaticModuleProxy("Example.New.World", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(Example.New.World.Galaxy), jsb.QuickJS_Example_New_World_Galaxy.Bind, "Galaxy");
                 runtime.AddTypeReference(module, typeof(Example.New.World.IncompatibleOverloadTest1), jsb.QuickJS_Example_New_World_IncompatibleOverloadTest1.Bind, "IncompatibleOverloadTest1");
@@ -636,89 +686,196 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(Example.New.World.Galaxy.Earth.Ocean), jsb.QuickJS_Example_New_World_Galaxy_Earth_Ocean.Bind, "Galaxy", "Earth", "Ocean");
                 runtime.AddTypeReference(module, typeof(Example.New.World.Galaxy.Earth.Continent), jsb.QuickJS_Example_New_World_Galaxy_Earth_Continent.Bind, "Galaxy", "Earth", "Continent");
             });
-            runtime.AddStaticModuleProxy("QuickJS.IO", (rt, module) =>
+            runtime.AddStaticModuleProxy("QuickJS.IO", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(QuickJS.IO.ByteBuffer), jsb.QuickJS_QuickJS_IO_ByteBuffer.Bind, "ByteBuffer");
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Hardware", (rt, module) =>
+            runtime.AddStaticModuleProxy("Unity.Profiling.Editor", (runtime, module) =>
             {
 #if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.UsbDevice), jsb.QuickJS_UnityEditor_Hardware_UsbDevice.Bind, "UsbDevice");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.Usb), jsb.QuickJS_UnityEditor_Hardware_Usb.Bind, "Usb");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDeviceList), jsb.QuickJS_UnityEditor_Hardware_DevDeviceList.Bind, "DevDeviceList");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDeviceState), jsb.QuickJS_UnityEditor_Hardware_DevDeviceState.Bind, "DevDeviceState");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDeviceFeatures), jsb.QuickJS_UnityEditor_Hardware_DevDeviceFeatures.Bind, "DevDeviceFeatures");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDevice), jsb.QuickJS_UnityEditor_Hardware_DevDevice.Bind, "DevDevice");
+                runtime.AddTypeReference(module, typeof(Unity.Profiling.Editor.ProfilerCounterDescriptor), jsb.QuickJS_Unity_Profiling_Editor_ProfilerCounterDescriptor.Bind, "ProfilerCounterDescriptor");
+                runtime.AddTypeReference(module, typeof(Unity.Profiling.Editor.ProfilerModuleChartType), jsb.QuickJS_Unity_Profiling_Editor_ProfilerModuleChartType.Bind, "ProfilerModuleChartType");
+                runtime.AddTypeReference(module, typeof(Unity.Profiling.Editor.ProfilerModule), jsb.QuickJS_Unity_Profiling_Editor_ProfilerModule.Bind, "ProfilerModule");
+                runtime.AddTypeReference(module, typeof(Unity.Profiling.Editor.ProfilerModuleViewController), jsb.QuickJS_Unity_Profiling_Editor_ProfilerModuleViewController.Bind, "ProfilerModuleViewController");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Purchasing", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditorInternal.Profiling", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditorInternal.Profiling.NetworkingOperationsProfilerOverrides), jsb.QuickJS_UnityEditorInternal_Profiling_NetworkingOperationsProfilerOverrides.Bind, "NetworkingOperationsProfilerOverrides");
+                runtime.AddTypeReference(module, typeof(UnityEditorInternal.Profiling.NetworkingMessagesProfilerOverrides), jsb.QuickJS_UnityEditorInternal_Profiling_NetworkingMessagesProfilerOverrides.Bind, "NetworkingMessagesProfilerOverrides");
+                runtime.AddTypeReference(module, typeof(UnityEditorInternal.Profiling.NetworkCounterData), jsb.QuickJS_UnityEditorInternal_Profiling_NetworkCounterData.Bind, "NetworkCounterData");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.MPE", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ProcessEvent), jsb.QuickJS_UnityEditor_MPE_ProcessEvent.Bind, "ProcessEvent");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ProcessLevel), jsb.QuickJS_UnityEditor_MPE_ProcessLevel.Bind, "ProcessLevel");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ProcessState), jsb.QuickJS_UnityEditor_MPE_ProcessState.Bind, "ProcessState");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ChannelInfo), jsb.QuickJS_UnityEditor_MPE_ChannelInfo.Bind, "ChannelInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ChannelClientInfo), jsb.QuickJS_UnityEditor_MPE_ChannelClientInfo.Bind, "ChannelClientInfo");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ChannelService), jsb.QuickJS_UnityEditor_MPE_ChannelService.Bind, "ChannelService");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ChannelClient), jsb.QuickJS_UnityEditor_MPE_ChannelClient.Bind, "ChannelClient");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ProcessService), jsb.QuickJS_UnityEditor_MPE_ProcessService.Bind, "ProcessService");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.EventDataSerialization), jsb.QuickJS_UnityEditor_MPE_EventDataSerialization.Bind, "EventDataSerialization");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.EventService), jsb.QuickJS_UnityEditor_MPE_EventService.Bind, "EventService");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ChannelClientScope), jsb.QuickJS_UnityEditor_MPE_ChannelClientScope.Bind, "ChannelClientScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.MPE.ChannelScope), jsb.QuickJS_UnityEditor_MPE_ChannelScope.Bind, "ChannelScope");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.TerrainTools", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.TerrainToolShortcutContext), jsb.QuickJS_UnityEditor_TerrainTools_TerrainToolShortcutContext.Bind, "TerrainToolShortcutContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.TerrainInspectorUtility), jsb.QuickJS_UnityEditor_TerrainTools_TerrainInspectorUtility.Bind, "TerrainInspectorUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.TerrainBrushPreviewMode), jsb.QuickJS_UnityEditor_TerrainTools_TerrainBrushPreviewMode.Bind, "TerrainBrushPreviewMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.TerrainPaintUtilityEditor), jsb.QuickJS_UnityEditor_TerrainTools_TerrainPaintUtilityEditor.Bind, "TerrainPaintUtilityEditor");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.BrushGUIEditFlags), jsb.QuickJS_UnityEditor_TerrainTools_BrushGUIEditFlags.Bind, "BrushGUIEditFlags");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.RepaintFlags), jsb.QuickJS_UnityEditor_TerrainTools_RepaintFlags.Bind, "RepaintFlags");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.IOnPaint), jsb.QuickJS_UnityEditor_TerrainTools_IOnPaint.Bind, "IOnPaint");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.IOnSceneGUI), jsb.QuickJS_UnityEditor_TerrainTools_IOnSceneGUI.Bind, "IOnSceneGUI");
+                runtime.AddTypeReference(module, typeof(UnityEditor.TerrainTools.IOnInspectorGUI), jsb.QuickJS_UnityEditor_TerrainTools_IOnInspectorGUI.Bind, "IOnInspectorGUI");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Licensing.UI.Events.Handlers", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Licensing.UI.Events.Handlers.INotificationHandler), jsb.QuickJS_UnityEditor_Licensing_UI_Events_Handlers_INotificationHandler.Bind, "INotificationHandler");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Analytics", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Analytics.PerformanceReportingSettings), jsb.QuickJS_UnityEditor_Analytics_PerformanceReportingSettings.Bind, "PerformanceReportingSettings");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Analytics.AnalyticsSettings), jsb.QuickJS_UnityEditor_Analytics_AnalyticsSettings.Bind, "AnalyticsSettings");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Purchasing", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.Purchasing.PurchasingSettings), jsb.QuickJS_UnityEditor_Purchasing_PurchasingSettings.Bind, "PurchasingSettings");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Analytics", (rt, module) =>
-            {
-#if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.Analytics.AnalyticsSettings), jsb.QuickJS_UnityEditor_Analytics_AnalyticsSettings.Bind, "AnalyticsSettings");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Analytics.PerformanceReportingSettings), jsb.QuickJS_UnityEditor_Analytics_PerformanceReportingSettings.Bind, "PerformanceReportingSettings");
-#endif
-            });
-            runtime.AddStaticModuleProxy("UnityEditor.Advertisements", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Advertisements", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.Advertisements.AdvertisementSettings), jsb.QuickJS_UnityEditor_Advertisements_AdvertisementSettings.Bind, "AdvertisementSettings");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Events", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Toolbars", (runtime, module) =>
             {
 #if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.Events.UnityEventTools), jsb.QuickJS_UnityEditor_Events_UnityEventTools.Bind, "UnityEventTools");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Toolbars.IAccessContainerWindow), jsb.QuickJS_UnityEditor_Toolbars_IAccessContainerWindow.Bind, "IAccessContainerWindow");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Toolbars.EditorToolbarUtility), jsb.QuickJS_UnityEditor_Toolbars_EditorToolbarUtility.Bind, "EditorToolbarUtility");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Connect", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Media", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.MediaRational), jsb.QuickJS_UnityEditor_Media_MediaRational.Bind, "MediaRational");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.MediaTime), jsb.QuickJS_UnityEditor_Media_MediaTime.Bind, "MediaTime");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.H264EncoderAttributes), jsb.QuickJS_UnityEditor_Media_H264EncoderAttributes.Bind, "H264EncoderAttributes");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.VP8EncoderAttributes), jsb.QuickJS_UnityEditor_Media_VP8EncoderAttributes.Bind, "VP8EncoderAttributes");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.VideoTrackEncoderAttributes), jsb.QuickJS_UnityEditor_Media_VideoTrackEncoderAttributes.Bind, "VideoTrackEncoderAttributes");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.VideoTrackAttributes), jsb.QuickJS_UnityEditor_Media_VideoTrackAttributes.Bind, "VideoTrackAttributes");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.AudioTrackAttributes), jsb.QuickJS_UnityEditor_Media_AudioTrackAttributes.Bind, "AudioTrackAttributes");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Media.MediaEncoder), jsb.QuickJS_UnityEditor_Media_MediaEncoder.Bind, "MediaEncoder");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.EditorTools", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.EditorToolAttribute), jsb.QuickJS_UnityEditor_EditorTools_EditorToolAttribute.Bind, "EditorToolAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.EditorToolContextAttribute), jsb.QuickJS_UnityEditor_EditorTools_EditorToolContextAttribute.Bind, "EditorToolContextAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.EditorToolContext), jsb.QuickJS_UnityEditor_EditorTools_EditorToolContext.Bind, "EditorToolContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.GameObjectToolContext), jsb.QuickJS_UnityEditor_EditorTools_GameObjectToolContext.Bind, "GameObjectToolContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.ToolManager), jsb.QuickJS_UnityEditor_EditorTools_ToolManager.Bind, "ToolManager");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.IDrawSelectedHandles), jsb.QuickJS_UnityEditor_EditorTools_IDrawSelectedHandles.Bind, "IDrawSelectedHandles");
+                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.EditorTool), jsb.QuickJS_UnityEditor_EditorTools_EditorTool.Bind, "EditorTool");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Playables", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Playables.Utility), jsb.QuickJS_UnityEditor_Playables_Utility.Bind, "Utility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Playables.PlayableOutputEditorExtensions), jsb.QuickJS_UnityEditor_Playables_PlayableOutputEditorExtensions.Bind, "PlayableOutputEditorExtensions");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Connect", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.Connect.UnityOAuth), jsb.QuickJS_UnityEditor_Connect_UnityOAuth.Bind, "UnityOAuth");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Connect.UnityOAuth.AuthCodeResponse), jsb.QuickJS_UnityEditor_Connect_UnityOAuth_AuthCodeResponse.Bind, "UnityOAuth", "AuthCodeResponse");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.ProjectWindowCallback", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.ShaderKeywordFilter", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.ApplyRulesIfTagsEqualAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_ApplyRulesIfTagsEqualAttribute.Bind, "ApplyRulesIfTagsEqualAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.ApplyRulesIfTagsNotEqualAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_ApplyRulesIfTagsNotEqualAttribute.Bind, "ApplyRulesIfTagsNotEqualAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.ApplyRulesIfGraphicsAPIAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_ApplyRulesIfGraphicsAPIAttribute.Bind, "ApplyRulesIfGraphicsAPIAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.ApplyRulesIfNotGraphicsAPIAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_ApplyRulesIfNotGraphicsAPIAttribute.Bind, "ApplyRulesIfNotGraphicsAPIAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.FilterAction), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_FilterAction.Bind, "FilterAction");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.SelectIfAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_SelectIfAttribute.Bind, "SelectIfAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.RemoveIfAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_RemoveIfAttribute.Bind, "RemoveIfAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.SelectOrRemoveAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_SelectOrRemoveAttribute.Bind, "SelectOrRemoveAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.SelectIfNotAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_SelectIfNotAttribute.Bind, "SelectIfNotAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.RemoveIfNotAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_RemoveIfNotAttribute.Bind, "RemoveIfNotAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.ShaderKeywordFilter.RemoveOrSelectAttribute), jsb.QuickJS_UnityEditor_ShaderKeywordFilter_RemoveOrSelectAttribute.Bind, "RemoveOrSelectAttribute");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.SearchService", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.SceneSearchContext), jsb.QuickJS_UnityEditor_SearchService_SceneSearchContext.Bind, "SceneSearchContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ISceneSearchEngine), jsb.QuickJS_UnityEditor_SearchService_ISceneSearchEngine.Bind, "ISceneSearchEngine");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.SceneSearch), jsb.QuickJS_UnityEditor_SearchService_SceneSearch.Bind, "SceneSearch");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ObjectSelectorSearchContext), jsb.QuickJS_UnityEditor_SearchService_ObjectSelectorSearchContext.Bind, "ObjectSelectorSearchContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ProjectSearchContext), jsb.QuickJS_UnityEditor_SearchService_ProjectSearchContext.Bind, "ProjectSearchContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.IProjectSearchEngine), jsb.QuickJS_UnityEditor_SearchService_IProjectSearchEngine.Bind, "IProjectSearchEngine");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ProjectSearch), jsb.QuickJS_UnityEditor_SearchService_ProjectSearch.Bind, "ProjectSearch");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.VisibleObjects), jsb.QuickJS_UnityEditor_SearchService_VisibleObjects.Bind, "VisibleObjects");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.IObjectSelectorEngine), jsb.QuickJS_UnityEditor_SearchService_IObjectSelectorEngine.Bind, "IObjectSelectorEngine");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ObjectSelectorSearch), jsb.QuickJS_UnityEditor_SearchService_ObjectSelectorSearch.Bind, "ObjectSelectorSearch");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.SearchEngineScope), jsb.QuickJS_UnityEditor_SearchService_SearchEngineScope.Bind, "SearchEngineScope");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ISearchContext), jsb.QuickJS_UnityEditor_SearchService_ISearchContext.Bind, "ISearchContext");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ISearchEngineBase), jsb.QuickJS_UnityEditor_SearchService_ISearchEngineBase.Bind, "ISearchEngineBase");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SearchService.ISelectorEngine), jsb.QuickJS_UnityEditor_SearchService_ISelectorEngine.Bind, "ISelectorEngine");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Events", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Events.UnityEventTools), jsb.QuickJS_UnityEditor_Events_UnityEventTools.Bind, "UnityEventTools");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.ProjectWindowCallback", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.ProjectWindowCallback.EndNameEditAction), jsb.QuickJS_UnityEditor_ProjectWindowCallback_EndNameEditAction.Bind, "EndNameEditAction");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Playables", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Overlays", (runtime, module) =>
             {
 #if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.Playables.PlayableOutputEditorExtensions), jsb.QuickJS_UnityEditor_Playables_PlayableOutputEditorExtensions.Bind, "PlayableOutputEditorExtensions");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Playables.Utility), jsb.QuickJS_UnityEditor_Playables_Utility.Bind, "Utility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Overlays.ToolbarOverlay), jsb.QuickJS_UnityEditor_Overlays_ToolbarOverlay.Bind, "ToolbarOverlay");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Overlays.Overlay), jsb.QuickJS_UnityEditor_Overlays_Overlay.Bind, "Overlay");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Overlays.ITransientOverlay), jsb.QuickJS_UnityEditor_Overlays_ITransientOverlay.Bind, "ITransientOverlay");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Overlays.IMGUIOverlay), jsb.QuickJS_UnityEditor_Overlays_IMGUIOverlay.Bind, "IMGUIOverlay");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Overlays.Layout), jsb.QuickJS_UnityEditor_Overlays_Layout.Bind, "Layout");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Overlays.ISupportsOverlays), jsb.QuickJS_UnityEditor_Overlays_ISupportsOverlays.Bind, "ISupportsOverlays");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Media", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Build", (runtime, module) =>
             {
 #if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.Media.MediaRational), jsb.QuickJS_UnityEditor_Media_MediaRational.Bind, "MediaRational");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Media.MediaTime), jsb.QuickJS_UnityEditor_Media_MediaTime.Bind, "MediaTime");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Media.VideoTrackAttributes), jsb.QuickJS_UnityEditor_Media_VideoTrackAttributes.Bind, "VideoTrackAttributes");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Media.AudioTrackAttributes), jsb.QuickJS_UnityEditor_Media_AudioTrackAttributes.Bind, "AudioTrackAttributes");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Media.MediaEncoder), jsb.QuickJS_UnityEditor_Media_MediaEncoder.Bind, "MediaEncoder");
-#endif
-            });
-            runtime.AddStaticModuleProxy("UnityEditor.EditorTools", (rt, module) =>
-            {
-#if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.IDrawSelectedHandles), jsb.QuickJS_UnityEditor_EditorTools_IDrawSelectedHandles.Bind, "IDrawSelectedHandles");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.EditorTool), jsb.QuickJS_UnityEditor_EditorTools_EditorTool.Bind, "EditorTool");
-                runtime.AddTypeReference(module, typeof(UnityEditor.EditorTools.ToolManager), jsb.QuickJS_UnityEditor_EditorTools_EditorTools.Bind, "EditorTools");
-#endif
-            });
-            runtime.AddStaticModuleProxy("UnityEditor.Build", (rt, module) =>
-            {
-#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.OverrideTextureCompression), jsb.QuickJS_UnityEditor_Build_OverrideTextureCompression.Bind, "OverrideTextureCompression");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.Il2CppCodeGeneration), jsb.QuickJS_UnityEditor_Build_Il2CppCodeGeneration.Bind, "Il2CppCodeGeneration");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.BuildPlayerContext), jsb.QuickJS_UnityEditor_Build_BuildPlayerContext.Bind, "BuildPlayerContext");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.BuildFailedException), jsb.QuickJS_UnityEditor_Build_BuildFailedException.Bind, "BuildFailedException");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IOrderedCallback), jsb.QuickJS_UnityEditor_Build_IOrderedCallback.Bind, "IOrderedCallback");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.BuildPlayerProcessor), jsb.QuickJS_UnityEditor_Build_BuildPlayerProcessor.Bind, "BuildPlayerProcessor");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IPreprocessBuildWithReport), jsb.QuickJS_UnityEditor_Build_IPreprocessBuildWithReport.Bind, "IPreprocessBuildWithReport");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IFilterBuildAssemblies), jsb.QuickJS_UnityEditor_Build_IFilterBuildAssemblies.Bind, "IFilterBuildAssemblies");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IPostprocessBuildWithReport), jsb.QuickJS_UnityEditor_Build_IPostprocessBuildWithReport.Bind, "IPostprocessBuildWithReport");
@@ -726,38 +883,64 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IProcessSceneWithReport), jsb.QuickJS_UnityEditor_Build_IProcessSceneWithReport.Bind, "IProcessSceneWithReport");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IActiveBuildTargetChanged), jsb.QuickJS_UnityEditor_Build_IActiveBuildTargetChanged.Bind, "IActiveBuildTargetChanged");
                 runtime.AddTypeReference(module, typeof(UnityEditor.Build.IPreprocessShaders), jsb.QuickJS_UnityEditor_Build_IPreprocessShaders.Bind, "IPreprocessShaders");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.Build.IUnityLinkerProcessor), jsb.QuickJS_UnityEditor_Build_IUnityLinkerProcessor.Bind, "IUnityLinkerProcessor");
-                // runtime.AddTypeReference(module, typeof(UnityEditor.Build.IIl2CppProcessor), jsb.QuickJS_UnityEditor_Build_IIl2CppProcessor.Bind, "IIl2CppProcessor");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.IPreprocessComputeShaders), jsb.QuickJS_UnityEditor_Build_IPreprocessComputeShaders.Bind, "IPreprocessComputeShaders");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.IUnityLinkerProcessor), jsb.QuickJS_UnityEditor_Build_IUnityLinkerProcessor.Bind, "IUnityLinkerProcessor");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Build.NamedBuildTarget), jsb.QuickJS_UnityEditor_Build_NamedBuildTarget.Bind, "NamedBuildTarget");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEditor.SceneManagement", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Hardware", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.UsbDevice), jsb.QuickJS_UnityEditor_Hardware_UsbDevice.Bind, "UsbDevice");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.Usb), jsb.QuickJS_UnityEditor_Hardware_Usb.Bind, "Usb");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDeviceState), jsb.QuickJS_UnityEditor_Hardware_DevDeviceState.Bind, "DevDeviceState");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDeviceFeatures), jsb.QuickJS_UnityEditor_Hardware_DevDeviceFeatures.Bind, "DevDeviceFeatures");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDevice), jsb.QuickJS_UnityEditor_Hardware_DevDevice.Bind, "DevDevice");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Hardware.DevDeviceList), jsb.QuickJS_UnityEditor_Hardware_DevDeviceList.Bind, "DevDeviceList");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.Callbacks", (runtime, module) =>
+            {
+#if UNITY_EDITOR
+                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.PostProcessBuildAttribute), jsb.QuickJS_UnityEditor_Callbacks_PostProcessBuildAttribute.Bind, "PostProcessBuildAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.PostProcessSceneAttribute), jsb.QuickJS_UnityEditor_Callbacks_PostProcessSceneAttribute.Bind, "PostProcessSceneAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.DidReloadScripts), jsb.QuickJS_UnityEditor_Callbacks_DidReloadScripts.Bind, "DidReloadScripts");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.OnOpenAssetAttributeMode), jsb.QuickJS_UnityEditor_Callbacks_OnOpenAssetAttributeMode.Bind, "OnOpenAssetAttributeMode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.OnOpenAssetAttribute), jsb.QuickJS_UnityEditor_Callbacks_OnOpenAssetAttribute.Bind, "OnOpenAssetAttribute");
+#endif
+            });
+            runtime.AddStaticModuleProxy("UnityEditor.SceneManagement", (runtime, module) =>
             {
 #if UNITY_EDITOR
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.EditorSceneManager), jsb.QuickJS_UnityEditor_SceneManagement_EditorSceneManager.Bind, "EditorSceneManager");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.SceneCullingMasks), jsb.QuickJS_UnityEditor_SceneManagement_SceneCullingMasks.Bind, "SceneCullingMasks");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.OpenSceneMode), jsb.QuickJS_UnityEditor_SceneManagement_OpenSceneMode.Bind, "OpenSceneMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.NewSceneMode), jsb.QuickJS_UnityEditor_SceneManagement_NewSceneMode.Bind, "NewSceneMode");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.NewSceneSetup), jsb.QuickJS_UnityEditor_SceneManagement_NewSceneSetup.Bind, "NewSceneSetup");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.SceneHierarchyHooks), jsb.QuickJS_UnityEditor_SceneManagement_SceneHierarchyHooks.Bind, "SceneHierarchyHooks");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.SceneHierarchyHooks.SubSceneInfo), jsb.QuickJS_UnityEditor_SceneManagement_SceneHierarchyHooks_SubSceneInfo.Bind, "SceneHierarchyHooks", "SubSceneInfo");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.SceneSetup), jsb.QuickJS_UnityEditor_SceneManagement_SceneSetup.Bind, "SceneSetup");
-                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.StageHandle), jsb.QuickJS_UnityEditor_SceneManagement_StageHandle.Bind, "StageHandle");
                 runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.StageUtility), jsb.QuickJS_UnityEditor_SceneManagement_StageUtility.Bind, "StageUtility");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.PreviewSceneStage), jsb.QuickJS_UnityEditor_SceneManagement_PreviewSceneStage.Bind, "PreviewSceneStage");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.Stage), jsb.QuickJS_UnityEditor_SceneManagement_Stage.Bind, "Stage");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.StageHandle), jsb.QuickJS_UnityEditor_SceneManagement_StageHandle.Bind, "StageHandle");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.MainStage), jsb.QuickJS_UnityEditor_SceneManagement_MainStage.Bind, "MainStage");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.PrefabStage), jsb.QuickJS_UnityEditor_SceneManagement_PrefabStage.Bind, "PrefabStage");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.PrefabStage.Mode), jsb.QuickJS_UnityEditor_SceneManagement_PrefabStage_Mode.Bind, "PrefabStage", "Mode");
+                runtime.AddTypeReference(module, typeof(UnityEditor.SceneManagement.PrefabStageUtility), jsb.QuickJS_UnityEditor_SceneManagement_PrefabStageUtility.Bind, "PrefabStageUtility");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEngine.SceneManagement", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEngine.SceneManagement", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(UnityEngine.SceneManagement.SceneManager), jsb.QuickJS_UnityEngine_SceneManagement_SceneManager.Bind, "SceneManager");
             });
-            runtime.AddStaticModuleProxy("UnityEditor.Callbacks", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEditor.Scripting", (runtime, module) =>
             {
 #if UNITY_EDITOR
-                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.PostProcessBuildAttribute), jsb.QuickJS_UnityEditor_Callbacks_PostProcessBuildAttribute.Bind, "PostProcessBuildAttribute");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.PostProcessSceneAttribute), jsb.QuickJS_UnityEditor_Callbacks_PostProcessSceneAttribute.Bind, "PostProcessSceneAttribute");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.DidReloadScripts), jsb.QuickJS_UnityEditor_Callbacks_DidReloadScripts.Bind, "DidReloadScripts");
-                runtime.AddTypeReference(module, typeof(UnityEditor.Callbacks.OnOpenAssetAttribute), jsb.QuickJS_UnityEditor_Callbacks_OnOpenAssetAttribute.Bind, "OnOpenAssetAttribute");
+                runtime.AddTypeReference(module, typeof(UnityEditor.Scripting.ManagedDebugger), jsb.QuickJS_UnityEditor_Scripting_ManagedDebugger.Bind, "ManagedDebugger");
 #endif
             });
-            runtime.AddStaticModuleProxy("UnityEngine.UI", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEngine.UI", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.AnimationTriggers), jsb.QuickJS_UnityEngine_UI_AnimationTriggers.Bind, "AnimationTriggers");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Button), jsb.QuickJS_UnityEngine_UI_Button.Bind, "Button");
@@ -777,9 +960,9 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Graphic), jsb.QuickJS_UnityEngine_UI_Graphic.Bind, "Graphic");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.GraphicRaycaster), jsb.QuickJS_UnityEngine_UI_GraphicRaycaster.Bind, "GraphicRaycaster");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.GraphicRegistry), jsb.QuickJS_UnityEngine_UI_GraphicRegistry.Bind, "GraphicRegistry");
-                runtime.AddTypeReference(module, typeof(UnityEngine.UI.IMaskable), jsb.QuickJS_UnityEngine_UI_IMaskable.Bind, "IMaskable");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Image), jsb.QuickJS_UnityEngine_UI_Image.Bind, "Image");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.MaskableGraphic), jsb.QuickJS_UnityEngine_UI_MaskableGraphic.Bind, "MaskableGraphic");
+                runtime.AddTypeReference(module, typeof(UnityEngine.UI.IMaskable), jsb.QuickJS_UnityEngine_UI_IMaskable.Bind, "IMaskable");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.InputField), jsb.QuickJS_UnityEngine_UI_InputField.Bind, "InputField");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.AspectRatioFitter), jsb.QuickJS_UnityEngine_UI_AspectRatioFitter.Bind, "AspectRatioFitter");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.CanvasScaler), jsb.QuickJS_UnityEngine_UI_CanvasScaler.Bind, "CanvasScaler");
@@ -801,8 +984,8 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Navigation), jsb.QuickJS_UnityEngine_UI_Navigation.Bind, "Navigation");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.RawImage), jsb.QuickJS_UnityEngine_UI_RawImage.Bind, "RawImage");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.RectMask2D), jsb.QuickJS_UnityEngine_UI_RectMask2D.Bind, "RectMask2D");
-                runtime.AddTypeReference(module, typeof(UnityEngine.UI.ScrollRect), jsb.QuickJS_UnityEngine_UI_ScrollRect.Bind, "ScrollRect");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Scrollbar), jsb.QuickJS_UnityEngine_UI_Scrollbar.Bind, "Scrollbar");
+                runtime.AddTypeReference(module, typeof(UnityEngine.UI.ScrollRect), jsb.QuickJS_UnityEngine_UI_ScrollRect.Bind, "ScrollRect");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Slider), jsb.QuickJS_UnityEngine_UI_Slider.Bind, "Slider");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.SpriteState), jsb.QuickJS_UnityEngine_UI_SpriteState.Bind, "SpriteState");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.StencilMaterial), jsb.QuickJS_UnityEngine_UI_StencilMaterial.Bind, "StencilMaterial");
@@ -834,6 +1017,7 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.InputField.CharacterValidation), jsb.QuickJS_UnityEngine_UI_InputField_CharacterValidation.Bind, "InputField", "CharacterValidation");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.InputField.LineType), jsb.QuickJS_UnityEngine_UI_InputField_LineType.Bind, "InputField", "LineType");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.InputField.SubmitEvent), jsb.QuickJS_UnityEngine_UI_InputField_SubmitEvent.Bind, "InputField", "SubmitEvent");
+                runtime.AddTypeReference(module, typeof(UnityEngine.UI.InputField.EndEditEvent), jsb.QuickJS_UnityEngine_UI_InputField_EndEditEvent.Bind, "InputField", "EndEditEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.InputField.OnChangeEvent), jsb.QuickJS_UnityEngine_UI_InputField_OnChangeEvent.Bind, "InputField", "OnChangeEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.AspectRatioFitter.AspectMode), jsb.QuickJS_UnityEngine_UI_AspectRatioFitter_AspectMode.Bind, "AspectRatioFitter", "AspectMode");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.CanvasScaler.ScaleMode), jsb.QuickJS_UnityEngine_UI_CanvasScaler_ScaleMode.Bind, "CanvasScaler", "ScaleMode");
@@ -845,18 +1029,18 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.GridLayoutGroup.Constraint), jsb.QuickJS_UnityEngine_UI_GridLayoutGroup_Constraint.Bind, "GridLayoutGroup", "Constraint");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.MaskableGraphic.CullStateChangedEvent), jsb.QuickJS_UnityEngine_UI_MaskableGraphic_CullStateChangedEvent.Bind, "MaskableGraphic", "CullStateChangedEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Navigation.Mode), jsb.QuickJS_UnityEngine_UI_Navigation_Mode.Bind, "Navigation", "Mode");
+                runtime.AddTypeReference(module, typeof(UnityEngine.UI.Scrollbar.Direction), jsb.QuickJS_UnityEngine_UI_Scrollbar_Direction.Bind, "Scrollbar", "Direction");
+                runtime.AddTypeReference(module, typeof(UnityEngine.UI.Scrollbar.ScrollEvent), jsb.QuickJS_UnityEngine_UI_Scrollbar_ScrollEvent.Bind, "Scrollbar", "ScrollEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.ScrollRect.MovementType), jsb.QuickJS_UnityEngine_UI_ScrollRect_MovementType.Bind, "ScrollRect", "MovementType");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.ScrollRect.ScrollbarVisibility), jsb.QuickJS_UnityEngine_UI_ScrollRect_ScrollbarVisibility.Bind, "ScrollRect", "ScrollbarVisibility");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.ScrollRect.ScrollRectEvent), jsb.QuickJS_UnityEngine_UI_ScrollRect_ScrollRectEvent.Bind, "ScrollRect", "ScrollRectEvent");
-                runtime.AddTypeReference(module, typeof(UnityEngine.UI.Scrollbar.Direction), jsb.QuickJS_UnityEngine_UI_Scrollbar_Direction.Bind, "Scrollbar", "Direction");
-                runtime.AddTypeReference(module, typeof(UnityEngine.UI.Scrollbar.ScrollEvent), jsb.QuickJS_UnityEngine_UI_Scrollbar_ScrollEvent.Bind, "Scrollbar", "ScrollEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Selectable.Transition), jsb.QuickJS_UnityEngine_UI_Selectable_Transition.Bind, "Selectable", "Transition");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Slider.Direction), jsb.QuickJS_UnityEngine_UI_Slider_Direction.Bind, "Slider", "Direction");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Slider.SliderEvent), jsb.QuickJS_UnityEngine_UI_Slider_SliderEvent.Bind, "Slider", "SliderEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Toggle.ToggleTransition), jsb.QuickJS_UnityEngine_UI_Toggle_ToggleTransition.Bind, "Toggle", "ToggleTransition");
                 runtime.AddTypeReference(module, typeof(UnityEngine.UI.Toggle.ToggleEvent), jsb.QuickJS_UnityEngine_UI_Toggle_ToggleEvent.Bind, "Toggle", "ToggleEvent");
             });
-            runtime.AddStaticModuleProxy("UnityEngine.EventSystems", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEngine.EventSystems", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.UIBehaviour), jsb.QuickJS_UnityEngine_EventSystems_UIBehaviour.Bind, "UIBehaviour");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.BaseRaycaster), jsb.QuickJS_UnityEngine_EventSystems_BaseRaycaster.Bind, "BaseRaycaster");
@@ -866,6 +1050,7 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.PointerEventData), jsb.QuickJS_UnityEngine_EventSystems_PointerEventData.Bind, "PointerEventData");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.EventHandle), jsb.QuickJS_UnityEngine_EventSystems_EventHandle.Bind, "EventHandle");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.IEventSystemHandler), jsb.QuickJS_UnityEngine_EventSystems_IEventSystemHandler.Bind, "IEventSystemHandler");
+                runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.IPointerMoveHandler), jsb.QuickJS_UnityEngine_EventSystems_IPointerMoveHandler.Bind, "IPointerMoveHandler");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.IPointerEnterHandler), jsb.QuickJS_UnityEngine_EventSystems_IPointerEnterHandler.Bind, "IPointerEnterHandler");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.IPointerExitHandler), jsb.QuickJS_UnityEngine_EventSystems_IPointerExitHandler.Bind, "IPointerExitHandler");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.IPointerDownHandler), jsb.QuickJS_UnityEngine_EventSystems_IPointerDownHandler.Bind, "IPointerDownHandler");
@@ -892,24 +1077,29 @@ namespace jsb.gen {
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.PointerInputModule), jsb.QuickJS_UnityEngine_EventSystems_PointerInputModule.Bind, "PointerInputModule");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.StandaloneInputModule), jsb.QuickJS_UnityEngine_EventSystems_StandaloneInputModule.Bind, "StandaloneInputModule");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.MoveDirection), jsb.QuickJS_UnityEngine_EventSystems_MoveDirection.Bind, "MoveDirection");
-                runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.RaycastResult), jsb.QuickJS_UnityEngine_EventSystems_RaycastResult.Bind, "RaycastResult");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.Physics2DRaycaster), jsb.QuickJS_UnityEngine_EventSystems_Physics2DRaycaster.Bind, "Physics2DRaycaster");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.PhysicsRaycaster), jsb.QuickJS_UnityEngine_EventSystems_PhysicsRaycaster.Bind, "PhysicsRaycaster");
+                runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.RaycastResult), jsb.QuickJS_UnityEngine_EventSystems_RaycastResult.Bind, "RaycastResult");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.PointerEventData.InputButton), jsb.QuickJS_UnityEngine_EventSystems_PointerEventData_InputButton.Bind, "PointerEventData", "InputButton");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.PointerEventData.FramePressState), jsb.QuickJS_UnityEngine_EventSystems_PointerEventData_FramePressState.Bind, "PointerEventData", "FramePressState");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.EventTrigger.TriggerEvent), jsb.QuickJS_UnityEngine_EventSystems_EventTrigger_TriggerEvent.Bind, "EventTrigger", "TriggerEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.EventTrigger.Entry), jsb.QuickJS_UnityEngine_EventSystems_EventTrigger_Entry.Bind, "EventTrigger", "Entry");
                 runtime.AddTypeReference(module, typeof(UnityEngine.EventSystems.PointerInputModule.MouseButtonEventData), jsb.QuickJS_UnityEngine_EventSystems_PointerInputModule_MouseButtonEventData.Bind, "PointerInputModule", "MouseButtonEventData");
             });
-            runtime.AddStaticModuleProxy("UnityEngine.Events", (rt, module) =>
+            runtime.AddStaticModuleProxy("UnityEngine.UIElements", (runtime, module) =>
+            {
+                runtime.AddTypeReference(module, typeof(UnityEngine.UIElements.PanelEventHandler), jsb.QuickJS_UnityEngine_UIElements_PanelEventHandler.Bind, "PanelEventHandler");
+                runtime.AddTypeReference(module, typeof(UnityEngine.UIElements.PanelRaycaster), jsb.QuickJS_UnityEngine_UIElements_PanelRaycaster.Bind, "PanelRaycaster");
+            });
+            runtime.AddStaticModuleProxy("UnityEngine.Events", (runtime, module) =>
             {
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent), jsb.QuickJS_UnityEngine_Events_UnityEvent.Bind, "UnityEvent");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEventBase), jsb.QuickJS_UnityEngine_Events_UnityEventBase.Bind, "UnityEventBase");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<int>), jsb.QuickJS_UnityEngine_Events_UnityEvent_Int32.Bind, "UnityEvent_Int32");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<string>), jsb.QuickJS_UnityEngine_Events_UnityEvent_String.Bind, "UnityEvent_String");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<bool>), jsb.QuickJS_UnityEngine_Events_UnityEvent_Boolean.Bind, "UnityEvent_Boolean");
-                runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<UnityEngine.Vector2>), jsb.QuickJS_UnityEngine_Events_UnityEvent_Vector2.Bind, "UnityEvent_Vector2");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<float>), jsb.QuickJS_UnityEngine_Events_UnityEvent_Single.Bind, "UnityEvent_Single");
+                runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<UnityEngine.Vector2>), jsb.QuickJS_UnityEngine_Events_UnityEvent_Vector2.Bind, "UnityEvent_Vector2");
                 runtime.AddTypeReference(module, typeof(UnityEngine.Events.UnityEvent<UnityEngine.EventSystems.BaseEventData>), jsb.QuickJS_UnityEngine_Events_UnityEvent_BaseEventData.Bind, "UnityEvent_BaseEventData");
             });
             jsb._QuickJSDelegates.Bind(runtime);
@@ -935,8 +1125,11 @@ namespace jsb.gen {
                 register.FindPrototypeOf(typeof(System.Delegate));
                 // register.FindPrototypeOf(typeof(UnityEditor.GUID));
                 // register.FindPrototypeOf(typeof(UnityEditor.ShaderMessage));
-                // register.FindPrototypeOf(typeof(UnityEditor.EditorCurveBinding));
                 // register.FindPrototypeOf(typeof(UnityEditor.SceneView.CameraMode));
+                // register.FindPrototypeOf(typeof(UnityEditor.EditorCurveBinding));
+                // register.FindPrototypeOf(typeof(UnityEditor.MPE.ChannelInfo));
+                // register.FindPrototypeOf(typeof(UnityEditor.MPE.ChannelClientInfo));
+                // register.FindPrototypeOf(typeof(UnityEditor.Build.NamedBuildTarget));
                 // register.FindPrototypeOf(typeof(UnityEditor.SceneManagement.StageHandle));
                 register.FindPrototypeOf(typeof(UnityEngine.UI.ColorBlock));
                 // preload types end

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
     // Type: UnityEngine.ParticleSystem
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_ParticleSystem
@@ -305,16 +305,48 @@ namespace jsb {
         {
             try
             {
-                if (argc == 0)
+                do
                 {
-                    UnityEngine.ParticleSystem self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    if (argc == 1)
                     {
-                        throw new ThisBoundException();
+                        UnityEngine.ParticleSystem self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.ParticleSystem.Trails arg0;
+                        var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                        if (refVal0.IsException())
+                        {
+                            return refVal0;
+                        }
+                        if (!Values.js_get_structvalue(ctx, refVal0, out arg0))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal0);
+                            throw new ParameterException(typeof(UnityEngine.ParticleSystem), "GetTrails", typeof(UnityEngine.ParticleSystem.Trails), 0);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal0);
+                        var ret = self.GetTrails(ref arg0);
+                        var out0 = Values.js_push_structvalue(ctx, arg0);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    var ret = self.GetTrails();
-                    return Values.js_push_structvalue(ctx, ret);
-                }
+                    if (argc == 0)
+                    {
+                        UnityEngine.ParticleSystem self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        var ret = self.GetTrails();
+                        return Values.js_push_structvalue(ctx, ret);
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("GetTrails", argc);
             }
             catch (Exception exception)
@@ -812,6 +844,77 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_AllocateAxisOfRotationAttribute(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.ParticleSystem self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.AllocateAxisOfRotationAttribute();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("AllocateAxisOfRotationAttribute", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_AllocateMeshIndexAttribute(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.ParticleSystem self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.AllocateMeshIndexAttribute();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("AllocateMeshIndexAttribute", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_AllocateCustomDataAttribute(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.ParticleSystem self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.ParticleSystemCustomData arg0;
+                    if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.ParticleSystem), "AllocateCustomDataAttribute", typeof(UnityEngine.ParticleSystemCustomData), 0);
+                    }
+                    self.AllocateCustomDataAttribute(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("AllocateCustomDataAttribute", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue Bind_GetSafeCollisionEventSize(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -897,26 +1000,57 @@ namespace jsb {
         {
             try
             {
-                if (argc == 2)
+                do
                 {
-                    UnityEngine.ParticleSystem self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    if (argc == 3)
                     {
-                        throw new ThisBoundException();
+                        UnityEngine.ParticleSystem self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.ParticleSystemTriggerEventType arg0;
+                        if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticlePhysicsExtensions), "GetTriggerParticles", typeof(UnityEngine.ParticleSystemTriggerEventType), 0);
+                        }
+                        System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle> arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticlePhysicsExtensions), "GetTriggerParticles", typeof(System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle>), 1);
+                        }
+                        UnityEngine.ParticleSystem.ColliderData arg2;
+                        var ret = UnityEngine.ParticlePhysicsExtensions.GetTriggerParticles(self, arg0, arg1, out arg2);
+                        var out0 = Values.js_push_structvalue(ctx, arg2);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    UnityEngine.ParticleSystemTriggerEventType arg0;
-                    if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEngine.ParticlePhysicsExtensions), "GetTriggerParticles", typeof(UnityEngine.ParticleSystemTriggerEventType), 0);
+                        UnityEngine.ParticleSystem self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.ParticleSystemTriggerEventType arg0;
+                        if (!Values.js_get_enumvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticlePhysicsExtensions), "GetTriggerParticles", typeof(UnityEngine.ParticleSystemTriggerEventType), 0);
+                        }
+                        System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle> arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.ParticlePhysicsExtensions), "GetTriggerParticles", typeof(System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle>), 1);
+                        }
+                        var ret = UnityEngine.ParticlePhysicsExtensions.GetTriggerParticles(self, arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle> arg1;
-                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.ParticlePhysicsExtensions), "GetTriggerParticles", typeof(System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle>), 1);
-                    }
-                    var ret = UnityEngine.ParticlePhysicsExtensions.GetTriggerParticles(self, arg0, arg1);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("GetTriggerParticles", argc);
             }
             catch (Exception exception)
@@ -1373,6 +1507,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_lifetimeByEmitterSpeed(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.ParticleSystem self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.lifetimeByEmitterSpeed;
+                return Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_forceOverLifetime(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1679,6 +1831,9 @@ namespace jsb {
             cls.AddMethod(false, "IsAlive", Bind_IsAlive);
             cls.AddMethod(false, "Emit", Bind_Emit);
             cls.AddMethod(false, "TriggerSubEmitter", Bind_TriggerSubEmitter);
+            cls.AddMethod(false, "AllocateAxisOfRotationAttribute", Bind_AllocateAxisOfRotationAttribute);
+            cls.AddMethod(false, "AllocateMeshIndexAttribute", Bind_AllocateMeshIndexAttribute);
+            cls.AddMethod(false, "AllocateCustomDataAttribute", Bind_AllocateCustomDataAttribute);
             cls.AddMethod(false, "GetSafeCollisionEventSize", Bind_GetSafeCollisionEventSize);
             cls.AddMethod(false, "GetCollisionEvents", Bind_GetCollisionEvents);
             cls.AddMethod(false, "GetSafeTriggerParticlesSize", Bind_GetSafeTriggerParticlesSize);
@@ -1701,6 +1856,7 @@ namespace jsb {
             cls.AddProperty(false, "velocityOverLifetime", BindRead_velocityOverLifetime, null);
             cls.AddProperty(false, "limitVelocityOverLifetime", BindRead_limitVelocityOverLifetime, null);
             cls.AddProperty(false, "inheritVelocity", BindRead_inheritVelocity, null);
+            cls.AddProperty(false, "lifetimeByEmitterSpeed", BindRead_lifetimeByEmitterSpeed, null);
             cls.AddProperty(false, "forceOverLifetime", BindRead_forceOverLifetime, null);
             cls.AddProperty(false, "colorOverLifetime", BindRead_colorOverLifetime, null);
             cls.AddProperty(false, "colorBySpeed", BindRead_colorBySpeed, null);

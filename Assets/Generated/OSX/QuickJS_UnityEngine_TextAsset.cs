@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.TextAsset
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_TextAsset
@@ -74,6 +74,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_bytes(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.TextAsset self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.bytes;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_text(JSContext ctx, JSValue this_obj)
         {
             try
@@ -92,7 +110,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_bytes(JSContext ctx, JSValue this_obj)
+        public static JSValue BindRead_dataSize(JSContext ctx, JSValue this_obj)
         {
             try
             {
@@ -101,8 +119,8 @@ namespace jsb {
                 {
                     throw new ThisBoundException();
                 }
-                var ret = self.bytes;
-                return Values.js_push_classvalue(ctx, ret);
+                var ret = self.dataSize;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -113,8 +131,9 @@ namespace jsb {
         {
             var cls = register.CreateClass("TextAsset", typeof(UnityEngine.TextAsset), BindConstructor);
             cls.AddMethod(false, "toString", Bind_ToString);
-            cls.AddProperty(false, "text", BindRead_text, null);
             cls.AddProperty(false, "bytes", BindRead_bytes, null);
+            cls.AddProperty(false, "text", BindRead_text, null);
+            cls.AddProperty(false, "dataSize", BindRead_dataSize, null);
             return cls;
         }
     }

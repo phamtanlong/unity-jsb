@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.AnimationMode
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_AnimationMode
@@ -70,11 +70,24 @@ namespace jsb {
         {
             try
             {
-                if (argc == 0)
+                do
                 {
-                    UnityEditor.AnimationMode.StopAnimationMode();
-                    return JSApi.JS_UNDEFINED;
-                }
+                    if (argc == 1)
+                    {
+                        UnityEditor.AnimationModeDriver arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AnimationMode), "StopAnimationMode", typeof(UnityEditor.AnimationModeDriver), 0);
+                        }
+                        UnityEditor.AnimationMode.StopAnimationMode(arg0);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    if (argc == 0)
+                    {
+                        UnityEditor.AnimationMode.StopAnimationMode();
+                        return JSApi.JS_UNDEFINED;
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("StopAnimationMode", argc);
             }
             catch (Exception exception)
@@ -87,11 +100,24 @@ namespace jsb {
         {
             try
             {
-                if (argc == 0)
+                do
                 {
-                    var ret = UnityEditor.AnimationMode.InAnimationMode();
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
+                    if (argc == 1)
+                    {
+                        UnityEditor.AnimationModeDriver arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AnimationMode), "InAnimationMode", typeof(UnityEditor.AnimationModeDriver), 0);
+                        }
+                        var ret = UnityEditor.AnimationMode.InAnimationMode(arg0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 0)
+                    {
+                        var ret = UnityEditor.AnimationMode.InAnimationMode();
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("InAnimationMode", argc);
             }
             catch (Exception exception)
@@ -104,11 +130,24 @@ namespace jsb {
         {
             try
             {
-                if (argc == 0)
+                do
                 {
-                    UnityEditor.AnimationMode.StartAnimationMode();
-                    return JSApi.JS_UNDEFINED;
-                }
+                    if (argc == 1)
+                    {
+                        UnityEditor.AnimationModeDriver arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AnimationMode), "StartAnimationMode", typeof(UnityEditor.AnimationModeDriver), 0);
+                        }
+                        UnityEditor.AnimationMode.StartAnimationMode(arg0);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    if (argc == 0)
+                    {
+                        UnityEditor.AnimationMode.StartAnimationMode();
+                        return JSApi.JS_UNDEFINED;
+                    }
+                } while(false);
                 throw new NoSuitableMethodException("StartAnimationMode", argc);
             }
             catch (Exception exception)
@@ -176,6 +215,38 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SampleAnimationClip", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SamplePlayableGraph(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Playables.PlayableGraph arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationMode), "SamplePlayableGraph", typeof(UnityEngine.Playables.PlayableGraph), 0);
+                    }
+                    int arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationMode), "SamplePlayableGraph", typeof(int), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AnimationMode), "SamplePlayableGraph", typeof(float), 2);
+                    }
+                    UnityEditor.AnimationMode.SamplePlayableGraph(arg0, arg1, arg2);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SamplePlayableGraph", argc);
             }
             catch (Exception exception)
             {
@@ -290,6 +361,7 @@ namespace jsb {
             cls.AddMethod(true, "BeginSampling", BindStatic_BeginSampling);
             cls.AddMethod(true, "EndSampling", BindStatic_EndSampling);
             cls.AddMethod(true, "SampleAnimationClip", BindStatic_SampleAnimationClip);
+            cls.AddMethod(true, "SamplePlayableGraph", BindStatic_SamplePlayableGraph);
             cls.AddMethod(true, "AddPropertyModification", BindStatic_AddPropertyModification);
             cls.AddMethod(true, "AddEditorCurveBinding", BindStatic_AddEditorCurveBinding);
             cls.AddProperty(true, "animatedPropertyColor", BindStaticRead_animatedPropertyColor, null);

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.TextureImporterShape
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_TextureImporterShape
@@ -25,6 +25,8 @@ namespace jsb {
             var cls = register.CreateEnum("TextureImporterShape", typeof(UnityEditor.TextureImporterShape));
             cls.AddConstValue("Texture2D", 1);
             cls.AddConstValue("TextureCube", 2);
+            cls.AddConstValue("Texture2DArray", 4);
+            cls.AddConstValue("Texture3D", 8);
             return cls;
         }
     }

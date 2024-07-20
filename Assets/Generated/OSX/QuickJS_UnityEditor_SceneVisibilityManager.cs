@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.SceneVisibilityManager
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_SceneVisibilityManager
@@ -423,26 +423,44 @@ namespace jsb {
         {
             try
             {
-                if (argc == 2)
+                do
                 {
-                    UnityEditor.SceneVisibilityManager self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    if (argc == 2)
                     {
-                        throw new ThisBoundException();
+                        UnityEditor.SceneVisibilityManager self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.GameObject arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsHidden", typeof(UnityEngine.GameObject), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsHidden", typeof(bool), 1);
+                        }
+                        var ret = self.IsHidden(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    UnityEngine.GameObject arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsHidden", typeof(UnityEngine.GameObject), 0);
+                        UnityEditor.SceneVisibilityManager self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.SceneManagement.Scene arg0;
+                        if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsHidden", typeof(UnityEngine.SceneManagement.Scene), 0);
+                        }
+                        var ret = self.IsHidden(arg0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    bool arg1;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsHidden", typeof(bool), 1);
-                    }
-                    var ret = self.IsHidden(arg0, arg1);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("IsHidden", argc);
             }
             catch (Exception exception)
@@ -455,26 +473,44 @@ namespace jsb {
         {
             try
             {
-                if (argc == 2)
+                do
                 {
-                    UnityEditor.SceneVisibilityManager self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    if (argc == 2)
                     {
-                        throw new ThisBoundException();
+                        UnityEditor.SceneVisibilityManager self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.GameObject arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsPickingDisabled", typeof(UnityEngine.GameObject), 0);
+                        }
+                        bool arg1;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsPickingDisabled", typeof(bool), 1);
+                        }
+                        var ret = self.IsPickingDisabled(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    UnityEngine.GameObject arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsPickingDisabled", typeof(UnityEngine.GameObject), 0);
+                        UnityEditor.SceneVisibilityManager self;
+                        if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        UnityEngine.SceneManagement.Scene arg0;
+                        if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsPickingDisabled", typeof(UnityEngine.SceneManagement.Scene), 0);
+                        }
+                        var ret = self.IsPickingDisabled(arg0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                     }
-                    bool arg1;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.SceneVisibilityManager), "IsPickingDisabled", typeof(bool), 1);
-                    }
-                    var ret = self.IsPickingDisabled(arg0, arg1);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("IsPickingDisabled", argc);
             }
             catch (Exception exception)

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.EventSystems.StandaloneInputModule
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_EventSystems_StandaloneInputModule
@@ -35,28 +35,6 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("UpdateModule", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_IsModuleSupported(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    UnityEngine.EventSystems.StandaloneInputModule self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    var ret = self.IsModuleSupported();
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("IsModuleSupported", argc);
             }
             catch (Exception exception)
             {
@@ -145,47 +123,6 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("Process", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_forceModuleActive(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                UnityEngine.EventSystems.StandaloneInputModule self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                var ret = self.forceModuleActive;
-                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindWrite_forceModuleActive(JSContext ctx, JSValue this_obj, JSValue arg_val)
-        {
-            try
-            {
-                UnityEngine.EventSystems.StandaloneInputModule self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                {
-                    throw new ThisBoundException();
-                }
-                bool value;
-                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
-                {
-                    throw new ParameterException(typeof(UnityEngine.EventSystems.StandaloneInputModule), "forceModuleActive", typeof(bool), 0);
-                }
-                self.forceModuleActive = value;
-                return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
             {
@@ -442,12 +379,10 @@ namespace jsb {
         {
             var cls = register.CreateClass("StandaloneInputModule", typeof(UnityEngine.EventSystems.StandaloneInputModule), QuickJS.JSNative.class_private_ctor);
             cls.AddMethod(false, "UpdateModule", Bind_UpdateModule);
-            cls.AddMethod(false, "IsModuleSupported", Bind_IsModuleSupported);
             cls.AddMethod(false, "ShouldActivateModule", Bind_ShouldActivateModule);
             cls.AddMethod(false, "ActivateModule", Bind_ActivateModule);
             cls.AddMethod(false, "DeactivateModule", Bind_DeactivateModule);
             cls.AddMethod(false, "Process", Bind_Process);
-            cls.AddProperty(false, "forceModuleActive", BindRead_forceModuleActive, BindWrite_forceModuleActive);
             cls.AddProperty(false, "inputActionsPerSecond", BindRead_inputActionsPerSecond, BindWrite_inputActionsPerSecond);
             cls.AddProperty(false, "repeatDelay", BindRead_repeatDelay, BindWrite_repeatDelay);
             cls.AddProperty(false, "horizontalAxis", BindRead_horizontalAxis, BindWrite_horizontalAxis);

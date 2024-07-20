@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AnimationModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AnimationModule.dll
     // Type: UnityEngine.Animator
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Animator
@@ -3163,6 +3163,50 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_UnbindAllStreamHandles(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Animator self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Animations.AnimatorJobExtensions.UnbindAllStreamHandles(self);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("UnbindAllStreamHandles", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_UnbindAllSceneHandles(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEngine.Animator self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Animations.AnimatorJobExtensions.UnbindAllSceneHandles(self);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("UnbindAllSceneHandles", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_StringToHash(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -4355,7 +4399,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_keepAnimatorControllerStateOnDisable(JSContext ctx, JSValue this_obj)
+        public static JSValue BindRead_keepAnimatorStateOnDisable(JSContext ctx, JSValue this_obj)
         {
             try
             {
@@ -4373,7 +4417,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindWrite_keepAnimatorControllerStateOnDisable(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        public static JSValue BindWrite_keepAnimatorStateOnDisable(JSContext ctx, JSValue this_obj, JSValue arg_val)
         {
             try
             {
@@ -4385,9 +4429,50 @@ namespace jsb {
                 bool value;
                 if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
                 {
-                    throw new ParameterException(typeof(UnityEngine.Animator), "keepAnimatorControllerStateOnDisable", typeof(bool), 0);
+                    throw new ParameterException(typeof(UnityEngine.Animator), "keepAnimatorStateOnDisable", typeof(bool), 0);
                 }
                 self.keepAnimatorStateOnDisable = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_writeDefaultValuesOnDisable(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.Animator self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.writeDefaultValuesOnDisable;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindWrite_writeDefaultValuesOnDisable(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Animator self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEngine.Animator), "writeDefaultValuesOnDisable", typeof(bool), 0);
+                }
+                self.writeDefaultValuesOnDisable = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -4463,6 +4548,8 @@ namespace jsb {
             cls.AddMethod(false, "CloseAnimationStream", Bind_CloseAnimationStream);
             cls.AddMethod(false, "ResolveAllStreamHandles", Bind_ResolveAllStreamHandles);
             cls.AddMethod(false, "ResolveAllSceneHandles", Bind_ResolveAllSceneHandles);
+            cls.AddMethod(false, "UnbindAllStreamHandles", Bind_UnbindAllStreamHandles);
+            cls.AddMethod(false, "UnbindAllSceneHandles", Bind_UnbindAllSceneHandles);
             cls.AddMethod(true, "StringToHash", BindStatic_StringToHash);
             cls.AddProperty(false, "isOptimizable", BindRead_isOptimizable, null);
             cls.AddProperty(false, "isHuman", BindRead_isHuman, null);
@@ -4506,7 +4593,8 @@ namespace jsb {
             cls.AddProperty(false, "rightFeetBottomHeight", BindRead_rightFeetBottomHeight, null);
             cls.AddProperty(false, "logWarnings", BindRead_logWarnings, BindWrite_logWarnings);
             cls.AddProperty(false, "fireEvents", BindRead_fireEvents, BindWrite_fireEvents);
-            cls.AddProperty(false, "keepAnimatorControllerStateOnDisable", BindRead_keepAnimatorControllerStateOnDisable, BindWrite_keepAnimatorControllerStateOnDisable);
+            cls.AddProperty(false, "keepAnimatorStateOnDisable", BindRead_keepAnimatorStateOnDisable, BindWrite_keepAnimatorStateOnDisable);
+            cls.AddProperty(false, "writeDefaultValuesOnDisable", BindRead_writeDefaultValuesOnDisable, BindWrite_writeDefaultValuesOnDisable);
             return cls;
         }
     }

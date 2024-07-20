@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Vector3
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Vector3
@@ -297,6 +297,26 @@ namespace jsb {
             {
                 do
                 {
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector3 self;
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                        {
+                            throw new ThisBoundException();
+                        }
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "ToString", typeof(string), 0);
+                        }
+                        System.IFormatProvider arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "ToString", typeof(System.IFormatProvider), 1);
+                        }
+                        var ret = self.ToString(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
                     if (argc == 1)
                     {
                         UnityEngine.Vector3 self;
@@ -331,217 +351,31 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_Slerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_Compare(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
-                if (argc == 3)
+                if (argc == 2)
                 {
+                    UnityEngine.Vector3 self;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
                     UnityEngine.Vector3 arg0;
                     if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "Slerp", typeof(UnityEngine.Vector3), 0);
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "Compare", typeof(UnityEngine.Vector3), 0);
                     }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    int arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
                     {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "Slerp", typeof(UnityEngine.Vector3), 1);
+                        throw new ParameterException(typeof(TMPro.TMPro_ExtensionMethods), "Compare", typeof(int), 1);
                     }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "Slerp", typeof(float), 2);
-                    }
-                    var ret = UnityEngine.Vector3.Slerp(arg0, arg1, arg2);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                    var ret = TMPro.TMPro_ExtensionMethods.Compare(self, arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
-                throw new NoSuitableMethodException("Slerp", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_SlerpUnclamped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 3)
-                {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "SlerpUnclamped", typeof(UnityEngine.Vector3), 0);
-                    }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "SlerpUnclamped", typeof(UnityEngine.Vector3), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "SlerpUnclamped", typeof(float), 2);
-                    }
-                    var ret = UnityEngine.Vector3.SlerpUnclamped(arg0, arg1, arg2);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("SlerpUnclamped", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_OrthoNormalize(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                do
-                {
-                    if (argc == 3)
-                    {
-                        UnityEngine.Vector3 arg0;
-                        var refVal0 = Values.js_read_wrap(ctx, argv[0]);
-                        if (refVal0.IsException())
-                        {
-                            return refVal0;
-                        }
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal0, out arg0))
-                        {
-                            JSApi.JS_FreeValue(ctx, refVal0);
-                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 0);
-                        }
-                        JSApi.JS_FreeValue(ctx, refVal0);
-                        UnityEngine.Vector3 arg1;
-                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
-                        if (refVal1.IsException())
-                        {
-                            return refVal1;
-                        }
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal1, out arg1))
-                        {
-                            JSApi.JS_FreeValue(ctx, refVal1);
-                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 1);
-                        }
-                        JSApi.JS_FreeValue(ctx, refVal1);
-                        UnityEngine.Vector3 arg2;
-                        var refVal2 = Values.js_read_wrap(ctx, argv[2]);
-                        if (refVal2.IsException())
-                        {
-                            return refVal2;
-                        }
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal2, out arg2))
-                        {
-                            JSApi.JS_FreeValue(ctx, refVal2);
-                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 2);
-                        }
-                        JSApi.JS_FreeValue(ctx, refVal2);
-                        UnityEngine.Vector3.OrthoNormalize(ref arg0, ref arg1, ref arg2);
-                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg0);
-                        if (JSApi.JS_IsException(out0))
-                        {
-                            return out0;
-                        }
-                        var context = ScriptEngine.GetContext(ctx);
-                        JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
-                        var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
-                        if (JSApi.JS_IsException(out1))
-                        {
-                            return out1;
-                        }
-                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
-                        var out2 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg2);
-                        if (JSApi.JS_IsException(out2))
-                        {
-                            return out2;
-                        }
-                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out2);
-                        return JSApi.JS_UNDEFINED;
-                    }
-                    if (argc == 2)
-                    {
-                        UnityEngine.Vector3 arg0;
-                        var refVal0 = Values.js_read_wrap(ctx, argv[0]);
-                        if (refVal0.IsException())
-                        {
-                            return refVal0;
-                        }
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal0, out arg0))
-                        {
-                            JSApi.JS_FreeValue(ctx, refVal0);
-                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 0);
-                        }
-                        JSApi.JS_FreeValue(ctx, refVal0);
-                        UnityEngine.Vector3 arg1;
-                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
-                        if (refVal1.IsException())
-                        {
-                            return refVal1;
-                        }
-                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal1, out arg1))
-                        {
-                            JSApi.JS_FreeValue(ctx, refVal1);
-                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 1);
-                        }
-                        JSApi.JS_FreeValue(ctx, refVal1);
-                        UnityEngine.Vector3.OrthoNormalize(ref arg0, ref arg1);
-                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg0);
-                        if (JSApi.JS_IsException(out0))
-                        {
-                            return out0;
-                        }
-                        var context = ScriptEngine.GetContext(ctx);
-                        JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
-                        var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
-                        if (JSApi.JS_IsException(out1))
-                        {
-                            return out1;
-                        }
-                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
-                        return JSApi.JS_UNDEFINED;
-                    }
-                } while(false);
-                throw new NoSuitableMethodException("OrthoNormalize", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_RotateTowards(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 4)
-                {
-                    UnityEngine.Vector3 arg0;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(UnityEngine.Vector3), 0);
-                    }
-                    UnityEngine.Vector3 arg1;
-                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(UnityEngine.Vector3), 1);
-                    }
-                    float arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(float), 2);
-                    }
-                    float arg3;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
-                    {
-                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(float), 3);
-                    }
-                    var ret = UnityEngine.Vector3.RotateTowards(arg0, arg1, arg2, arg3);
-                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
-                }
-                throw new NoSuitableMethodException("RotateTowards", argc);
+                throw new NoSuitableMethodException("Compare", argc);
             }
             catch (Exception exception)
             {
@@ -1392,6 +1226,224 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_Slerp(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "Slerp", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "Slerp", typeof(UnityEngine.Vector3), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "Slerp", typeof(float), 2);
+                    }
+                    var ret = UnityEngine.Vector3.Slerp(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("Slerp", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SlerpUnclamped(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 3)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "SlerpUnclamped", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "SlerpUnclamped", typeof(UnityEngine.Vector3), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "SlerpUnclamped", typeof(float), 2);
+                    }
+                    var ret = UnityEngine.Vector3.SlerpUnclamped(arg0, arg1, arg2);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("SlerpUnclamped", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_OrthoNormalize(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 3)
+                    {
+                        UnityEngine.Vector3 arg0;
+                        var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                        if (refVal0.IsException())
+                        {
+                            return refVal0;
+                        }
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal0, out arg0))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal0);
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 0);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal0);
+                        UnityEngine.Vector3 arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEngine.Vector3 arg2;
+                        var refVal2 = Values.js_read_wrap(ctx, argv[2]);
+                        if (refVal2.IsException())
+                        {
+                            return refVal2;
+                        }
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal2, out arg2))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal2);
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 2);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal2);
+                        UnityEngine.Vector3.OrthoNormalize(ref arg0, ref arg1, ref arg2);
+                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg0);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                        var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out1))
+                        {
+                            return out1;
+                        }
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
+                        var out2 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg2);
+                        if (JSApi.JS_IsException(out2))
+                        {
+                            return out2;
+                        }
+                        JSApi.JS_SetProperty(ctx, argv[2], context.GetAtom("value"), out2);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    if (argc == 2)
+                    {
+                        UnityEngine.Vector3 arg0;
+                        var refVal0 = Values.js_read_wrap(ctx, argv[0]);
+                        if (refVal0.IsException())
+                        {
+                            return refVal0;
+                        }
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal0, out arg0))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal0);
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 0);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal0);
+                        UnityEngine.Vector3 arg1;
+                        var refVal1 = Values.js_read_wrap(ctx, argv[1]);
+                        if (refVal1.IsException())
+                        {
+                            return refVal1;
+                        }
+                        if (!QuickJS.Binding.Values.js_get_structvalue(ctx, refVal1, out arg1))
+                        {
+                            JSApi.JS_FreeValue(ctx, refVal1);
+                            throw new ParameterException(typeof(UnityEngine.Vector3), "OrthoNormalize", typeof(UnityEngine.Vector3), 1);
+                        }
+                        JSApi.JS_FreeValue(ctx, refVal1);
+                        UnityEngine.Vector3.OrthoNormalize(ref arg0, ref arg1);
+                        var out0 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg0);
+                        if (JSApi.JS_IsException(out0))
+                        {
+                            return out0;
+                        }
+                        var context = ScriptEngine.GetContext(ctx);
+                        JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                        var out1 = QuickJS.Binding.Values.js_push_structvalue(ctx, arg1);
+                        if (JSApi.JS_IsException(out1))
+                        {
+                            return out1;
+                        }
+                        JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out1);
+                        return JSApi.JS_UNDEFINED;
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("OrthoNormalize", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_RotateTowards(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 4)
+                {
+                    UnityEngine.Vector3 arg0;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(UnityEngine.Vector3), 0);
+                    }
+                    UnityEngine.Vector3 arg1;
+                    if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(UnityEngine.Vector3), 1);
+                    }
+                    float arg2;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(float), 2);
+                    }
+                    float arg3;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Vector3), "RotateTowards", typeof(float), 3);
+                    }
+                    var ret = UnityEngine.Vector3.RotateTowards(arg0, arg1, arg2, arg3);
+                    return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("RotateTowards", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_op_Addition_qjs(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -1903,10 +1955,7 @@ namespace jsb {
             cls.AddMethod(false, "Equals", Bind_Equals);
             cls.AddMethod(false, "Normalize", Bind_Normalize);
             cls.AddMethod(false, "toString", Bind_ToString);
-            cls.AddMethod(true, "Slerp", BindStatic_Slerp);
-            cls.AddMethod(true, "SlerpUnclamped", BindStatic_SlerpUnclamped);
-            cls.AddMethod(true, "OrthoNormalize", BindStatic_OrthoNormalize);
-            cls.AddMethod(true, "RotateTowards", BindStatic_RotateTowards);
+            cls.AddMethod(false, "Compare", Bind_Compare);
             cls.AddMethod(true, "Lerp", BindStatic_Lerp);
             cls.AddMethod(true, "LerpUnclamped", BindStatic_LerpUnclamped);
             cls.AddMethod(true, "MoveTowards", BindStatic_MoveTowards);
@@ -1933,6 +1982,10 @@ namespace jsb {
             cls.AddMethod(true, "op_Division", BindStatic_op_Division);
             cls.AddMethod(true, "op_Equality", BindStatic_op_Equality);
             cls.AddMethod(true, "op_Inequality", BindStatic_op_Inequality);
+            cls.AddMethod(true, "Slerp", BindStatic_Slerp);
+            cls.AddMethod(true, "SlerpUnclamped", BindStatic_SlerpUnclamped);
+            cls.AddMethod(true, "OrthoNormalize", BindStatic_OrthoNormalize);
+            cls.AddMethod(true, "RotateTowards", BindStatic_RotateTowards);
             cls.AddProperty(false, "normalized", BindRead_normalized, null);
             cls.AddProperty(false, "magnitude", BindRead_magnitude, null);
             cls.AddProperty(false, "sqrMagnitude", BindRead_sqrMagnitude, null);

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.PhysicsVisualizationSettings
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_PhysicsVisualizationSettings
@@ -187,6 +187,45 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SetShowKinematicBodies", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetShowArticulationBodies(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.PhysicsVisualizationSettings.GetShowArticulationBodies();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetShowArticulationBodies", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetShowArticulationBodies(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    bool arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.PhysicsVisualizationSettings), "SetShowArticulationBodies", typeof(bool), 0);
+                    }
+                    UnityEditor.PhysicsVisualizationSettings.SetShowArticulationBodies(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetShowArticulationBodies", argc);
             }
             catch (Exception exception)
             {
@@ -1050,6 +1089,37 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_articulationBodyColor(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.PhysicsVisualizationSettings.articulationBodyColor;
+                return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_articulationBodyColor(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.Color value;
+                if (!QuickJS.Binding.Values.js_get_structvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.PhysicsVisualizationSettings), "articulationBodyColor", typeof(UnityEngine.Color), 0);
+                }
+                UnityEditor.PhysicsVisualizationSettings.articulationBodyColor = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_triggerColor(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1247,6 +1317,8 @@ namespace jsb {
             cls.AddMethod(true, "SetShowRigidbodies", BindStatic_SetShowRigidbodies);
             cls.AddMethod(true, "GetShowKinematicBodies", BindStatic_GetShowKinematicBodies);
             cls.AddMethod(true, "SetShowKinematicBodies", BindStatic_SetShowKinematicBodies);
+            cls.AddMethod(true, "GetShowArticulationBodies", BindStatic_GetShowArticulationBodies);
+            cls.AddMethod(true, "SetShowArticulationBodies", BindStatic_SetShowArticulationBodies);
             cls.AddMethod(true, "GetShowSleepingBodies", BindStatic_GetShowSleepingBodies);
             cls.AddMethod(true, "SetShowSleepingBodies", BindStatic_SetShowSleepingBodies);
             cls.AddMethod(true, "GetShowCollisionLayer", BindStatic_GetShowCollisionLayer);
@@ -1283,6 +1355,7 @@ namespace jsb {
             cls.AddProperty(true, "staticColor", BindStaticRead_staticColor, BindStaticWrite_staticColor);
             cls.AddProperty(true, "rigidbodyColor", BindStaticRead_rigidbodyColor, BindStaticWrite_rigidbodyColor);
             cls.AddProperty(true, "kinematicColor", BindStaticRead_kinematicColor, BindStaticWrite_kinematicColor);
+            cls.AddProperty(true, "articulationBodyColor", BindStaticRead_articulationBodyColor, BindStaticWrite_articulationBodyColor);
             cls.AddProperty(true, "triggerColor", BindStaticRead_triggerColor, BindStaticWrite_triggerColor);
             cls.AddProperty(true, "sleepingBodyColor", BindStaticRead_sleepingBodyColor, BindStaticWrite_sleepingBodyColor);
             cls.AddProperty(true, "baseAlpha", BindStaticRead_baseAlpha, BindStaticWrite_baseAlpha);

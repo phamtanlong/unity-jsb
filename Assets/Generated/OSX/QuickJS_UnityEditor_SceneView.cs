@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.SceneView
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_SceneView
@@ -161,6 +161,33 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("AddItemsToMenu", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_IsCameraDrawModeSupported(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEditor.SceneView self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEditor.SceneView.CameraMode arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.SceneView), "IsCameraDrawModeSupported", typeof(UnityEditor.SceneView.CameraMode), 0);
+                    }
+                    var ret = self.IsCameraDrawModeSupported(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsCameraDrawModeSupported", argc);
             }
             catch (Exception exception)
             {
@@ -764,6 +791,24 @@ namespace jsb {
             {
                 var ret = UnityEditor.SceneView.selectedOutlineColor;
                 return QuickJS.Binding.Values.js_push_structvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_isUsingSceneFiltering(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEditor.SceneView self;
+                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.isUsingSceneFiltering;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -1600,6 +1645,57 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticDelegate_lastActiveSceneViewChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                    {
+                        System.Action<UnityEditor.SceneView, UnityEditor.SceneView> value;
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneView), "lastActiveSceneViewChanged", typeof(System.Action<UnityEditor.SceneView, UnityEditor.SceneView>), 1);
+                        }
+                        UnityEditor.SceneView.lastActiveSceneViewChanged += value;
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    case Values.EVT_OP_REMOVE:
+                    {
+                        System.Action<UnityEditor.SceneView, UnityEditor.SceneView> value;
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneView), "lastActiveSceneViewChanged", typeof(System.Action<UnityEditor.SceneView, UnityEditor.SceneView>), 1);
+                        }
+                        UnityEditor.SceneView.lastActiveSceneViewChanged -= value;
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    case Values.EVT_OP_SET:
+                    {
+                        System.Action<UnityEditor.SceneView, UnityEditor.SceneView> value;
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.SceneView), "lastActiveSceneViewChanged", typeof(System.Action<UnityEditor.SceneView, UnityEditor.SceneView>), 1);
+                        }
+                        UnityEditor.SceneView.lastActiveSceneViewChanged = value;
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    case Values.EVT_OP_GET:
+                    {
+                        var ret = UnityEditor.SceneView.lastActiveSceneViewChanged;
+                        return Values.js_push_delegate(ctx, ret);
+                    }
+                    default: throw new JSException("invalid event op");
+                }
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("SceneView", typeof(UnityEditor.SceneView), QuickJS.JSNative.class_private_ctor);
@@ -1609,6 +1705,7 @@ namespace jsb {
             cls.AddMethod(false, "OnDisable", Bind_OnDisable);
             cls.AddMethod(false, "OnDestroy", Bind_OnDestroy);
             cls.AddMethod(false, "AddItemsToMenu", Bind_AddItemsToMenu);
+            cls.AddMethod(false, "IsCameraDrawModeSupported", Bind_IsCameraDrawModeSupported);
             cls.AddMethod(false, "IsCameraDrawModeEnabled", Bind_IsCameraDrawModeEnabled);
             cls.AddMethod(false, "FixNegativeSize", Bind_FixNegativeSize);
             cls.AddMethod(false, "LookAt", Bind_LookAt);
@@ -1628,6 +1725,7 @@ namespace jsb {
             cls.AddProperty(true, "lastActiveSceneView", BindStaticRead_lastActiveSceneView, null);
             cls.AddProperty(true, "currentDrawingSceneView", BindStaticRead_currentDrawingSceneView, null);
             cls.AddProperty(true, "selectedOutlineColor", BindStaticRead_selectedOutlineColor, null);
+            cls.AddProperty(false, "isUsingSceneFiltering", BindRead_isUsingSceneFiltering, null);
             cls.AddProperty(false, "drawGizmos", BindRead_drawGizmos, BindWrite_drawGizmos);
             cls.AddProperty(false, "sceneLighting", BindRead_sceneLighting, BindWrite_sceneLighting);
             cls.AddProperty(false, "in2DMode", BindRead_in2DMode, BindWrite_in2DMode);
@@ -1651,6 +1749,7 @@ namespace jsb {
             cls.AddMethod(false, "gridVisibilityChanged", BindEvent_gridVisibilityChanged);
             cls.AddMethod(true, "beforeSceneGui", BindStaticEvent_beforeSceneGui);
             cls.AddMethod(true, "duringSceneGui", BindStaticEvent_duringSceneGui);
+            cls.AddMethod(true, "lastActiveSceneViewChanged", BindStaticDelegate_lastActiveSceneViewChanged);
             return cls;
         }
     }

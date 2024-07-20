@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.PlayerSettings+Android
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_PlayerSettings_Android
@@ -248,6 +248,37 @@ namespace jsb {
                     throw new ParameterException(typeof(UnityEditor.PlayerSettings.Android), "fullscreenMode", typeof(UnityEngine.FullScreenMode), 0);
                 }
                 UnityEditor.PlayerSettings.Android.fullscreenMode = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_autoRotationBehavior(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.PlayerSettings.Android.autoRotationBehavior;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_autoRotationBehavior(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.AndroidAutoRotationBehavior value;
+                if (!Values.js_get_enumvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.PlayerSettings.Android), "autoRotationBehavior", typeof(UnityEditor.AndroidAutoRotationBehavior), 0);
+                }
+                UnityEditor.PlayerSettings.Android.autoRotationBehavior = value;
                 return JSApi.JS_UNDEFINED;
             }
             catch (Exception exception)
@@ -1044,6 +1075,99 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_minifyWithR8(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.PlayerSettings.Android.minifyWithR8;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_minifyWithR8(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.PlayerSettings.Android), "minifyWithR8", typeof(bool), 0);
+                }
+                UnityEditor.PlayerSettings.Android.minifyWithR8 = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_minifyRelease(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.PlayerSettings.Android.minifyRelease;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_minifyRelease(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.PlayerSettings.Android), "minifyRelease", typeof(bool), 0);
+                }
+                UnityEditor.PlayerSettings.Android.minifyRelease = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_minifyDebug(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.PlayerSettings.Android.minifyDebug;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_minifyDebug(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                bool value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.PlayerSettings.Android), "minifyDebug", typeof(bool), 0);
+                }
+                UnityEditor.PlayerSettings.Android.minifyDebug = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_optimizedFramePacing(JSContext ctx, JSValue this_obj)
         {
             try
@@ -1084,6 +1208,7 @@ namespace jsb {
             cls.AddProperty(true, "minimumWindowHeight", BindStaticRead_minimumWindowHeight, BindStaticWrite_minimumWindowHeight);
             cls.AddProperty(true, "resizableWindow", BindStaticRead_resizableWindow, BindStaticWrite_resizableWindow);
             cls.AddProperty(true, "fullscreenMode", BindStaticRead_fullscreenMode, BindStaticWrite_fullscreenMode);
+            cls.AddProperty(true, "autoRotationBehavior", BindStaticRead_autoRotationBehavior, BindStaticWrite_autoRotationBehavior);
             cls.AddProperty(true, "bundleVersionCode", BindStaticRead_bundleVersionCode, BindStaticWrite_bundleVersionCode);
             cls.AddProperty(true, "minSdkVersion", BindStaticRead_minSdkVersion, BindStaticWrite_minSdkVersion);
             cls.AddProperty(true, "targetSdkVersion", BindStaticRead_targetSdkVersion, BindStaticWrite_targetSdkVersion);
@@ -1110,6 +1235,9 @@ namespace jsb {
             cls.AddProperty(true, "maxAspectRatio", BindStaticRead_maxAspectRatio, BindStaticWrite_maxAspectRatio);
             cls.AddProperty(true, "startInFullscreen", BindStaticRead_startInFullscreen, BindStaticWrite_startInFullscreen);
             cls.AddProperty(true, "renderOutsideSafeArea", BindStaticRead_renderOutsideSafeArea, BindStaticWrite_renderOutsideSafeArea);
+            cls.AddProperty(true, "minifyWithR8", BindStaticRead_minifyWithR8, BindStaticWrite_minifyWithR8);
+            cls.AddProperty(true, "minifyRelease", BindStaticRead_minifyRelease, BindStaticWrite_minifyRelease);
+            cls.AddProperty(true, "minifyDebug", BindStaticRead_minifyDebug, BindStaticWrite_minifyDebug);
             cls.AddProperty(true, "optimizedFramePacing", BindStaticRead_optimizedFramePacing, BindStaticWrite_optimizedFramePacing);
             return cls;
         }

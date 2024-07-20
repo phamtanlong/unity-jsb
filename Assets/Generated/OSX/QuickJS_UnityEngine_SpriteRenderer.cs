@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.SpriteRenderer
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_SpriteRenderer
@@ -31,6 +31,60 @@ namespace jsb {
                     return val;
                 }
                 throw new NoSuitableMethodException("constructor", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_RegisterSpriteChangeCallback(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.SpriteRenderer self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Events.UnityAction<UnityEngine.SpriteRenderer> arg0;
+                    if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.SpriteRenderer), "RegisterSpriteChangeCallback", typeof(UnityEngine.Events.UnityAction<UnityEngine.SpriteRenderer>), 0);
+                    }
+                    self.RegisterSpriteChangeCallback(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("RegisterSpriteChangeCallback", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_UnregisterSpriteChangeCallback(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.SpriteRenderer self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    UnityEngine.Events.UnityAction<UnityEngine.SpriteRenderer> arg0;
+                    if (!Values.js_get_delegate(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.SpriteRenderer), "UnregisterSpriteChangeCallback", typeof(UnityEngine.Events.UnityAction<UnityEngine.SpriteRenderer>), 0);
+                    }
+                    self.UnregisterSpriteChangeCallback(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("UnregisterSpriteChangeCallback", argc);
             }
             catch (Exception exception)
             {
@@ -472,6 +526,8 @@ namespace jsb {
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("SpriteRenderer", typeof(UnityEngine.SpriteRenderer), BindConstructor);
+            cls.AddMethod(false, "RegisterSpriteChangeCallback", Bind_RegisterSpriteChangeCallback);
+            cls.AddMethod(false, "UnregisterSpriteChangeCallback", Bind_UnregisterSpriteChangeCallback);
             cls.AddMethod(false, "DeactivateDeformableBuffer", Bind_DeactivateDeformableBuffer);
             cls.AddProperty(false, "sprite", BindRead_sprite, BindWrite_sprite);
             cls.AddProperty(false, "drawMode", BindRead_drawMode, BindWrite_drawMode);

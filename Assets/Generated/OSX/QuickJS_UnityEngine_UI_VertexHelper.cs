@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2/Library/ScriptAssemblies/UnityEngine.UI.dll
+    // Location: /Users/longpt/Documents/SkyMavis/unity-jsb-2021/Library/ScriptAssemblies/UnityEngine.UI.dll
     // Type: UnityEngine.UI.VertexHelper
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_UI_VertexHelper
@@ -224,25 +224,25 @@ namespace jsb {
                         {
                             throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Color32), 1);
                         }
-                        UnityEngine.Vector2 arg2;
+                        UnityEngine.Vector4 arg2;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 2);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 2);
                         }
-                        UnityEngine.Vector2 arg3;
+                        UnityEngine.Vector4 arg3;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[3], out arg3))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 3);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 3);
                         }
-                        UnityEngine.Vector2 arg4;
+                        UnityEngine.Vector4 arg4;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[4], out arg4))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 4);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 4);
                         }
-                        UnityEngine.Vector2 arg5;
+                        UnityEngine.Vector4 arg5;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[5], out arg5))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 5);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 5);
                         }
                         UnityEngine.Vector3 arg6;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[6], out arg6))
@@ -274,15 +274,15 @@ namespace jsb {
                         {
                             throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Color32), 1);
                         }
-                        UnityEngine.Vector2 arg2;
+                        UnityEngine.Vector4 arg2;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 2);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 2);
                         }
-                        UnityEngine.Vector2 arg3;
+                        UnityEngine.Vector4 arg3;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[3], out arg3))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 3);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 3);
                         }
                         UnityEngine.Vector3 arg4;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[4], out arg4))
@@ -314,10 +314,10 @@ namespace jsb {
                         {
                             throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Color32), 1);
                         }
-                        UnityEngine.Vector2 arg2;
+                        UnityEngine.Vector4 arg2;
                         if (!QuickJS.Binding.Values.js_get_structvalue(ctx, argv[2], out arg2))
                         {
-                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector2), 2);
+                            throw new ParameterException(typeof(UnityEngine.UI.VertexHelper), "AddVert", typeof(UnityEngine.Vector4), 2);
                         }
                         self.AddVert(arg0, arg1, arg2);
                         return JSApi.JS_UNDEFINED;

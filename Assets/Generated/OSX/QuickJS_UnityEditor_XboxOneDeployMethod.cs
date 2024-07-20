@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.XboxOneDeployMethod
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_XboxOneDeployMethod
@@ -24,7 +24,6 @@ namespace jsb {
         {
             var cls = register.CreateEnum("XboxOneDeployMethod", typeof(UnityEditor.XboxOneDeployMethod));
             cls.AddConstValue("Push", 0);
-            cls.AddConstValue("Pull", 1);
             cls.AddConstValue("RunFromPC", 2);
             cls.AddConstValue("Package", 3);
             cls.AddConstValue("PackageStreaming", 4);

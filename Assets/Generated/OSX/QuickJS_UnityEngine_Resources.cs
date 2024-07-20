@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll
     // Type: UnityEngine.Resources
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_Resources
@@ -205,6 +205,28 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_InstanceIDToObject(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    int arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEngine.Resources), "InstanceIDToObject", typeof(int), 0);
+                    }
+                    var ret = UnityEngine.Resources.InstanceIDToObject(arg0);
+                    return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("InstanceIDToObject", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("Resources", typeof(UnityEngine.Resources), QuickJS.JSNative.class_private_ctor);
@@ -215,6 +237,7 @@ namespace jsb {
             cls.AddMethod(true, "GetBuiltinResource", BindStatic_GetBuiltinResource);
             cls.AddMethod(true, "UnloadAsset", BindStatic_UnloadAsset);
             cls.AddMethod(true, "UnloadUnusedAssets", BindStatic_UnloadUnusedAssets);
+            cls.AddMethod(true, "InstanceIDToObject", BindStatic_InstanceIDToObject);
             return cls;
         }
     }

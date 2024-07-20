@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Undo
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Undo
@@ -91,26 +91,54 @@ namespace jsb {
         {
             try
             {
-                if (argc == 3)
+                do
                 {
-                    UnityEngine.Transform arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 4)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(UnityEngine.Transform), 0);
+                        UnityEngine.Transform arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(UnityEngine.Transform), 0);
+                        }
+                        UnityEngine.Transform arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(UnityEngine.Transform), 1);
+                        }
+                        bool arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(bool), 2);
+                        }
+                        string arg3;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[3], out arg3))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(string), 3);
+                        }
+                        UnityEditor.Undo.SetTransformParent(arg0, arg1, arg2, arg3);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    UnityEngine.Transform arg1;
-                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    if (argc == 3)
                     {
-                        throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(UnityEngine.Transform), 1);
+                        UnityEngine.Transform arg0;
+                        if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(UnityEngine.Transform), 0);
+                        }
+                        UnityEngine.Transform arg1;
+                        if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(UnityEngine.Transform), 1);
+                        }
+                        string arg2;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(string), 2);
+                        }
+                        UnityEditor.Undo.SetTransformParent(arg0, arg1, arg2);
+                        return JSApi.JS_UNDEFINED;
                     }
-                    string arg2;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[2], out arg2))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.Undo), "SetTransformParent", typeof(string), 2);
-                    }
-                    UnityEditor.Undo.SetTransformParent(arg0, arg1, arg2);
-                    return JSApi.JS_UNDEFINED;
-                }
+                } while(false);
                 throw new NoSuitableMethodException("SetTransformParent", argc);
             }
             catch (Exception exception)
@@ -220,6 +248,60 @@ namespace jsb {
                     return Values.js_push_classvalue(ctx, ret);
                 }
                 throw new NoSuitableMethodException("AddComponent", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_RegisterImporterUndo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Undo), "RegisterImporterUndo", typeof(string), 0);
+                    }
+                    string arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Undo), "RegisterImporterUndo", typeof(string), 1);
+                    }
+                    UnityEditor.Undo.RegisterImporterUndo(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("RegisterImporterUndo", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_RegisterChildrenOrderUndo(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.Object arg0;
+                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Undo), "RegisterChildrenOrderUndo", typeof(UnityEngine.Object), 0);
+                    }
+                    string arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Undo), "RegisterChildrenOrderUndo", typeof(string), 1);
+                    }
+                    UnityEditor.Undo.RegisterChildrenOrderUndo(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("RegisterChildrenOrderUndo", argc);
             }
             catch (Exception exception)
             {
@@ -693,6 +775,8 @@ namespace jsb {
             cls.AddMethod(true, "RegisterCreatedObjectUndo", BindStatic_RegisterCreatedObjectUndo);
             cls.AddMethod(true, "DestroyObjectImmediate", BindStatic_DestroyObjectImmediate);
             cls.AddMethod(true, "AddComponent", BindStatic_AddComponent);
+            cls.AddMethod(true, "RegisterImporterUndo", BindStatic_RegisterImporterUndo);
+            cls.AddMethod(true, "RegisterChildrenOrderUndo", BindStatic_RegisterChildrenOrderUndo);
             cls.AddMethod(true, "RegisterFullObjectHierarchyUndo", BindStatic_RegisterFullObjectHierarchyUndo);
             cls.AddMethod(true, "RecordObject", BindStatic_RecordObject);
             cls.AddMethod(true, "RecordObjects", BindStatic_RecordObjects);

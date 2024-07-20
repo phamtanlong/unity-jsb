@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.GlobalObjectId
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_GlobalObjectId
@@ -109,16 +109,32 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    UnityEngine.Object arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdSlow", typeof(UnityEngine.Object), 0);
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdSlow", typeof(UnityEngine.Object), 0);
+                            }
+                            var ret = UnityEditor.GlobalObjectId.GetGlobalObjectIdSlow(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int)))
+                        {
+                            int arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdSlow", typeof(int), 0);
+                            }
+                            var ret = UnityEditor.GlobalObjectId.GetGlobalObjectIdSlow(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
                     }
-                    var ret = UnityEditor.GlobalObjectId.GetGlobalObjectIdSlow(arg0);
-                    return Values.js_push_structvalue(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("GetGlobalObjectIdSlow", argc);
             }
             catch (Exception exception)
@@ -131,21 +147,42 @@ namespace jsb {
         {
             try
             {
-                if (argc == 2)
+                do
                 {
-                    UnityEngine.Object[] arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 2)
                     {
-                        throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdsSlow", typeof(UnityEngine.Object[]), 0);
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object[])) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.GlobalObjectId[])))
+                        {
+                            UnityEngine.Object[] arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdsSlow", typeof(UnityEngine.Object[]), 0);
+                            }
+                            UnityEditor.GlobalObjectId[] arg1;
+                            if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdsSlow", typeof(UnityEditor.GlobalObjectId[]), 1);
+                            }
+                            UnityEditor.GlobalObjectId.GetGlobalObjectIdsSlow(arg0, arg1);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(int[])) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.GlobalObjectId[])))
+                        {
+                            int[] arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdsSlow", typeof(int[]), 0);
+                            }
+                            UnityEditor.GlobalObjectId[] arg1;
+                            if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdsSlow", typeof(UnityEditor.GlobalObjectId[]), 1);
+                            }
+                            UnityEditor.GlobalObjectId.GetGlobalObjectIdsSlow(arg0, arg1);
+                            return JSApi.JS_UNDEFINED;
+                        }
                     }
-                    UnityEditor.GlobalObjectId[] arg1;
-                    if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
-                    {
-                        throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GetGlobalObjectIdsSlow", typeof(UnityEditor.GlobalObjectId[]), 1);
-                    }
-                    UnityEditor.GlobalObjectId.GetGlobalObjectIdsSlow(arg0, arg1);
-                    return JSApi.JS_UNDEFINED;
-                }
+                } while(false);
                 throw new NoSuitableMethodException("GetGlobalObjectIdsSlow", argc);
             }
             catch (Exception exception)
@@ -226,6 +263,55 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("GlobalObjectIdentifiersToObjectsSlow", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GlobalObjectIdentifierToInstanceIDSlow(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEditor.GlobalObjectId arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GlobalObjectIdentifierToInstanceIDSlow", typeof(UnityEditor.GlobalObjectId), 0);
+                    }
+                    var ret = UnityEditor.GlobalObjectId.GlobalObjectIdentifierToInstanceIDSlow(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GlobalObjectIdentifierToInstanceIDSlow", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GlobalObjectIdentifiersToInstanceIDsSlow(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEditor.GlobalObjectId[] arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GlobalObjectIdentifiersToInstanceIDsSlow", typeof(UnityEditor.GlobalObjectId[]), 0);
+                    }
+                    int[] arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.GlobalObjectId), "GlobalObjectIdentifiersToInstanceIDsSlow", typeof(int[]), 1);
+                    }
+                    UnityEditor.GlobalObjectId.GlobalObjectIdentifiersToInstanceIDsSlow(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("GlobalObjectIdentifiersToInstanceIDsSlow", argc);
             }
             catch (Exception exception)
             {
@@ -314,6 +400,8 @@ namespace jsb {
             cls.AddMethod(true, "TryParse", BindStatic_TryParse);
             cls.AddMethod(true, "GlobalObjectIdentifierToObjectSlow", BindStatic_GlobalObjectIdentifierToObjectSlow);
             cls.AddMethod(true, "GlobalObjectIdentifiersToObjectsSlow", BindStatic_GlobalObjectIdentifiersToObjectsSlow);
+            cls.AddMethod(true, "GlobalObjectIdentifierToInstanceIDSlow", BindStatic_GlobalObjectIdentifierToInstanceIDSlow);
+            cls.AddMethod(true, "GlobalObjectIdentifiersToInstanceIDsSlow", BindStatic_GlobalObjectIdentifiersToInstanceIDsSlow);
             cls.AddProperty(false, "targetObjectId", BindRead_targetObjectId, null);
             cls.AddProperty(false, "targetPrefabId", BindRead_targetPrefabId, null);
             cls.AddProperty(false, "assetGUID", BindRead_assetGUID, null);

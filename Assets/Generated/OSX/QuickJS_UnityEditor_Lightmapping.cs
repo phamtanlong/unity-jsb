@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Lightmapping
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Lightmapping
@@ -263,6 +263,107 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_TryGetLightingSettings(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.LightingSettings arg0;
+                    var ret = UnityEditor.Lightmapping.TryGetLightingSettings(out arg0);
+                    var out0 = Values.js_push_classvalue(ctx, arg0);
+                    if (JSApi.JS_IsException(out0))
+                    {
+                        return out0;
+                    }
+                    var context = ScriptEngine.GetContext(ctx);
+                    JSApi.JS_SetProperty(ctx, argv[0], context.GetAtom("value"), out0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("TryGetLightingSettings", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetLightingSettingsForScene(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.SceneManagement.Scene arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Lightmapping), "SetLightingSettingsForScene", typeof(UnityEngine.SceneManagement.Scene), 0);
+                    }
+                    UnityEngine.LightingSettings arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Lightmapping), "SetLightingSettingsForScene", typeof(UnityEngine.LightingSettings), 1);
+                    }
+                    UnityEditor.Lightmapping.SetLightingSettingsForScene(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetLightingSettingsForScene", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SetLightingSettingsForScenes(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    UnityEngine.SceneManagement.Scene[] arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Lightmapping), "SetLightingSettingsForScenes", typeof(UnityEngine.SceneManagement.Scene[]), 0);
+                    }
+                    UnityEngine.LightingSettings arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Lightmapping), "SetLightingSettingsForScenes", typeof(UnityEngine.LightingSettings), 1);
+                    }
+                    UnityEditor.Lightmapping.SetLightingSettingsForScenes(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("SetLightingSettingsForScenes", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetLightingSettingsForScene(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    UnityEngine.SceneManagement.Scene arg0;
+                    if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.Lightmapping), "GetLightingSettingsForScene", typeof(UnityEngine.SceneManagement.Scene), 0);
+                    }
+                    var ret = UnityEditor.Lightmapping.GetLightingSettingsForScene(arg0);
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetLightingSettingsForScene", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_BakeMultipleScenes(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -378,68 +479,6 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_indirectOutputScale(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Lightmapping.indirectOutputScale;
-                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindStaticWrite_indirectOutputScale(JSContext ctx, JSValue this_obj, JSValue arg_val)
-        {
-            try
-            {
-                float value;
-                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
-                {
-                    throw new ParameterException(typeof(UnityEditor.Lightmapping), "indirectOutputScale", typeof(float), 0);
-                }
-                UnityEditor.Lightmapping.indirectOutputScale = value;
-                return JSApi.JS_UNDEFINED;
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindStaticRead_bounceBoost(JSContext ctx, JSValue this_obj)
-        {
-            try
-            {
-                var ret = UnityEditor.Lightmapping.bounceBoost;
-                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
-        public static JSValue BindStaticWrite_bounceBoost(JSContext ctx, JSValue this_obj, JSValue arg_val)
-        {
-            try
-            {
-                float value;
-                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
-                {
-                    throw new ParameterException(typeof(UnityEditor.Lightmapping), "bounceBoost", typeof(float), 0);
-                }
-                UnityEditor.Lightmapping.bounceBoost = value;
-                return JSApi.JS_UNDEFINED;
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindStaticRead_isRunning(JSContext ctx, JSValue this_obj)
         {
             try
@@ -490,6 +529,50 @@ namespace jsb {
                 }
                 UnityEditor.Lightmapping.lightingDataAsset = value;
                 return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_lightingSettings(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Lightmapping.lightingSettings;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_lightingSettings(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEngine.LightingSettings value;
+                if (!Values.js_get_classvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.Lightmapping), "lightingSettings", typeof(UnityEngine.LightingSettings), 0);
+                }
+                UnityEditor.Lightmapping.lightingSettings = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_lightingSettingsDefaults(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.Lightmapping.lightingSettingsDefaults;
+                return Values.js_push_classvalue(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -561,6 +644,70 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_lightingDataCleared(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Lightmapping), "lightingDataCleared", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Lightmapping.lightingDataCleared += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Lightmapping), "lightingDataCleared", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Lightmapping.lightingDataCleared -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_lightingDataAssetCleared(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Lightmapping), "lightingDataAssetCleared", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Lightmapping.lightingDataAssetCleared += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.Lightmapping), "lightingDataAssetCleared", typeof(System.Action), 1);
+                        }
+                        UnityEditor.Lightmapping.lightingDataAssetCleared -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStaticEvent_bakeCompleted(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -605,17 +752,23 @@ namespace jsb {
             cls.AddMethod(true, "Tetrahedralize", BindStatic_Tetrahedralize);
             cls.AddMethod(true, "BakeReflectionProbe", BindStatic_BakeReflectionProbe);
             cls.AddMethod(true, "GetTerrainGIChunks", BindStatic_GetTerrainGIChunks);
+            cls.AddMethod(true, "TryGetLightingSettings", BindStatic_TryGetLightingSettings);
+            cls.AddMethod(true, "SetLightingSettingsForScene", BindStatic_SetLightingSettingsForScene);
+            cls.AddMethod(true, "SetLightingSettingsForScenes", BindStatic_SetLightingSettingsForScenes);
+            cls.AddMethod(true, "GetLightingSettingsForScene", BindStatic_GetLightingSettingsForScene);
             cls.AddMethod(true, "BakeMultipleScenes", BindStatic_BakeMultipleScenes);
             cls.AddProperty(true, "giWorkflowMode", BindStaticRead_giWorkflowMode, BindStaticWrite_giWorkflowMode);
             cls.AddProperty(true, "realtimeGI", BindStaticRead_realtimeGI, BindStaticWrite_realtimeGI);
             cls.AddProperty(true, "bakedGI", BindStaticRead_bakedGI, BindStaticWrite_bakedGI);
-            cls.AddProperty(true, "indirectOutputScale", BindStaticRead_indirectOutputScale, BindStaticWrite_indirectOutputScale);
-            cls.AddProperty(true, "bounceBoost", BindStaticRead_bounceBoost, BindStaticWrite_bounceBoost);
             cls.AddProperty(true, "isRunning", BindStaticRead_isRunning, null);
             cls.AddProperty(true, "buildProgress", BindStaticRead_buildProgress, null);
             cls.AddProperty(true, "lightingDataAsset", BindStaticRead_lightingDataAsset, BindStaticWrite_lightingDataAsset);
+            cls.AddProperty(true, "lightingSettings", BindStaticRead_lightingSettings, BindStaticWrite_lightingSettings);
+            cls.AddProperty(true, "lightingSettingsDefaults", BindStaticRead_lightingSettingsDefaults, null);
             cls.AddMethod(true, "bakeStarted", BindStaticEvent_bakeStarted);
             cls.AddMethod(true, "lightingDataUpdated", BindStaticEvent_lightingDataUpdated);
+            cls.AddMethod(true, "lightingDataCleared", BindStaticEvent_lightingDataCleared);
+            cls.AddMethod(true, "lightingDataAssetCleared", BindStaticEvent_lightingDataAssetCleared);
             cls.AddMethod(true, "bakeCompleted", BindStaticEvent_bakeCompleted);
             return cls;
         }

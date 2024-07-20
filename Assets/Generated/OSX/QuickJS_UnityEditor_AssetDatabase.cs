@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,12 +14,188 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.AssetDatabase
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_AssetDatabase
     {
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_CanOpenForEdit(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 3)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string[])) && Values.js_match_type(ctx, argv[1], typeof(System.Collections.Generic.List<string>)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.StatusQueryOptions)))
+                        {
+                            string[] arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(string[]), 0);
+                            }
+                            System.Collections.Generic.List<string> arg1;
+                            if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(System.Collections.Generic.List<string>), 1);
+                            }
+                            UnityEditor.StatusQueryOptions arg2;
+                            if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEditor.StatusQueryOptions), 2);
+                            }
+                            UnityEditor.AssetDatabase.CanOpenForEdit(arg0, arg1, arg2);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)) && Values.js_match_type_hint(ctx, argv[1], typeof(string)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.StatusQueryOptions)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEngine.Object), 0);
+                            }
+                            string arg1;
+                            UnityEditor.StatusQueryOptions arg2;
+                            if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEditor.StatusQueryOptions), 2);
+                            }
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0, out arg1, arg2);
+                            var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type_hint(ctx, argv[1], typeof(string)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.StatusQueryOptions)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(string), 0);
+                            }
+                            string arg1;
+                            UnityEditor.StatusQueryOptions arg2;
+                            if (!Values.js_get_enumvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEditor.StatusQueryOptions), 2);
+                            }
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0, out arg1, arg2);
+                            var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                    if (argc == 2)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.StatusQueryOptions)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEngine.Object), 0);
+                            }
+                            UnityEditor.StatusQueryOptions arg1;
+                            if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEditor.StatusQueryOptions), 1);
+                            }
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.StatusQueryOptions)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(string), 0);
+                            }
+                            UnityEditor.StatusQueryOptions arg1;
+                            if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEditor.StatusQueryOptions), 1);
+                            }
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0, arg1);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)) && Values.js_match_type_hint(ctx, argv[1], typeof(string)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEngine.Object), 0);
+                            }
+                            string arg1;
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0, out arg1);
+                            var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type_hint(ctx, argv[1], typeof(string)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(string), 0);
+                            }
+                            string arg1;
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0, out arg1);
+                            var out0 = QuickJS.Binding.Values.js_push_primitive(ctx, arg1);
+                            if (JSApi.JS_IsException(out0))
+                            {
+                                return out0;
+                            }
+                            var context = ScriptEngine.GetContext(ctx);
+                            JSApi.JS_SetProperty(ctx, argv[1], context.GetAtom("value"), out0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(UnityEngine.Object), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenForEdit", typeof(string), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.CanOpenForEdit(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("CanOpenForEdit", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_IsOpenForEdit(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
@@ -719,6 +895,33 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_MoveAssetsToTrash(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    string[] arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "MoveAssetsToTrash", typeof(string[]), 0);
+                    }
+                    System.Collections.Generic.List<string> arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "MoveAssetsToTrash", typeof(System.Collections.Generic.List<string>), 1);
+                    }
+                    var ret = UnityEditor.AssetDatabase.MoveAssetsToTrash(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("MoveAssetsToTrash", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_DeleteAsset(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -734,6 +937,33 @@ namespace jsb {
                     return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
                 }
                 throw new NoSuitableMethodException("DeleteAsset", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_DeleteAssets(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    string[] arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "DeleteAssets", typeof(string[]), 0);
+                    }
+                    System.Collections.Generic.List<string> arg1;
+                    if (!Values.js_get_classvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "DeleteAssets", typeof(System.Collections.Generic.List<string>), 1);
+                    }
+                    var ret = UnityEditor.AssetDatabase.DeleteAssets(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("DeleteAssets", argc);
             }
             catch (Exception exception)
             {
@@ -1151,6 +1381,33 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetTypeFromPathAndFileID(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetTypeFromPathAndFileID", typeof(string), 0);
+                    }
+                    long arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetTypeFromPathAndFileID", typeof(long), 1);
+                    }
+                    var ret = UnityEditor.AssetDatabase.GetTypeFromPathAndFileID(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetTypeFromPathAndFileID", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_IsMainAssetAtPathLoaded(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -1257,6 +1514,28 @@ namespace jsb {
                     }
                 } while(false);
                 throw new NoSuitableMethodException("Refresh", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_CanOpenAssetInEditor(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    int arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanOpenAssetInEditor", typeof(int), 0);
+                    }
+                    var ret = UnityEditor.AssetDatabase.CanOpenAssetInEditor(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("CanOpenAssetInEditor", argc);
             }
             catch (Exception exception)
             {
@@ -1388,21 +1667,37 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_AssetPathToGUID(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue BindStatic_GUIDToAssetPath(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "AssetPathToGUID", typeof(string), 0);
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GUIDToAssetPath", typeof(string), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.GUIDToAssetPath(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.GUID)))
+                        {
+                            UnityEditor.GUID arg0;
+                            if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GUIDToAssetPath", typeof(UnityEditor.GUID), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.GUIDToAssetPath(arg0);
+                            return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                        }
                     }
-                    var ret = UnityEditor.AssetDatabase.AssetPathToGUID(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
-                }
-                throw new NoSuitableMethodException("AssetPathToGUID", argc);
+                } while(false);
+                throw new NoSuitableMethodException("GUIDToAssetPath", argc);
             }
             catch (Exception exception)
             {
@@ -1410,7 +1705,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue BindStatic_GUIDToAssetPath(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue BindStatic_GUIDFromAssetPath(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -1419,12 +1714,52 @@ namespace jsb {
                     string arg0;
                     if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
                     {
-                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GUIDToAssetPath", typeof(string), 0);
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GUIDFromAssetPath", typeof(string), 0);
                     }
-                    var ret = UnityEditor.AssetDatabase.GUIDToAssetPath(arg0);
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    var ret = UnityEditor.AssetDatabase.GUIDFromAssetPath(arg0);
+                    return Values.js_push_structvalue(ctx, ret);
                 }
-                throw new NoSuitableMethodException("GUIDToAssetPath", argc);
+                throw new NoSuitableMethodException("GUIDFromAssetPath", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_AssetPathToGUID(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 2)
+                    {
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "AssetPathToGUID", typeof(string), 0);
+                        }
+                        UnityEditor.AssetPathToGUIDOptions arg1;
+                        if (!Values.js_get_enumvalue(ctx, argv[1], out arg1))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "AssetPathToGUID", typeof(UnityEditor.AssetPathToGUIDOptions), 1);
+                        }
+                        var ret = UnityEditor.AssetDatabase.AssetPathToGUID(arg0, arg1);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                    if (argc == 1)
+                    {
+                        string arg0;
+                        if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "AssetPathToGUID", typeof(string), 0);
+                        }
+                        var ret = UnityEditor.AssetDatabase.AssetPathToGUID(arg0);
+                        return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("AssetPathToGUID", argc);
             }
             catch (Exception exception)
             {
@@ -1436,16 +1771,32 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    string arg0;
-                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetAssetDependencyHash", typeof(string), 0);
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.GUID)))
+                        {
+                            UnityEditor.GUID arg0;
+                            if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetAssetDependencyHash", typeof(UnityEditor.GUID), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.GetAssetDependencyHash(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetAssetDependencyHash", typeof(string), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.GetAssetDependencyHash(arg0);
+                            return Values.js_push_structvalue(ctx, ret);
+                        }
                     }
-                    var ret = UnityEditor.AssetDatabase.GetAssetDependencyHash(arg0);
-                    return Values.js_push_structvalue(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("GetAssetDependencyHash", argc);
             }
             catch (Exception exception)
@@ -1464,6 +1815,44 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("SaveAssets", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_SaveAssetIfDirty(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                do
+                {
+                    if (argc == 1)
+                    {
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.GUID)))
+                        {
+                            UnityEditor.GUID arg0;
+                            if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "SaveAssetIfDirty", typeof(UnityEditor.GUID), 0);
+                            }
+                            UnityEditor.AssetDatabase.SaveAssetIfDirty(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "SaveAssetIfDirty", typeof(UnityEngine.Object), 0);
+                            }
+                            UnityEditor.AssetDatabase.SaveAssetIfDirty(arg0);
+                            return JSApi.JS_UNDEFINED;
+                        }
+                    }
+                } while(false);
+                throw new NoSuitableMethodException("SaveAssetIfDirty", argc);
             }
             catch (Exception exception)
             {
@@ -1524,16 +1913,32 @@ namespace jsb {
         {
             try
             {
-                if (argc == 1)
+                do
                 {
-                    UnityEngine.Object arg0;
-                    if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                    if (argc == 1)
                     {
-                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetLabels", typeof(UnityEngine.Object), 0);
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEditor.GUID)))
+                        {
+                            UnityEditor.GUID arg0;
+                            if (!Values.js_get_structvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetLabels", typeof(UnityEditor.GUID), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.GetLabels(arg0);
+                            return Values.js_push_classvalue(ctx, ret);
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(UnityEngine.Object)))
+                        {
+                            UnityEngine.Object arg0;
+                            if (!Values.js_get_classvalue(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetLabels", typeof(UnityEngine.Object), 0);
+                            }
+                            var ret = UnityEditor.AssetDatabase.GetLabels(arg0);
+                            return Values.js_push_classvalue(ctx, ret);
+                        }
                     }
-                    var ret = UnityEditor.AssetDatabase.GetLabels(arg0);
-                    return Values.js_push_classvalue(ctx, ret);
-                }
+                } while(false);
                 throw new NoSuitableMethodException("GetLabels", argc);
             }
             catch (Exception exception)
@@ -2221,6 +2626,457 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ClearImporterOverride(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "ClearImporterOverride", typeof(string), 0);
+                    }
+                    UnityEditor.AssetDatabase.ClearImporterOverride(arg0);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ClearImporterOverride", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsCacheServerEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.IsCacheServerEnabled();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsCacheServerEnabled", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetImporterOverride(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetImporterOverride", typeof(string), 0);
+                    }
+                    var ret = UnityEditor.AssetDatabase.GetImporterOverride(arg0);
+                    return QuickJS.Binding.Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetImporterOverride", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetAvailableImporterTypes(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "GetAvailableImporterTypes", typeof(string), 0);
+                    }
+                    var ret = UnityEditor.AssetDatabase.GetAvailableImporterTypes(arg0);
+                    return Values.js_push_classvalue(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetAvailableImporterTypes", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_CanConnectToCacheServer(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanConnectToCacheServer", typeof(string), 0);
+                    }
+                    ushort arg1;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "CanConnectToCacheServer", typeof(ushort), 1);
+                    }
+                    var ret = UnityEditor.AssetDatabase.CanConnectToCacheServer(arg0, arg1);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("CanConnectToCacheServer", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_RefreshSettings(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.AssetDatabase.RefreshSettings();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("RefreshSettings", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsConnectedToCacheServer(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.IsConnectedToCacheServer();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsConnectedToCacheServer", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ResetCacheServerReconnectTimer(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.AssetDatabase.ResetCacheServerReconnectTimer();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ResetCacheServerReconnectTimer", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_CloseCacheServerConnection(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.AssetDatabase.CloseCacheServerConnection();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("CloseCacheServerConnection", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCacheServerAddress(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.GetCacheServerAddress();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetCacheServerAddress", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCacheServerPort(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.GetCacheServerPort();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetCacheServerPort", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCacheServerNamespacePrefix(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.GetCacheServerNamespacePrefix();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetCacheServerNamespacePrefix", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCacheServerEnableDownload(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.GetCacheServerEnableDownload();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetCacheServerEnableDownload", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetCacheServerEnableUpload(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.GetCacheServerEnableUpload();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetCacheServerEnableUpload", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsDirectoryMonitoringEnabled(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.IsDirectoryMonitoringEnabled();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsDirectoryMonitoringEnabled", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_RegisterCustomDependency(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 2)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "RegisterCustomDependency", typeof(string), 0);
+                    }
+                    UnityEngine.Hash128 arg1;
+                    if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "RegisterCustomDependency", typeof(UnityEngine.Hash128), 1);
+                    }
+                    UnityEditor.AssetDatabase.RegisterCustomDependency(arg0, arg1);
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("RegisterCustomDependency", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_UnregisterCustomDependencyPrefixFilter(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.AssetDatabase), "UnregisterCustomDependencyPrefixFilter", typeof(string), 0);
+                    }
+                    var ret = UnityEditor.AssetDatabase.UnregisterCustomDependencyPrefixFilter(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("UnregisterCustomDependencyPrefixFilter", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_IsAssetImportWorkerProcess(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    var ret = UnityEditor.AssetDatabase.IsAssetImportWorkerProcess();
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("IsAssetImportWorkerProcess", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_ForceToDesiredWorkerCount(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 0)
+                {
+                    UnityEditor.AssetDatabase.ForceToDesiredWorkerCount();
+                    return JSApi.JS_UNDEFINED;
+                }
+                throw new NoSuitableMethodException("ForceToDesiredWorkerCount", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_GlobalArtifactDependencyVersion(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.AssetDatabase.GlobalArtifactDependencyVersion;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_GlobalArtifactProcessedVersion(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.AssetDatabase.GlobalArtifactProcessedVersion;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_ActiveRefreshImportMode(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.AssetDatabase.ActiveRefreshImportMode;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, (int)ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_ActiveRefreshImportMode(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                UnityEditor.AssetDatabase.RefreshImportMode value;
+                if (!Values.js_get_enumvalue(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.AssetDatabase), "ActiveRefreshImportMode", typeof(UnityEditor.AssetDatabase.RefreshImportMode), 0);
+                }
+                UnityEditor.AssetDatabase.ActiveRefreshImportMode = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindStaticRead_DesiredWorkerCount(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                var ret = UnityEditor.AssetDatabase.DesiredWorkerCount;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSSetterCFunction))]
+        public static JSValue BindStaticWrite_DesiredWorkerCount(JSContext ctx, JSValue this_obj, JSValue arg_val)
+        {
+            try
+            {
+                int value;
+                if (!QuickJS.Binding.Values.js_get_primitive(ctx, arg_val, out value))
+                {
+                    throw new ParameterException(typeof(UnityEditor.AssetDatabase), "DesiredWorkerCount", typeof(int), 0);
+                }
+                UnityEditor.AssetDatabase.DesiredWorkerCount = value;
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStaticEvent_importPackageStarted(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -2348,9 +3204,93 @@ namespace jsb {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticEvent_cacheServerConnectionChanged(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                System.Action<UnityEditor.CacheServerConnectionChangedParameters> value;
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "cacheServerConnectionChanged", typeof(System.Action<UnityEditor.CacheServerConnectionChangedParameters>), 1);
+                        }
+                        UnityEditor.AssetDatabase.cacheServerConnectionChanged += value;
+                        break;
+                    case Values.EVT_OP_REMOVE:
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "cacheServerConnectionChanged", typeof(System.Action<UnityEditor.CacheServerConnectionChangedParameters>), 1);
+                        }
+                        UnityEditor.AssetDatabase.cacheServerConnectionChanged -= value;
+                        break;
+                    default: throw new JSException("invalid event op");
+                }
+                return JSApi.JS_UNDEFINED;
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStaticDelegate_onImportPackageItemsCompleted(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                var op = Values.js_parse_event_op(ctx, argv[0]);
+                switch(op)
+                {
+                    case Values.EVT_OP_ADD:
+                    {
+                        System.Action<string[]> value;
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "onImportPackageItemsCompleted", typeof(System.Action<string[]>), 1);
+                        }
+                        UnityEditor.AssetDatabase.onImportPackageItemsCompleted += value;
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    case Values.EVT_OP_REMOVE:
+                    {
+                        System.Action<string[]> value;
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "onImportPackageItemsCompleted", typeof(System.Action<string[]>), 1);
+                        }
+                        UnityEditor.AssetDatabase.onImportPackageItemsCompleted -= value;
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    case Values.EVT_OP_SET:
+                    {
+                        System.Action<string[]> value;
+                        if (!Values.js_get_delegate(ctx, argv[1], out value))
+                        {
+                            throw new ParameterException(typeof(UnityEditor.AssetDatabase), "onImportPackageItemsCompleted", typeof(System.Action<string[]>), 1);
+                        }
+                        UnityEditor.AssetDatabase.onImportPackageItemsCompleted = value;
+                        return JSApi.JS_UNDEFINED;
+                    }
+                    case Values.EVT_OP_GET:
+                    {
+                        var ret = UnityEditor.AssetDatabase.onImportPackageItemsCompleted;
+                        return Values.js_push_delegate(ctx, ret);
+                    }
+                    default: throw new JSException("invalid event op");
+                }
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
         public static QuickJS.Binding.ClassDecl Bind(QuickJS.Binding.TypeRegister register)
         {
             var cls = register.CreateClass("AssetDatabase", typeof(UnityEditor.AssetDatabase), QuickJS.JSNative.class_private_ctor);
+            cls.AddMethod(true, "CanOpenForEdit", BindStatic_CanOpenForEdit);
             cls.AddMethod(true, "IsOpenForEdit", BindStatic_IsOpenForEdit);
             cls.AddMethod(true, "MakeEditable", BindStatic_MakeEditable);
             cls.AddMethod(true, "FindAssets", BindStatic_FindAssets);
@@ -2370,7 +3310,9 @@ namespace jsb {
             cls.AddMethod(true, "ExtractAsset", BindStatic_ExtractAsset);
             cls.AddMethod(true, "RenameAsset", BindStatic_RenameAsset);
             cls.AddMethod(true, "MoveAssetToTrash", BindStatic_MoveAssetToTrash);
+            cls.AddMethod(true, "MoveAssetsToTrash", BindStatic_MoveAssetsToTrash);
             cls.AddMethod(true, "DeleteAsset", BindStatic_DeleteAsset);
+            cls.AddMethod(true, "DeleteAssets", BindStatic_DeleteAssets);
             cls.AddMethod(true, "ImportAsset", BindStatic_ImportAsset);
             cls.AddMethod(true, "CopyAsset", BindStatic_CopyAsset);
             cls.AddMethod(true, "WriteImportSettingsIfDirty", BindStatic_WriteImportSettingsIfDirty);
@@ -2386,16 +3328,20 @@ namespace jsb {
             cls.AddMethod(true, "LoadAssetAtPath", BindStatic_LoadAssetAtPath);
             cls.AddMethod(true, "LoadMainAssetAtPath", BindStatic_LoadMainAssetAtPath);
             cls.AddMethod(true, "GetMainAssetTypeAtPath", BindStatic_GetMainAssetTypeAtPath);
+            cls.AddMethod(true, "GetTypeFromPathAndFileID", BindStatic_GetTypeFromPathAndFileID);
             cls.AddMethod(true, "IsMainAssetAtPathLoaded", BindStatic_IsMainAssetAtPathLoaded);
             cls.AddMethod(true, "LoadAllAssetRepresentationsAtPath", BindStatic_LoadAllAssetRepresentationsAtPath);
             cls.AddMethod(true, "LoadAllAssetsAtPath", BindStatic_LoadAllAssetsAtPath);
             cls.AddMethod(true, "GetAllAssetPaths", BindStatic_GetAllAssetPaths);
             cls.AddMethod(true, "Refresh", BindStatic_Refresh);
+            cls.AddMethod(true, "CanOpenAssetInEditor", BindStatic_CanOpenAssetInEditor);
             cls.AddMethod(true, "OpenAsset", BindStatic_OpenAsset);
-            cls.AddMethod(true, "AssetPathToGUID", BindStatic_AssetPathToGUID);
             cls.AddMethod(true, "GUIDToAssetPath", BindStatic_GUIDToAssetPath);
+            cls.AddMethod(true, "GUIDFromAssetPath", BindStatic_GUIDFromAssetPath);
+            cls.AddMethod(true, "AssetPathToGUID", BindStatic_AssetPathToGUID);
             cls.AddMethod(true, "GetAssetDependencyHash", BindStatic_GetAssetDependencyHash);
             cls.AddMethod(true, "SaveAssets", BindStatic_SaveAssets);
+            cls.AddMethod(true, "SaveAssetIfDirty", BindStatic_SaveAssetIfDirty);
             cls.AddMethod(true, "GetCachedIcon", BindStatic_GetCachedIcon);
             cls.AddMethod(true, "SetLabels", BindStatic_SetLabels);
             cls.AddMethod(true, "GetLabels", BindStatic_GetLabels);
@@ -2419,10 +3365,35 @@ namespace jsb {
             cls.AddMethod(true, "ImportPackage", BindStatic_ImportPackage);
             cls.AddMethod(true, "DisallowAutoRefresh", BindStatic_DisallowAutoRefresh);
             cls.AddMethod(true, "AllowAutoRefresh", BindStatic_AllowAutoRefresh);
+            cls.AddMethod(true, "ClearImporterOverride", BindStatic_ClearImporterOverride);
+            cls.AddMethod(true, "IsCacheServerEnabled", BindStatic_IsCacheServerEnabled);
+            cls.AddMethod(true, "GetImporterOverride", BindStatic_GetImporterOverride);
+            cls.AddMethod(true, "GetAvailableImporterTypes", BindStatic_GetAvailableImporterTypes);
+            cls.AddMethod(true, "CanConnectToCacheServer", BindStatic_CanConnectToCacheServer);
+            cls.AddMethod(true, "RefreshSettings", BindStatic_RefreshSettings);
+            cls.AddMethod(true, "IsConnectedToCacheServer", BindStatic_IsConnectedToCacheServer);
+            cls.AddMethod(true, "ResetCacheServerReconnectTimer", BindStatic_ResetCacheServerReconnectTimer);
+            cls.AddMethod(true, "CloseCacheServerConnection", BindStatic_CloseCacheServerConnection);
+            cls.AddMethod(true, "GetCacheServerAddress", BindStatic_GetCacheServerAddress);
+            cls.AddMethod(true, "GetCacheServerPort", BindStatic_GetCacheServerPort);
+            cls.AddMethod(true, "GetCacheServerNamespacePrefix", BindStatic_GetCacheServerNamespacePrefix);
+            cls.AddMethod(true, "GetCacheServerEnableDownload", BindStatic_GetCacheServerEnableDownload);
+            cls.AddMethod(true, "GetCacheServerEnableUpload", BindStatic_GetCacheServerEnableUpload);
+            cls.AddMethod(true, "IsDirectoryMonitoringEnabled", BindStatic_IsDirectoryMonitoringEnabled);
+            cls.AddMethod(true, "RegisterCustomDependency", BindStatic_RegisterCustomDependency);
+            cls.AddMethod(true, "UnregisterCustomDependencyPrefixFilter", BindStatic_UnregisterCustomDependencyPrefixFilter);
+            cls.AddMethod(true, "IsAssetImportWorkerProcess", BindStatic_IsAssetImportWorkerProcess);
+            cls.AddMethod(true, "ForceToDesiredWorkerCount", BindStatic_ForceToDesiredWorkerCount);
+            cls.AddProperty(true, "GlobalArtifactDependencyVersion", BindStaticRead_GlobalArtifactDependencyVersion, null);
+            cls.AddProperty(true, "GlobalArtifactProcessedVersion", BindStaticRead_GlobalArtifactProcessedVersion, null);
+            cls.AddProperty(true, "ActiveRefreshImportMode", BindStaticRead_ActiveRefreshImportMode, BindStaticWrite_ActiveRefreshImportMode);
+            cls.AddProperty(true, "DesiredWorkerCount", BindStaticRead_DesiredWorkerCount, BindStaticWrite_DesiredWorkerCount);
             cls.AddMethod(true, "importPackageStarted", BindStaticEvent_importPackageStarted);
             cls.AddMethod(true, "importPackageCompleted", BindStaticEvent_importPackageCompleted);
             cls.AddMethod(true, "importPackageCancelled", BindStaticEvent_importPackageCancelled);
             cls.AddMethod(true, "importPackageFailed", BindStaticEvent_importPackageFailed);
+            cls.AddMethod(true, "cacheServerConnectionChanged", BindStaticEvent_cacheServerConnectionChanged);
+            cls.AddMethod(true, "onImportPackageItemsCompleted", BindStaticDelegate_onImportPackageItemsCompleted);
             return cls;
         }
     }

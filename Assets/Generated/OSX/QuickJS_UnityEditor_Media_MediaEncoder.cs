@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.Media.MediaEncoder
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_Media_MediaEncoder
@@ -50,6 +50,48 @@ namespace jsb {
                             var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
                             return val;
                         }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.Media.VideoTrackEncoderAttributes)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.Media.AudioTrackAttributes[])))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(string), 0);
+                            }
+                            UnityEditor.Media.VideoTrackEncoderAttributes arg1;
+                            if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(UnityEditor.Media.VideoTrackEncoderAttributes), 1);
+                            }
+                            UnityEditor.Media.AudioTrackAttributes[] arg2;
+                            if (!Values.js_get_structvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(UnityEditor.Media.AudioTrackAttributes[]), 2);
+                            }
+                            var o = new UnityEditor.Media.MediaEncoder(arg0, arg1, arg2);
+                            var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                            return val;
+                        }
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.Media.VideoTrackEncoderAttributes)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.Media.AudioTrackAttributes)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(string), 0);
+                            }
+                            UnityEditor.Media.VideoTrackEncoderAttributes arg1;
+                            if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(UnityEditor.Media.VideoTrackEncoderAttributes), 1);
+                            }
+                            UnityEditor.Media.AudioTrackAttributes arg2;
+                            if (!Values.js_get_structvalue(ctx, argv[2], out arg2))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(UnityEditor.Media.AudioTrackAttributes), 2);
+                            }
+                            var o = new UnityEditor.Media.MediaEncoder(arg0, arg1, arg2);
+                            var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                            return val;
+                        }
                         if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.Media.VideoTrackAttributes)) && Values.js_match_type(ctx, argv[2], typeof(UnityEditor.Media.AudioTrackAttributes)))
                         {
                             string arg0;
@@ -74,6 +116,22 @@ namespace jsb {
                     }
                     if (argc == 2)
                     {
+                        if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.Media.VideoTrackEncoderAttributes)))
+                        {
+                            string arg0;
+                            if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(string), 0);
+                            }
+                            UnityEditor.Media.VideoTrackEncoderAttributes arg1;
+                            if (!Values.js_get_structvalue(ctx, argv[1], out arg1))
+                            {
+                                throw new ParameterException(typeof(UnityEditor.Media.MediaEncoder), ".ctor", typeof(UnityEditor.Media.VideoTrackEncoderAttributes), 1);
+                            }
+                            var o = new UnityEditor.Media.MediaEncoder(arg0, arg1);
+                            var val = Values.NewBridgeClassObject(ctx, new_target, o, magic, false);
+                            return val;
+                        }
                         if (Values.js_match_type(ctx, argv[0], typeof(string)) && Values.js_match_type(ctx, argv[1], typeof(UnityEditor.Media.VideoTrackAttributes)))
                         {
                             string arg0;

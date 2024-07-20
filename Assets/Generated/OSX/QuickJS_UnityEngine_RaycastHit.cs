@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
     // Type: UnityEngine.RaycastHit
     [JSBindingAttribute]
     public class QuickJS_UnityEngine_RaycastHit
@@ -45,6 +45,24 @@ namespace jsb {
                 }
                 var ret = self.collider;
                 return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_colliderInstanceID(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.RaycastHit self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.colliderInstanceID;
+                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
             {
@@ -310,6 +328,24 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
+        public static JSValue BindRead_articulationBody(JSContext ctx, JSValue this_obj)
+        {
+            try
+            {
+                UnityEngine.RaycastHit self;
+                if (!Values.js_get_structvalue(ctx, this_obj, out self))
+                {
+                    throw new ThisBoundException();
+                }
+                var ret = self.articulationBody;
+                return Values.js_push_classvalue(ctx, ret);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
         public static JSValue BindRead_lightmapCoord(JSContext ctx, JSValue this_obj)
         {
             try
@@ -331,6 +367,7 @@ namespace jsb {
         {
             var cls = register.CreateClass("RaycastHit", typeof(UnityEngine.RaycastHit), BindConstructor);
             cls.AddProperty(false, "collider", BindRead_collider, null);
+            cls.AddProperty(false, "colliderInstanceID", BindRead_colliderInstanceID, null);
             cls.AddProperty(false, "point", BindRead_point, BindWrite_point);
             cls.AddProperty(false, "normal", BindRead_normal, BindWrite_normal);
             cls.AddProperty(false, "barycentricCoordinate", BindRead_barycentricCoordinate, BindWrite_barycentricCoordinate);
@@ -340,6 +377,7 @@ namespace jsb {
             cls.AddProperty(false, "textureCoord2", BindRead_textureCoord2, null);
             cls.AddProperty(false, "transform", BindRead_transform, null);
             cls.AddProperty(false, "rigidbody", BindRead_rigidbody, null);
+            cls.AddProperty(false, "articulationBody", BindRead_articulationBody, null);
             cls.AddProperty(false, "lightmapCoord", BindRead_lightmapCoord, null);
             return cls;
         }

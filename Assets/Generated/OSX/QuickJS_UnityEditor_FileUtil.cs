@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,8 @@ namespace jsb {
     using ScriptEngine = QuickJS.ScriptEngine;
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
-    // Assembly: UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/Managed/UnityEditor.dll
+    // Assembly: UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll
     // Type: UnityEditor.FileUtil
     [JSBindingAttribute]
     public class QuickJS_UnityEditor_FileUtil
@@ -163,6 +163,50 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetLogicalPath(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.FileUtil), "GetLogicalPath", typeof(string), 0);
+                    }
+                    var ret = UnityEditor.FileUtil.GetLogicalPath(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetLogicalPath", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue BindStatic_GetPhysicalPath(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        {
+            try
+            {
+                if (argc == 1)
+                {
+                    string arg0;
+                    if (!QuickJS.Binding.Values.js_get_primitive(ctx, argv[0], out arg0))
+                    {
+                        throw new ParameterException(typeof(UnityEditor.FileUtil), "GetPhysicalPath", typeof(string), 0);
+                    }
+                    var ret = UnityEditor.FileUtil.GetPhysicalPath(arg0);
+                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                }
+                throw new NoSuitableMethodException("GetPhysicalPath", argc);
+            }
+            catch (Exception exception)
+            {
+                return JSNative.ThrowException(ctx, exception);
+            }
+        }
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
         public static JSValue BindStatic_ReplaceFile(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
@@ -225,6 +269,8 @@ namespace jsb {
             cls.AddMethod(true, "MoveFileOrDirectory", BindStatic_MoveFileOrDirectory);
             cls.AddMethod(true, "GetUniqueTempPathInProject", BindStatic_GetUniqueTempPathInProject);
             cls.AddMethod(true, "GetProjectRelativePath", BindStatic_GetProjectRelativePath);
+            cls.AddMethod(true, "GetLogicalPath", BindStatic_GetLogicalPath);
+            cls.AddMethod(true, "GetPhysicalPath", BindStatic_GetPhysicalPath);
             cls.AddMethod(true, "ReplaceFile", BindStatic_ReplaceFile);
             cls.AddMethod(true, "ReplaceDirectory", BindStatic_ReplaceDirectory);
             return cls;

@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_OSX
-// Unity: 2019.4.40f1
+// Unity: 2021.3.37f1
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ namespace jsb {
     using JSBindingAttribute = QuickJS.JSBindingAttribute;
     using MonoPInvokeCallbackAttribute = QuickJS.MonoPInvokeCallbackAttribute;
     // Assembly: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-    // Location: /Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit/mscorlib.dll
+    // Location: /Applications/Unity/Hub/Editor/2021.3.37f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos/mscorlib.dll
     // Type: System.IO.FileInfo
     [JSBindingAttribute]
     public class QuickJS_System_IO_FileInfo
@@ -196,50 +196,6 @@ namespace jsb {
                     return JSApi.JS_UNDEFINED;
                 }
                 throw new NoSuitableMethodException("Delete", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_Decrypt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    System.IO.FileInfo self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    self.Decrypt();
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("Decrypt", argc);
-            }
-            catch (Exception exception)
-            {
-                return JSNative.ThrowException(ctx, exception);
-            }
-        }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_Encrypt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
-        {
-            try
-            {
-                if (argc == 0)
-                {
-                    System.IO.FileInfo self;
-                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
-                    {
-                        throw new ThisBoundException();
-                    }
-                    self.Encrypt();
-                    return JSApi.JS_UNDEFINED;
-                }
-                throw new NoSuitableMethodException("Encrypt", argc);
             }
             catch (Exception exception)
             {
@@ -453,7 +409,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
-        public static JSValue Bind_ToString(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
+        public static JSValue Bind_Decrypt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
@@ -464,28 +420,32 @@ namespace jsb {
                     {
                         throw new ThisBoundException();
                     }
-                    var ret = self.ToString();
-                    return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                    self.Decrypt();
+                    return JSApi.JS_UNDEFINED;
                 }
-                throw new NoSuitableMethodException("toString", argc);
+                throw new NoSuitableMethodException("Decrypt", argc);
             }
             catch (Exception exception)
             {
                 return JSNative.ThrowException(ctx, exception);
             }
         }
-        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_Name(JSContext ctx, JSValue this_obj)
+        [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSCFunction))]
+        public static JSValue Bind_Encrypt(JSContext ctx, JSValue this_obj, int argc, JSValue[] argv)
         {
             try
             {
-                System.IO.FileInfo self;
-                if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                if (argc == 0)
                 {
-                    throw new ThisBoundException();
+                    System.IO.FileInfo self;
+                    if (!Values.js_get_classvalue(ctx, this_obj, out self))
+                    {
+                        throw new ThisBoundException();
+                    }
+                    self.Encrypt();
+                    return JSApi.JS_UNDEFINED;
                 }
-                var ret = self.Name;
-                return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
+                throw new NoSuitableMethodException("Encrypt", argc);
             }
             catch (Exception exception)
             {
@@ -588,7 +548,7 @@ namespace jsb {
             }
         }
         [MonoPInvokeCallbackAttribute(typeof(QuickJS.Native.JSGetterCFunction))]
-        public static JSValue BindRead_Exists(JSContext ctx, JSValue this_obj)
+        public static JSValue BindRead_Name(JSContext ctx, JSValue this_obj)
         {
             try
             {
@@ -597,7 +557,7 @@ namespace jsb {
                 {
                     throw new ThisBoundException();
                 }
-                var ret = self.Exists;
+                var ret = self.Name;
                 return QuickJS.Binding.Values.js_push_primitive(ctx, ret);
             }
             catch (Exception exception)
@@ -614,20 +574,18 @@ namespace jsb {
             cls.AddMethod(false, "CopyTo", Bind_CopyTo);
             cls.AddMethod(false, "Create", Bind_Create);
             cls.AddMethod(false, "Delete", Bind_Delete);
-            cls.AddMethod(false, "Decrypt", Bind_Decrypt);
-            cls.AddMethod(false, "Encrypt", Bind_Encrypt);
             cls.AddMethod(false, "Open", Bind_Open);
             cls.AddMethod(false, "OpenRead", Bind_OpenRead);
             cls.AddMethod(false, "OpenWrite", Bind_OpenWrite);
             cls.AddMethod(false, "MoveTo", Bind_MoveTo);
             cls.AddMethod(false, "Replace", Bind_Replace);
-            cls.AddMethod(false, "toString", Bind_ToString);
-            cls.AddProperty(false, "Name", BindRead_Name, null);
+            cls.AddMethod(false, "Decrypt", Bind_Decrypt);
+            cls.AddMethod(false, "Encrypt", Bind_Encrypt);
             cls.AddProperty(false, "Length", BindRead_Length, null);
             cls.AddProperty(false, "DirectoryName", BindRead_DirectoryName, null);
             cls.AddProperty(false, "Directory", BindRead_Directory, null);
             cls.AddProperty(false, "IsReadOnly", BindRead_IsReadOnly, BindWrite_IsReadOnly);
-            cls.AddProperty(false, "Exists", BindRead_Exists, null);
+            cls.AddProperty(false, "Name", BindRead_Name, null);
             return cls;
         }
     }
